@@ -43,7 +43,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
@@ -110,6 +110,9 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         onChange: this.props.onChange ? function (date) {
           return _this.props.onChange(date);
         } : console.log("Missing onChange handler for date picker with id: ".concat(this.props.id)),
+        onBlur: this.props.onBlur ? function (date) {
+          return _this.props.onBlur(date);
+        } : null,
         selected: this.props.value ? new Date(this.props.value) : null,
         placeholderText: this.props.placeholder,
         className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : '',
@@ -121,6 +124,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         type: this.props.type,
         id: this.props.id,
         onChange: this.props.onChange,
+        onBlur: this.props.onBlur,
         value: this.props.value ? this.props.value : '',
         placeholder: this.props.placeholder,
         className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : '',
@@ -163,6 +167,7 @@ InputField.propTypes = {
   /** Text content inside list item */
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func.isRequired,
+  onBlur: _propTypes.default.func,
   name: _propTypes.default.string,
   type: _propTypes.default.string,
   value: _propTypes.default.any,
