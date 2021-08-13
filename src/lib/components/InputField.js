@@ -48,6 +48,7 @@ class InputField extends React.Component {
                    startDate={this.props.startDate ? new Date(this.props.startDate) : null}
                    endDate={this.props.endDate ? new Date(this.props.endDate) : null}
                    onChange={this.props.onChange ? date => this.props.onChange(date) : console.log(`Missing onChange handler for date picker with id: ${this.props.id}`)}
+                   onBlur={this.props.onBlur ? date => this.props.onBlur(date) : null}
                    selected={this.props.value ? new Date(this.props.value) : null}
                    placeholderText={this.props.placeholder}
                    className={this.props.hasErrors ? style.hasErrors : ''}
@@ -58,6 +59,7 @@ class InputField extends React.Component {
               type={this.props.type}
               id={this.props.id}
               onChange={this.props.onChange}
+              onBlur={this.props.onBlur}
               value={this.props.value ? this.props.value : ''}
               placeholder={this.props.placeholder}
               className={this.props.hasErrors ? style.hasErrors : ''}
@@ -95,6 +97,7 @@ InputField.propTypes = {
   /** Text content inside list item */
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func,
   name: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.any,
