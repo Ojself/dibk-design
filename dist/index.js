@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Accordion", {
+  enumerable: true,
+  get: function get() {
+    return _Accordion.default;
+  }
+});
 Object.defineProperty(exports, "Button", {
   enumerable: true,
   get: function get() {
@@ -125,6 +131,8 @@ Object.defineProperty(exports, "WizardNavigationStep", {
 });
 
 var _webfontloader = _interopRequireDefault(require("webfontloader"));
+
+var _Accordion = _interopRequireDefault(require("./components/Accordion"));
 
 var _Button = _interopRequireDefault(require("./components/Button"));
 
