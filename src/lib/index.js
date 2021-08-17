@@ -1,4 +1,5 @@
 import WebFont from 'webfontloader';
+import Accordion from './components/Accordion';
 import Button from './components/Button';
 import CheckBoxIcon from './components/CheckBoxIcon';
 import CheckBoxInput from './components/CheckBoxInput';
@@ -28,6 +29,7 @@ WebFont.load({
 });
 
 export {
+  Accordion,
   Button,
   CheckBoxIcon,
   CheckBoxInput,
