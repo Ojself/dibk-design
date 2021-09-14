@@ -6,8 +6,8 @@ class Accordion extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: false,
-            initialized: false
+            expanded: this.props.expanded,
+            initialized: this.props.expanded
         };
         this.handleToggleExpand = this.handleToggleExpand.bind(this);
     }
@@ -17,6 +17,14 @@ class Accordion extends React.Component {
             expanded: !this.state.expanded,
             initialized: true
         });
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.expanded !== prevProps.expanded) {
+            this.setState({
+                expanded: this.props.expanded
+            });
+        }
     }
 
     renderPanel() {
@@ -47,6 +55,7 @@ Accordion.propTypes = {
     /** Text content inside box */
     content: PropTypes.string,
     color: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'info', 'lightCyan', 'orange', 'lightOrange', 'lime', 'lightLime']),
+    expanded: PropTypes.bool
 }
 
 Accordion.defaultProps = {
@@ -54,7 +63,8 @@ Accordion.defaultProps = {
     titleSize: 'regular',
     href: null,
     content: '',
-    color: 'default'
+    color: 'default',
+    expanded: false
 }
 
 export default Accordion;
