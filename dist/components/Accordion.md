@@ -3,7 +3,7 @@ Accordions example:
 
 ```js
 <Accordion color="default" title="Accordion title">Accordion with default color</Accordion>
-<Accordion color="primary" title="Accordion title">Accordion with default color</Accordion>
+<Accordion color="primary" title="Accordion title">Accordion with primary color</Accordion>
 <Accordion color="success" title="Accordion title">Accordion with success color</Accordion>
 <Accordion color="warning" title="Accordion title">Accordion with warning color</Accordion>
 <Accordion color="info" title="Accordion title">Accordion with info color</Accordion>

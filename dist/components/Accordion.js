@@ -47,8 +47,8 @@ var Accordion = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      expanded: false,
-      initialized: false
+      expanded: _this.props.expanded,
+      initialized: _this.props.expanded
     };
     _this.handleToggleExpand = _this.handleToggleExpand.bind(_assertThisInitialized(_this));
     return _this;
@@ -61,6 +61,15 @@ var Accordion = /*#__PURE__*/function (_React$Component) {
         expanded: !this.state.expanded,
         initialized: true
       });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.expanded !== prevProps.expanded) {
+        this.setState({
+          expanded: this.props.expanded
+        });
+      }
     }
   }, {
     key: "renderPanel",
@@ -96,14 +105,16 @@ Accordion.propTypes = {
 
   /** Text content inside box */
   content: _propTypes.default.string,
-  color: _propTypes.default.oneOf(['default', 'primary', 'success', 'warning', 'info', 'lightCyan', 'orange', 'lightOrange', 'lime', 'lightLime'])
+  color: _propTypes.default.oneOf(['default', 'primary', 'success', 'warning', 'info', 'lightCyan', 'orange', 'lightOrange', 'lime', 'lightLime']),
+  expanded: _propTypes.default.bool
 };
 Accordion.defaultProps = {
   title: null,
   titleSize: 'regular',
   href: null,
   content: '',
-  color: 'default'
+  color: 'default',
+  expanded: false
 };
 var _default = Accordion;
 exports.default = _default;
