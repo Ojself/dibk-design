@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getThemePaletteBackgroundColor, getThemePaletteTextColor } from '../functions/theme';
+import { getThemePaletteBackgroundColor, getThemePaletteTextColor, getThemePaletteBorderColor } from '../functions/theme';
 import style from './Button.module.scss';
 
 class Button extends React.Component {
@@ -16,16 +16,18 @@ class Button extends React.Component {
     }
   }
 
-  getThemeStyle(theme, color){
+  getThemeStyle(theme, color) {
     return {
       backgroundColor: getThemePaletteBackgroundColor(theme, color),
-      color: getThemePaletteTextColor(theme, color)
+      color: getThemePaletteTextColor(theme, color),
+      borderColor: getThemePaletteBorderColor(theme, color),
+      borderWidth: getThemePaletteBorderColor(theme, color) ? '1px' : '0'
     }
   }
 
   render() {
-    const themeStyle =  this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
-    const className = `${style.button} ${style[this.props.color]} ${style[this.props.size]} ${this.getArrowClass()}`;
+    const themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
+    const className = `${style.button} ${style[this.props.color]} ${style[this.props.size]} ${this.getArrowClass()} ${this.props.theme ? style.hasTheme : ''}`;
     return (<button {...this.props} className={className} style={themeStyle}>{this.props.content}</button>)
   }
 }
@@ -33,16 +35,18 @@ class Button extends React.Component {
 Button.propTypes = {
   /** Text content inside button */
   content: PropTypes.string,
-  color: PropTypes.oneOf(['default', 'primary', 'success', 'warning']),
+  color: PropTypes.oneOf(['default', 'primary']),
   size: PropTypes.oneOf(['small', 'regular']),
   arrow: PropTypes.oneOf(['left', 'right']),
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  disabled: PropTypes.bool
 }
 
 Button.defaultProps = {
   content: 'button',
   color: 'default',
-  size: 'regular'
+  size: 'regular',
+  disabled: false
 }
 
 export default Button;

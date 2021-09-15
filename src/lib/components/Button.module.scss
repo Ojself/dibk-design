@@ -29,10 +29,16 @@
 :local(.button) {
   @include appearance(none);
   @include border-radius(0);
-  @include transition(filter 300ms ease-out);
+  @include transition(
+    filter 300ms ease-out,
+    background-color 300ms ease-out,
+    color 300ms ease-out,
+    border-color 300ms ease-out
+  );
   font-family: $default-font;
   border-style: solid;
-  border-width: 0;
+  border-width: 1px;
+  $border-color: $color-primary;
   cursor: pointer;
   line-height: normal;
   position: relative;
@@ -44,12 +50,15 @@
   font-size: 18px;
   font-weight: normal;
 
-  &:hover, &:focus {
-    filter: brightness(90%);
-  }
+  &:local(.hasTheme) {
+    &:hover,
+    &:focus {
+      filter: brightness(90%);
+    }
 
-  &:active {
-    filter: brightness(85%);
+    &:active {
+      filter: brightness(85%);
+    }
   }
 
   &:local(.regular) {
@@ -63,34 +72,71 @@
   }
 
   &:local(.default) {
-    background-color: $color-default;
+    background-color: #fff;
     color: $color-primary;
+    &:not(:local(.hasTheme)) {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $color-primary;
+        color: #fff;
+        &:after,
+        &:before {
+          border-color: #fff;
+        }
+      }
+    }
   }
 
   &:local(.primary) {
     background-color: $color-primary;
     color: #fff;
-  }
-
-  &:local(.success) {
-    background-color: $color-success;
-    color: #fff;
-  }
-
-  &:local(.warning) {
-    background-color: $color-warning;
-    color: #fff;
+    &:not(:local(.hasTheme)) {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #fff;
+        color: $color-primary;
+        &:after,
+        &:before {
+          border-color: $color-primary;
+        }
+      }
+    }
   }
 
   &:disabled {
-    cursor: default;
+    &:local(.hasTheme),
+    &:not(:local(.hasTheme)) {
+      &:local(.default),
+      &:local(.primary) {
+        background-color: #fff;
+        cursor: default;
+        opacity: 0.6;
+        color: #afaba8;
+        border: 1px solid #e5e3e1;
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: #fff;
+          cursor: default;
+          opacity: 0.6;
+          color: #afaba8;
+          border: 1px solid #e5e3e1;
+        }
+        &:before,
+        &:after {
+          border-color: #afaba8;
+        }
+      }
+    }
   }
 
   &:local(.hasArrowLeft) {
     &:before {
       @include transform(rotate(-135deg));
-      @include calc('top', '50% - 0.3rem');
-      content: ' ';
+      @include calc("top", "50% - 0.3rem");
+      content: " ";
       display: inline-block;
       position: absolute;
       left: 1em;
@@ -109,7 +155,7 @@
       }
     }
     &:local(.default) {
-      &:before{
+      &:before {
         border-color: $color-primary;
       }
     }
@@ -118,8 +164,8 @@
   &:local(.hasArrowRight) {
     &:after {
       @include transform(rotate(45deg));
-      @include calc('top', '50% - 0.3rem');
-      content: ' ';
+      @include calc("top", "50% - 0.3rem");
+      content: " ";
       display: inline-block;
       position: absolute;
       left: auto;
