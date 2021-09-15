@@ -1,0 +1,14 @@
+:local(.label) {
+    color: #000;
+    cursor: pointer;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-family: "Open Sans", sans-serif;
+    overflow-wrap: break-word;
+    &:local(.inline) {
+        display: inline-block;
+    }
+}
