@@ -6,6 +6,10 @@ export const getThemePaletteTextColor = (theme, color) => {
   return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].text ? theme.colors.palette[color].text : null;
 }
 
+export const getThemePaletteBorderColor = (theme, color) => {
+  return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].border ? theme.colors.palette[color].border : null;
+}
+
 export const getThemeNavigationBarBackgroundColor = theme => {
   return theme && theme.colors && theme.colors.navigationBar && theme.colors.navigationBar.background ? theme.colors.navigationBar.background : null;
 }
