@@ -5,8 +5,10 @@ import style from './Label.module.scss';
 class Label extends React.Component {
 
     render() {
+        let labelProps = {...this.props};
+        delete labelProps.inline
         const className = `${style.label} ${this.props.inline ? style.inline : ''}`;
-        return (<label {...this.props} className={className}>{this.props.children}</label>)
+        return (<label {...labelProps} className={className}>{this.props.children}</label>)
     }
 }
 
