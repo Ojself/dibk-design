@@ -1,6 +1,15 @@
 @font-face {
+	font-family: "Altis";
+	src: url("../../fonts/Altis.eot#Altis") format("eot");
+	src: local("Altis"), url("../../fonts/Altis.ttf") format("truetype"), url("../../fonts/Altis.svg") format("svg");
+}
+
+@font-face {
 	font-family: "Altis-Light";
 	src: url("../../fonts/Altis-Light.eot#Altis-Light") format("eot");
-	src: local("Altis-Light"), url("../../fonts/Altis-Light.woff") format("woff"), url("../../fonts/Altis-Light.ttf") format("truetype"), url("../../fonts/Altis-Light.svg") format("svg");
+	src: local("Altis-Light"), url("../../fonts/Altis-Light.woff") format("woff"),
+		url("../../fonts/Altis-Light.ttf") format("truetype"), url("../../fonts/Altis-Light.svg") format("svg");
 }
-.flex {display: flex;}
+.flex {
+	display: flex;
+}
