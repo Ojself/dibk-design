@@ -10,7 +10,7 @@
     @include transition(border-color 0.15s linear, background 0.15s linear);
     @include border-radius(0);
     @include box-shadow(none);
-    height: 46px;
+    height: 56px;
     width: 100%;
     display: block;
     padding: 10px;
@@ -20,7 +20,7 @@
     box-shadow: none;
     color: rgba(0, 0, 0, 0.75);
     font-family: inherit;
-    font-size: 1.125rem;
+    font-size: 19px;
     box-sizing: border-box;
     min-width: 40%;
     border: 1px solid #afaba8;
@@ -41,10 +41,9 @@
     }
 
     &:local(.hasErrors) {
-      border-color: $color-warning;
-      @include box-shadow(0 0 3px $color-warning);
+      border-color: $color-error;
       &:focus {
-        border-color: $color-warning-hover;
+        border-color: $color-error;
         outline-color: #b8565d;
       }
       &[disabled],
@@ -73,8 +72,11 @@
     }
   }
   :local(.errorMessage) {
-    color: $color-warning;
-    font-weight: 300;
-    font-style: italic;
+    color: $color-error-text;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: "Open Sans", sans-serif;
+    overflow-wrap: break-word;
   }
 }
