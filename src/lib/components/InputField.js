@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import Label from './Label';
 import DatePicker from 'react-datepicker';
-import { registerLocale } from  "react-datepicker";
+import { registerLocale } from "react-datepicker";
 import { format } from 'date-fns';
 import nb from 'date-fns/locale/nb';
 import { getThemePaletteBackgroundColor } from '../functions/theme';
@@ -12,19 +13,19 @@ import style from './InputField.module.scss';
 registerLocale('nb', nb)
 
 class InputField extends React.Component {
-  getThemeErrorInputStyle(theme){
+  getThemeErrorInputStyle(theme) {
     return {
       boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, 'warning')}`,
       borderColor: getThemePaletteBackgroundColor(theme, 'warning')
     }
   }
-  getThemeErrorMessageStyle(theme){
+  getThemeErrorMessageStyle(theme) {
     return {
       color: getThemePaletteBackgroundColor(theme, 'warning')
     }
   }
-  convertDateToString(date){
-    return date ? format(new Date(date), this.props.dateFormat, {locale: nb}) : '';
+  convertDateToString(date) {
+    return date ? format(new Date(date), this.props.dateFormat, { locale: nb }) : '';
   }
   renderValueAsText(value, defaultContent) {
     return this.props.type === 'date'
@@ -37,52 +38,52 @@ class InputField extends React.Component {
   }
   renderInputField() {
     return this.props.type === 'date'
-    ? (<DatePicker name={this.props.name}
-                   readOnly={this.props.readOnly}
-                   disabled={this.props.disabled}
-                   id={this.props.id}
-                   dateFormat={this.props.dateFormat}
-                   locale="nb"
-                   selectsStart={this.props.selectsStart}
-                   selectsEnd={this.props.selectsEnd}
-                   startDate={this.props.startDate ? new Date(this.props.startDate) : null}
-                   endDate={this.props.endDate ? new Date(this.props.endDate) : null}
-                   onChange={this.props.onChange ? date => this.props.onChange(date) : console.log(`Missing onChange handler for date picker with id: ${this.props.id}`)}
-                   onBlur={this.props.onBlur ? date => this.props.onBlur(date) : null}
-                   selected={this.props.value ? new Date(this.props.value) : null}
-                   placeholderText={this.props.placeholder}
-                   className={this.props.hasErrors ? style.hasErrors : ''}
-                   style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null }/>)
-    : (<input name={this.props.name}
-              readOnly={this.props.readOnly}
-              disabled={this.props.disabled}
-              type={this.props.type}
-              id={this.props.id}
-              onChange={this.props.onChange}
-              onBlur={this.props.onBlur}
-              value={this.props.value ? this.props.value : ''}
-              placeholder={this.props.placeholder}
-              className={this.props.hasErrors ? style.hasErrors : ''}
-              aria-required={this.props.mandatory}
-              style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null }/>)
+      ? (<DatePicker name={this.props.name}
+        readOnly={this.props.readOnly}
+        disabled={this.props.disabled}
+        id={this.props.id}
+        dateFormat={this.props.dateFormat}
+        locale="nb"
+        selectsStart={this.props.selectsStart}
+        selectsEnd={this.props.selectsEnd}
+        startDate={this.props.startDate ? new Date(this.props.startDate) : null}
+        endDate={this.props.endDate ? new Date(this.props.endDate) : null}
+        onChange={this.props.onChange ? date => this.props.onChange(date) : console.log(`Missing onChange handler for date picker with id: ${this.props.id}`)}
+        onBlur={this.props.onBlur ? date => this.props.onBlur(date) : null}
+        selected={this.props.value ? new Date(this.props.value) : null}
+        placeholderText={this.props.placeholder}
+        className={this.props.hasErrors ? style.hasErrors : ''}
+        style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null} />)
+      : (<input name={this.props.name}
+        readOnly={this.props.readOnly}
+        disabled={this.props.disabled}
+        type={this.props.type}
+        id={this.props.id}
+        onChange={this.props.onChange}
+        onBlur={this.props.onBlur}
+        value={this.props.value ? this.props.value : ''}
+        placeholder={this.props.placeholder}
+        className={this.props.hasErrors ? style.hasErrors : ''}
+        aria-required={this.props.mandatory}
+        style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null} />)
   }
   render() {
     return (<div className={`${style.inputField} ${style[this.props.type]}`}>
-      <label htmlFor={this.props.id}>
+      <Label htmlFor={this.props.id}>
         {this.props.label}
         {
           this.props.type === 'file'
             ? (<div className={style.fileInputContainer}>
-                <span className={style.input}>{this.props.selectedFileName}</span>
-                {
-                  this.props.buttonContent
-                    ? <Button size='small' color={this.props.buttonColor} onClick={() => {document.getElementById(this.props.id).click()}} content={this.props.buttonContent} theme={this.props.theme}/>
-                    : ''
-                }
-              </div>)
+              <span className={style.input}>{this.props.selectedFileName}</span>
+              {
+                this.props.buttonContent
+                  ? <Button size='small' color={this.props.buttonColor} onClick={() => { document.getElementById(this.props.id).click() }} content={this.props.buttonContent} theme={this.props.theme} />
+                  : ''
+              }
+            </div>)
             : ''
         }
-      </label>
+      </Label>
       {
         !this.props.contentOnly
           ? this.renderInputField()
@@ -137,7 +138,7 @@ InputField.defaultProps = {
   placeholder: '',
   defaultContent: '',
   hasErrors: false,
-  errorMessage : '',
+  errorMessage: '',
   mandatory: false
 };
 
