@@ -45,10 +45,28 @@ Object.defineProperty(exports, "DragAndDropFileInput", {
     return _DragAndDropFileInput.default;
   }
 });
+Object.defineProperty(exports, "Footer", {
+  enumerable: true,
+  get: function get() {
+    return _Footer.default;
+  }
+});
 Object.defineProperty(exports, "Header", {
   enumerable: true,
   get: function get() {
     return _Header.default;
+  }
+});
+Object.defineProperty(exports, "InputField", {
+  enumerable: true,
+  get: function get() {
+    return _InputField.default;
+  }
+});
+Object.defineProperty(exports, "Label", {
+  enumerable: true,
+  get: function get() {
+    return _Label.default;
   }
 });
 Object.defineProperty(exports, "List", {
@@ -75,24 +93,6 @@ Object.defineProperty(exports, "NavigationBarListItem", {
     return _NavigationBarListItem.default;
   }
 });
-Object.defineProperty(exports, "Select", {
-  enumerable: true,
-  get: function get() {
-    return _Select.default;
-  }
-});
-Object.defineProperty(exports, "Footer", {
-  enumerable: true,
-  get: function get() {
-    return _Footer.default;
-  }
-});
-Object.defineProperty(exports, "InputField", {
-  enumerable: true,
-  get: function get() {
-    return _InputField.default;
-  }
-});
 Object.defineProperty(exports, "Paper", {
   enumerable: true,
   get: function get() {
@@ -115,6 +115,18 @@ Object.defineProperty(exports, "RadioButtonListItem", {
   enumerable: true,
   get: function get() {
     return _RadioButtonListItem.default;
+  }
+});
+Object.defineProperty(exports, "Select", {
+  enumerable: true,
+  get: function get() {
+    return _Select.default;
+  }
+});
+Object.defineProperty(exports, "Textarea", {
+  enumerable: true,
+  get: function get() {
+    return _Textarea.default;
   }
 });
 Object.defineProperty(exports, "WizardNavigation", {
@@ -146,7 +158,13 @@ var _ContentBox = _interopRequireDefault(require("./components/ContentBox"));
 
 var _DragAndDropFileInput = _interopRequireDefault(require("./components/DragAndDropFileInput"));
 
+var _Footer = _interopRequireDefault(require("./components/Footer"));
+
 var _Header = _interopRequireDefault(require("./components/Header"));
+
+var _InputField = _interopRequireDefault(require("./components/InputField"));
+
+var _Label = _interopRequireDefault(require("./components/Label"));
 
 var _List = _interopRequireDefault(require("./components/List"));
 
@@ -156,12 +174,6 @@ var _NavigationBar = _interopRequireDefault(require("./components/NavigationBar"
 
 var _NavigationBarListItem = _interopRequireDefault(require("./components/NavigationBarListItem"));
 
-var _Select = _interopRequireDefault(require("./components/Select"));
-
-var _Footer = _interopRequireDefault(require("./components/Footer"));
-
-var _InputField = _interopRequireDefault(require("./components/InputField"));
-
 var _Paper = _interopRequireDefault(require("./components/Paper"));
 
 var _RadioButtonIcon = _interopRequireDefault(require("./components/RadioButtonIcon"));
@@ -169,6 +181,10 @@ var _RadioButtonIcon = _interopRequireDefault(require("./components/RadioButtonI
 var _RadioButtonInput = _interopRequireDefault(require("./components/RadioButtonInput"));
 
 var _RadioButtonListItem = _interopRequireDefault(require("./components/RadioButtonListItem"));
+
+var _Select = _interopRequireDefault(require("./components/Select"));
+
+var _Textarea = _interopRequireDefault(require("./components/Textarea"));
 
 var _WizardNavigation = _interopRequireDefault(require("./components/WizardNavigation"));
 
