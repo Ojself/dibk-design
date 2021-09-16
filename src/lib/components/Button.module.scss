@@ -76,7 +76,6 @@
     color: $color-primary;
     &:not(:local(.hasTheme)) {
       &:hover,
-      &:focus,
       &:active {
         background-color: $color-primary;
         color: #fff;
@@ -93,7 +92,6 @@
     color: #fff;
     &:not(:local(.hasTheme)) {
       &:hover,
-      &:focus,
       &:active {
         background-color: #fff;
         color: $color-primary;
