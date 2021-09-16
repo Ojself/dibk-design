@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Label from './Label';
 import { getThemePaletteBackgroundColor } from '../functions/theme';
 import style from './Select.module.scss';
 
@@ -67,7 +68,7 @@ class Select extends React.Component {
   render() {
     const value = this.props.value ? this.props.value : "";
     return (<div className={style.select}>
-      <label htmlFor={this.props.id}>{this.props.label}</label>
+      <Label htmlFor={this.props.id}>{this.props.label}</Label>
       {
         !this.props.contentOnly
           ? (<React.Fragment>
