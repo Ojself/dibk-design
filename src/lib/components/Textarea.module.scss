@@ -42,7 +42,7 @@
         &:local(.hasErrors) {
             border-color: $color-error;
             &:focus {
-                border-color: $color-warning-hover;
+                border-color: $color-error;
                 outline-color: #b8565d;
             }
             &[disabled],
