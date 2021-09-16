@@ -75,7 +75,7 @@
     background-color: #fff;
     color: $color-primary;
     &:not(:local(.hasTheme)) {
-      &:hover,
+      &:hover:not(:local(.noHover)),
       &:active {
         background-color: $color-primary;
         color: #fff;
@@ -91,7 +91,7 @@
     background-color: $color-primary;
     color: #fff;
     &:not(:local(.hasTheme)) {
-      &:hover,
+      &:hover:not(:local(.noHover)),
       &:active {
         background-color: #fff;
         color: $color-primary;
@@ -121,6 +121,10 @@
           opacity: 0.6;
           color: #afaba8;
           border: 1px solid #e5e3e1;
+          &:before,
+          &:after {
+            border-color: #afaba8;
+          }
         }
         &:before,
         &:after {
