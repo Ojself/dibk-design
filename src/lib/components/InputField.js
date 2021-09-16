@@ -77,7 +77,7 @@ class InputField extends React.Component {
               <span className={style.input}>{this.props.selectedFileName}</span>
               {
                 this.props.buttonContent
-                  ? <Button size='small' color={this.props.buttonColor} onClick={() => { document.getElementById(this.props.id).click() }} content={this.props.buttonContent} theme={this.props.theme} />
+                  ? <Button color={this.props.buttonColor} onClick={() => { document.getElementById(this.props.id).click() }} content={this.props.buttonContent} theme={this.props.theme} />
                   : ''
               }
             </div>)
