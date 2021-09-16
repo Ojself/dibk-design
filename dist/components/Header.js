@@ -49,8 +49,11 @@ var Header = /*#__PURE__*/function (_React$Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
+      var bigClass = this.props.big ? _HeaderModule.default.bigHeader : '';
+      var themeClass = this.props.theme ? _HeaderModule.default.hasTheme : '';
+
       var headerElement = /*#__PURE__*/_react.default.createElement('h' + this.props.size, {
-        className: _HeaderModule.default.header
+        className: "".concat(_HeaderModule.default.header, " ").concat(bigClass, " ").concat(themeClass)
       }, this.props.content);
 
       return /*#__PURE__*/_react.default.createElement("div", {
@@ -65,7 +68,9 @@ var Header = /*#__PURE__*/function (_React$Component) {
 Header.propTypes = {
   /** Text content inside button */
   content: _propTypes.default.string.isRequired,
-  size: _propTypes.default.oneOf([1, 2, 3, 4, 5])
+  size: _propTypes.default.oneOf([1, 2, 3, 4, 5]),
+  big: _propTypes.default.bool,
+  theme: _propTypes.default.object
 };
 Header.defaultProps = {
   content: '',

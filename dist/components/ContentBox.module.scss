@@ -6,84 +6,95 @@
     padding: 20px;
     width: 100%;
     display: block;
-    &:local(.link){
+    &:local(.link) {
         color: $color-primary;
-        @include transition(filter .3s);
-        &:hover, &:focus {
+        @include transition(filter 0.3s);
+        &:hover,
+        &:focus {
             filter: brightness(90%);
         }
         &:active {
-          filter: brightness(85%);
+            filter: brightness(85%);
         }
     }
     &:local(.default) {
         background-color: $color-default;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #000;
         }
     }
     &:local(.primary) {
         background-color: $color-primary;
         color: #fff;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #fff;
         }
     }
     &:local(.success) {
         background-color: $color-success;
         color: #fff;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #fff;
         }
     }
     &:local(.warning) {
         background-color: $color-warning;
         color: #fff;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #fff;
         }
     }
 
     &:local(.info) {
         background-color: $color-info;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #000;
         }
     }
     &:local(.lightCyan) {
         background-color: $color-light-cyan;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #000;
         }
     }
     &:local(.orange) {
         background-color: $color-orange;
         color: #fff;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #fff;
         }
     }
     &:local(.lightOrange) {
         background-color: $color-light-orange;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #000;
         }
     }
     &:local(.lime) {
         background-color: $color-lime;
         color: #fff;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #fff;
         }
     }
     &:local(.lightLime) {
         background-color: $color-light-lime;
-        :local(.content){
+        :local(.content),
+        :local(.title) {
             color: #000;
         }
     }
 
-    :local(.title){
+    :local(.title) {
         &:local(.regular) {
             font-family: "Open Sans";
             font-weight: bold;
@@ -93,7 +104,7 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #e5e3e1;
         }
-        &:local(.large){
+        &:local(.large) {
             font-family: "Open Sans";
             font-weight: normal;
             font-size: 24px;

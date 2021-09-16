@@ -1,21 +1,10 @@
 @import "../style/global.scss";
 
 :local(.select) {
-	label {
-		cursor: pointer;
-		font-size: 18px;
-		margin: 0 0 4px;
-		font-family: "Open Sans", arial, sans-serif;
-		line-height: 1.3;
-		font-weight: bold;
-		font-style: normal;
-		display: block;
-	}
-
 	:local(.selectContainer) {
 		position: relative;
 
-		:local(.selectListArrow) {
+		:local(.selectListArrow_old) {
 			position: absolute;
 			display: block;
 			content: "";
@@ -29,15 +18,40 @@
 			pointer-events: none;
 		}
 
+		:local(.selectListArrow) {
+			box-sizing: border-box;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			display: block;
+			width: 12px;
+			height: 12px;
+			border-radius: 100px;
+
+			&::after {
+				content: "";
+				display: block;
+				box-sizing: border-box;
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				border-bottom: 2px solid;
+				border-right: 2px solid;
+				transform: translateY(-30%) rotate(45deg);
+				transition: transform 0.3s ease-in-out;
+			}
+		}
+
 		select {
 			@include border-radius(0);
 			@include transition(border-color 0.15s linear);
 			@include appearance(none);
 			@include box-shadow(none);
+			height: 56px;
 			color: rgba(0, 0, 0, 0.75);
 			width: 100%;
 			font-family: inherit;
-			font-size: 1.125rem;
+			font-size: 19px;
 			padding: 10px 40px 10px 10px;
 			border: 1px solid #afaba8;
 			border-radius: 0;
@@ -61,10 +75,9 @@
 			}
 
 			&:local(.hasErrors) {
-				border-color: $color-warning;
-      			@include box-shadow(0 0 3px $color-warning);
+				border-color: $color-error;
 				&:focus {
-					border-color: $color-warning-hover;
+					border-color: $color-error;
 					outline-color: #b8565d;
 				}
 				&[disabled],
@@ -77,8 +90,11 @@
 		}
 	}
 	:local(.errorMessage) {
-		color: $color-warning;
-		font-weight: 300;
-		font-style: italic;
+		color: $color-error-text;
+		font-size: 19px;
+		font-weight: 400;
+		line-height: 1.6;
+		font-family: "Open Sans", sans-serif;
+		overflow-wrap: break-word;
 	}
 }

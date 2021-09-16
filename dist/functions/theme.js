@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getThemeLinkColor = exports.getThemeTextColor = exports.getThemeAppName = exports.getThemeLogoPadding = exports.getThemeLogo = exports.getThemeNavigationBarTextColor = exports.getThemeNavigationBarBackgroundColor = exports.getThemePaletteTextColor = exports.getThemePaletteBackgroundColor = void 0;
+exports.getThemeLinkColor = exports.getThemeTextColor = exports.getThemeAppName = exports.getThemeLogoPadding = exports.getThemeLogo = exports.getThemeNavigationBarTextColor = exports.getThemeNavigationBarBackgroundColor = exports.getThemePaletteBorderColor = exports.getThemePaletteTextColor = exports.getThemePaletteBackgroundColor = void 0;
 
 var getThemePaletteBackgroundColor = function getThemePaletteBackgroundColor(theme, color) {
   return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].background ? theme.colors.palette[color].background : null;
@@ -16,6 +16,12 @@ var getThemePaletteTextColor = function getThemePaletteTextColor(theme, color) {
 };
 
 exports.getThemePaletteTextColor = getThemePaletteTextColor;
+
+var getThemePaletteBorderColor = function getThemePaletteBorderColor(theme, color) {
+  return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].border ? theme.colors.palette[color].border : null;
+};
+
+exports.getThemePaletteBorderColor = getThemePaletteBorderColor;
 
 var getThemeNavigationBarBackgroundColor = function getThemeNavigationBarBackgroundColor(theme) {
   return theme && theme.colors && theme.colors.navigationBar && theme.colors.navigationBar.background ? theme.colors.navigationBar.background : null;

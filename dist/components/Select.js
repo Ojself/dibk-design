@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _Label = _interopRequireDefault(require("./Label"));
+
 var _theme = require("../functions/theme");
 
 var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
@@ -127,7 +129,7 @@ var Select = /*#__PURE__*/function (_React$Component) {
       var value = this.props.value ? this.props.value : "";
       return /*#__PURE__*/_react.default.createElement("div", {
         className: _SelectModule.default.select
-      }, /*#__PURE__*/_react.default.createElement("label", {
+      }, /*#__PURE__*/_react.default.createElement(_Label.default, {
         htmlFor: this.props.id
       }, this.props.label), !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
         className: _SelectModule.default.selectContainer

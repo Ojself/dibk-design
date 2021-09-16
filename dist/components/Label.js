@@ -11,13 +11,17 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _theme = require("../functions/theme");
-
-var _ButtonModule = _interopRequireDefault(require("./Button.module.scss"));
+var _LabelModule = _interopRequireDefault(require("./Label.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -39,70 +43,38 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Button = /*#__PURE__*/function (_React$Component) {
-  _inherits(Button, _React$Component);
+var Label = /*#__PURE__*/function (_React$Component) {
+  _inherits(Label, _React$Component);
 
-  var _super = _createSuper(Button);
+  var _super = _createSuper(Label);
 
-  function Button() {
-    _classCallCheck(this, Button);
+  function Label() {
+    _classCallCheck(this, Label);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Button, [{
-    key: "getArrowClass",
-    value: function getArrowClass() {
-      switch (this.props.arrow) {
-        case 'left':
-          return _ButtonModule.default.hasArrowLeft;
-
-        case 'right':
-          return _ButtonModule.default.hasArrowRight;
-
-        default:
-          return '';
-      }
-    }
-  }, {
-    key: "getThemeStyle",
-    value: function getThemeStyle(theme, color) {
-      return {
-        backgroundColor: (0, _theme.getThemePaletteBackgroundColor)(theme, color),
-        color: (0, _theme.getThemePaletteTextColor)(theme, color),
-        borderColor: (0, _theme.getThemePaletteBorderColor)(theme, color),
-        borderWidth: (0, _theme.getThemePaletteBorderColor)(theme, color) ? '1px' : '0'
-      };
-    }
-  }, {
+  _createClass(Label, [{
     key: "render",
     value: function render() {
-      var themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
-      var className = "".concat(_ButtonModule.default.button, " ").concat(_ButtonModule.default[this.props.color], " ").concat(_ButtonModule.default[this.props.size], " ").concat(this.getArrowClass(), " ").concat(this.props.theme ? _ButtonModule.default.hasTheme : '');
-      return /*#__PURE__*/_react.default.createElement("button", _extends({}, this.props, {
-        className: className,
-        style: themeStyle
-      }), this.props.content);
+      var labelProps = _objectSpread({}, this.props);
+
+      delete labelProps.inline;
+      var className = "".concat(_LabelModule.default.label, " ").concat(this.props.inline ? _LabelModule.default.inline : '');
+      return /*#__PURE__*/_react.default.createElement("label", _extends({}, labelProps, {
+        className: className
+      }), this.props.children);
     }
   }]);
 
-  return Button;
+  return Label;
 }(_react.default.Component);
 
-Button.propTypes = {
-  /** Text content inside button */
-  content: _propTypes.default.string,
-  color: _propTypes.default.oneOf(['default', 'primary']),
-  size: _propTypes.default.oneOf(['small', 'regular']),
-  arrow: _propTypes.default.oneOf(['left', 'right']),
-  theme: _propTypes.default.object,
-  disabled: _propTypes.default.bool
+Label.propTypes = {
+  inline: _propTypes.default.bool
 };
-Button.defaultProps = {
-  content: 'button',
-  color: 'default',
-  size: 'regular',
-  disabled: false
+Label.defaultProps = {
+  inline: false
 };
-var _default = Button;
+var _default = Label;
 exports.default = _default;

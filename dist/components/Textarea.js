@@ -11,25 +11,11 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _Button = _interopRequireDefault(require("./Button"));
-
 var _Label = _interopRequireDefault(require("./Label"));
-
-var _reactDatepicker = _interopRequireWildcard(require("react-datepicker"));
-
-var _dateFns = require("date-fns");
-
-var _nb = _interopRequireDefault(require("date-fns/locale/nb"));
 
 var _theme = require("../functions/theme");
 
-require("react-datepicker/dist/react-datepicker.css");
-
-var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,20 +39,18 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-(0, _reactDatepicker.registerLocale)('nb', _nb.default);
+var Textarea = /*#__PURE__*/function (_React$Component) {
+  _inherits(Textarea, _React$Component);
 
-var InputField = /*#__PURE__*/function (_React$Component) {
-  _inherits(InputField, _React$Component);
+  var _super = _createSuper(Textarea);
 
-  var _super = _createSuper(InputField);
-
-  function InputField() {
-    _classCallCheck(this, InputField);
+  function Textarea() {
+    _classCallCheck(this, Textarea);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(InputField, [{
+  _createClass(Textarea, [{
     key: "getThemeErrorInputStyle",
     value: function getThemeErrorInputStyle(theme) {
       return {
@@ -82,44 +66,14 @@ var InputField = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
-    key: "convertDateToString",
-    value: function convertDateToString(date) {
-      return date ? (0, _dateFns.format)(new Date(date), this.props.dateFormat, {
-        locale: _nb.default
-      }) : '';
-    }
-  }, {
     key: "renderValueAsText",
     value: function renderValueAsText(value, defaultContent) {
-      return this.props.type === 'date' ? value ? this.convertDateToString(value) : defaultContent : value ? value : defaultContent;
+      return value ? value : defaultContent;
     }
   }, {
     key: "renderInputField",
     value: function renderInputField() {
-      var _this = this;
-
-      return this.props.type === 'date' ? /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, {
-        name: this.props.name,
-        readOnly: this.props.readOnly,
-        disabled: this.props.disabled,
-        id: this.props.id,
-        dateFormat: this.props.dateFormat,
-        locale: "nb",
-        selectsStart: this.props.selectsStart,
-        selectsEnd: this.props.selectsEnd,
-        startDate: this.props.startDate ? new Date(this.props.startDate) : null,
-        endDate: this.props.endDate ? new Date(this.props.endDate) : null,
-        onChange: this.props.onChange ? function (date) {
-          return _this.props.onChange(date);
-        } : console.log("Missing onChange handler for date picker with id: ".concat(this.props.id)),
-        onBlur: this.props.onBlur ? function (date) {
-          return _this.props.onBlur(date);
-        } : null,
-        selected: this.props.value ? new Date(this.props.value) : null,
-        placeholderText: this.props.placeholder,
-        className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : '',
-        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
-      }) : /*#__PURE__*/_react.default.createElement("input", {
+      return /*#__PURE__*/_react.default.createElement("textarea", {
         name: this.props.name,
         readOnly: this.props.readOnly,
         disabled: this.props.disabled,
@@ -129,7 +83,8 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         onBlur: this.props.onBlur,
         value: this.props.value ? this.props.value : '',
         placeholder: this.props.placeholder,
-        className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : '',
+        rows: this.props.rows,
+        className: this.props.hasErrors ? _TextareaModule.default.hasErrors : '',
         "aria-required": this.props.mandatory,
         style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
       });
@@ -137,47 +92,31 @@ var InputField = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return /*#__PURE__*/_react.default.createElement("div", {
-        className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[this.props.type])
+        className: _TextareaModule.default.textarea
       }, /*#__PURE__*/_react.default.createElement(_Label.default, {
         htmlFor: this.props.id
-      }, this.props.label, this.props.type === 'file' ? /*#__PURE__*/_react.default.createElement("div", {
-        className: _InputFieldModule.default.fileInputContainer
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: _InputFieldModule.default.input
-      }, this.props.selectedFileName), this.props.buttonContent ? /*#__PURE__*/_react.default.createElement(_Button.default, {
-        color: this.props.buttonColor,
-        onClick: function onClick() {
-          document.getElementById(_this2.props.id).click();
-        },
-        content: this.props.buttonContent,
-        theme: this.props.theme
-      }) : '') : ''), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
-        className: _InputFieldModule.default.errorMessage,
+      }, this.props.label), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
+        className: _TextareaModule.default.errorMessage,
         style: this.getThemeErrorMessageStyle(this.props.theme)
       }, this.props.errorMessage ? this.props.errorMessage : ''));
     }
   }]);
 
-  return InputField;
+  return Textarea;
 }(_react.default.Component);
 
-InputField.propTypes = {
+Textarea.propTypes = {
   /** Text content inside list item */
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func.isRequired,
   onBlur: _propTypes.default.func,
   name: _propTypes.default.string,
   type: _propTypes.default.string,
-  value: _propTypes.default.any,
+  value: _propTypes.default.string,
+  rows: _propTypes.default.string,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
-  buttonColor: _propTypes.default.string,
-  buttonContent: _propTypes.default.string,
-  selectedFileName: _propTypes.default.string,
-  dateFormat: _propTypes.default.string,
   placeholder: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
@@ -185,18 +124,16 @@ InputField.propTypes = {
   mandatory: _propTypes.default.bool,
   theme: _propTypes.default.object
 };
-InputField.defaultProps = {
+Textarea.defaultProps = {
   name: '',
   type: 'text',
   label: '',
   contentOnly: false,
-  buttonColor: 'default',
-  dateFormat: 'd. MMMM, yyyy',
   placeholder: '',
   defaultContent: '',
   hasErrors: false,
   errorMessage: '',
   mandatory: false
 };
-var _default = InputField;
+var _default = Textarea;
 exports.default = _default;
