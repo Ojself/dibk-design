@@ -27,7 +27,7 @@ class Button extends React.Component {
 
   render() {
     const themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
-    const className = `${style.button} ${style[this.props.color]} ${style[this.props.size]} ${this.getArrowClass()} ${this.props.theme ? style.hasTheme : ''}`;
+    const className = `${style.button} ${style[this.props.color]} ${style[this.props.size]} ${this.getArrowClass()} ${this.props.theme ? style.hasTheme : ''} ${this.props.noHover ? style.noHover : ''}`;
     return (<button {...this.props} className={className} style={themeStyle}>{this.props.content}</button>)
   }
 }
@@ -39,14 +39,16 @@ Button.propTypes = {
   size: PropTypes.oneOf(['small', 'regular']),
   arrow: PropTypes.oneOf(['left', 'right']),
   theme: PropTypes.object,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  noHover: PropTypes.bool
 }
 
 Button.defaultProps = {
   content: 'button',
   color: 'default',
   size: 'regular',
-  disabled: false
+  disabled: false,
+  noHover: false
 }
 
 export default Button;

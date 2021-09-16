@@ -16,6 +16,15 @@ Regular buttons with arrow example:
 <Button content="Click me" color="primary" arrow="right" disabled="disabled" />
 ```
 
+Regular buttons without hover effect example:
+
+```js
+<Button content="Click me" color="default" noHover />
+<Button content="Click me" color="primary" noHover />
+<Button content="Click me" color="default" noHover disabled="disabled" />
+<Button content="Click me" color="primary" noHover disabled="disabled" />
+```
+
 Small buttons example:
 
 ```js
