@@ -5,18 +5,18 @@ import { getThemePaletteBackgroundColor } from '../functions/theme';
 import style from './Select.module.scss';
 
 class Select extends React.Component {
-  getThemeErrorInputStyle(theme){
+  getThemeErrorInputStyle(theme) {
     return {
       boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, 'warning')}`,
       borderColor: getThemePaletteBackgroundColor(theme, 'warning')
     }
   }
-  getThemeErrorMessageStyle(theme){
+  getThemeErrorMessageStyle(theme) {
     return {
       color: getThemePaletteBackgroundColor(theme, 'warning')
     }
   }
-  getThemeArrowStyle(theme){
+  getThemeArrowStyle(theme) {
     return {
       borderTopColor: getThemePaletteBackgroundColor(theme, 'primary')
     }
@@ -24,7 +24,7 @@ class Select extends React.Component {
   getKeyByValue(value, options) {
     const selectedOption = options && options.length
       ? options.find(option => {
-        if (typeof(option) === 'object') {
+        if (typeof (option) === 'object') {
           return option.value === value;
         } else {
           return option === value;
@@ -42,7 +42,7 @@ class Select extends React.Component {
   renderOptionElements(options) {
     return options.map((option, key) => {
       let optionObject = null;
-      if (typeof(option) === 'object') {
+      if (typeof (option) === 'object') {
         optionObject = {
           key: option.key
             ? option.key
@@ -66,38 +66,49 @@ class Select extends React.Component {
       : '';
   }
   render() {
-    const value = this.props.value ? this.props.value : "";
-    return (<div className={style.select}>
-      <Label htmlFor={this.props.id}>{this.props.label}</Label>
-      {
-        !this.props.contentOnly
-          ? (<React.Fragment>
-            <div className={style.selectContainer}>
-              <span className={style.selectListArrow} style={this.getThemeArrowStyle(this.props.theme)}></span>
-              <select name={this.props.name}
-                      multiple={this.props.multiple}
-                      value={value} onChange={this.props.onChange}
-                      id={this.props.id}
-                      className={this.props.hasErrors ? style.hasErrors : ''}
-                      style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null}>
-                {this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue)}
-                {this.renderOptionElements(this.props.options)}
-              </select>
-            </div>
-            <span className={style.errorMessage} style={this.getThemeErrorMessageStyle(this.props.theme)}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
-          </React.Fragment>)
-          : (<span>
+
+
+    if (this.props.contentOnly) {
+      const value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
+      return (
+        <div className={style.select}>
+          <Label htmlFor={this.props.id}>{this.props.label}</Label>
+          <span>
             {
-              this.props.value
+              value
                 ? this.props.keyAsContent
-                  ? this.getKeyByValue(this.props.value, this.props.options)
-                  : this.props.value
+                  ? this.getKeyByValue(value, this.props.options)
+                  : value
                 : this.props.defaultContent
             }
-          </span>)
+          </span>
+        </div>
+      )
+    } else {
+      const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+      const props = {
+        name: this.props.name,
+        multiple: this.props.multiple,
+        [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
+        onChange: this.props.onChange,
+        id: this.props.id,
+        className: this.props.hasErrors ? style.hasErrors : '',
+        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
       }
-
-    </div>)
+      return (
+        <div className={style.select}>
+          <Label htmlFor={this.props.id}>{this.props.label}</Label>
+          <div className={style.selectContainer}>
+            <span className={style.selectListArrow} style={this.getThemeArrowStyle(this.props.theme)}></span>
+            <select {...props}>
+              {this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue)}
+              {this.renderOptionElements(this.props.options)}
+            </select>
+          </div>
+          <span className={style.errorMessage} style={this.getThemeErrorMessageStyle(this.props.theme)}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
+        </div>
+      )
+    }
   }
 }
 
@@ -108,9 +119,10 @@ Select.propTypes = {
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.shape({key: PropTypes.string, value: PropTypes.string})
+    PropTypes.shape({ key: PropTypes.string, value: PropTypes.string })
   ])),
   value: PropTypes.any,
+  defaultValue: PropTypes.any,
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
@@ -140,6 +152,6 @@ Select.defaultProps = {
   placeholderValue: '',
   defaultContent: null,
   hasErrors: false,
-  errorMessage : ''
+  errorMessage: ''
 };
 export default Select;
