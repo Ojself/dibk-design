@@ -23,20 +23,25 @@ class Textarea extends React.Component {
             : defaultContent;
     }
     renderInputField() {
+        const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+        const props = {
+            name: this.props.name,
+            readOnly: this.props.readOnly,
+            disabled: this.props.disabled,
+            type: this.props.type,
+            id: this.props.id,
+            onChange: this.props.onChange,
+            onBlur: this.props.onBlur,
+            [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
+            placeholder: this.props.placeholder,
+            rows: this.props.rows,
+            className: this.props.hasErrors ? style.hasErrors : '',
+            'aria-required': this.props.mandatory,
+            style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
+        };
+
         return (
-            <textarea name={this.props.name}
-                readOnly={this.props.readOnly}
-                disabled={this.props.disabled}
-                type={this.props.type}
-                id={this.props.id}
-                onChange={this.props.onChange}
-                onBlur={this.props.onBlur}
-                value={this.props.value ? this.props.value : ''}
-                placeholder={this.props.placeholder}
-                rows={this.props.rows}
-                className={this.props.hasErrors ? style.hasErrors : ''}
-                aria-required={this.props.mandatory}
-                style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null} />
+            <textarea {...props} />
         )
     }
     render() {
@@ -62,6 +67,7 @@ Textarea.propTypes = {
     name: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.string,
+    defaultValue: PropTypes.string,
     rows: PropTypes.string,
     label: PropTypes.oneOfType([
         PropTypes.string,
