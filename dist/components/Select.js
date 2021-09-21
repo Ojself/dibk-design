@@ -17,6 +17,8 @@ var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -126,28 +128,35 @@ var Select = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var value = this.props.value ? this.props.value : "";
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: _SelectModule.default.select
-      }, /*#__PURE__*/_react.default.createElement(_Label.default, {
-        htmlFor: this.props.id
-      }, this.props.label), !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-        className: _SelectModule.default.selectContainer
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: _SelectModule.default.selectListArrow,
-        style: this.getThemeArrowStyle(this.props.theme)
-      }), /*#__PURE__*/_react.default.createElement("select", {
-        name: this.props.name,
-        multiple: this.props.multiple,
-        value: value,
-        onChange: this.props.onChange,
-        id: this.props.id,
-        className: this.props.hasErrors ? _SelectModule.default.hasErrors : '',
-        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
-      }, this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue), this.renderOptionElements(this.props.options))), /*#__PURE__*/_react.default.createElement("span", {
-        className: _SelectModule.default.errorMessage,
-        style: this.getThemeErrorMessageStyle(this.props.theme)
-      }, this.props.errorMessage ? this.props.errorMessage : '')) : /*#__PURE__*/_react.default.createElement("span", null, this.props.value ? this.props.keyAsContent ? this.getKeyByValue(this.props.value, this.props.options) : this.props.value : this.props.defaultContent));
+      if (this.props.contentOnly) {
+        var value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: _SelectModule.default.select
+        }, /*#__PURE__*/_react.default.createElement(_Label.default, {
+          htmlFor: this.props.id
+        }, this.props.label), /*#__PURE__*/_react.default.createElement("span", null, value ? this.props.keyAsContent ? this.getKeyByValue(value, this.props.options) : value : this.props.defaultContent));
+      } else {
+        var _props;
+
+        var defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+        var props = (_props = {
+          name: this.props.name,
+          multiple: this.props.multiple
+        }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "onChange", this.props.onChange), _defineProperty(_props, "id", this.props.id), _defineProperty(_props, "className", this.props.hasErrors ? _SelectModule.default.hasErrors : ''), _defineProperty(_props, "style", this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), _props);
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: _SelectModule.default.select
+        }, /*#__PURE__*/_react.default.createElement(_Label.default, {
+          htmlFor: this.props.id
+        }, this.props.label), /*#__PURE__*/_react.default.createElement("div", {
+          className: _SelectModule.default.selectContainer
+        }, /*#__PURE__*/_react.default.createElement("span", {
+          className: _SelectModule.default.selectListArrow,
+          style: this.getThemeArrowStyle(this.props.theme)
+        }), /*#__PURE__*/_react.default.createElement("select", props, this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue), this.renderOptionElements(this.props.options))), /*#__PURE__*/_react.default.createElement("span", {
+          className: _SelectModule.default.errorMessage,
+          style: this.getThemeErrorMessageStyle(this.props.theme)
+        }, this.props.errorMessage ? this.props.errorMessage : ''));
+      }
     }
   }]);
 
@@ -164,6 +173,7 @@ Select.propTypes = {
     value: _propTypes.default.string
   })])),
   value: _propTypes.default.any,
+  defaultValue: _propTypes.default.any,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
   keyAsContent: _propTypes.default.bool,

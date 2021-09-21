@@ -19,6 +19,8 @@ var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -73,21 +75,19 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderInputField",
     value: function renderInputField() {
-      return /*#__PURE__*/_react.default.createElement("textarea", {
+      var _props;
+
+      var defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+      var props = (_props = {
         name: this.props.name,
         readOnly: this.props.readOnly,
         disabled: this.props.disabled,
         type: this.props.type,
         id: this.props.id,
         onChange: this.props.onChange,
-        onBlur: this.props.onBlur,
-        value: this.props.value ? this.props.value : '',
-        placeholder: this.props.placeholder,
-        rows: this.props.rows,
-        className: this.props.hasErrors ? _TextareaModule.default.hasErrors : '',
-        "aria-required": this.props.mandatory,
-        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
-      });
+        onBlur: this.props.onBlur
+      }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "placeholder", this.props.placeholder), _defineProperty(_props, "rows", this.props.rows), _defineProperty(_props, "className", this.props.hasErrors ? _TextareaModule.default.hasErrors : ''), _defineProperty(_props, 'aria-required', this.props.mandatory), _defineProperty(_props, "style", this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), _props);
+      return /*#__PURE__*/_react.default.createElement("textarea", props);
     }
   }, {
     key: "render",
@@ -114,6 +114,7 @@ Textarea.propTypes = {
   name: _propTypes.default.string,
   type: _propTypes.default.string,
   value: _propTypes.default.string,
+  defaultValue: _propTypes.default.string,
   rows: _propTypes.default.string,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
