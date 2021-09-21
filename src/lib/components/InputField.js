@@ -37,35 +37,45 @@ class InputField extends React.Component {
         : defaultContent;
   }
   renderInputField() {
-    return this.props.type === 'date'
-      ? (<DatePicker name={this.props.name}
-        readOnly={this.props.readOnly}
-        disabled={this.props.disabled}
-        id={this.props.id}
-        dateFormat={this.props.dateFormat}
-        locale="nb"
-        selectsStart={this.props.selectsStart}
-        selectsEnd={this.props.selectsEnd}
-        startDate={this.props.startDate ? new Date(this.props.startDate) : null}
-        endDate={this.props.endDate ? new Date(this.props.endDate) : null}
-        onChange={this.props.onChange ? date => this.props.onChange(date) : console.log(`Missing onChange handler for date picker with id: ${this.props.id}`)}
-        onBlur={this.props.onBlur ? date => this.props.onBlur(date) : null}
-        selected={this.props.value ? new Date(this.props.value) : null}
-        placeholderText={this.props.placeholder}
-        className={this.props.hasErrors ? style.hasErrors : ''}
-        style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null} />)
-      : (<input name={this.props.name}
-        readOnly={this.props.readOnly}
-        disabled={this.props.disabled}
-        type={this.props.type}
-        id={this.props.id}
-        onChange={this.props.onChange}
-        onBlur={this.props.onBlur}
-        value={this.props.value ? this.props.value : ''}
-        placeholder={this.props.placeholder}
-        className={this.props.hasErrors ? style.hasErrors : ''}
-        aria-required={this.props.mandatory}
-        style={this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null} />)
+    if (this.props.type === 'date') {
+      const value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
+      const props = {
+        name: this.props.name,
+        readOnly: this.props.readOnly,
+        disabled: this.props.disabled,
+        id: this.props.id,
+        dateFormat: this.props.dateFormat,
+        locale: 'nb',
+        selectsStart: this.props.selectsStart,
+        selectsEnd: this.props.selectsEnd,
+        startDate: this.props.startDate ? new Date(this.props.startDate) : null,
+        endDate: this.props.endDate ? new Date(this.props.endDate) : null,
+        onChange: this.props.onChange ? date => this.props.onChange(date) : console.log(`Missing onChange handler for date picker with id: ${this.props.id}`),
+        onBlur: this.props.onBlur ? date => this.props.onBlur(date) : null,
+        selected: value ? new Date(value) : null,
+        placeholderText: this.props.placeholder,
+        className: this.props.hasErrors ? style.hasErrors : '',
+        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
+      }
+      return <DatePicker {...props} />
+    } else {
+      const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+      const props = {
+        name: this.props.name,
+        readOnly: this.props.readOnly,
+        disabled: this.props.disabled,
+        type: this.props.type,
+        id: this.props.id,
+        onChange: this.props.onChange,
+        onBlur: this.props.onBlur,
+        [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
+        placeholder: this.props.placeholder,
+        className: this.props.hasErrors ? style.hasErrors : '',
+        'aria-required': this.props.mandatory,
+        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
+      };
+      return <input {...props} />;
+    }
   }
   render() {
     return (<div className={`${style.inputField} ${style[this.props.type]}`}>
@@ -102,6 +112,7 @@ InputField.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.any,
+  defaultValue: PropTypes.any,
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.oneOfType([
