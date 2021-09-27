@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.cadae3f9.chunk.css",
-    "main.js": "/build/main.784d6f9a.js",
-    "runtime-main.js": "/build/bundle.541ba4ef.js",
+    "main.js": "/build/main.1fe54e4a.js",
+    "runtime-main.js": "/build/bundle.c0e43e4d.js",
     "static/css/2.8b558105.chunk.css": "/static/css/2.8b558105.chunk.css",
-    "build/2.f2c68cea.js": "/build/2.f2c68cea.js",
-    "build/2.f2c68cea.js.LICENSE.txt": "/build/2.f2c68cea.js.LICENSE.txt",
+    "build/2.60e3399a.js": "/build/2.60e3399a.js",
+    "build/2.60e3399a.js.LICENSE.txt": "/build/2.60e3399a.js.LICENSE.txt",
     "index.html": "/index.html",
     "static/css/2.8b558105.chunk.css.map": "/static/css/2.8b558105.chunk.css.map",
     "static/css/main.cadae3f9.chunk.css.map": "/static/css/main.cadae3f9.chunk.css.map",
@@ -15,10 +15,10 @@
     "static/media/LoadingAnimation.module.scss": "/static/media/spinner.9d4e5e9c.svg"
   },
   "entrypoints": [
-    "build/bundle.541ba4ef.js",
+    "build/bundle.c0e43e4d.js",
     "static/css/2.8b558105.chunk.css",
-    "build/2.f2c68cea.js",
+    "build/2.60e3399a.js",
     "static/css/main.cadae3f9.chunk.css",
-    "build/main.784d6f9a.js"
+    "build/main.1fe54e4a.js"
   ]
 }
