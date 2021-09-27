@@ -150,7 +150,8 @@ InputField.defaultProps = {
   defaultContent: '',
   hasErrors: false,
   errorMessage: '',
-  mandatory: false
+  mandatory: false,
+  onChange: () => { return false }
 };
 
 export default InputField;

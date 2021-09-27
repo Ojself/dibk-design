@@ -152,6 +152,7 @@ Select.defaultProps = {
   placeholderValue: '',
   defaultContent: null,
   hasErrors: false,
-  errorMessage: ''
+  errorMessage: '',
+  onChange: () => { return false }
 };
 export default Select;
