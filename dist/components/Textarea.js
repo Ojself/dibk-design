@@ -134,7 +134,10 @@ Textarea.defaultProps = {
   defaultContent: '',
   hasErrors: false,
   errorMessage: '',
-  mandatory: false
+  mandatory: false,
+  onChange: function onChange() {
+    return false;
+  }
 };
 var _default = Textarea;
 exports.default = _default;

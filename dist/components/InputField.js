@@ -206,7 +206,10 @@ InputField.defaultProps = {
   defaultContent: '',
   hasErrors: false,
   errorMessage: '',
-  mandatory: false
+  mandatory: false,
+  onChange: function onChange() {
+    return false;
+  }
 };
 var _default = InputField;
 exports.default = _default;

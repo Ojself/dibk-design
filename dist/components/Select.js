@@ -194,7 +194,10 @@ Select.defaultProps = {
   placeholderValue: '',
   defaultContent: null,
   hasErrors: false,
-  errorMessage: ''
+  errorMessage: '',
+  onChange: function onChange() {
+    return false;
+  }
 };
 var _default = Select;
 exports.default = _default;
