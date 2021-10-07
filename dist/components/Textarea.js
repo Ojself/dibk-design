@@ -19,6 +19,10 @@ var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75,9 +79,16 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderInputField",
     value: function renderInputField() {
-      var _props;
+      var _this$props$width, _this$props$resize, _props;
 
       var defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+
+      var styleRules = _objectSpread(_objectSpread(_objectSpread({}, this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), ((_this$props$width = this.props.width) === null || _this$props$width === void 0 ? void 0 : _this$props$width.length) && {
+        maxWidth: this.props.width
+      }), ((_this$props$resize = this.props.resize) === null || _this$props$resize === void 0 ? void 0 : _this$props$resize.length) && {
+        resize: this.props.resize
+      });
+
       var props = (_props = {
         name: this.props.name,
         readOnly: this.props.readOnly,
@@ -86,7 +97,7 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
         id: this.props.id,
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
-      }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "placeholder", this.props.placeholder), _defineProperty(_props, "rows", this.props.rows), _defineProperty(_props, "className", this.props.hasErrors ? _TextareaModule.default.hasErrors : ''), _defineProperty(_props, 'aria-required', this.props.mandatory), _defineProperty(_props, "style", this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), _props);
+      }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "placeholder", this.props.placeholder), _defineProperty(_props, "rows", this.props.rows), _defineProperty(_props, "className", this.props.hasErrors ? _TextareaModule.default.hasErrors : ''), _defineProperty(_props, 'aria-required', this.props.mandatory), _defineProperty(_props, "style", styleRules), _props);
       return /*#__PURE__*/_react.default.createElement("textarea", props);
     }
   }, {
@@ -113,6 +124,8 @@ Textarea.propTypes = {
   onBlur: _propTypes.default.func,
   name: _propTypes.default.string,
   type: _propTypes.default.string,
+  width: _propTypes.default.string,
+  resize: _propTypes.default.string,
   value: _propTypes.default.string,
   defaultValue: _propTypes.default.string,
   rows: _propTypes.default.string,

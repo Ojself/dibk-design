@@ -17,6 +17,10 @@ var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -136,19 +140,27 @@ var Select = /*#__PURE__*/function (_React$Component) {
           htmlFor: this.props.id
         }, this.props.label), /*#__PURE__*/_react.default.createElement("span", null, value ? this.props.keyAsContent ? this.getKeyByValue(value, this.props.options) : value : this.props.defaultContent));
       } else {
-        var _props;
+        var _this$props$width, _props, _this$props$width2;
 
         var defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+
+        var styleRules = _objectSpread(_objectSpread({}, this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), ((_this$props$width = this.props.width) === null || _this$props$width === void 0 ? void 0 : _this$props$width.length) && {
+          maxWidth: this.props.width
+        });
+
         var props = (_props = {
           name: this.props.name,
           multiple: this.props.multiple
-        }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "onChange", this.props.onChange), _defineProperty(_props, "id", this.props.id), _defineProperty(_props, "className", this.props.hasErrors ? _SelectModule.default.hasErrors : ''), _defineProperty(_props, "style", this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), _props);
+        }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "onChange", this.props.onChange), _defineProperty(_props, "id", this.props.id), _defineProperty(_props, "className", this.props.hasErrors ? _SelectModule.default.hasErrors : ''), _defineProperty(_props, "style", styleRules), _props);
         return /*#__PURE__*/_react.default.createElement("div", {
           className: _SelectModule.default.select
         }, /*#__PURE__*/_react.default.createElement(_Label.default, {
           htmlFor: this.props.id
         }, this.props.label), /*#__PURE__*/_react.default.createElement("div", {
-          className: _SelectModule.default.selectContainer
+          className: _SelectModule.default.selectContainer,
+          style: _objectSpread({}, ((_this$props$width2 = this.props.width) === null || _this$props$width2 === void 0 ? void 0 : _this$props$width2.length) && {
+            maxWidth: this.props.width
+          })
         }, /*#__PURE__*/_react.default.createElement("span", {
           className: _SelectModule.default.selectListArrow,
           style: this.getThemeArrowStyle(this.props.theme)
@@ -172,6 +184,7 @@ Select.propTypes = {
     key: _propTypes.default.string,
     value: _propTypes.default.string
   })])),
+  width: _propTypes.default.string,
   value: _propTypes.default.any,
   defaultValue: _propTypes.default.any,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
