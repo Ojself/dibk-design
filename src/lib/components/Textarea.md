@@ -11,6 +11,8 @@ Input field example:
 <Textarea id="textInput8" onChange={()=>{console.log('onchange')}} disabled value="Disabled Textarea with label and value" label="Disabled Textarea with label and value" />
 <Textarea id="textInput9" onChange={()=>{console.log('onchange')}} value="Value for Textarea" label="Textarea with label, value and contentOnly set to true" contentOnly={true} />
 <Textarea id="textInput10" onChange={() => {console.log('onChange')}} label="Textarea without value, contentOnly set to true and defaultContent" contentOnly={true} defaultContent="Please insert a value" />
+<Textarea id="textInput11" onChange={()=>{console.log('onchange')}} value="Textarea with custom width" width="320px" />
+<Textarea id="textInput11" onChange={()=>{console.log('onchange')}} value="Textarea with custom width and vertical resizing" width="450px" resize="vertical" />
 ```
 
 Themed Input field example:
