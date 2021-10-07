@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getThemeLinkColor = exports.getThemeTextColor = exports.getThemeAppName = exports.getThemeLogoPadding = exports.getThemeLogo = exports.getThemeNavigationBarTextColor = exports.getThemeNavigationBarBackgroundColor = exports.getThemePaletteBorderColor = exports.getThemePaletteTextColor = exports.getThemePaletteBackgroundColor = void 0;
+exports.getThemeTextColor = exports.getThemePaletteTextColor = exports.getThemePaletteBorderColor = exports.getThemePaletteBackgroundColor = exports.getThemeNavigationBarTextColor = exports.getThemeNavigationBarBackgroundColor = exports.getThemeLogoPadding = exports.getThemeLogo = exports.getThemeLinkColor = exports.getThemeAppName = void 0;
 
 var getThemePaletteBackgroundColor = function getThemePaletteBackgroundColor(theme, color) {
   return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].background ? theme.colors.palette[color].background : null;

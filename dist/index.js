@@ -39,6 +39,12 @@ Object.defineProperty(exports, "ContentBox", {
     return _ContentBox.default;
   }
 });
+Object.defineProperty(exports, "Dialog", {
+  enumerable: true,
+  get: function get() {
+    return _Dialog.default;
+  }
+});
 Object.defineProperty(exports, "DragAndDropFileInput", {
   enumerable: true,
   get: function get() {
@@ -155,6 +161,8 @@ var _CheckBoxInput = _interopRequireDefault(require("./components/CheckBoxInput"
 var _CheckBoxListItem = _interopRequireDefault(require("./components/CheckBoxListItem"));
 
 var _ContentBox = _interopRequireDefault(require("./components/ContentBox"));
+
+var _Dialog = _interopRequireDefault(require("./components/Dialog"));
 
 var _DragAndDropFileInput = _interopRequireDefault(require("./components/DragAndDropFileInput"));
 
