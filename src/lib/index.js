@@ -5,6 +5,7 @@ import CheckBoxIcon from './components/CheckBoxIcon';
 import CheckBoxInput from './components/CheckBoxInput';
 import CheckBoxListItem from './components/CheckBoxListItem';
 import ContentBox from './components/ContentBox';
+import Dialog from './components/Dialog';
 import DragAndDropFileInput from './components/DragAndDropFileInput';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -37,6 +38,7 @@ export {
   CheckBoxInput,
   CheckBoxListItem,
   ContentBox,
+  Dialog,
   DragAndDropFileInput,
   Footer,
   Header,
