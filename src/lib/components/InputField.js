@@ -37,6 +37,10 @@ class InputField extends React.Component {
         : defaultContent;
   }
   renderInputField() {
+    const styleRules = {
+      ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
+      ...(this.props.width?.length && { width: this.props.width })
+    };
     if (this.props.type === 'date') {
       const value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
       const props = {
@@ -55,7 +59,7 @@ class InputField extends React.Component {
         selected: value ? new Date(value) : null,
         placeholderText: this.props.placeholder,
         className: this.props.hasErrors ? style.hasErrors : '',
-        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
+        style: styleRules
       }
       return <DatePicker {...props} />
     } else {
@@ -72,7 +76,7 @@ class InputField extends React.Component {
         placeholder: this.props.placeholder,
         className: this.props.hasErrors ? style.hasErrors : '',
         'aria-required': this.props.mandatory,
-        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
+        style: styleRules
       };
       return <input {...props} />;
     }
@@ -111,6 +115,7 @@ InputField.propTypes = {
   onBlur: PropTypes.func,
   name: PropTypes.string,
   type: PropTypes.string,
+  width: PropTypes.string,
   value: PropTypes.any,
   defaultValue: PropTypes.any,
   label: PropTypes.oneOfType([
