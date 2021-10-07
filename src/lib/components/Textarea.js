@@ -26,7 +26,7 @@ class Textarea extends React.Component {
         const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
         const styleRules = {
             ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
-            ...(this.props.width?.length && { width: this.props.width }),
+            ...(this.props.width?.length && { maxWidth: this.props.width }),
             ...(this.props.resize?.length && { resize: this.props.resize }),
           };
         const props = {

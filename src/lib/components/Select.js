@@ -88,7 +88,7 @@ class Select extends React.Component {
       const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
       const styleRules = {
         ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
-        ...(this.props.width?.length && {width: this.props.width})
+        ...(this.props.width?.length && {maxWidth: this.props.width})
       };
       const props = {
         name: this.props.name,
@@ -102,7 +102,7 @@ class Select extends React.Component {
       return (
         <div className={style.select}>
           <Label htmlFor={this.props.id}>{this.props.label}</Label>
-          <div className={style.selectContainer} style={{...(this.props.width?.length && {width: this.props.width})}}>
+          <div className={style.selectContainer} style={{...(this.props.width?.length && {maxWidth: this.props.width})}}>
             <span className={style.selectListArrow} style={this.getThemeArrowStyle(this.props.theme)}></span>
             <select {...props}>
               {this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue)}

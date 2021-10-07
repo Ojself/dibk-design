@@ -39,7 +39,7 @@ class InputField extends React.Component {
   renderInputField() {
     const styleRules = {
       ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
-      ...(this.props.width?.length && { width: this.props.width })
+      ...(this.props.width?.length && { maxWidth: this.props.width })
     };
     if (this.props.type === 'date') {
       const value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
