@@ -86,6 +86,10 @@ class Select extends React.Component {
       )
     } else {
       const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+      const styleRules = {
+        ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
+        ...(this.props.width?.length && {width: this.props.width})
+      };
       const props = {
         name: this.props.name,
         multiple: this.props.multiple,
@@ -93,12 +97,12 @@ class Select extends React.Component {
         onChange: this.props.onChange,
         id: this.props.id,
         className: this.props.hasErrors ? style.hasErrors : '',
-        style: this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null
+        style: styleRules
       }
       return (
         <div className={style.select}>
           <Label htmlFor={this.props.id}>{this.props.label}</Label>
-          <div className={style.selectContainer}>
+          <div className={style.selectContainer} style={{...(this.props.width?.length && {width: this.props.width})}}>
             <span className={style.selectListArrow} style={this.getThemeArrowStyle(this.props.theme)}></span>
             <select {...props}>
               {this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue)}
@@ -121,6 +125,7 @@ Select.propTypes = {
     PropTypes.string,
     PropTypes.shape({ key: PropTypes.string, value: PropTypes.string })
   ])),
+  width: PropTypes.string,
   value: PropTypes.any,
   defaultValue: PropTypes.any,
   label: PropTypes.oneOfType([

@@ -13,6 +13,7 @@ Select example:
 <Select id="select10" onChange={()=>{console.log('onchange')}} label="Select with label, selected value, contentOnly set to true and keyAsContent set to true" value="value 3" options={['option 1', 'option 2', {key: 'option 3', value: 'value 3'}]} contentOnly={true} keyAsContent={true} />
 <Select id="select11" onChange={()=>{console.log('onchange')}} label="Select with label, selected value is string, contentOnly set to true and keyAsContent set to true" value="option 2" options={['option 1', 'option 2', {key: 'option 3', value: 'value 3'}]} contentOnly={true} keyAsContent={true} />
 <Select id="select12" onChange={()=>{console.log('onchange')}} label="Select with label, contentOnly set to true, no value and defaultContent" contentOnly={true} defaultContent="No value selected" options={['option 1', 'option 2', {key: 'option 3', value: 'value 3'}]} />
+<Select id="select2" onChange={()=>{console.log('onchange')}} label="Select with custom width" options={['option 1', 'option 2', {key: 'option 3', value: 'value 3'}]} width="250px" />
 ```
 
 Themed select example:
