@@ -17,6 +17,7 @@
   &:local(.showBox) {
     @include box-shadow(0 0 0 1px #afaba8);
     margin-right: 0.4em;
+    margin-top: 2px;
     background: white;
   }
 
