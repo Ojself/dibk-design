@@ -7,10 +7,19 @@ Regular buttons example:
 <Button content="Click me" color="primary" disabled />
 ```
 
+Rounded buttons example:
+
+```js
+<Button rounded content="Click me" color="default" />
+<Button rounded content="Click me" color="primary" />
+<Button rounded content="Click me" color="default" disabled />
+<Button rounded content="Click me" color="primary" disabled />
+```
+
 Regular buttons with arrow example:
 
 ```js
-<Button content="Click me" color="default" arrow="left" />
+<Button rounded content="Click me" color="default" arrow="left" />
 <Button content="Click me" color="primary" arrow="right" />
 <Button content="Click me" color="default" arrow="left" disabled />
 <Button content="Click me" color="primary" arrow="right" disabled />
@@ -32,6 +41,15 @@ Small buttons example:
 <Button content="Click me" color="primary" size="small" />
 <Button content="Click me" color="default" size="small" disabled />
 <Button content="Click me" color="primary" size="small" disabled />
+```
+
+Small rounded buttons example:
+
+```js
+<Button rounded content="Click me" color="default" size="small" />
+<Button rounded content="Click me" color="primary" size="small" />
+<Button rounded content="Click me" color="default" size="small" disabled />
+<Button rounded content="Click me" color="primary" size="small" disabled />
 ```
 
 
