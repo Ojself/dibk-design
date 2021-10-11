@@ -5,7 +5,7 @@ import style from './RadioButtonListItem.module.scss';
 
 class RadioButtonListItem extends React.Component {
   render() {
-    return (<div  className={style.radioButtonListItem}>
+    return (<div className={`${style.radioButtonListItem} ${this.props.compact ? style.compact : ''}`}>
     <RadioButtonInput onChange={this.props.onChange} inputValue={this.props.inputValue} checked={this.props.checked} contentOnly={this.props.contentOnly} id={this.props.id} theme={this.props.theme}>{this.props.children}</RadioButtonInput>
     </div>)
   }
