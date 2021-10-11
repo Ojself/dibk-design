@@ -52,7 +52,7 @@ var RadioButtonListItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("div", {
-        className: _RadioButtonListItemModule.default.radioButtonListItem
+        className: "".concat(_RadioButtonListItemModule.default.radioButtonListItem, " ").concat(this.props.compact ? _RadioButtonListItemModule.default.compact : '')
       }, /*#__PURE__*/_react.default.createElement(_RadioButtonInput.default, {
         onChange: this.props.onChange,
         inputValue: this.props.inputValue,

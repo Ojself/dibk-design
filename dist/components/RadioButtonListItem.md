@@ -9,6 +9,17 @@ Radio button list item example:
 </RadioButtonListItem>
 ```
 
+Compact radio button list item example:
+
+```js
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 1" name="compact-radio-button-list-item" id="compact-radio-button-list-item-1" checked={true} compact>
+  Checked radio button
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="compact-radio-button-list-item" id="compact-radio-button-list-item-2" compact>
+  Checked radio button
+</RadioButtonListItem>
+```
+
 Themed Radio button list item example:
 
 ```js

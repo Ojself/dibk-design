@@ -52,7 +52,7 @@ var CheckBoxListItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("div", {
-        className: "".concat(_CheckBoxListItemModule.default.checkBoxListItem, " ").concat(this.props.checked ? _CheckBoxListItemModule.default.checked : '', " ").concat(this.props.contentOnly ? _CheckBoxListItemModule.default.contentOnly : '')
+        className: "".concat(_CheckBoxListItemModule.default.checkBoxListItem, " ").concat(this.props.checked ? _CheckBoxListItemModule.default.checked : '', " ").concat(this.props.contentOnly ? _CheckBoxListItemModule.default.contentOnly : '', " ").concat(this.props.compact ? _CheckBoxListItemModule.default.compact : '')
       }, /*#__PURE__*/_react.default.createElement(_CheckBoxInput.default, {
         onChange: this.props.onChange,
         checked: this.props.checked,
@@ -73,7 +73,8 @@ CheckBoxListItem.propTypes = {
   name: _propTypes.default.string,
   onChange: _propTypes.default.func.isRequired,
   contentOnly: _propTypes.default.bool,
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  compact: _propTypes.default.bool
 };
 CheckBoxListItem.defaultProps = {
   checked: false,
