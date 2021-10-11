@@ -134,6 +134,10 @@
     }
   }
 
+  &:local(.rounded){
+    border-radius: 20px;
+  }
+
   &:local(.hasArrowLeft) {
     &:before {
       @include transform(rotate(-135deg));

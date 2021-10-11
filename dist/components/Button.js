@@ -87,7 +87,7 @@ var Button = /*#__PURE__*/function (_React$Component) {
 
       delete buttonProps.noHover;
       var themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
-      var className = "".concat(_ButtonModule.default.button, " ").concat(_ButtonModule.default[this.props.color], " ").concat(_ButtonModule.default[this.props.size], " ").concat(this.getArrowClass(), " ").concat(this.props.theme ? _ButtonModule.default.hasTheme : '', " ").concat(this.props.noHover ? _ButtonModule.default.noHover : '');
+      var className = "".concat(_ButtonModule.default.button, " ").concat(_ButtonModule.default[this.props.color], " ").concat(_ButtonModule.default[this.props.size], " ").concat(this.getArrowClass(), " ").concat(this.props.theme ? _ButtonModule.default.hasTheme : '', " ").concat(this.props.noHover ? _ButtonModule.default.noHover : '', " ").concat(this.props.rounded ? _ButtonModule.default.rounded : '');
       return /*#__PURE__*/_react.default.createElement("button", _extends({}, buttonProps, {
         className: className,
         style: themeStyle
@@ -106,7 +106,8 @@ Button.propTypes = {
   arrow: _propTypes.default.oneOf(['left', 'right']),
   theme: _propTypes.default.object,
   disabled: _propTypes.default.bool,
-  noHover: _propTypes.default.bool
+  noHover: _propTypes.default.bool,
+  rounded: _propTypes.default.bool
 };
 Button.defaultProps = {
   content: 'button',
