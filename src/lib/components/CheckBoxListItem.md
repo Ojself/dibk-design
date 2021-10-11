@@ -15,6 +15,23 @@ Check box list item example:
 </CheckBoxListItem>
 ```
 
+Compact check box list item example:
+
+```js
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-1" compact>
+  Label for checked checkbox
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-2" compact>
+  Label for unchecked checkbox
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-3" contentOnly={true} compact>
+  Label for checked checkbox with content only
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-4" contentOnly={true} compact>
+  Label for unchecked checkbox with content only
+</CheckBoxListItem>
+```
+
 Themed Check box list item example:
 ```js
 import customTheme from 'data/customTheme';

@@ -6,7 +6,7 @@ import CheckBoxInput from './CheckBoxInput';
 class CheckBoxListItem extends React.Component {
   render() {
     return (
-      <div className={`${style.checkBoxListItem} ${this.props.checked ? style.checked : ''} ${this.props.contentOnly ? style.contentOnly : ''}`}>
+      <div className={`${style.checkBoxListItem} ${this.props.checked ? style.checked : ''} ${this.props.contentOnly ? style.contentOnly : ''} ${this.props.compact ? style.compact : ''}`}>
         <CheckBoxInput onChange={this.props.onChange} checked={this.props.checked} contentOnly={this.props.contentOnly} id={this.props.id} theme={this.props.theme}>
           {this.props.children}
         </CheckBoxInput>
@@ -22,7 +22,8 @@ CheckBoxListItem.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   contentOnly: PropTypes.bool,
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  compact: PropTypes.bool
 };
 CheckBoxListItem.defaultProps = {
   checked: false,

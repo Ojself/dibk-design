@@ -2,7 +2,6 @@
 
 :local(.checkBoxListItem) {
   @include box-sizing(content-box);
-  @include box-shadow(0 0 2px $color-dark-blue);
   @include border-radius(5px);
   @include transition(all 0.1s ease-in-out);
   display: -webkit-box;
@@ -19,13 +18,13 @@
   font-size: 1rem;
   color: #000;
 
-  &:not(:local(.contentOnly)) {
+  &:not(:local(.contentOnly)):not(:local(.compact)) {
+    @include box-shadow(0 0 2px $color-dark-blue);
     background: white;
     margin-bottom: 10px;
   }
 
   &:local(.contentOnly) {
-    @include box-shadow(none);
     cursor: auto;
     label {
       cursor: auto;
@@ -33,11 +32,11 @@
     }
   }
 
-  &:local(.checked):not(:local(.contentOnly)) {
+  &:local(.checked):not(:local(.contentOnly)):not(:local(.compact)) {
     @include box-shadow(0 0 0 1px $color-dark-blue, 0 0 4px 0 $color-dark-blue);
   }
 
-  &:not(:local(.checked)):not(:local(.contentOnly)):hover {
+  &:not(:local(.checked)):not(:local(.contentOnly)):not(:local(.compact)):hover {
     @include box-shadow(0 0 6px $color-dark-blue);
   }
 
