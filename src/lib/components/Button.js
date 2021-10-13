@@ -28,6 +28,7 @@ class Button extends React.Component {
   render() {
     let buttonProps = { ...this.props };
     delete buttonProps.noHover
+    delete buttonProps.rounded
     const themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
     const className = `${style.button} ${style[this.props.color]} ${style[this.props.size]} ${this.getArrowClass()} ${this.props.theme ? style.hasTheme : ''} ${this.props.noHover ? style.noHover : ''} ${this.props.rounded ? style.rounded : ''}`;
     return (<button {...buttonProps} className={className} style={themeStyle}>{this.props.content}</button>)
