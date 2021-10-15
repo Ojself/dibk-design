@@ -21,6 +21,8 @@ var _NavigationBarModule = _interopRequireDefault(require("./NavigationBar.modul
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -155,9 +157,13 @@ var NavigationBar = /*#__PURE__*/function (_React$Component) {
         alt: "DIBK logo",
         src: _dibkLogoMobile.default
       });
-      return logoLink && logoLink.length ? /*#__PURE__*/_react.default.createElement("a", {
+      var logoLinkProps = {
+        target: this.props.openLogoLinkInNewTab ? '_blank' : null,
+        rel: this.props.openLogoLinkInNewTab ? 'noopener noreferrer' : null
+      };
+      return logoLink && logoLink.length ? /*#__PURE__*/_react.default.createElement("a", _extends({}, logoLinkProps, {
         href: logoLink
-      }, logoElement) : logoElement;
+      }), logoElement) : logoElement;
     }
   }, {
     key: "render",
@@ -216,6 +222,9 @@ NavigationBar.propTypes = {
 
   /** Link for logo */
   logoLink: _propTypes.default.string,
+
+  /** Opens logo link in a new tab on click */
+  openLogoLinkInNewTab: _propTypes.default.bool,
 
   /** Theme for navigation bar */
   theme: _propTypes.default.object

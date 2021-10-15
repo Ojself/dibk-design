@@ -4,9 +4,20 @@ NavigationBar example:
 <NavigationBar primaryListItems={[{name: 'Primary item 1', listItems:['Sub item 1', 'Sub item 2']}, 'Primary item 2', {name: 'Primary item 3', href: '#'}]} secondaryListItems={['Secondary item 1', 'Secondary item 2']} />
 ```
 
+
 NavigationBar without list items example
 ```js
 <NavigationBar />
+```
+
+NavigationBar with logo link
+```js
+<NavigationBar logoLink="https://dibk.no/" />
+```
+
+NavigationBar with logo link that opens in new tab
+```js
+<NavigationBar logoLink="https://dibk.no/" openLogoLinkInNewTab />
 ```
 
 NavigationBar with child elements
