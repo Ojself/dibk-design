@@ -67,8 +67,13 @@ class NavigationBar extends React.Component {
     const logoElement = themeLogo && themeAppName
       ? <img alt={`${themeAppName} logo`} src={themeLogo} style={this.getLogoThemeStyle(this.props.theme)} />
       : <img alt='DIBK logo' src={logo} />;
+
+    const logoLinkProps = {
+      target: this.props.openLogoLinkInNewTab ? '_blank': null,
+      rel: this.props.openLogoLinkInNewTab ? 'noopener noreferrer' : null
+    }
     return logoLink && logoLink.length
-      ? (<a href={logoLink}>{logoElement}</a>)
+      ? (<a {...logoLinkProps} href={logoLink}>{logoElement}</a>)
       : logoElement
   }
   render () {
@@ -119,6 +124,8 @@ NavigationBar.propTypes = {
   secondaryListItems: PropTypes.array,
   /** Link for logo */
   logoLink: PropTypes.string,
+  /** Opens logo link in a new tab on click */
+  openLogoLinkInNewTab: PropTypes.bool,
   /** Theme for navigation bar */
   theme: PropTypes.object
 }
