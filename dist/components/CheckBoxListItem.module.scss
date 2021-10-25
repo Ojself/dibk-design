@@ -52,6 +52,7 @@
   }
 
   &:local(.compact){
+    display: table;
     label {
       padding: 4px;
     }

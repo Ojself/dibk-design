@@ -60,7 +60,8 @@ var Label = /*#__PURE__*/function (_React$Component) {
       var labelProps = _objectSpread({}, this.props);
 
       delete labelProps.inline;
-      var className = "".concat(_LabelModule.default.label, " ").concat(this.props.inline ? _LabelModule.default.inline : '');
+      delete labelProps.normalCursor;
+      var className = "".concat(_LabelModule.default.label, " ").concat(this.props.inline ? _LabelModule.default.inline : '', " ").concat(this.props.normalCursor ? _LabelModule.default.normalCursor : '');
       return /*#__PURE__*/_react.default.createElement("label", _extends({}, labelProps, {
         className: className
       }), this.props.children);
@@ -71,10 +72,12 @@ var Label = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 Label.propTypes = {
-  inline: _propTypes.default.bool
+  inline: _propTypes.default.bool,
+  normalCursor: _propTypes.default.bool
 };
 Label.defaultProps = {
-  inline: false
+  inline: false,
+  normalCursor: false
 };
 var _default = Label;
 exports.default = _default;

@@ -1,6 +1,5 @@
 :local(.label) {
     color: #000;
-    cursor: pointer;
     display: block;
     font-size: 1rem;
     font-weight: bold;
@@ -10,5 +9,8 @@
     overflow-wrap: break-word;
     &:local(.inline) {
         display: inline-block;
+    }
+    &:not(:local(.normalCursor)) {
+        cursor: pointer;
     }
 }
