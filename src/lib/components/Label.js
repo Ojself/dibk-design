@@ -6,18 +6,21 @@ class Label extends React.Component {
 
     render() {
         let labelProps = {...this.props};
-        delete labelProps.inline
-        const className = `${style.label} ${this.props.inline ? style.inline : ''}`;
+        delete labelProps.inline;
+        delete labelProps.normalCursor;
+        const className = `${style.label} ${this.props.inline ? style.inline : ''} ${this.props.normalCursor ? style.normalCursor : ''}`;
         return (<label {...labelProps} className={className}>{this.props.children}</label>)
     }
 }
 
 Label.propTypes = {
-    inline: PropTypes.bool
+    inline: PropTypes.bool,
+    normalCursor: PropTypes.bool
 }
 
 Label.defaultProps = {
-    inline: false
+    inline: false,
+    normalCursor: false
 }
 
 export default Label;
