@@ -15,10 +15,10 @@ class CheckBoxIcon extends React.Component {
       inlineStyle = {
         ...inlineStyle,
         color: getThemePaletteBackgroundColor(this.props.theme, 'primary'),
-        boxShadow: `0 0 0 1px ${getThemePaletteBackgroundColor(this.props.theme, 'primary')}`
+        boxShadow: `0 0 0 1px ${getThemePaletteBackgroundColor(this.props.theme, 'primary')}` // TODO: support theme error color
       }
     }
-    return (<span className={`${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.showBox ? style.showBox : ''}`} style={inlineStyle}>
+    return (<span className={`${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`} style={inlineStyle}>
       <span className={style.checkmark}>{this.props.checked ? '✔' : ''}</span>
     </span>)
   }
@@ -28,13 +28,15 @@ CheckBoxIcon.propTypes = {
   size: PropTypes.string,
   checked: PropTypes.bool,
   showBox: PropTypes.bool,
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  hasErrors: PropTypes.bool
 }
 
 CheckBoxIcon.defaultProps = {
   size: '20px',
   checked: false,
-  showBox: true
+  showBox: true,
+  hasErrors: false
 }
 
 export default CheckBoxIcon;
