@@ -66,12 +66,13 @@ var CheckBoxIcon = /*#__PURE__*/function (_React$Component) {
       if (this.props.theme && this.props.checked) {
         inlineStyle = _objectSpread(_objectSpread({}, inlineStyle), {}, {
           color: (0, _theme.getThemePaletteBackgroundColor)(this.props.theme, 'primary'),
-          boxShadow: "0 0 0 1px ".concat((0, _theme.getThemePaletteBackgroundColor)(this.props.theme, 'primary'))
+          boxShadow: "0 0 0 1px ".concat((0, _theme.getThemePaletteBackgroundColor)(this.props.theme, 'primary')) // TODO: support theme error color
+
         });
       }
 
       return /*#__PURE__*/_react.default.createElement("span", {
-        className: "".concat(_CheckBoxIconModule.default.checkBoxIcon, " ").concat(this.props.checked ? _CheckBoxIconModule.default.checked : '', " ").concat(this.props.showBox ? _CheckBoxIconModule.default.showBox : ''),
+        className: "".concat(_CheckBoxIconModule.default.checkBoxIcon, " ").concat(this.props.checked ? _CheckBoxIconModule.default.checked : '', " ").concat(this.props.showBox ? _CheckBoxIconModule.default.showBox : '', " ").concat(this.props.hasErrors ? _CheckBoxIconModule.default.hasErrors : ''),
         style: inlineStyle
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: _CheckBoxIconModule.default.checkmark
@@ -86,12 +87,14 @@ CheckBoxIcon.propTypes = {
   size: _propTypes.default.string,
   checked: _propTypes.default.bool,
   showBox: _propTypes.default.bool,
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  hasErrors: _propTypes.default.bool
 };
 CheckBoxIcon.defaultProps = {
   size: '20px',
   checked: false,
-  showBox: true
+  showBox: true,
+  hasErrors: false
 };
 var _default = CheckBoxIcon;
 exports.default = _default;

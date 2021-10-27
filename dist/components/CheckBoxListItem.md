@@ -30,6 +30,12 @@ Compact check box list item example:
 <CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-4" contentOnly={true} compact>
   Label for unchecked checkbox with content only
 </CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-3" compact hasErrors>
+  Label for checked checkbox with content only
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-4" compact hasErrors>
+  Label for unchecked checkbox with content only
+</CheckBoxListItem>
 ```
 
 Themed Check box list item example:

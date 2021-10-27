@@ -52,11 +52,12 @@ var CheckBoxInput = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("label", {
-        className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(this.props.contentOnly ? _CheckBoxInputModule.default.contentOnly : ''),
+        className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(this.props.contentOnly ? _CheckBoxInputModule.default.contentOnly : '', " ").concat(this.props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ''),
         htmlFor: this.props.id
       }, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, {
         checked: this.props.checked,
-        theme: this.props.theme
+        theme: this.props.theme,
+        hasErrors: this.props.hasErrors
       }), /*#__PURE__*/_react.default.createElement("input", {
         onChange: this.props.onChange,
         type: "checkbox",
@@ -80,12 +81,14 @@ CheckBoxInput.propTypes = {
   name: _propTypes.default.string,
   onChange: _propTypes.default.func.isRequired,
   contentOnly: _propTypes.default.bool,
+  hasErrors: _propTypes.default.bool,
   theme: _propTypes.default.object
 };
 CheckBoxInput.defaultProps = {
   checked: false,
   name: '',
-  contentOnly: false
+  contentOnly: false,
+  hasErrors: false
 };
 var _default = CheckBoxInput;
 exports.default = _default;

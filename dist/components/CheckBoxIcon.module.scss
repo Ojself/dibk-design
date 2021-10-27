@@ -15,16 +15,26 @@
   text-align: center;
 
   &:local(.showBox) {
-    @include box-shadow(0 0 0 1px #afaba8);
     margin-right: 0.4em;
     margin-top: 2px;
     background: white;
+    &:not(:local(.hasErrors)) {
+      @include box-shadow(0 0 0 1px #afaba8);
+    }
+    &:local(.hasErrors) {
+      @include box-shadow(0 0 2px 1px #9d2024);
+    }
   }
 
   &:local(.checked) {
     color: $color-primary;
     &:local(.showBox) {
-      @include box-shadow(0 0 0 1px $color-dark-blue);
+      &:not(:local(.hasErrors)) {
+        @include box-shadow(0 0 0 1px #afaba8);
+      }
+      &:local(.hasErrors) {
+        @include box-shadow(0 0 2px 1px #9d2024);
+      }
     }
   }
 
