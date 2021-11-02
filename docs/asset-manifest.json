@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.c7951f4f.chunk.css",
-    "main.js": "/build/main.e8dccf9d.js",
+    "main.css": "/static/css/main.9f366480.chunk.css",
+    "main.js": "/build/main.38c591bd.js",
     "runtime-main.js": "/build/bundle.c0e43e4d.js",
     "static/css/2.8b558105.chunk.css": "/static/css/2.8b558105.chunk.css",
     "build/2.8a1ed290.js": "/build/2.8a1ed290.js",
     "build/2.8a1ed290.js.LICENSE.txt": "/build/2.8a1ed290.js.LICENSE.txt",
     "index.html": "/index.html",
     "static/css/2.8b558105.chunk.css.map": "/static/css/2.8b558105.chunk.css.map",
-    "static/css/main.c7951f4f.chunk.css.map": "/static/css/main.c7951f4f.chunk.css.map",
+    "static/css/main.9f366480.chunk.css.map": "/static/css/main.9f366480.chunk.css.map",
     "static/media/fonts.css": "/static/media/Altis.e9ee785b.ttf",
     "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.120629cc.svg",
     "static/media/dibk-logo.972e244e.svg": "/static/media/dibk-logo.972e244e.svg",
@@ -18,7 +18,7 @@
     "build/bundle.c0e43e4d.js",
     "static/css/2.8b558105.chunk.css",
     "build/2.8a1ed290.js",
-    "static/css/main.c7951f4f.chunk.css",
-    "build/main.e8dccf9d.js"
+    "static/css/main.9f366480.chunk.css",
+    "build/main.38c591bd.js"
   ]
 }
