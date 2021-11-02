@@ -57,7 +57,7 @@ class Textarea extends React.Component {
             {
                 !this.props.contentOnly
                     ? this.renderInputField()
-                    : <span>{this.renderValueAsText(this.props.value, this.props.defaultContent)}</span>
+                    : <span>{this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)}</span>
             }
             <span className={style.errorMessage} style={this.getThemeErrorMessageStyle(this.props.theme)}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
         </div>)
