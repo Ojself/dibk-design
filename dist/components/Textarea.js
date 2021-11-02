@@ -107,7 +107,7 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
         className: _TextareaModule.default.textarea
       }, /*#__PURE__*/_react.default.createElement(_Label.default, {
         htmlFor: this.props.id
-      }, this.props.label), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
+      }, this.props.label), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
         className: _TextareaModule.default.errorMessage,
         style: this.getThemeErrorMessageStyle(this.props.theme)
       }, this.props.errorMessage ? this.props.errorMessage : ''));

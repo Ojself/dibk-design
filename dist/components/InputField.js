@@ -172,7 +172,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         },
         content: this.props.buttonContent,
         theme: this.props.theme
-      }) : '') : ''), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
+      }) : '') : ''), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
         className: _InputFieldModule.default.errorMessage,
         style: this.getThemeErrorMessageStyle(this.props.theme)
       }, this.props.errorMessage ? this.props.errorMessage : ''));
