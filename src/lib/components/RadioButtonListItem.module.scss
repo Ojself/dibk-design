@@ -15,7 +15,7 @@
   cursor: pointer;
   font-family: $default-font;
   position: relative;
-  font-size: 1rem;
+  font-size: 17px;
   color: #000;
 
   &:not(:local(.contentOnly)):not(:local(.compact)) {
@@ -54,7 +54,7 @@
   &:local(.compact) {
     display: table;
     label {
-      padding: 4px;
+      padding: 6px 4px;
     }
   }
 
