@@ -111,7 +111,7 @@ var Dialog = /*#__PURE__*/function (_React$Component) {
       }, this.props.closeButton ? /*#__PURE__*/_react.default.createElement("button", {
         onClick: this.props.onClickOutside,
         className: _DialogModule.default.closeButton
-      }, "Lukk") : '', /*#__PURE__*/_react.default.createElement("input", {
+      }) : '', /*#__PURE__*/_react.default.createElement("input", {
         type: "button",
         ref: this.setHiddenInputWrapperRef,
         className: _DialogModule.default.hidden,
