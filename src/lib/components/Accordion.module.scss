@@ -123,11 +123,12 @@
         position: relative;
         text-decoration: none;
         overflow-wrap: break-word;
-        font-weight: 500;
-        font-size: 20px;
         line-height: 1.7;
         cursor: pointer;
         :local(.panelText) {
+            font-family: $heading-font;
+            font-weight: bold;
+            font-size: 18px;
             flex: 1;
         }
         :local(.panelChevron) {
