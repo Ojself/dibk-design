@@ -56,11 +56,7 @@ class Dialog extends React.Component {
             <div ref={this.setWrapperRef} className={`${style.dialogContent} ${this.props.noPadding ? style.noPadding : ''}`} style={{ maxWidth: this.props.maxWidth }}>
                 {
                     this.props.closeButton
-                        ? (
-                            <button onClick={this.props.onClickOutside} className={style.closeButton}>
-                                Lukk
-                            </button>
-                        )
+                        ? <button onClick={this.props.onClickOutside} className={style.closeButton}></button>
                         : ''
                 }
                 <input type="button" ref={this.setHiddenInputWrapperRef} className={style.hidden} autoFocus />
