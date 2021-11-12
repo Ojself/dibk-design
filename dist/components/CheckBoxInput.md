@@ -14,6 +14,9 @@ Checkbox input example:
 <CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-4" contentOnly={true}>
   <span>Unchecked checkbox with content only</span>
 </CheckBoxInput>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-5" checked={true} checkmarkCharacter="✕">
+  <span>Label for checked checkbox with custom checkmark</span>
+</CheckBoxInput>
 </div>
 ```
 
@@ -34,6 +37,9 @@ import customTheme from 'data/customTheme';
 </CheckBoxInput>
 <CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-4" contentOnly={true} theme={customTheme}>
   <span>Unchecked checkbox with content only</span>
+</CheckBoxInput>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="themed-checkBoxInput-5" checked={true} checkmarkCharacter="✕" theme={customTheme}>
+  <span>Label for checked checkbox with custom checkmark</span>
 </CheckBoxInput>
 </div>
 ```
