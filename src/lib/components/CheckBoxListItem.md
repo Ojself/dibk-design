@@ -13,6 +13,9 @@ Check box list item example:
 <CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="checkboxListItem-4" contentOnly={true}>
   Label for unchecked checkbox with content only
 </CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="checkboxListItem-5" checkmarkCharacter="✕">
+  Label for checked checkbox with custom checkmark
+</CheckBoxListItem>
 ```
 
 Compact check box list item example:
@@ -36,6 +39,9 @@ Compact check box list item example:
 <CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-4" compact hasErrors>
   Label for unchecked checkbox with content only
 </CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-5" compact checkmarkCharacter="✕">
+  Label for checked checkbox with custom checkmark
+</CheckBoxListItem>
 ```
 
 Themed Check box list item example:
@@ -53,6 +59,9 @@ import customTheme from 'data/customTheme';
   </CheckBoxListItem>
   <CheckBoxListItem onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkboxListItem-4" contentOnly={true} theme={customTheme}>
     Label for unchecked checkbox with content only
+  </CheckBoxListItem>
+  <CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="themed-checkbox" id="themed-checkboxListItem-5" checkmarkCharacter="✕" theme={customTheme}>
+    Label for checked checkbox with custom checkmark
   </CheckBoxListItem>
 </React.Fragment>
 ```

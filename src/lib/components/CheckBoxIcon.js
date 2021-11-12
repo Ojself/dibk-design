@@ -19,7 +19,7 @@ class CheckBoxIcon extends React.Component {
       }
     }
     return (<span className={`${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`} style={inlineStyle}>
-      <span className={style.checkmark}>{this.props.checked ? '✔' : ''}</span>
+      <span className={style.checkmark}>{this.props.checked ? this.props.checkmarkCharacter : ''}</span>
     </span>)
   }
 }
@@ -29,14 +29,16 @@ CheckBoxIcon.propTypes = {
   checked: PropTypes.bool,
   showBox: PropTypes.bool,
   theme: PropTypes.object,
-  hasErrors: PropTypes.bool
+  hasErrors: PropTypes.bool,
+  checkmarkCharacter: PropTypes.string
 }
 
 CheckBoxIcon.defaultProps = {
   size: '20px',
   checked: false,
   showBox: true,
-  hasErrors: false
+  hasErrors: false,
+  checkmarkCharacter: '✔'
 }
 
 export default CheckBoxIcon;

@@ -7,7 +7,7 @@ class CheckBoxListItem extends React.Component {
   render() {
     return (
       <div className={`${style.checkBoxListItem} ${this.props.checked ? style.checked : ''} ${this.props.contentOnly ? style.contentOnly : ''} ${this.props.compact ? style.compact : ''} ${this.props.hasErrors ? style.hasErrors : ''}`}>
-        <CheckBoxInput onChange={this.props.onChange} checked={this.props.checked} contentOnly={this.props.contentOnly} hasErrors={this.props.hasErrors} id={this.props.id} theme={this.props.theme}>
+        <CheckBoxInput onChange={this.props.onChange} checked={this.props.checked} contentOnly={this.props.contentOnly} hasErrors={this.props.hasErrors} id={this.props.id} theme={this.props.theme} checkmarkCharacter={this.props.checkmarkCharacter}>
           {this.props.children}
         </CheckBoxInput>
       </div>
@@ -24,13 +24,15 @@ CheckBoxListItem.propTypes = {
   contentOnly: PropTypes.bool,
   theme: PropTypes.object,
   compact: PropTypes.bool,
-  hasErrors: PropTypes.bool
+  hasErrors: PropTypes.bool,
+  checkmarkCharacter: PropTypes.string
 };
 CheckBoxListItem.defaultProps = {
   checked: false,
   id: '',
   name: '',
   contentOnly: false,
-  hasErrors: false
+  hasErrors: false,
+  checkmarkCharacter: '✔'
 };
 export default CheckBoxListItem;

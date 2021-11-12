@@ -9,10 +9,10 @@ class CheckBoxInput extends React.Component {
       {
         !this.props.contentOnly
           ? (<React.Fragment>
-            <CheckBoxIcon checked={this.props.checked} theme={this.props.theme} hasErrors={this.props.hasErrors}/>
-            <input onChange={this.props.onChange} type="checkbox" name={this.props.name} id={this.props.id} checked={this.props.checked}/>
+            <CheckBoxIcon checked={this.props.checked} theme={this.props.theme} hasErrors={this.props.hasErrors} checkmarkCharacter={this.props.checkmarkCharacter} />
+            <input onChange={this.props.onChange} type="checkbox" name={this.props.name} id={this.props.id} checked={this.props.checked} />
           </React.Fragment>)
-          : <CheckBoxIcon checked={this.props.checked} showBox={false} theme={this.props.theme}/>
+          : <CheckBoxIcon checked={this.props.checked} showBox={false} theme={this.props.theme} />
       }
       <span>{this.props.children}</span>
     </label>)
@@ -26,12 +26,14 @@ CheckBoxInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   contentOnly: PropTypes.bool,
   hasErrors: PropTypes.bool,
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  checkmarkCharacter: PropTypes.string
 };
 CheckBoxInput.defaultProps = {
   checked: false,
   name: '',
   contentOnly: false,
-  hasErrors: false
+  hasErrors: false,
+  checkmarkCharacter: '✔'
 };
 export default CheckBoxInput;
