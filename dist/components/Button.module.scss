@@ -106,8 +106,7 @@
   &:disabled {
     &:local(.hasTheme),
     &:not(:local(.hasTheme)) {
-      &:local(.default),
-      &:local(.primary) {
+      &:local(.default) {
         background-color: #fff;
         cursor: default;
         opacity: 0.6;
@@ -129,6 +128,30 @@
         &:before,
         &:after {
           border-color: #afaba8;
+        }
+      }
+      &:local(.primary) {
+        background-color: $color-primary;
+        cursor: default;
+        opacity: 0.6;
+        color: #fff;
+        border: 1px solid $color-primary;
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $color-primary;
+          cursor: default;
+          opacity: 0.6;
+          color: #fff;
+          border: 1px solid $color-primary;
+          &:before,
+          &:after {
+            border-color: $color-primary;
+          }
+        }
+        &:before,
+        &:after {
+          border-color: $color-primary;
         }
       }
     }
