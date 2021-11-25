@@ -79,6 +79,8 @@ class InputField extends _react.default.Component {
         selectsEnd: this.props.selectsEnd,
         startDate: this.props.startDate ? new Date(this.props.startDate) : null,
         endDate: this.props.endDate ? new Date(this.props.endDate) : null,
+        minDate: this.props.minDate || null,
+        maxDate: this.props.maxDate || null,
         onChange: this.props.onChange ? date => this.props.onChange(date) : console.log("Missing onChange handler for date picker with id: ".concat(this.props.id)),
         onBlur: this.props.onBlur ? date => this.props.onBlur(date) : null,
         selected: value ? new Date(value) : null,

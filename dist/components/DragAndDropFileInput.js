@@ -95,6 +95,14 @@ class DragAndDropFileInput extends _react.default.Component {
   }
 
   render() {
+    let buttonContent;
+
+    if (this.props.selectedFileName) {
+      buttonContent = this.props.buttonContentWhenSelectedFile ? this.props.buttonContentWhenSelectedFile : this.props.buttonContent;
+    } else {
+      buttonContent = this.props.buttonContent;
+    }
+
     return /*#__PURE__*/_react.default.createElement("div", {
       className: _DragAndDropFileInputModule.default.dragAndDropFileInput
     }, /*#__PURE__*/_react.default.createElement("label", {
@@ -102,16 +110,16 @@ class DragAndDropFileInput extends _react.default.Component {
     }, this.props.label, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("div", {
       ref: this.setWrapperRef,
       className: "".concat(_DragAndDropFileInputModule.default.dragAndDropContainer, " ").concat(this.state.highlight ? _DragAndDropFileInputModule.default.highlighted : '')
-    }, this.props.selectedFileName ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("b", null, "Valgt fil:"), " ", this.props.selectedFileName)) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, "Slipp fil her"), /*#__PURE__*/_react.default.createElement("input", {
+    }, this.props.selectedFileName ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("b", null, "Valgt fil:"), " ", this.props.selectedFileName)) : /*#__PURE__*/_react.default.createElement("div", null, "Slipp fil her"), /*#__PURE__*/_react.default.createElement("input", {
       ref: this.setFileInputElementRef,
       type: "file",
       onChange: this.props.onSelectChange
-    }), this.props.buttonContent ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, "eller klikk p\xE5 knappen for \xE5 velge fil"), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    }), this.props.buttonContent ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, this.props.selectedFileName ? '' : 'eller klikk på knappen for å velge fil'), /*#__PURE__*/_react.default.createElement(_Button.default, {
       size: "small",
       color: this.props.buttonColor,
       onClick: () => this.handleAddButtonOnClick(),
-      content: this.props.buttonContent
-    })) : '')) : ''), this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.selectedFileName, this.props.defaultContent)) : '', /*#__PURE__*/_react.default.createElement("span", {
+      content: buttonContent
+    })) : '') : ''), this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.selectedFileName, this.props.defaultContent)) : '', /*#__PURE__*/_react.default.createElement("span", {
       className: _DragAndDropFileInputModule.default.errorMessage
     }, this.props.errorMessage ? this.props.errorMessage : ''));
   }
@@ -127,6 +135,7 @@ DragAndDropFileInput.propTypes = {
   contentOnly: _propTypes.default.bool,
   buttonColor: _propTypes.default.string,
   buttonContent: _propTypes.default.string,
+  buttonContentWhenSelectedFile: _propTypes.default.string,
   selectedFileName: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
