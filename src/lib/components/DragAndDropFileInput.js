@@ -7,17 +7,17 @@ import style from './DragAndDropFileInput.module.scss';
 
 class DragAndDropFileInput extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          highlight: false
-        };
-        this.setWrapperRef = this.setWrapperRef.bind(this);
-        this.setFileInputElementRef = this.setFileInputElementRef.bind(this);
-        this.highlight = this.highlight.bind(this);
-        this.unhighlight = this.unhighlight.bind(this);
-        this.handleDrop = this.handleDrop.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      highlight: false
+    };
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.setFileInputElementRef = this.setFileInputElementRef.bind(this);
+    this.highlight = this.highlight.bind(this);
+    this.unhighlight = this.unhighlight.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
+  }
 
   componentDidMount() {
     const containerElement = this.containerElement;
@@ -51,17 +51,17 @@ class DragAndDropFileInput extends React.Component {
     this.fileInputElement = node;
   }
 
-  preventDefaults (e) {
+  preventDefaults(e) {
     e.preventDefault()
     e.stopPropagation()
   }
 
   highlight(e) {
-    this.setState({highlight: true});
+    this.setState({ highlight: true });
   }
 
   unhighlight(e) {
-    this.setState({highlight: false});
+    this.setState({ highlight: false });
   }
 
   handleDrop(e) {
@@ -70,16 +70,16 @@ class DragAndDropFileInput extends React.Component {
   }
 
   handleFiles(files) {
-   this.props.onDragAndDropChange(files);
+    this.props.onDragAndDropChange(files);
   }
 
   renderValueAsText(value, defaultContent) {
     return value
-        ? value
-        : defaultContent;
+      ? value
+      : defaultContent;
   }
 
-  handleAddButtonOnClick(){
+  handleAddButtonOnClick() {
     this.fileInputElement.click();
   }
 
@@ -88,33 +88,44 @@ class DragAndDropFileInput extends React.Component {
   }
 
   render() {
+    let buttonContent;
+    if (this.props.selectedFileName) {
+      buttonContent = this.props.buttonContentWhenSelectedFile ? this.props.buttonContentWhenSelectedFile : this.props.buttonContent
+    } else {
+      buttonContent = this.props.buttonContent
+    }
     return (<div className={style.dragAndDropFileInput}>
       <label htmlFor={this.props.id}>
         {this.props.label}
-        { !this.props.contentOnly
+        {!this.props.contentOnly
           ? (
             <div ref={this.setWrapperRef} className={`${style.dragAndDropContainer} ${this.state.highlight ? style.highlighted : ''}`}>
-                  {this.props.selectedFileName
-                    ? (<div>
+              {
+                this.props.selectedFileName
+                  ? (
+                    <div>
                       <span><b>Valgt fil:</b> {this.props.selectedFileName}</span>
-                    </div>)
-                    : (
+                    </div>
+                  )
+                  : (
+                    <div>Slipp fil her</div>
+                  )
+              }
+              <input ref={this.setFileInputElementRef} type="file" onChange={this.props.onSelectChange} />
+              {
+                this.props.buttonContent
+                  ? (
                     <React.Fragment>
-                      <div>Slipp fil her</div>
-                      <input ref={this.setFileInputElementRef} type="file" onChange={this.props.onSelectChange}/>
-                        {
-                          this.props.buttonContent
-                            ? (
-                              <React.Fragment>
-                                <div>eller klikk på knappen for å velge fil</div>
-                                <Button size='small' color={this.props.buttonColor} onClick={() => this.handleAddButtonOnClick()} content={this.props.buttonContent}/>
-                              </React.Fragment>
-                            )
-                            : ''
-                        }
-                    </React.Fragment>)
-                  }
-
+                      <div>{this.props.selectedFileName ? '' : 'eller klikk på knappen for å velge fil'}</div>
+                      <Button
+                        size='small'
+                        color={this.props.buttonColor}
+                        onClick={() => this.handleAddButtonOnClick()}
+                        content={buttonContent} />
+                    </React.Fragment>
+                  )
+                  : ''
+              }
             </div>
           ) : ''
         }
@@ -144,6 +155,7 @@ DragAndDropFileInput.propTypes = {
   contentOnly: PropTypes.bool,
   buttonColor: PropTypes.string,
   buttonContent: PropTypes.string,
+  buttonContentWhenSelectedFile: PropTypes.string,
   selectedFileName: PropTypes.string,
   defaultContent: PropTypes.string,
   hasErrors: PropTypes.bool,
@@ -163,7 +175,7 @@ DragAndDropFileInput.defaultProps = {
   buttonColor: 'default',
   defaultContent: '',
   hasErrors: false,
-  errorMessage : '',
+  errorMessage: '',
   mandatory: false
 };
 
