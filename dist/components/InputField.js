@@ -85,10 +85,11 @@ class InputField extends _react.default.Component {
         onBlur: this.props.onBlur ? date => this.props.onBlur(date) : null,
         selected: value ? new Date(value) : null,
         placeholderText: this.props.placeholder,
-        className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : '',
-        style: styleRules
+        className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''
       };
-      return /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, props);
+      return /*#__PURE__*/_react.default.createElement("div", {
+        style: styleRules
+      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, props));
     } else {
       const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
       const props = {
