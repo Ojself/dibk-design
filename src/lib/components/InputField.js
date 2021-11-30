@@ -60,10 +60,9 @@ class InputField extends React.Component {
         onBlur: this.props.onBlur ? date => this.props.onBlur(date) : null,
         selected: value ? new Date(value) : null,
         placeholderText: this.props.placeholder,
-        className: this.props.hasErrors ? style.hasErrors : '',
-        style: styleRules
+        className: this.props.hasErrors ? style.hasErrors : ''
       }
-      return <DatePicker {...props} />
+      return <div style={styleRules}><DatePicker {...props} /></div>
     } else {
       const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
       const props = {
