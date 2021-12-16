@@ -5,145 +5,145 @@ Object.defineProperty(exports, "__esModule", {
 });
 Object.defineProperty(exports, "Accordion", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Accordion.default;
   }
 });
 Object.defineProperty(exports, "Button", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Button.default;
   }
 });
 Object.defineProperty(exports, "CheckBoxIcon", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _CheckBoxIcon.default;
   }
 });
 Object.defineProperty(exports, "CheckBoxInput", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _CheckBoxInput.default;
   }
 });
 Object.defineProperty(exports, "CheckBoxListItem", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _CheckBoxListItem.default;
   }
 });
 Object.defineProperty(exports, "ContentBox", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _ContentBox.default;
   }
 });
 Object.defineProperty(exports, "Dialog", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Dialog.default;
   }
 });
 Object.defineProperty(exports, "DragAndDropFileInput", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _DragAndDropFileInput.default;
   }
 });
 Object.defineProperty(exports, "Footer", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Footer.default;
   }
 });
 Object.defineProperty(exports, "Header", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Header.default;
   }
 });
 Object.defineProperty(exports, "InputField", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _InputField.default;
   }
 });
 Object.defineProperty(exports, "Label", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Label.default;
   }
 });
 Object.defineProperty(exports, "List", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _List.default;
   }
 });
 Object.defineProperty(exports, "LoadingAnimation", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _LoadingAnimation.default;
   }
 });
 Object.defineProperty(exports, "NavigationBar", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _NavigationBar.default;
   }
 });
 Object.defineProperty(exports, "NavigationBarListItem", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _NavigationBarListItem.default;
   }
 });
 Object.defineProperty(exports, "Paper", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Paper.default;
   }
 });
 Object.defineProperty(exports, "RadioButtonIcon", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _RadioButtonIcon.default;
   }
 });
 Object.defineProperty(exports, "RadioButtonInput", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _RadioButtonInput.default;
   }
 });
 Object.defineProperty(exports, "RadioButtonListItem", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _RadioButtonListItem.default;
   }
 });
 Object.defineProperty(exports, "Select", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Select.default;
   }
 });
 Object.defineProperty(exports, "Textarea", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Textarea.default;
   }
 });
 Object.defineProperty(exports, "WizardNavigation", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _WizardNavigation.default;
   }
 });
 Object.defineProperty(exports, "WizardNavigationStep", {
   enumerable: true,
-  get: function () {
+  get: function get() {
     return _Step.default;
   }
 });

@@ -16,6 +16,15 @@ Check box list item example:
 <CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="checkboxListItem-5" checkmarkCharacter="✕">
   Label for checked checkbox with custom checkmark
 </CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="checkboxListItem-6" disabled={true}>
+  Label for disabled checked checkbox
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="checkboxListItem-7" disabled={true}>
+  Label for disabled unchecked checkbox
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="checkboxListItem-8" checkmarkCharacter="✕" disabled={true}>
+  Label for disabled checked checkbox with custom checkmark
+</CheckBoxListItem>
 ```
 
 Compact check box list item example:
@@ -33,14 +42,20 @@ Compact check box list item example:
 <CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-4" contentOnly={true} compact>
   Label for unchecked checkbox with content only
 </CheckBoxListItem>
-<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-3" compact hasErrors>
-  Label for checked checkbox with content only
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-5" compact hasErrors>
+  Label for checked checkbox with error
 </CheckBoxListItem>
-<CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-4" compact hasErrors>
-  Label for unchecked checkbox with content only
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} name="checkbox" id="compact-checkboxListItem-6" compact hasErrors>
+  Label for unchecked checkbox with error
 </CheckBoxListItem>
-<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-5" compact checkmarkCharacter="✕">
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-7" compact checkmarkCharacter="✕">
   Label for checked checkbox with custom checkmark
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-8" compact disabled={true}>
+  Label for disabled checked checkbox
+</CheckBoxListItem>
+<CheckBoxListItem onChange={()=>{console.log('onchange')}} checked={true} name="checkbox" id="compact-checkboxListItem-9" compact hasErrors disabled={true}>
+  Label for disabled checked checkbox with error
 </CheckBoxListItem>
 ```
 

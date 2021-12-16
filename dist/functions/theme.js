@@ -5,61 +5,61 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getThemeTextColor = exports.getThemePaletteTextColor = exports.getThemePaletteBorderColor = exports.getThemePaletteBackgroundColor = exports.getThemeNavigationBarTextColor = exports.getThemeNavigationBarBackgroundColor = exports.getThemeLogoPadding = exports.getThemeLogo = exports.getThemeLinkColor = exports.getThemeAppName = void 0;
 
-const getThemePaletteBackgroundColor = (theme, color) => {
+var getThemePaletteBackgroundColor = function getThemePaletteBackgroundColor(theme, color) {
   return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].background ? theme.colors.palette[color].background : null;
 };
 
 exports.getThemePaletteBackgroundColor = getThemePaletteBackgroundColor;
 
-const getThemePaletteTextColor = (theme, color) => {
+var getThemePaletteTextColor = function getThemePaletteTextColor(theme, color) {
   return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].text ? theme.colors.palette[color].text : null;
 };
 
 exports.getThemePaletteTextColor = getThemePaletteTextColor;
 
-const getThemePaletteBorderColor = (theme, color) => {
+var getThemePaletteBorderColor = function getThemePaletteBorderColor(theme, color) {
   return theme && theme.colors && theme.colors.palette && theme.colors.palette[color] && theme.colors.palette[color].border ? theme.colors.palette[color].border : null;
 };
 
 exports.getThemePaletteBorderColor = getThemePaletteBorderColor;
 
-const getThemeNavigationBarBackgroundColor = theme => {
+var getThemeNavigationBarBackgroundColor = function getThemeNavigationBarBackgroundColor(theme) {
   return theme && theme.colors && theme.colors.navigationBar && theme.colors.navigationBar.background ? theme.colors.navigationBar.background : null;
 };
 
 exports.getThemeNavigationBarBackgroundColor = getThemeNavigationBarBackgroundColor;
 
-const getThemeNavigationBarTextColor = theme => {
+var getThemeNavigationBarTextColor = function getThemeNavigationBarTextColor(theme) {
   return theme && theme.colors && theme.colors.navigationBar && theme.colors.navigationBar.text ? theme.colors.navigationBar.text : null;
 };
 
 exports.getThemeNavigationBarTextColor = getThemeNavigationBarTextColor;
 
-const getThemeLogo = theme => {
+var getThemeLogo = function getThemeLogo(theme) {
   return theme && theme.logo ? theme.logo : null;
 };
 
 exports.getThemeLogo = getThemeLogo;
 
-const getThemeLogoPadding = theme => {
+var getThemeLogoPadding = function getThemeLogoPadding(theme) {
   return theme && theme.logoPadding ? theme.logoPadding : null;
 };
 
 exports.getThemeLogoPadding = getThemeLogoPadding;
 
-const getThemeAppName = theme => {
+var getThemeAppName = function getThemeAppName(theme) {
   return theme && theme.appName ? theme.appName : null;
 };
 
 exports.getThemeAppName = getThemeAppName;
 
-const getThemeTextColor = theme => {
+var getThemeTextColor = function getThemeTextColor(theme) {
   return theme && theme.colors && theme.colors.text ? theme.colors.text : null;
 };
 
 exports.getThemeTextColor = getThemeTextColor;
 
-const getThemeLinkColor = theme => {
+var getThemeLinkColor = function getThemeLinkColor(theme) {
   return theme && theme.colors && theme.colors.link ? theme.colors.link : null;
 };
 

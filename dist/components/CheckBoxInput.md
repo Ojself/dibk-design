@@ -5,16 +5,19 @@ Checkbox input example:
 <CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-1" checked={true}>
   <span>Label for checked checkbox</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-2">
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-2" checked={true} disabled={true}>
+  <span>Label for checked disabled checkbox</span>
+</CheckBoxInput>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-3">
   <span>Label for unchecked checkbox</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-3" checked={true} contentOnly={true}>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-4" checked={true} contentOnly={true}>
   <span>Checked checkbox with content only</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-4" contentOnly={true}>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-5" contentOnly={true}>
   <span>Unchecked checkbox with content only</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-5" checked={true} checkmarkCharacter="✕">
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-6" checked={true} checkmarkCharacter="✕">
   <span>Label for checked checkbox with custom checkmark</span>
 </CheckBoxInput>
 </div>
@@ -29,16 +32,19 @@ import customTheme from 'data/customTheme';
 <CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-1" checked={true} theme={customTheme}>
   <span>Label for checked checkbox</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-2" theme={customTheme}>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-2" checked={true} disabled={true} theme={customTheme}>
+  <span>Label for checked disabled checkbox</span>
+</CheckBoxInput>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-3" theme={customTheme}>
   <span>Label for unchecked checkbox</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-3" checked={true} contentOnly={true} theme={customTheme}>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-4" checked={true} contentOnly={true} theme={customTheme}>
   <span>Checked checkbox with content only</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-4" contentOnly={true} theme={customTheme}>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="themed-checkbox" id="themed-checkBoxInput-5" contentOnly={true} theme={customTheme}>
   <span>Unchecked checkbox with content only</span>
 </CheckBoxInput>
-<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="themed-checkBoxInput-5" checked={true} checkmarkCharacter="✕" theme={customTheme}>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="themed-checkBoxInput-6" checked={true} checkmarkCharacter="✕" theme={customTheme}>
   <span>Label for checked checkbox with custom checkmark</span>
 </CheckBoxInput>
 </div>
