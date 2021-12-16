@@ -5,8 +5,8 @@ import style from './RadioButtonListItem.module.scss';
 
 class RadioButtonListItem extends React.Component {
   render() {
-    return (<div className={`${style.radioButtonListItem} ${this.props.compact ? style.compact : ''}`}>
-    <RadioButtonInput onChange={this.props.onChange} inputValue={this.props.inputValue} checked={this.props.checked} contentOnly={this.props.contentOnly} id={this.props.id} theme={this.props.theme}>{this.props.children}</RadioButtonInput>
+    return (<div className={`${style.radioButtonListItem} ${this.props.disabled ? style.disabled : ''} ${this.props.compact ? style.compact : ''} ${this.props.contentOnly ? style.contentOnly : ''}`}>
+    <RadioButtonInput onChange={this.props.onChange} inputValue={this.props.inputValue} checked={this.props.checked} disabled={this.props.disabled} contentOnly={this.props.contentOnly} id={this.props.id} theme={this.props.theme}>{this.props.children}</RadioButtonInput>
     </div>)
   }
 }
@@ -15,6 +15,7 @@ RadioButtonListItem.propTypes = {
   /** Text content inside list item */
   inputValue: PropTypes.string.isRequired,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   name: PropTypes.string,
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func,
@@ -25,6 +26,7 @@ RadioButtonListItem.propTypes = {
 RadioButtonListItem.defaultProps = {
   name: '',
   checked: false,
+  disabled: false,
   contentOnly: false
 }
 

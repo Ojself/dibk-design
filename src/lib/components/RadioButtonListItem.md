@@ -5,7 +5,13 @@ Radio button list item example:
   Checked radio button
 </RadioButtonListItem>
 <RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="radio-button-list-item" id="radio-button-list-item-2">
-  Checked radio button
+  Unchecked radio button
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 1" name="radio-button-list-item" id="radio-button-list-item-3" checked={true} disabled={true}>
+  Disabled checked radio button
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="radio-button-list-item" id="radio-button-list-item-4" disabled={true}>
+  Disabled Unchecked radio button
 </RadioButtonListItem>
 ```
 
@@ -16,7 +22,13 @@ Compact radio button list item example:
   Checked radio button
 </RadioButtonListItem>
 <RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="compact-radio-button-list-item" id="compact-radio-button-list-item-2" compact>
-  Checked radio button
+  Unchecked radio button
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 1" name="compact-radio-button-list-item" id="compact-radio-button-list-item-3" checked={true} compact disabled={true}>
+  Disabled checked radio button
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="compact-radio-button-list-item" id="compact-radio-button-list-item-4" compact disabled={true}>
+  Disabled unchecked radio button
 </RadioButtonListItem>
 ```
 
@@ -29,7 +41,13 @@ import customTheme from 'data/customTheme';
     Checked radio button
   </RadioButtonListItem>
   <RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="themed-radio-button-list-item" id="themed-radio-button-list-item-2" theme={customTheme}>
-    Checked radio button
+    Unchecked radio button
+  </RadioButtonListItem>
+  <RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 1" name="themed-radio-button-list-item-" id="themed-radio-button-list-item-3" checked={true} theme={customTheme} disabled={true}>
+    Disabled checked radio button
+  </RadioButtonListItem>
+  <RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="themed-radio-button-list-item" id="themed-radio-button-list-item-4" theme={customTheme} disabled={true}>
+    Disabled unchecked radio button
   </RadioButtonListItem>
 </React.Fragment>
 ```
