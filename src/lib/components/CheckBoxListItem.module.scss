@@ -32,11 +32,17 @@
     }
   }
 
-  &:local(.checked):not(:local(.contentOnly)):not(:local(.compact)) {
+  &:local(.disabled) {
+    label {
+      cursor: auto;
+    }
+  }
+
+  &:local(.checked):not(:local(.contentOnly)):not(:local(.compact)):not(:local(.disabled)) {
     @include box-shadow(0 0 0 1px $color-dark-blue, 0 0 4px 0 $color-dark-blue);
   }
 
-  &:not(:local(.checked)):not(:local(.contentOnly)):not(:local(.compact)):hover {
+  &:not(:local(.checked)):not(:local(.contentOnly)):not(:local(.compact)):not(:local(.disabled)):hover {
     @include box-shadow(0 0 6px $color-dark-blue);
   }
 
