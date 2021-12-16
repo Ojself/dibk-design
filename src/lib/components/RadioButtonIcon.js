@@ -17,21 +17,21 @@ class RadioButtonIcon extends React.Component {
         boxShadow: `0 0 0 1px ${getThemePaletteBackgroundColor(this.props.theme, 'primary')}`
       }
     }
-    return (<span className={`${style.radioButtonIcon} ${this.props.checked
-        ? style.checked
-        : ''}`} style={inlineStyle}></span>)
+    return (<span className={`${style.radioButtonIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''}`} style={inlineStyle}></span>)
   }
 }
 
 RadioButtonIcon.propTypes = {
   size: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   theme: PropTypes.object
 }
 
 RadioButtonIcon.defaultProps = {
   size: '10px',
-  checked: false
+  checked: false,
+  disabled: false
 }
 
 export default RadioButtonIcon;
