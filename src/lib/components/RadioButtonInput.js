@@ -5,17 +5,15 @@ import style from './RadioButtonInput.module.scss';
 
 class RadioButtonInput extends React.Component {
   render() {
-    return (<label htmlFor={this.props.id} className={`${style.radioButtonInput} ${this.props.checked
-        ? style.checked
-        : ''}`}>
-        {
-          !this.props.contentOnly
-            ? (<React.Fragment>
-              <RadioButtonIcon checked={this.props.checked} theme={this.props.theme}/>
-              <input type="radio" onChange={this.props.onChange} id={this.props.id} name={this.props.name} value={this.props.inputValue} checked={this.props.checked} />
-            </React.Fragment>)
-            : ''
-        }
+    return (<label htmlFor={this.props.id} className={`${style.radioButtonInput} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''}`}>
+      {
+        !this.props.contentOnly
+          ? (<React.Fragment>
+            <RadioButtonIcon checked={this.props.checked} disabled={this.props.disabled} theme={this.props.theme} />
+            <input type="radio" onChange={this.props.onChange} id={this.props.id} name={this.props.name} value={this.props.inputValue} checked={this.props.checked} />
+          </React.Fragment>)
+          : ''
+      }
       <span>{this.props.children}</span>
     </label>)
   }
@@ -23,6 +21,7 @@ class RadioButtonInput extends React.Component {
 
 RadioButtonInput.propTypes = {
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   inputValue: PropTypes.string.isRequired,
   name: PropTypes.string,
   id: PropTypes.string.isRequired,
@@ -34,6 +33,7 @@ RadioButtonInput.propTypes = {
 RadioButtonInput.defaultProps = {
   name: '',
   checked: false,
+  disabled: false,
   contentOnly: false
 }
 
