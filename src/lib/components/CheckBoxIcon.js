@@ -18,7 +18,7 @@ class CheckBoxIcon extends React.Component {
         boxShadow: `0 0 0 1px ${getThemePaletteBackgroundColor(this.props.theme, 'primary')}` // TODO: support theme error color
       }
     }
-    return (<span className={`${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`} style={inlineStyle}>
+    return (<span className={`${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`} style={inlineStyle}>
       <span className={style.checkmark}>{this.props.checked ? this.props.checkmarkCharacter : ''}</span>
     </span>)
   }
@@ -27,6 +27,7 @@ class CheckBoxIcon extends React.Component {
 CheckBoxIcon.propTypes = {
   size: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   showBox: PropTypes.bool,
   theme: PropTypes.object,
   hasErrors: PropTypes.bool,
@@ -36,6 +37,7 @@ CheckBoxIcon.propTypes = {
 CheckBoxIcon.defaultProps = {
   size: '20px',
   checked: false,
+  disabled: false,
   showBox: true,
   hasErrors: false,
   checkmarkCharacter: '✔'
