@@ -4,8 +4,11 @@
   display: flex;
   margin-right: 1em;
 
-  &:not(:local(.contentOnly)) {
+  &:not(:local(.contentOnly)):not(:local(.disabled)) {
     cursor: pointer;
+    input {
+      cursor: pointer;
+    }
   }
 
   &:local(.hasErrors) {
