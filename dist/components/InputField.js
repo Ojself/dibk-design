@@ -101,7 +101,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "renderInputField",
-    value: function renderInputField() {
+    value: function renderInputField(defaultValue) {
       var _this$props$width,
           _this = this;
 
@@ -110,7 +110,6 @@ var InputField = /*#__PURE__*/function (_React$Component) {
       });
 
       if (this.props.type === 'date') {
-        var value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
         var props = {
           name: this.props.name,
           readOnly: this.props.readOnly,
@@ -130,7 +129,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
           onBlur: this.props.onBlur ? function (date) {
             return _this.props.onBlur(date);
           } : null,
-          selected: value ? new Date(value) : null,
+          selected: defaultValue ? new Date(defaultValue) : null,
           placeholderText: this.props.placeholder,
           className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''
         };
@@ -139,8 +138,6 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, props));
       } else {
         var _props2;
-
-        var defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
 
         var _props = (_props2 = {
           name: this.props.name,
@@ -160,6 +157,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var defaultValue = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[this.props.type])
       }, /*#__PURE__*/_react.default.createElement(_Label.default, {
@@ -175,7 +173,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         },
         content: this.props.buttonContent,
         theme: this.props.theme
-      }) : '') : ''), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
+      }) : '') : ''), !this.props.contentOnly ? this.renderInputField(defaultValue) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
         className: _InputFieldModule.default.errorMessage,
         style: this.getThemeErrorMessageStyle(this.props.theme)
       }, this.props.errorMessage ? this.props.errorMessage : ''));
