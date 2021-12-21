@@ -100,64 +100,61 @@ var InputField = /*#__PURE__*/function (_React$Component) {
       return this.props.type === 'date' ? value ? this.convertDateToString(value) : defaultContent : value ? value : defaultContent;
     }
   }, {
-    key: "renderInputField",
-    value: function renderInputField(defaultValue) {
+    key: "getInputElementProps",
+    value: function getInputElementProps(defaultValue, styleRules) {
+      var _ref;
+
+      return _ref = {
+        name: this.props.name,
+        readOnly: this.props.readOnly,
+        disabled: this.props.disabled,
+        type: this.props.type,
+        id: this.props.id,
+        onChange: this.props.onChange,
+        onBlur: this.props.onBlur
+      }, _defineProperty(_ref, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''), _defineProperty(_ref, 'aria-required', this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
+    }
+  }, {
+    key: "getDatePickerElementProps",
+    value: function getDatePickerElementProps(defaultValue) {
+      var _this = this;
+
+      return {
+        name: this.props.name,
+        readOnly: this.props.readOnly,
+        disabled: this.props.disabled,
+        id: this.props.id,
+        dateFormat: this.props.dateFormat,
+        locale: 'nb',
+        selectsStart: this.props.selectsStart,
+        selectsEnd: this.props.selectsEnd,
+        startDate: this.props.startDate ? new Date(this.props.startDate) : null,
+        endDate: this.props.endDate ? new Date(this.props.endDate) : null,
+        minDate: this.props.minDate || null,
+        maxDate: this.props.maxDate || null,
+        onChange: this.props.onChange ? function (date) {
+          return _this.props.onChange(date);
+        } : console.log("Missing onChange handler for date picker with id: ".concat(this.props.id)),
+        onBlur: this.props.onBlur ? function (date) {
+          return _this.props.onBlur(date);
+        } : null,
+        selected: defaultValue ? new Date(defaultValue) : null,
+        placeholderText: this.props.placeholder,
+        className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
       var _this$props$width,
-          _this = this;
+          _this2 = this;
+
+      var defaultValue = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
 
       var styleRules = _objectSpread(_objectSpread({}, this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), ((_this$props$width = this.props.width) === null || _this$props$width === void 0 ? void 0 : _this$props$width.length) && {
         maxWidth: this.props.width
       });
 
-      if (this.props.type === 'date') {
-        var props = {
-          name: this.props.name,
-          readOnly: this.props.readOnly,
-          disabled: this.props.disabled,
-          id: this.props.id,
-          dateFormat: this.props.dateFormat,
-          locale: 'nb',
-          selectsStart: this.props.selectsStart,
-          selectsEnd: this.props.selectsEnd,
-          startDate: this.props.startDate ? new Date(this.props.startDate) : null,
-          endDate: this.props.endDate ? new Date(this.props.endDate) : null,
-          minDate: this.props.minDate || null,
-          maxDate: this.props.maxDate || null,
-          onChange: this.props.onChange ? function (date) {
-            return _this.props.onChange(date);
-          } : console.log("Missing onChange handler for date picker with id: ".concat(this.props.id)),
-          onBlur: this.props.onBlur ? function (date) {
-            return _this.props.onBlur(date);
-          } : null,
-          selected: defaultValue ? new Date(defaultValue) : null,
-          placeholderText: this.props.placeholder,
-          className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''
-        };
-        return /*#__PURE__*/_react.default.createElement("div", {
-          style: styleRules
-        }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, props));
-      } else {
-        var _props2;
-
-        var _props = (_props2 = {
-          name: this.props.name,
-          readOnly: this.props.readOnly,
-          disabled: this.props.disabled,
-          type: this.props.type,
-          id: this.props.id,
-          onChange: this.props.onChange,
-          onBlur: this.props.onBlur
-        }, _defineProperty(_props2, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props2, "placeholder", this.props.placeholder), _defineProperty(_props2, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''), _defineProperty(_props2, 'aria-required', this.props.mandatory), _defineProperty(_props2, "style", styleRules), _props2);
-
-        return /*#__PURE__*/_react.default.createElement("input", _props);
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var defaultValue = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[this.props.type])
       }, /*#__PURE__*/_react.default.createElement(_Label.default, {
@@ -173,7 +170,9 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         },
         content: this.props.buttonContent,
         theme: this.props.theme
-      }) : '') : ''), !this.props.contentOnly ? this.renderInputField(defaultValue) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
+      }) : '') : ''), !this.props.contentOnly ? this.props.type === 'date' ? /*#__PURE__*/_react.default.createElement("div", {
+        style: styleRules
+      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, this.getDatePickerElementProps(defaultValue))) : /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
         className: _InputFieldModule.default.errorMessage,
         style: this.getThemeErrorMessageStyle(this.props.theme)
       }, this.props.errorMessage ? this.props.errorMessage : ''));
