@@ -36,13 +36,12 @@ class InputField extends React.Component {
         ? value
         : defaultContent;
   }
-  renderInputField() {
+  renderInputField(defaultValue) {
     const styleRules = {
       ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
       ...(this.props.width?.length && { maxWidth: this.props.width })
     };
     if (this.props.type === 'date') {
-      const value = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
       const props = {
         name: this.props.name,
         readOnly: this.props.readOnly,
@@ -58,13 +57,12 @@ class InputField extends React.Component {
         maxDate: this.props.maxDate || null,
         onChange: this.props.onChange ? date => this.props.onChange(date) : console.log(`Missing onChange handler for date picker with id: ${this.props.id}`),
         onBlur: this.props.onBlur ? date => this.props.onBlur(date) : null,
-        selected: value ? new Date(value) : null,
+        selected: defaultValue ? new Date(defaultValue) : null,
         placeholderText: this.props.placeholder,
         className: this.props.hasErrors ? style.hasErrors : ''
       }
       return <div style={styleRules}><DatePicker {...props} /></div>
     } else {
-      const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
       const props = {
         name: this.props.name,
         readOnly: this.props.readOnly,
@@ -83,6 +81,7 @@ class InputField extends React.Component {
     }
   }
   render() {
+    const defaultValue = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
     return (<div className={`${style.inputField} ${style[this.props.type]}`}>
       <Label htmlFor={this.props.id}>
         {this.props.label}
@@ -101,7 +100,7 @@ class InputField extends React.Component {
       </Label>
       {
         !this.props.contentOnly
-          ? this.renderInputField()
+          ? this.renderInputField(defaultValue)
           : <span>{this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)}</span>
       }
       <span className={style.errorMessage} style={this.getThemeErrorMessageStyle(this.props.theme)}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
