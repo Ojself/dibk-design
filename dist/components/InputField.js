@@ -110,6 +110,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         disabled: this.props.disabled,
         type: this.props.type,
         id: this.props.id,
+        key: "".concat(this.props.id).concat(defaultValue ? '-' + defaultValue : ''),
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
       }, _defineProperty(_ref, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''), _defineProperty(_ref, 'aria-required', this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
@@ -124,6 +125,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         readOnly: this.props.readOnly,
         disabled: this.props.disabled,
         id: this.props.id,
+        key: "".concat(this.props.id).concat(defaultValue ? '-' + defaultValue : ''),
         dateFormat: this.props.dateFormat,
         locale: 'nb',
         selectsStart: this.props.selectsStart,
