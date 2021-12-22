@@ -11,17 +11,19 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _Button = _interopRequireDefault(require("./Button"));
-
-var _Label = _interopRequireDefault(require("./Label"));
-
 var _reactDatepicker = _interopRequireWildcard(require("react-datepicker"));
 
 var _dateFns = require("date-fns");
 
 var _nb = _interopRequireDefault(require("date-fns/locale/nb"));
 
+var _Button = _interopRequireDefault(require("./Button"));
+
+var _Label = _interopRequireDefault(require("./Label"));
+
 var _theme = require("../functions/theme");
+
+var _generators = require("../functions/generators");
 
 require("react-datepicker/dist/react-datepicker.css");
 
@@ -110,7 +112,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         disabled: this.props.disabled,
         type: this.props.type,
         id: this.props.id,
-        key: "".concat(this.props.id).concat(defaultValue ? '-' + defaultValue : ''),
+        key: "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
       }, _defineProperty(_ref, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''), _defineProperty(_ref, 'aria-required', this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
@@ -125,7 +127,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         readOnly: this.props.readOnly,
         disabled: this.props.disabled,
         id: this.props.id,
-        key: "".concat(this.props.id).concat(defaultValue ? '-' + defaultValue : ''),
+        key: "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         dateFormat: this.props.dateFormat,
         locale: 'nb',
         selectsStart: this.props.selectsStart,

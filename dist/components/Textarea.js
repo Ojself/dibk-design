@@ -15,6 +15,8 @@ var _Label = _interopRequireDefault(require("./Label"));
 
 var _theme = require("../functions/theme");
 
+var _generators = require("../functions/generators");
+
 var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -95,6 +97,7 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
         disabled: this.props.disabled,
         type: this.props.type,
         id: this.props.id,
+        key: "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
       }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "placeholder", this.props.placeholder), _defineProperty(_props, "rows", this.props.rows), _defineProperty(_props, "className", this.props.hasErrors ? _TextareaModule.default.hasErrors : ''), _defineProperty(_props, 'aria-required', this.props.mandatory), _defineProperty(_props, "style", styleRules), _props);
