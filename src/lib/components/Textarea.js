@@ -1,7 +1,15 @@
+// Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// Components
 import Label from './Label';
+
+// Functions
 import { getThemePaletteBackgroundColor } from '../functions/theme';
+import { generateRandomString } from '../functions/generators';
+
+// Stylesheets
 import style from './Textarea.module.scss';
 
 
@@ -35,6 +43,7 @@ class Textarea extends React.Component {
             disabled: this.props.disabled,
             type: this.props.type,
             id: this.props.id,
+            key: `${this.props.id}-${generateRandomString(6)}`,
             onChange: this.props.onChange,
             onBlur: this.props.onBlur,
             [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,

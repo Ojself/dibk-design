@@ -1,8 +1,17 @@
+// Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// Components
 import Label from './Label';
+
+// Functions
 import { getThemePaletteBackgroundColor } from '../functions/theme';
+import { generateRandomString } from '../functions/generators';
+
+// Stylesheets
 import style from './Select.module.scss';
+
 
 class Select extends React.Component {
   getThemeErrorInputStyle(theme) {
@@ -96,6 +105,7 @@ class Select extends React.Component {
         [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
         onChange: this.props.onChange,
         id: this.props.id,
+        key: `${this.props.id}-${generateRandomString(6)}`,
         className: this.props.hasErrors ? style.hasErrors : '',
         style: styleRules
       }
