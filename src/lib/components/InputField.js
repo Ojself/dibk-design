@@ -1,16 +1,25 @@
+// Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
-import Label from './Label';
 import DatePicker from 'react-datepicker';
 import { registerLocale } from "react-datepicker";
 import { format } from 'date-fns';
 import nb from 'date-fns/locale/nb';
+
+// Components
+import Button from './Button';
+import Label from './Label';
+
+// Functions
 import { getThemePaletteBackgroundColor } from '../functions/theme';
+import { generateRandomString } from '../functions/generators';
+
+// Stylesheets
 import "react-datepicker/dist/react-datepicker.css";
 import style from './InputField.module.scss';
 
 registerLocale('nb', nb)
+
 
 class InputField extends React.Component {
   getThemeErrorInputStyle(theme) {
@@ -44,7 +53,7 @@ class InputField extends React.Component {
       disabled: this.props.disabled,
       type: this.props.type,
       id: this.props.id,
-      key: `${this.props.id}${defaultValue ? '-' + defaultValue : ''}`,
+      key: `${this.props.id}-${generateRandomString(6)}`,
       onChange: this.props.onChange,
       onBlur: this.props.onBlur,
       [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
@@ -61,7 +70,7 @@ class InputField extends React.Component {
       readOnly: this.props.readOnly,
       disabled: this.props.disabled,
       id: this.props.id,
-      key: `${this.props.id}${defaultValue ? '-' + defaultValue : ''}`,
+      key: `${this.props.id}-${generateRandomString(6)}`,
       dateFormat: this.props.dateFormat,
       locale: 'nb',
       selectsStart: this.props.selectsStart,
