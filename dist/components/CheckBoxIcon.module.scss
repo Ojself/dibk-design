@@ -29,6 +29,11 @@
 
   &:local(.checked) {
     color: $color-primary;
+    &:local(.hasErrors) {
+      span {
+        color: #9d2024;
+      }
+    }
     &:local(.showBox) {
       &:not(:local(.hasErrors)) {
         @include box-shadow(0 0 0 1px #afaba8);

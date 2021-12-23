@@ -52,13 +52,14 @@ var RadioButtonListItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("div", {
-        className: "".concat(_RadioButtonListItemModule.default.radioButtonListItem, " ").concat(this.props.disabled ? _RadioButtonListItemModule.default.disabled : '', " ").concat(this.props.compact ? _RadioButtonListItemModule.default.compact : '', " ").concat(this.props.contentOnly ? _RadioButtonListItemModule.default.contentOnly : '')
+        className: "".concat(_RadioButtonListItemModule.default.radioButtonListItem, " ").concat(this.props.disabled ? _RadioButtonListItemModule.default.disabled : '', " ").concat(this.props.compact ? _RadioButtonListItemModule.default.compact : '', " ").concat(this.props.contentOnly ? _RadioButtonListItemModule.default.contentOnly : '', " ").concat(this.props.hasErrors ? _RadioButtonListItemModule.default.hasErrors : '')
       }, /*#__PURE__*/_react.default.createElement(_RadioButtonInput.default, {
         onChange: this.props.onChange,
         inputValue: this.props.inputValue,
         checked: this.props.checked,
         disabled: this.props.disabled,
         contentOnly: this.props.contentOnly,
+        hasErrors: this.props.hasErrors,
         id: this.props.id,
         theme: this.props.theme
       }, this.props.children));
@@ -77,13 +78,15 @@ RadioButtonListItem.propTypes = {
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func,
   contentOnly: _propTypes.default.bool,
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  hasErrors: _propTypes.default.bool
 };
 RadioButtonListItem.defaultProps = {
   name: '',
   checked: false,
   disabled: false,
-  contentOnly: false
+  contentOnly: false,
+  hasErrors: false
 };
 var _default = RadioButtonListItem;
 exports.default = _default;

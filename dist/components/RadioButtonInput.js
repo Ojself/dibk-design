@@ -53,11 +53,12 @@ var RadioButtonInput = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("label", {
         htmlFor: this.props.id,
-        className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(this.props.checked ? _RadioButtonInputModule.default.checked : '', " ").concat(this.props.disabled ? _RadioButtonInputModule.default.disabled : '')
+        className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(this.props.checked ? _RadioButtonInputModule.default.checked : '', " ").concat(this.props.disabled ? _RadioButtonInputModule.default.disabled : '', " ").concat(this.props.hasErrors ? _RadioButtonInputModule.default.hasErrors : '')
       }, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_RadioButtonIcon.default, {
         checked: this.props.checked,
         disabled: this.props.disabled,
-        theme: this.props.theme
+        theme: this.props.theme,
+        hasErrors: this.props.hasErrors
       }), /*#__PURE__*/_react.default.createElement("input", {
         type: "radio",
         onChange: this.props.onChange,
@@ -80,13 +81,15 @@ RadioButtonInput.propTypes = {
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func,
   contentOnly: _propTypes.default.bool,
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  hasErrors: _propTypes.default.bool
 };
 RadioButtonInput.defaultProps = {
   name: '',
   checked: false,
   disabled: false,
-  contentOnly: false
+  contentOnly: false,
+  hasErrors: false
 };
 var _default = RadioButtonInput;
 exports.default = _default;
