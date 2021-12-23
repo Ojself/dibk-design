@@ -5,11 +5,11 @@ import style from './RadioButtonInput.module.scss';
 
 class RadioButtonInput extends React.Component {
   render() {
-    return (<label htmlFor={this.props.id} className={`${style.radioButtonInput} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''}`}>
+    return (<label htmlFor={this.props.id} className={`${style.radioButtonInput} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.hasErrors ? style.hasErrors : ''}`}>
       {
         !this.props.contentOnly
           ? (<React.Fragment>
-            <RadioButtonIcon checked={this.props.checked} disabled={this.props.disabled} theme={this.props.theme} />
+            <RadioButtonIcon checked={this.props.checked} disabled={this.props.disabled} theme={this.props.theme} hasErrors={this.props.hasErrors} />
             <input type="radio" onChange={this.props.onChange} id={this.props.id} name={this.props.name} value={this.props.inputValue} checked={this.props.checked} />
           </React.Fragment>)
           : ''
@@ -27,14 +27,16 @@ RadioButtonInput.propTypes = {
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   contentOnly: PropTypes.bool,
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  hasErrors: PropTypes.bool
 }
 
 RadioButtonInput.defaultProps = {
   name: '',
   checked: false,
   disabled: false,
-  contentOnly: false
+  contentOnly: false,
+  hasErrors: false
 }
 
 export default RadioButtonInput;

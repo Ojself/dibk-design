@@ -15,6 +15,23 @@ Radio button list item example:
 </RadioButtonListItem>
 ```
 
+Radio button with errors list item example:
+
+```js
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 1" name="radio-button-list-item-with-errors" id="radio-button-list-item-with-errors-1" checked={true} hasErrors={true}>
+  Checked radio button with errors
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="radio-button-list-item-with-errors" id="radio-button-list-item-with-errors-2" hasErrors={true}>
+  Unchecked radio button with errors
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 1" name="radio-button-list-item-with-errors" id="radio-button-list-item-with-errors-3" checked={true} disabled={true} hasErrors={true}>
+  Disabled checked radio button with errors
+</RadioButtonListItem>
+<RadioButtonListItem onChange={()=>{console.log('onchange')}} inputValue="value 2" name="radio-button-list-item-with-errors" id="radio-button-list-item-with-errors-4" disabled={true} hasErrors={true}>
+  Disabled Unchecked radio button with errors
+</RadioButtonListItem>
+```
+
 Compact radio button list item example:
 
 ```js

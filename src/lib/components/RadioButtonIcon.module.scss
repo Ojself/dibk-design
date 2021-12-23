@@ -2,7 +2,6 @@
 
 :local(.radioButtonIcon) {
   @include border-radius(50%);
-  @include box-shadow(0 0 0 1px #afaba8);
   @include transition(all 0.1s ease-in-out);
   @include box-sizing(content-box);
   display: inline-block;
@@ -16,9 +15,24 @@
   border: 0.3em solid white;
   cursor: pointer;
 
+  &:not(:local(.hasErrors)) {
+    @include box-shadow(0 0 0 1px #afaba8);
+  }
+  &:local(.hasErrors) {
+    @include box-shadow(0 0 2px 1px #9d2024);
+  }
+
   &:local(.checked) {
-    @include box-shadow(0 0 0 1px $color-dark-blue);
     background: $color-primary;
+    &:local(.hasErrors) {
+      background: #9d2024;
+    }
+    &:not(:local(.hasErrors)) {
+      @include box-shadow(0 0 0 1px $color-dark-blue);
+    }
+    &:local(.hasErrors) {
+      @include box-shadow(0 0 2px 1px #9d2024);
+    }
   }
   &:local(.disabled) {
     opacity: 0.5;
