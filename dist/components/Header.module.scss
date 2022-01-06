@@ -12,33 +12,33 @@
 		&:not(:local(.hasTheme)) {
 			color: $color-primary;
 		}
-	}
-	:local(h1.header) {
-		font-family: "Altis", sans-serif;
-		font-size: 38px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 1.43;
-		&:local(.bigHeader) {
-			font-family: "Altis-Light", "Open Sans", arial, sans-serif;
-			font-size: 50px;
-			line-height: 1.2;
-			overflow: hidden;
-			text-overflow: ellipsis;
+		&:local(.size-1) {
+			font-family: "Altis", sans-serif;
+			font-size: 38px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 1.43;
+			&:local(.bigHeader) {
+				font-family: "Altis-Light", "Open Sans", arial, sans-serif;
+				font-size: 50px;
+				line-height: 1.2;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 		}
-	}
-	:local(h2.header) {
-		font-family: "Altis", sans-serif;
-		font-size: 30px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 1.42;
-	}
-	:local(h3.header) {
-		font-family: "Open Sans", arial, sans-serif;
-		font-size: 22px;
-		font-style: normal;
-		font-weight: bold;
-		line-height: 1;
+		&:local(.size-2) {
+			font-family: "Altis", sans-serif;
+			font-size: 30px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 1.42;
+		}
+		&:local(.size-3) {
+			font-family: "Open Sans", arial, sans-serif;
+			font-size: 22px;
+			font-style: normal;
+			font-weight: bold;
+			line-height: 1;
+		}
 	}
 }

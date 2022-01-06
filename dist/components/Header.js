@@ -21,7 +21,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } Object.defineProperty(subClass, "prototype", { value: Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }), writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
@@ -49,11 +49,17 @@ var Header = /*#__PURE__*/function (_React$Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
+      var _this$props$htmlTag;
+
       var bigClass = this.props.big ? _HeaderModule.default.bigHeader : '';
       var themeClass = this.props.theme ? _HeaderModule.default.hasTheme : '';
+      var htmlTag = (_this$props$htmlTag = this.props.htmlTag) !== null && _this$props$htmlTag !== void 0 && _this$props$htmlTag.length ? this.props.htmlTag : "h".concat(this.props.size);
+      var headerClass = _HeaderModule.default.header;
 
-      var headerElement = /*#__PURE__*/_react.default.createElement('h' + this.props.size, {
-        className: "".concat(_HeaderModule.default.header, " ").concat(bigClass, " ").concat(themeClass)
+      var headerSizeClass = _HeaderModule.default["size-".concat(this.props.size)];
+
+      var headerElement = /*#__PURE__*/_react.default.createElement(htmlTag, {
+        className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass)
       }, this.props.content);
 
       return /*#__PURE__*/_react.default.createElement("div", {
@@ -70,6 +76,7 @@ Header.propTypes = {
   content: _propTypes.default.string.isRequired,
   size: _propTypes.default.oneOf([1, 2, 3, 4, 5]),
   big: _propTypes.default.bool,
+  htmlTag: _propTypes.default.string,
   theme: _propTypes.default.object
 };
 Header.defaultProps = {
