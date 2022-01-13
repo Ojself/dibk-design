@@ -32,18 +32,19 @@ class Textarea extends React.Component {
     }
     renderInputField() {
         const defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+        const defaultKey = this.props.elementKey || null;
         const styleRules = {
             ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
             ...(this.props.width?.length && { maxWidth: this.props.width }),
             ...(this.props.resize?.length && { resize: this.props.resize }),
-          };
+        };
         const props = {
             name: this.props.name,
             readOnly: this.props.readOnly,
             disabled: this.props.disabled,
             type: this.props.type,
             id: this.props.id,
-            key: `${this.props.id}-${generateRandomString(6)}`,
+            key: defaultKey || `${this.props.id}-${generateRandomString(6)}`,
             onChange: this.props.onChange,
             onBlur: this.props.onBlur,
             [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
@@ -84,6 +85,7 @@ Textarea.propTypes = {
     resize: PropTypes.string,
     value: PropTypes.string,
     defaultValue: PropTypes.string,
+    elementKey: PropTypes.string,
     rows: PropTypes.string,
     label: PropTypes.oneOfType([
         PropTypes.string,

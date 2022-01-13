@@ -13,6 +13,7 @@ Input field example:
 <Textarea id="textInput10" onChange={() => {console.log('onChange')}} label="Textarea without value, contentOnly set to true and defaultContent" contentOnly={true} defaultContent="Please insert a value" />
 <Textarea id="textInput11" onChange={()=>{console.log('onchange')}} value="Textarea with custom width" width="320px" />
 <Textarea id="textInput11" onChange={()=>{console.log('onchange')}} value="Textarea with custom width and vertical resizing" width="450px" resize="vertical" />
+<Textarea id="textInput11" onChange={()=>{console.log('onchange')}} value="Textarea with a not auto generated key" elementKey="textareaKeyHere" />
 ```
 
 Themed Input field example:
