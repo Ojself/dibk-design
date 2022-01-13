@@ -84,6 +84,7 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
       var _this$props$width, _this$props$resize, _props;
 
       var defaultValue = !this.props.value && this.props.defaultValue ? this.props.defaultValue : false;
+      var defaultKey = this.props.elementKey || null;
 
       var styleRules = _objectSpread(_objectSpread(_objectSpread({}, this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), ((_this$props$width = this.props.width) === null || _this$props$width === void 0 ? void 0 : _this$props$width.length) && {
         maxWidth: this.props.width
@@ -97,7 +98,7 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
         disabled: this.props.disabled,
         type: this.props.type,
         id: this.props.id,
-        key: "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
+        key: defaultKey || "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
       }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "placeholder", this.props.placeholder), _defineProperty(_props, "rows", this.props.rows), _defineProperty(_props, "className", this.props.hasErrors ? _TextareaModule.default.hasErrors : ''), _defineProperty(_props, 'aria-required', this.props.mandatory), _defineProperty(_props, "style", styleRules), _props);
@@ -131,6 +132,7 @@ Textarea.propTypes = {
   resize: _propTypes.default.string,
   value: _propTypes.default.string,
   defaultValue: _propTypes.default.string,
+  elementKey: _propTypes.default.string,
   rows: _propTypes.default.string,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
