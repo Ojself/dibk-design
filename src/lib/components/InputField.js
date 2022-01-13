@@ -46,14 +46,14 @@ class InputField extends React.Component {
         : defaultContent;
   }
 
-  getInputElementProps(defaultValue, styleRules) {
+  getInputElementProps(defaultValue, defaultKey, styleRules) {
     return {
       name: this.props.name,
       readOnly: this.props.readOnly,
       disabled: this.props.disabled,
       type: this.props.type,
       id: this.props.id,
-      key: `${this.props.id}-${generateRandomString(6)}`,
+      key: defaultKey || `${this.props.id}-${generateRandomString(6)}`,
       onChange: this.props.onChange,
       onBlur: this.props.onBlur,
       [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
@@ -64,13 +64,13 @@ class InputField extends React.Component {
     }
   }
 
-  getDatePickerElementProps(defaultValue) {
+  getDatePickerElementProps(defaultValue, defaultKey) {
     return {
       name: this.props.name,
       readOnly: this.props.readOnly,
       disabled: this.props.disabled,
       id: this.props.id,
-      key: `${this.props.id}-${generateRandomString(6)}`,
+      key: defaultKey || `${this.props.id}-${generateRandomString(6)}`,
       dateFormat: this.props.dateFormat,
       locale: 'nb',
       selectsStart: this.props.selectsStart,
@@ -89,6 +89,7 @@ class InputField extends React.Component {
 
   render() {
     const defaultValue = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
+    const defaultKey = this.props.elementKey || null;
     const styleRules = {
       ...this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null,
       ...(this.props.width?.length && { maxWidth: this.props.width })
@@ -113,10 +114,10 @@ class InputField extends React.Component {
         !this.props.contentOnly
           ? this.props.type === 'date'
             ? (
-              <div style={styleRules}><DatePicker {...this.getDatePickerElementProps(defaultValue)} /></div>
+              <div style={styleRules}><DatePicker {...this.getDatePickerElementProps(defaultValue, defaultKey)} /></div>
             )
             : (
-              <input {...this.getInputElementProps(defaultValue, styleRules)} />
+              <input {...this.getInputElementProps(defaultValue, defaultKey, styleRules)} />
             )
           : <span>{this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)}</span>
       }
@@ -135,6 +136,7 @@ InputField.propTypes = {
   width: PropTypes.string,
   value: PropTypes.any,
   defaultValue: PropTypes.any,
+  elementKey: PropTypes.string,
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.oneOfType([

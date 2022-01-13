@@ -23,6 +23,7 @@ Input field example:
 <InputField id="dateInput6" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value for end date" value="2020-05-19T13:12:04" selectsEnd startDate="2020-05-10T13:12:04" endDate="2020-05-19T13:12:04" />
 <InputField id="dateInput7" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with defaultContent and contentOnly set to true" contentOnly={true} defaultContent="Please insert a value" />
 <InputField id="textInput9" value="InputField with value and custom width" width="400px" />
+<InputField id="textInput10" value="InputField with a not auto generated key" elementKey="inputKeyHere" />
 ```
 
 Themed Input field example:
