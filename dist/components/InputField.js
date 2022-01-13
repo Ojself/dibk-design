@@ -103,7 +103,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "getInputElementProps",
-    value: function getInputElementProps(defaultValue, styleRules) {
+    value: function getInputElementProps(defaultValue, defaultKey, styleRules) {
       var _ref;
 
       return _ref = {
@@ -112,14 +112,14 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         disabled: this.props.disabled,
         type: this.props.type,
         id: this.props.id,
-        key: "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
+        key: defaultKey || "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
       }, _defineProperty(_ref, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''), _defineProperty(_ref, 'aria-required', this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
     }
   }, {
     key: "getDatePickerElementProps",
-    value: function getDatePickerElementProps(defaultValue) {
+    value: function getDatePickerElementProps(defaultValue, defaultKey) {
       var _this = this;
 
       return {
@@ -127,7 +127,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         readOnly: this.props.readOnly,
         disabled: this.props.disabled,
         id: this.props.id,
-        key: "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
+        key: defaultKey || "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         dateFormat: this.props.dateFormat,
         locale: 'nb',
         selectsStart: this.props.selectsStart,
@@ -154,6 +154,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
           _this2 = this;
 
       var defaultValue = this.props.defaultValue ? this.props.defaultValue : this.props.value || null;
+      var defaultKey = this.props.elementKey || null;
 
       var styleRules = _objectSpread(_objectSpread({}, this.props.hasErrors ? this.getThemeErrorInputStyle(this.props.theme) : null), ((_this$props$width = this.props.width) === null || _this$props$width === void 0 ? void 0 : _this$props$width.length) && {
         maxWidth: this.props.width
@@ -176,7 +177,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         theme: this.props.theme
       }) : '') : ''), !this.props.contentOnly ? this.props.type === 'date' ? /*#__PURE__*/_react.default.createElement("div", {
         style: styleRules
-      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, this.getDatePickerElementProps(defaultValue))) : /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
+      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, this.getDatePickerElementProps(defaultValue, defaultKey))) : /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, defaultKey, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
         className: _InputFieldModule.default.errorMessage,
         style: this.getThemeErrorMessageStyle(this.props.theme)
       }, this.props.errorMessage ? this.props.errorMessage : ''));
@@ -196,6 +197,7 @@ InputField.propTypes = {
   width: _propTypes.default.string,
   value: _propTypes.default.any,
   defaultValue: _propTypes.default.any,
+  elementKey: _propTypes.default.string,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
   buttonColor: _propTypes.default.string,
