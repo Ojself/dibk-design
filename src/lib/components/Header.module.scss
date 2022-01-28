@@ -2,7 +2,7 @@
 
 :local(.headerContainer) {
 	font-size: 22px;
-	padding: 10px 0;
+	padding: 5px 0;
 	:local(.header) {
 		margin: 0;
 		font-weight: normal;
@@ -38,6 +38,13 @@
 			font-size: 22px;
 			font-style: normal;
 			font-weight: bold;
+			line-height: 1;
+		}
+		&:local(.size-4) {
+			font-family: "Open Sans", arial, sans-serif;
+			font-size: 21px;
+			font-style: italic;
+			font-weight: normal;
 			line-height: 1;
 		}
 	}
