@@ -148,8 +148,6 @@ Object.defineProperty(exports, "WizardNavigationStep", {
   }
 });
 
-var _webfontloader = _interopRequireDefault(require("webfontloader"));
-
 var _Accordion = _interopRequireDefault(require("./components/Accordion"));
 
 var _Button = _interopRequireDefault(require("./components/Button"));
@@ -201,9 +199,3 @@ var _Step = _interopRequireDefault(require("./components/WizardNavigation/Step")
 require("./style/base/fonts.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_webfontloader.default.load({
-  google: {
-    families: ['Open Sans:300,400,700', 'sans-serif']
-  }
-});
