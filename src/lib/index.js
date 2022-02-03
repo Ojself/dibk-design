@@ -1,4 +1,3 @@
-import WebFont from 'webfontloader';
 import Accordion from './components/Accordion';
 import Button from './components/Button';
 import CheckBoxIcon from './components/CheckBoxIcon';
@@ -24,12 +23,6 @@ import Textarea from './components/Textarea';
 import WizardNavigation from './components/WizardNavigation';
 import WizardNavigationStep from './components/WizardNavigation/Step';
 import './style/base/fonts.css';
-
-WebFont.load({
-  google: {
-    families: ['Open Sans:300,400,700', 'sans-serif']
-  }
-});
 
 export {
   Accordion,
