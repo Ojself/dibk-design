@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.9d390fb3.chunk.css",
-    "main.js": "/build/main.b55bf99c.js",
+    "main.css": "/static/css/main.154e67e0.chunk.css",
+    "main.js": "/build/main.3c0189ff.js",
     "runtime-main.js": "/build/bundle.eaded300.js",
     "static/css/2.8b558105.chunk.css": "/static/css/2.8b558105.chunk.css",
-    "build/2.4444efb7.js": "/build/2.4444efb7.js",
-    "build/2.4444efb7.js.LICENSE.txt": "/build/2.4444efb7.js.LICENSE.txt",
+    "build/2.f3bafb9a.js": "/build/2.f3bafb9a.js",
+    "build/2.f3bafb9a.js.LICENSE.txt": "/build/2.f3bafb9a.js.LICENSE.txt",
     "index.html": "/index.html",
     "static/css/2.8b558105.chunk.css.map": "/static/css/2.8b558105.chunk.css.map",
-    "static/css/main.9d390fb3.chunk.css.map": "/static/css/main.9d390fb3.chunk.css.map",
-    "static/media/fonts.css": "/static/media/Altis.e9ee785b.ttf",
+    "static/css/main.154e67e0.chunk.css.map": "/static/css/main.154e67e0.chunk.css.map",
+    "static/media/fonts.css": "/static/media/open-sans-v27-latin-ext_latin-regular.d58b5ba8.ttf",
     "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.120629cc.svg",
     "static/media/dibk-logo.972e244e.svg": "/static/media/dibk-logo.972e244e.svg",
     "static/media/LoadingAnimation.module.scss": "/static/media/spinner.9d4e5e9c.svg"
@@ -17,8 +17,8 @@
   "entrypoints": [
     "build/bundle.eaded300.js",
     "static/css/2.8b558105.chunk.css",
-    "build/2.4444efb7.js",
-    "static/css/main.9d390fb3.chunk.css",
-    "build/main.b55bf99c.js"
+    "build/2.f3bafb9a.js",
+    "static/css/main.154e67e0.chunk.css",
+    "build/main.3c0189ff.js"
   ]
 }
