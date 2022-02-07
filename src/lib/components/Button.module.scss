@@ -66,9 +66,9 @@
   }
 
   &:local(.small) {
-    padding: 1px 32px;
-    height: 35px;
+    padding: 6px 32px;
     min-width: 80px;
+    line-height: 21px;;
   }
 
   &:local(.default) {

@@ -4,16 +4,22 @@
     0% {
         opacity: 0;
         margin-top: 0px;
-        padding: 0 30px 0;
+        padding: 0 15px 0;
         line-height: 0;
         max-height: 0;
+        @media only screen and (min-width: $screen-xs) {
+            padding: 0 30px 0;
+        }
     }
     100% {
         opacity: 1;
         margin-top: 0px;
-        padding: 8px 30px 15px;
+        padding: 8px 15px 15px;
         line-height: inherit;
         max-height: 1000px;
+        @media only screen and (min-width: $screen-xs) {
+            padding: 8px 30px 15px;
+        }
     }
 }
 
@@ -21,16 +27,22 @@
     100% {
         opacity: 0;
         margin-top: 0px;
-        padding: 0 30px 0;
+        padding: 0 15px 0;
         line-height: 0;
         max-height: 0;
+        @media only screen and (min-width: $screen-xs) {
+            padding: 0 30px 0;
+        }
     }
     0% {
         opacity: 1;
         margin-top: 0px;
-        padding: 8px 30px 15px;
+        padding: 8px 15px 15px;
         line-height: inherit;
         max-height: 1000px;
+        @media only screen and (min-width: $screen-xs) {
+            padding: 8px 30px 15px;
+        }
     }
 }
 
@@ -117,7 +129,7 @@
     }
 
     :local(.panel) {
-        padding: 15px 30px;
+        padding: 15px 15px;
         display: flex;
         align-items: center;
         position: relative;
@@ -125,6 +137,9 @@
         overflow-wrap: break-word;
         line-height: 1.7;
         cursor: pointer;
+        @media only screen and (min-width: $screen-xs) {
+            padding: 15px 30px;
+        }
         :local(.panelText) {
             font-family: $heading-font;
             font-weight: bold;
@@ -138,7 +153,10 @@
             width: 18px;
             height: 18px;
             border-radius: 100px;
-
+            margin-right: 6px;
+            @media only screen and (min-width: $screen-xs) {
+                margin-right: 0;
+            }
             &::after {
                 content: "";
                 display: block;
@@ -164,7 +182,10 @@
         line-height: 0;
         max-height: 0;
         overflow: hidden;
-        padding: 0 30px 0;
+        padding: 0 15px 0;
+        @media only screen and (min-width: $screen-xs) {
+            padding: 0 30px 0;
+        }
         &:local(.initialized) {
             animation: hide 0.3s ease-in-out;
         }
@@ -173,9 +194,12 @@
             animation: show 0.3s ease-in-out;
             opacity: 1;
             margin-top: 0px;
-            padding: 8px 30px 15px;
+            padding: 8px 15px 15px;
             line-height: inherit;
             max-height: 10000px;
+            @media only screen and (min-width: $screen-xs) {
+                padding: 8px 30px 15px;
+            }
         }
     }
 }
