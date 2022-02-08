@@ -7,7 +7,7 @@
         padding: 0 15px 0;
         line-height: 0;
         max-height: 0;
-        @media only screen and (min-width: $screen-xs) {
+        @media only screen and (min-width: $screen-sm) {
             padding: 0 30px 0;
         }
     }
@@ -17,7 +17,7 @@
         padding: 8px 15px 15px;
         line-height: inherit;
         max-height: 1000px;
-        @media only screen and (min-width: $screen-xs) {
+        @media only screen and (min-width: $screen-sm) {
             padding: 8px 30px 15px;
         }
     }
@@ -30,7 +30,7 @@
         padding: 0 15px 0;
         line-height: 0;
         max-height: 0;
-        @media only screen and (min-width: $screen-xs) {
+        @media only screen and (min-width: $screen-sm) {
             padding: 0 30px 0;
         }
     }
@@ -40,7 +40,7 @@
         padding: 8px 15px 15px;
         line-height: inherit;
         max-height: 1000px;
-        @media only screen and (min-width: $screen-xs) {
+        @media only screen and (min-width: $screen-sm) {
             padding: 8px 30px 15px;
         }
     }
@@ -137,7 +137,7 @@
         overflow-wrap: break-word;
         line-height: 1.7;
         cursor: pointer;
-        @media only screen and (min-width: $screen-xs) {
+        @media only screen and (min-width: $screen-sm) {
             padding: 15px 30px;
         }
         :local(.panelText) {
@@ -154,7 +154,7 @@
             height: 18px;
             border-radius: 100px;
             margin-right: 6px;
-            @media only screen and (min-width: $screen-xs) {
+            @media only screen and (min-width: $screen-sm) {
                 margin-right: 0;
             }
             &::after {
@@ -183,7 +183,7 @@
         max-height: 0;
         overflow: hidden;
         padding: 0 15px 0;
-        @media only screen and (min-width: $screen-xs) {
+        @media only screen and (min-width: $screen-sm) {
             padding: 0 30px 0;
         }
         &:local(.initialized) {
@@ -197,7 +197,7 @@
             padding: 8px 15px 15px;
             line-height: inherit;
             max-height: 10000px;
-            @media only screen and (min-width: $screen-xs) {
+            @media only screen and (min-width: $screen-sm) {
                 padding: 8px 30px 15px;
             }
         }
