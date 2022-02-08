@@ -21,7 +21,7 @@
     padding: 8px 28px;
     z-index: 2;
     justify-content: center;
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
         padding: 36px;
     }
 
@@ -40,7 +40,7 @@
         &:not(:local(.noPadding)){
             padding: 60px 40px;
         }
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             @include calc("width", "100% - 128px");
             max-height: 100%;
         }

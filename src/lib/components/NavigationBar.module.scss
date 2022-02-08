@@ -10,7 +10,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		@media only screen and (min-width: $screen-xs) {
+		@media only screen and (min-width: $screen-sm) {
 			height: 73px;
 		}
 	}
@@ -23,7 +23,7 @@
 			height: 54px;
 			max-width: none;
 		}
-		@media only screen and (min-width: $screen-xs) {
+		@media only screen and (min-width: $screen-sm) {
 			width: 270px;
 			height: 73px;
 			img {
@@ -39,7 +39,7 @@
 	}
 
 	:local(.dropdownOverlay) {
-		@media only screen and (max-width: $screen-md) and (min-width: $screen-xs) {
+		@media only screen and (max-width: $screen-lg) and (min-width: $screen-sm) {
 			@include transition(all 0.1s ease-out);
 			content: "";
 			position: absolute;
@@ -78,7 +78,7 @@
 				display: block;
 			}
 		}
-		@media only screen and (min-width: $screen-xs) {
+		@media only screen and (min-width: $screen-sm) {
 			margin: 0 21px;
 		}
 	}
@@ -154,7 +154,7 @@
 		}
 	}
 
-	@media only screen and (min-width: $screen-xs) {
+	@media only screen and (min-width: $screen-sm) {
 		:local(.dropdownContainer) {
 			position: relative;
 			overflow: visible;
