@@ -1,7 +1,10 @@
 @import "../style/global.scss";
 
 :local(.inputField) {
-  font-size: 19px;
+  font-size: 16px;
+  @media only screen and (min-width: $screen-sm) {
+    font-size: 19px;
+  }
   > div {
     display: block;
   }
@@ -21,9 +24,13 @@
     box-shadow: none;
     color: rgba(0, 0, 0, 0.75);
     font-family: inherit;
-    font-size: 19px;
+    font-size: 16px;
     box-sizing: border-box;
     border: 1px solid #afaba8;
+    @media only screen and (min-width: $screen-sm) {
+      font-size: 19px;
+      height: 56px;
+    }
 
     &:hover {
       border-color: $color-dark-blue;
@@ -72,12 +79,17 @@
     }
   }
   :local(.errorMessage) {
+    display: block;
     color: $color-error-text;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.2;
+    margin: 4px 0;
     font-family: "Open Sans", sans-serif;
     font-style: italic;
     overflow-wrap: break-word;
+    @media only screen and (min-width: $screen-sm) {
+      font-size: 19px;
+    }
   }
 }
