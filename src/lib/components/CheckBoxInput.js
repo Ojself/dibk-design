@@ -9,7 +9,7 @@ class CheckBoxInput extends React.Component {
       {
         !this.props.contentOnly
           ? (<React.Fragment>
-            <CheckBoxIcon checked={this.props.checked} disabled={this.props.disabled} theme={this.props.theme} hasErrors={this.props.hasErrors} checkmarkCharacter={this.props.checkmarkCharacter} />
+            <CheckBoxIcon checked={this.props.checked} disabled={this.props.disabled} theme={this.props.theme} hasErrors={this.props.hasErrors} checkmarkCharacter={this.props.checkmarkCharacter} expandable={this.props.expandable}/>
             <input onChange={this.props.onChange} type="checkbox" name={this.props.name} id={this.props.id} checked={this.props.checked} disabled={this.props.disabled} />
           </React.Fragment>)
           : <CheckBoxIcon checked={this.props.checked} disabled={this.props.disabled} showBox={false} theme={this.props.theme} />
@@ -28,7 +28,10 @@ CheckBoxInput.propTypes = {
   contentOnly: PropTypes.bool,
   hasErrors: PropTypes.bool,
   theme: PropTypes.object,
-  checkmarkCharacter: PropTypes.string
+  checkmarkCharacter: PropTypes.string,
+  expandable: PropTypes.bool,
+
+
 };
 CheckBoxInput.defaultProps = {
   checked: false,
@@ -36,6 +39,7 @@ CheckBoxInput.defaultProps = {
   name: '',
   contentOnly: false,
   hasErrors: false,
-  checkmarkCharacter: '✔'
+  checkmarkCharacter: '✔',
+  expandable: false
 };
 export default CheckBoxInput;
