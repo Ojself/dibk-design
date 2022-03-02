@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styleguide": "FAST_REFRESH=false styleguidist server",
+    "windows-styleguide": "SET FAST_REFRESH=false && styleguidist server",
     "styleguide:build": "styleguidist build"
   },
   "eslintConfig": {

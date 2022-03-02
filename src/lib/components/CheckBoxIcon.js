@@ -5,12 +5,16 @@ import {  getThemePaletteBackgroundColor } from '../functions/theme';
 import style from './CheckBoxIcon.module.scss';
 
 class CheckBoxIcon extends React.Component {
+  
+  
   render() {
+
     let inlineStyle = {
       height: this.props.size,
       width: this.props.size,
       fontSize: this.props.size
     };
+
     if (this.props.theme && this.props.checked){
       inlineStyle = {
         ...inlineStyle,
@@ -18,7 +22,16 @@ class CheckBoxIcon extends React.Component {
         boxShadow: `0 0 0 1px ${getThemePaletteBackgroundColor(this.props.theme, 'primary')}` // TODO: support theme error color
       }
     }
-    return (<span className={`${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`} style={inlineStyle}>
+
+    const ariaExpandedIndex = "aria-expanded";
+    const props = {
+      className: `${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`,
+      style: inlineStyle,
+      [ariaExpandedIndex]: this.props.expandable ? this.props.checked.toString() : null
+    }
+    
+    return (
+    <span {...props}>
       <span className={style.checkmark}>{this.props.checked ? this.props.checkmarkCharacter : ''}</span>
     </span>)
   }
@@ -31,7 +44,8 @@ CheckBoxIcon.propTypes = {
   showBox: PropTypes.bool,
   theme: PropTypes.object,
   hasErrors: PropTypes.bool,
-  checkmarkCharacter: PropTypes.string
+  checkmarkCharacter: PropTypes.string,
+  expandable: PropTypes.bool
 }
 
 CheckBoxIcon.defaultProps = {
@@ -40,7 +54,8 @@ CheckBoxIcon.defaultProps = {
   disabled: false,
   showBox: true,
   hasErrors: false,
-  checkmarkCharacter: '✔'
+  checkmarkCharacter: '✔',
+  expandable: false
 }
 
 export default CheckBoxIcon;

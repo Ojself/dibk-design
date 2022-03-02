@@ -20,6 +20,13 @@ Checkbox input example:
 <CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-6" checked={true} checkmarkCharacter="✕">
   <span>Label for checked checkbox with custom checkmark</span>
 </CheckBoxInput>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-7" checked={true} checkmarkCharacter="✕" expandable={true}>
+  <span>Label for checkbox with aria-expanded true</span>
+</CheckBoxInput>
+<CheckBoxInput onChange={()=>{console.log('onchange')}} name="checkbox" id="checkBoxInput-8" checked={false} checkmarkCharacter="✕" expandable={true}>
+  <span>Label for checkbox with aria-expanded false</span>
+</CheckBoxInput>
+
 </div>
 ```
 
