@@ -59,7 +59,8 @@ var CheckBoxInput = /*#__PURE__*/function (_React$Component) {
         disabled: this.props.disabled,
         theme: this.props.theme,
         hasErrors: this.props.hasErrors,
-        checkmarkCharacter: this.props.checkmarkCharacter
+        checkmarkCharacter: this.props.checkmarkCharacter,
+        expandable: this.props.expandable
       }), /*#__PURE__*/_react.default.createElement("input", {
         onChange: this.props.onChange,
         type: "checkbox",
@@ -88,7 +89,8 @@ CheckBoxInput.propTypes = {
   contentOnly: _propTypes.default.bool,
   hasErrors: _propTypes.default.bool,
   theme: _propTypes.default.object,
-  checkmarkCharacter: _propTypes.default.string
+  checkmarkCharacter: _propTypes.default.string,
+  expandable: _propTypes.default.bool
 };
 CheckBoxInput.defaultProps = {
   checked: false,
@@ -96,7 +98,8 @@ CheckBoxInput.defaultProps = {
   name: '',
   contentOnly: false,
   hasErrors: false,
-  checkmarkCharacter: '✔'
+  checkmarkCharacter: '✔',
+  expandable: false
 };
 var _default = CheckBoxInput;
 exports.default = _default;
