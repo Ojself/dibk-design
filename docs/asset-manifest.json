@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f04c586.chunk.css",
-    "main.js": "/build/main.4208f491.js",
+    "main.css": "/static/css/main.d21fd6bb.chunk.css",
+    "main.js": "/build/main.bb544f6d.js",
     "runtime-main.js": "/build/bundle.eaded300.js",
     "static/css/2.8b558105.chunk.css": "/static/css/2.8b558105.chunk.css",
-    "build/2.c2b85fec.js": "/build/2.c2b85fec.js",
-    "build/2.c2b85fec.js.LICENSE.txt": "/build/2.c2b85fec.js.LICENSE.txt",
+    "build/2.cccd3d1b.js": "/build/2.cccd3d1b.js",
+    "build/2.cccd3d1b.js.LICENSE.txt": "/build/2.cccd3d1b.js.LICENSE.txt",
     "index.html": "/index.html",
     "static/css/2.8b558105.chunk.css.map": "/static/css/2.8b558105.chunk.css.map",
-    "static/css/main.8f04c586.chunk.css.map": "/static/css/main.8f04c586.chunk.css.map",
+    "static/css/main.d21fd6bb.chunk.css.map": "/static/css/main.d21fd6bb.chunk.css.map",
     "static/media/fonts.css": "/static/media/open-sans-v27-latin-ext_latin-regular.d58b5ba8.ttf",
-    "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.120629cc.svg",
-    "static/media/dibk-logo.972e244e.svg": "/static/media/dibk-logo.972e244e.svg",
-    "static/media/LoadingAnimation.module.scss": "/static/media/spinner.9d4e5e9c.svg"
+    "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.ff2ae318.svg",
+    "static/media/dibk-logo.b612d584.svg": "/static/media/dibk-logo.b612d584.svg",
+    "static/media/LoadingAnimation.module.scss": "/static/media/spinner.53c48f05.svg"
   },
   "entrypoints": [
     "build/bundle.eaded300.js",
     "static/css/2.8b558105.chunk.css",
-    "build/2.c2b85fec.js",
-    "static/css/main.8f04c586.chunk.css",
-    "build/main.4208f491.js"
+    "build/2.cccd3d1b.js",
+    "static/css/main.d21fd6bb.chunk.css",
+    "build/main.bb544f6d.js"
   ]
 }
