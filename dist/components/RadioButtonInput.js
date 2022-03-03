@@ -58,7 +58,8 @@ var RadioButtonInput = /*#__PURE__*/function (_React$Component) {
         checked: this.props.checked,
         disabled: this.props.disabled,
         theme: this.props.theme,
-        hasErrors: this.props.hasErrors
+        hasErrors: this.props.hasErrors,
+        expandable: this.props.expandable
       }), /*#__PURE__*/_react.default.createElement("input", {
         type: "radio",
         onChange: this.props.onChange,
@@ -82,14 +83,16 @@ RadioButtonInput.propTypes = {
   onChange: _propTypes.default.func,
   contentOnly: _propTypes.default.bool,
   theme: _propTypes.default.object,
-  hasErrors: _propTypes.default.bool
+  hasErrors: _propTypes.default.bool,
+  expandable: _propTypes.default.bool
 };
 RadioButtonInput.defaultProps = {
   name: '',
   checked: false,
   disabled: false,
   contentOnly: false,
-  hasErrors: false
+  hasErrors: false,
+  expandable: false
 };
 var _default = RadioButtonInput;
 exports.default = _default;

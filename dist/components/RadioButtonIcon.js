@@ -69,10 +69,14 @@ var RadioButtonIcon = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      return /*#__PURE__*/_react.default.createElement("span", {
+      var ariaExpandedIndex = "aria-expanded";
+
+      var props = _defineProperty({
         className: "".concat(_RadioButtonIconModule.default.radioButtonIcon, " ").concat(this.props.checked ? _RadioButtonIconModule.default.checked : '', " ").concat(this.props.disabled ? _RadioButtonIconModule.default.disabled : '', " ").concat(this.props.hasErrors ? _RadioButtonIconModule.default.hasErrors : ''),
         style: inlineStyle
-      });
+      }, ariaExpandedIndex, this.props.expandable ? this.props.checked.toString() : null);
+
+      return /*#__PURE__*/_react.default.createElement("span", props);
     }
   }]);
 
@@ -84,13 +88,15 @@ RadioButtonIcon.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
   theme: _propTypes.default.object,
-  hasErrors: _propTypes.default.bool
+  hasErrors: _propTypes.default.bool,
+  expandable: _propTypes.default.bool
 };
 RadioButtonIcon.defaultProps = {
   size: '10px',
   checked: false,
   disabled: false,
-  hasErrors: false
+  hasErrors: false,
+  expandable: false
 };
 var _default = RadioButtonIcon;
 exports.default = _default;
