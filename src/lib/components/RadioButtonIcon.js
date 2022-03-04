@@ -6,6 +6,7 @@ import style from './RadioButtonIcon.module.scss';
 
 class RadioButtonIcon extends React.Component {
   render() {
+    
     let inlineStyle = {
       height: this.props.size,
       width: this.props.size
@@ -17,7 +18,14 @@ class RadioButtonIcon extends React.Component {
         boxShadow: `0 0 0 1px ${getThemePaletteBackgroundColor(this.props.theme, 'primary')}`
       }
     }
-    return (<span className={`${style.radioButtonIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.hasErrors ? style.hasErrors : ''}`} style={inlineStyle}></span>)
+    const ariaExpandedIndex = "aria-expanded";
+    const props = {
+      className: `${style.radioButtonIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.hasErrors ? style.hasErrors : ''}`,
+      style: inlineStyle,
+      [ariaExpandedIndex]: this.props.expandable ? this.props.checked.toString() : null
+    }
+  
+    return (<span {...props}></span>)
   }
 }
 
@@ -26,14 +34,16 @@ RadioButtonIcon.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   theme: PropTypes.object,
-  hasErrors: PropTypes.bool
+  hasErrors: PropTypes.bool,
+  expandable: PropTypes.bool
 }
 
 RadioButtonIcon.defaultProps = {
   size: '10px',
   checked: false,
   disabled: false,
-  hasErrors: false
+  hasErrors: false,
+  expandable: false
 }
 
 export default RadioButtonIcon;
