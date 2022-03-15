@@ -21,6 +21,8 @@ var _Button = _interopRequireDefault(require("./Button"));
 
 var _Label = _interopRequireDefault(require("./Label"));
 
+var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
+
 var _theme = require("../functions/theme");
 
 var _generators = require("../functions/generators");
@@ -80,13 +82,6 @@ var InputField = /*#__PURE__*/function (_React$Component) {
       return {
         boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')),
         borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
-      };
-    }
-  }, {
-    key: "getThemeErrorMessageStyle",
-    value: function getThemeErrorMessageStyle(theme) {
-      return {
-        color: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
       };
     }
   }, {
@@ -177,10 +172,10 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         theme: this.props.theme
       }) : '') : ''), !this.props.contentOnly ? this.props.type === 'date' ? /*#__PURE__*/_react.default.createElement("div", {
         style: styleRules
-      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, this.getDatePickerElementProps(defaultValue, defaultKey))) : /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, defaultKey, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
-        className: _InputFieldModule.default.errorMessage,
-        style: this.getThemeErrorMessageStyle(this.props.theme)
-      }, this.props.errorMessage ? this.props.errorMessage : ''));
+      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, this.getDatePickerElementProps(defaultValue, defaultKey))) : /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, defaultKey, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
+        content: this.props.errorMessage,
+        theme: this.props.theme
+      }));
     }
   }]);
 

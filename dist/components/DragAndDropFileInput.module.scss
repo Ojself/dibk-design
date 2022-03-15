@@ -33,13 +33,4 @@
       border-color: $color-dark-blue;
     }
   }
-  :local(.errorMessage) {
-    color: $color-error-text;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.6;
-    font-family: "Open Sans", sans-serif;
-    font-style: italic;
-    overflow-wrap: break-word;
-  }
 }

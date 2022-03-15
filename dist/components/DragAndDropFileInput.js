@@ -13,6 +13,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Button = _interopRequireDefault(require("./Button"));
 
+var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
+
 var _DragAndDropFileInputModule = _interopRequireDefault(require("./DragAndDropFileInput.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -167,9 +169,10 @@ var DragAndDropFileInput = /*#__PURE__*/function (_React$Component) {
           return _this2.handleAddButtonOnClick();
         },
         content: buttonContent
-      })) : '') : ''), this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.selectedFileName, this.props.defaultContent)) : '', /*#__PURE__*/_react.default.createElement("span", {
-        className: _DragAndDropFileInputModule.default.errorMessage
-      }, this.props.errorMessage ? this.props.errorMessage : ''));
+      })) : '') : ''), this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.selectedFileName, this.props.defaultContent)) : '', /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
+        content: this.props.errorMessage,
+        theme: this.props.theme
+      }));
     }
   }]);
 
@@ -190,7 +193,8 @@ DragAndDropFileInput.propTypes = {
   defaultContent: _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  mandatory: _propTypes.default.bool
+  mandatory: _propTypes.default.bool,
+  theme: _propTypes.default.object
 };
 DragAndDropFileInput.defaultProps = {
   label: '',

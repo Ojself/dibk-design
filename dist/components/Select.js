@@ -11,6 +11,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Label = _interopRequireDefault(require("./Label"));
 
+var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
+
 var _theme = require("../functions/theme");
 
 var _generators = require("../functions/generators");
@@ -64,13 +66,6 @@ var Select = /*#__PURE__*/function (_React$Component) {
       return {
         boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')),
         borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
-      };
-    }
-  }, {
-    key: "getThemeErrorMessageStyle",
-    value: function getThemeErrorMessageStyle(theme) {
-      return {
-        color: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
       };
     }
   }, {
@@ -166,10 +161,10 @@ var Select = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/_react.default.createElement("span", {
           className: _SelectModule.default.selectListArrow,
           style: this.getThemeArrowStyle(this.props.theme)
-        }), /*#__PURE__*/_react.default.createElement("select", props, this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue), this.renderOptionElements(this.props.options))), /*#__PURE__*/_react.default.createElement("span", {
-          className: _SelectModule.default.errorMessage,
-          style: this.getThemeErrorMessageStyle(this.props.theme)
-        }, this.props.errorMessage ? this.props.errorMessage : ''));
+        }), /*#__PURE__*/_react.default.createElement("select", props, this.renderPlaceholderOption(this.props.placeholder, this.props.placeholderValue), this.renderOptionElements(this.props.options))), /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
+          content: this.props.errorMessage,
+          theme: this.props.theme
+        }));
       }
     }
   }]);

@@ -13,6 +13,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Label = _interopRequireDefault(require("./Label"));
 
+var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
+
 var _theme = require("../functions/theme");
 
 var _generators = require("../functions/generators");
@@ -67,13 +69,6 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
-    key: "getThemeErrorMessageStyle",
-    value: function getThemeErrorMessageStyle(theme) {
-      return {
-        color: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
-      };
-    }
-  }, {
     key: "renderValueAsText",
     value: function renderValueAsText(value, defaultContent) {
       return value ? value : defaultContent;
@@ -111,10 +106,10 @@ var Textarea = /*#__PURE__*/function (_React$Component) {
         className: _TextareaModule.default.textarea
       }, /*#__PURE__*/_react.default.createElement(_Label.default, {
         htmlFor: this.props.id
-      }, this.props.label), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement("span", {
-        className: _TextareaModule.default.errorMessage,
-        style: this.getThemeErrorMessageStyle(this.props.theme)
-      }, this.props.errorMessage ? this.props.errorMessage : ''));
+      }, this.props.label), !this.props.contentOnly ? this.renderInputField() : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
+        content: this.props.errorMessage,
+        theme: this.props.theme
+      }));
     }
   }]);
 

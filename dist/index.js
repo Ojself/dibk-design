@@ -51,6 +51,12 @@ Object.defineProperty(exports, "DragAndDropFileInput", {
     return _DragAndDropFileInput.default;
   }
 });
+Object.defineProperty(exports, "ErrorMessage", {
+  enumerable: true,
+  get: function get() {
+    return _ErrorMessage.default;
+  }
+});
 Object.defineProperty(exports, "Footer", {
   enumerable: true,
   get: function get() {
@@ -163,6 +169,8 @@ var _ContentBox = _interopRequireDefault(require("./components/ContentBox"));
 var _Dialog = _interopRequireDefault(require("./components/Dialog"));
 
 var _DragAndDropFileInput = _interopRequireDefault(require("./components/DragAndDropFileInput"));
+
+var _ErrorMessage = _interopRequireDefault(require("./components/ErrorMessage"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer"));
 
