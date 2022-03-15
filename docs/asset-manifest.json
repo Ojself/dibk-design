@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.d21fd6bb.chunk.css",
-    "main.js": "/build/main.0ab4f67b.js",
-    "runtime-main.js": "/build/bundle.eaded300.js",
-    "static/css/2.8b558105.chunk.css": "/static/css/2.8b558105.chunk.css",
-    "build/2.92d07be3.js": "/build/2.92d07be3.js",
-    "build/2.92d07be3.js.LICENSE.txt": "/build/2.92d07be3.js.LICENSE.txt",
+    "main.css": "/static/css/main.da930166.chunk.css",
+    "main.js": "/build/main.aec14ad0.js",
+    "runtime-main.js": "/build/bundle.e74723cc.js",
+    "static/css/2.17977ecf.chunk.css": "/static/css/2.17977ecf.chunk.css",
+    "build/2.f1998147.js": "/build/2.f1998147.js",
+    "build/2.f1998147.js.LICENSE.txt": "/build/2.f1998147.js.LICENSE.txt",
     "index.html": "/index.html",
-    "static/css/2.8b558105.chunk.css.map": "/static/css/2.8b558105.chunk.css.map",
-    "static/css/main.d21fd6bb.chunk.css.map": "/static/css/main.d21fd6bb.chunk.css.map",
+    "static/css/2.17977ecf.chunk.css.map": "/static/css/2.17977ecf.chunk.css.map",
+    "static/css/main.da930166.chunk.css.map": "/static/css/main.da930166.chunk.css.map",
     "static/media/fonts.css": "/static/media/open-sans-v27-latin-ext_latin-regular.d58b5ba8.ttf",
-    "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.ff2ae318.svg",
-    "static/media/dibk-logo.b612d584.svg": "/static/media/dibk-logo.b612d584.svg",
-    "static/media/LoadingAnimation.module.scss": "/static/media/spinner.53c48f05.svg"
+    "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.120629cc.svg",
+    "static/media/dibk-logo.972e244e.svg": "/static/media/dibk-logo.972e244e.svg",
+    "static/media/LoadingAnimation.module.scss": "/static/media/spinner.9d4e5e9c.svg"
   },
   "entrypoints": [
-    "build/bundle.eaded300.js",
-    "static/css/2.8b558105.chunk.css",
-    "build/2.92d07be3.js",
-    "static/css/main.d21fd6bb.chunk.css",
-    "build/main.0ab4f67b.js"
+    "build/bundle.e74723cc.js",
+    "static/css/2.17977ecf.chunk.css",
+    "build/2.f1998147.js",
+    "static/css/main.da930166.chunk.css",
+    "build/main.aec14ad0.js"
   ]
 }
