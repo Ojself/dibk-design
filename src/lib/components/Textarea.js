@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Label from './Label';
+import ErrorMessage from './ErrorMessage';
 
 // Functions
 import { getThemePaletteBackgroundColor } from '../functions/theme';
@@ -18,11 +19,6 @@ class Textarea extends React.Component {
         return {
             boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, 'warning')}`,
             borderColor: getThemePaletteBackgroundColor(theme, 'warning')
-        }
-    }
-    getThemeErrorMessageStyle(theme) {
-        return {
-            color: getThemePaletteBackgroundColor(theme, 'warning')
         }
     }
     renderValueAsText(value, defaultContent) {
@@ -69,7 +65,7 @@ class Textarea extends React.Component {
                     ? this.renderInputField()
                     : <span>{this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)}</span>
             }
-            <span className={style.errorMessage} style={this.getThemeErrorMessageStyle(this.props.theme)}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
+            <ErrorMessage content={this.props.errorMessage} theme={this.props.theme} />
         </div>)
     }
 }

@@ -9,6 +9,7 @@ import nb from 'date-fns/locale/nb';
 // Components
 import Button from './Button';
 import Label from './Label';
+import ErrorMessage from './ErrorMessage';
 
 // Functions
 import { getThemePaletteBackgroundColor } from '../functions/theme';
@@ -26,11 +27,6 @@ class InputField extends React.Component {
     return {
       boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, 'warning')}`,
       borderColor: getThemePaletteBackgroundColor(theme, 'warning')
-    }
-  }
-  getThemeErrorMessageStyle(theme) {
-    return {
-      color: getThemePaletteBackgroundColor(theme, 'warning')
     }
   }
   convertDateToString(date) {
@@ -121,7 +117,7 @@ class InputField extends React.Component {
             )
           : <span>{this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)}</span>
       }
-      <span className={style.errorMessage} style={this.getThemeErrorMessageStyle(this.props.theme)}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
+      <ErrorMessage content={this.props.errorMessage} theme={this.props.theme} />
     </div>)
   }
 }

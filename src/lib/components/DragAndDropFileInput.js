@@ -1,7 +1,12 @@
+// Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
 
+// Components
+import Button from './Button';
+import ErrorMessage from './ErrorMessage';
+
+// Stylesheets
 import style from './DragAndDropFileInput.module.scss';
 
 
@@ -135,7 +140,7 @@ class DragAndDropFileInput extends React.Component {
           ? <span>{this.renderValueAsText(this.props.selectedFileName, this.props.defaultContent)}</span>
           : ''
       }
-      <span className={style.errorMessage}>{this.props.errorMessage ? this.props.errorMessage : ''}</span>
+      <ErrorMessage content={this.props.errorMessage} theme={this.props.theme} />
     </div>)
   }
 }
@@ -166,7 +171,8 @@ DragAndDropFileInput.propTypes = {
       PropTypes.object
     ]))
   ]),
-  mandatory: PropTypes.bool
+  mandatory: PropTypes.bool,
+  theme: PropTypes.object
 };
 
 DragAndDropFileInput.defaultProps = {
