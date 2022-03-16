@@ -1,11 +1,20 @@
 @import "../style/global.scss";
 
 :local(.footer) {
-  background-color: $color-default;
-  padding-top: 40px;
-
-  :local(.footerContainer) {
-    max-width: 1280px;
-    margin: 0 auto;
+  background-color: $color-primary;
+  padding: 16px 0;
+  text-align: right;
+  * {
+    color: #fff;
+  }
+  a,
+  .link {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

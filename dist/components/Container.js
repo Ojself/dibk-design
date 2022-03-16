@@ -7,11 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = require("react");
 
-var _Container = _interopRequireDefault(require("./Container"));
-
-var _FooterModule = _interopRequireDefault(require("./Footer.module.scss"));
+var _ContainerModule = _interopRequireDefault(require("./Container.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,28 +33,28 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Footer = /*#__PURE__*/function (_React$Component) {
-  _inherits(Footer, _React$Component);
+var Container = /*#__PURE__*/function (_Component) {
+  _inherits(Container, _Component);
 
-  var _super = _createSuper(Footer);
+  var _super = _createSuper(Container);
 
-  function Footer() {
-    _classCallCheck(this, Footer);
+  function Container() {
+    _classCallCheck(this, Container);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Footer, [{
+  _createClass(Container, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("footer", {
-        className: _FooterModule.default.footer
-      }, /*#__PURE__*/_react.default.createElement(_Container.default, null, this.props.children));
+      return /*#__PURE__*/React.createElement("div", {
+        className: _ContainerModule.default.container
+      }, this.props.children);
     }
   }]);
 
-  return Footer;
-}(_react.default.Component);
+  return Container;
+}(_react.Component);
 
-var _default = Footer;
+var _default = Container;
 exports.default = _default;
