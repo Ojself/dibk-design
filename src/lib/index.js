@@ -3,6 +3,7 @@ import Button from './components/Button';
 import CheckBoxIcon from './components/CheckBoxIcon';
 import CheckBoxInput from './components/CheckBoxInput';
 import CheckBoxListItem from './components/CheckBoxListItem';
+import Container from './components/Container';
 import ContentBox from './components/ContentBox';
 import Dialog from './components/Dialog';
 import DragAndDropFileInput from './components/DragAndDropFileInput';
@@ -31,6 +32,7 @@ export {
   CheckBoxIcon,
   CheckBoxInput,
   CheckBoxListItem,
+  Container,
   ContentBox,
   Dialog,
   DragAndDropFileInput,
