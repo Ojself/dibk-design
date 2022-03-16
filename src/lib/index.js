@@ -17,6 +17,7 @@ import LoadingAnimation from './components/LoadingAnimation';
 import NavigationBar from './components/NavigationBar';
 import NavigationBarListItem from './components/NavigationBarListItem';
 import Paper from './components/Paper';
+import ProgressBar from './components/ProgressBar';
 import RadioButtonIcon from './components/RadioButtonIcon';
 import RadioButtonInput from './components/RadioButtonInput';
 import RadioButtonListItem from './components/RadioButtonListItem';
@@ -46,6 +47,7 @@ export {
   NavigationBar,
   NavigationBarListItem,
   Paper,
+  ProgressBar,
   RadioButtonIcon,
   RadioButtonInput,
   RadioButtonListItem,
