@@ -1,3 +1,6 @@
+// Dependencies
+import React from 'react';
+
 // Stylesheets
 import style from './ProgressBar.module.scss';
 

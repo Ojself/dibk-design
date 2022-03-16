@@ -1,5 +1,5 @@
 // Dependencies
-import {Component} from 'react';
+import React, {Component} from 'react';
 
 // Stylesheets
 import style from './Container.module.scss';
