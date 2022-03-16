@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _ProgressBarModule = _interopRequireDefault(require("./ProgressBar.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -15,7 +17,7 @@ var ProgressBar = function ProgressBar(_ref) {
   var progress = _ref.progress,
       hasErrors = _ref.hasErrors;
   var scssValueProperty = '--value';
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "".concat(_ProgressBarModule.default.progressBar, " ").concat(hasErrors ? _ProgressBarModule.default.hasErrors : ''),
     role: "progressbar",
     "aria-valuenow": progress || 0,
