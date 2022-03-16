@@ -1,21 +1,10 @@
 @import "../style/global.scss";
 
-@keyframes growProgressBar {
-    0%,
-    33% {
-        --pgPercentage: 0;
-    }
-    100% {
-        --pgPercentage: var(--value);
-    }
-}
-
 :local(.progressBar) {
     --size: 4rem;
     --fg: #{$color-primary};
     --bg: #e2e1e0;
     --pgPercentage: var(--value);
-    animation: growProgressBar 0.25s 1 forwards;
     width: var(--size);
     height: var(--size);
     border-radius: 50%;
