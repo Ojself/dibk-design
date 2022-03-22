@@ -4,6 +4,7 @@
   display: flex;
   cursor: pointer;
   margin-right: 1em;
+  border: 1px solid transparent;
 
   &:not(:local(.contentOnly)):not(:local(.disabled)) {
     cursor: pointer;
@@ -17,6 +18,11 @@
     span {
       color: #9d2024;
     }
+  }
+
+  &:focus-within{    
+    border-color: #072938;
+    outline-color: #54acb8;
   }
 
   input[type="radio"] {
