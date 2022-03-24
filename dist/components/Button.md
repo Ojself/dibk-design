@@ -5,6 +5,7 @@ Regular buttons example:
 <Button content="Click me" color="primary" />
 <Button content="Click me" color="default" disabled />
 <Button content="Click me" color="primary" disabled />
+<Button content="Link button" color="primary" href="#" />
 ```
 
 Rounded buttons example:

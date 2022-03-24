@@ -38,7 +38,7 @@
   font-family: "Altis", sans-serif;
   border-style: solid;
   border-width: 1px;
-  $border-color: $color-primary;
+  border-color: $color-primary;
   cursor: pointer;
   line-height: 1;
   position: relative;
@@ -62,6 +62,13 @@
     &:active {
       filter: brightness(85%);
     }
+  }
+
+  &:focus-visible {
+    outline-color: #005fcc;
+    outline-style: auto;
+    outline-width: 2px;
+    outline-offset: 0px;
   }
 
   &:local(.regular) {
