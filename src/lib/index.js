@@ -7,6 +7,7 @@ import Container from './components/Container';
 import ContentBox from './components/ContentBox';
 import Dialog from './components/Dialog';
 import DragAndDropFileInput from './components/DragAndDropFileInput';
+import ErrorBox from './components/ErrorBox';
 import ErrorMessage from './components/ErrorMessage';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -37,6 +38,7 @@ export {
   ContentBox,
   Dialog,
   DragAndDropFileInput,
+  ErrorBox,
   ErrorMessage,
   Footer,
   Header,

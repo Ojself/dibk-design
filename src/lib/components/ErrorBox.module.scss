@@ -1,0 +1,25 @@
+@import "../style/global.scss";
+
+:local(.errorBox) {
+    @include box-shadow(0 2px 3px rgb(0 0 0 / 18%));
+    border-left: 12px solid $color-error;
+    background: white;
+    padding: 30px 33px 46px 21px;
+    font-family: $default-font;
+    margin: 0;
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.3;
+        margin: 0;
+        @media only screen and (min-width: $screen-sm) {
+            font-size: 24px;
+        }
+    }
+    ul {
+        padding-left: 20px;
+    }
+}
