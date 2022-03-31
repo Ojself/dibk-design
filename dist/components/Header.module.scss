@@ -41,7 +41,7 @@
 			}
 		}
 		&:local(.size-3) {
-			font-family: "Open Sans", arial, sans-serif;
+			font-family: $default-font;
 			font-size: 19px;
 			font-style: normal;
 			font-weight: bold;
@@ -51,7 +51,7 @@
 			}
 		}
 		&:local(.size-4) {
-			font-family: "Open Sans", arial, sans-serif;
+			font-family: $default-font;
 			font-size: 17px;
 			font-style: italic;
 			font-weight: normal;
