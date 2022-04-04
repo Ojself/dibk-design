@@ -32,8 +32,8 @@ class Button extends React.Component {
     const themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
     const className = `${style.button} ${style[this.props.color]} ${style[this.props.size]} ${this.getArrowClass()} ${this.props.theme ? style.hasTheme : ''} ${this.props.noHover ? style.noHover : ''} ${this.props.rounded ? style.rounded : ''}`;
     return this.props.href?.length
-      ? (<a {...buttonProps} className={className} style={themeStyle}>{this.props.content}</a>)
-      : (<button {...buttonProps} className={className} style={themeStyle}>{this.props.content}</button>)
+      ? (<a {...buttonProps} className={className} style={themeStyle}>{this.props.content || this.props.children}</a>)
+      : (<button {...buttonProps} className={className} style={themeStyle}>{this.props.content || this.props.children}</button>)
   }
 }
 
@@ -51,7 +51,6 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  content: 'button',
   color: 'default',
   size: 'regular',
   disabled: false,
