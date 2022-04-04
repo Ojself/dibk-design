@@ -94,10 +94,10 @@ var Button = /*#__PURE__*/function (_React$Component) {
       return (_this$props$href = this.props.href) !== null && _this$props$href !== void 0 && _this$props$href.length ? /*#__PURE__*/_react.default.createElement("a", _extends({}, buttonProps, {
         className: className,
         style: themeStyle
-      }), this.props.content) : /*#__PURE__*/_react.default.createElement("button", _extends({}, buttonProps, {
+      }), this.props.content || this.props.children) : /*#__PURE__*/_react.default.createElement("button", _extends({}, buttonProps, {
         className: className,
         style: themeStyle
-      }), this.props.content);
+      }), this.props.content || this.props.children);
     }
   }]);
 
@@ -117,7 +117,6 @@ Button.propTypes = {
   href: _propTypes.default.string
 };
 Button.defaultProps = {
-  content: 'button',
   color: 'default',
   size: 'regular',
   disabled: false,

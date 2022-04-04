@@ -6,6 +6,7 @@ Regular buttons example:
 <Button content="Click me" color="default" disabled />
 <Button content="Click me" color="primary" disabled />
 <Button content="Link button" color="primary" href="#" />
+<Button color="default"><span>Button with <b>HTML</b> content</span></Button>
 ```
 
 Rounded buttons example:
@@ -15,6 +16,7 @@ Rounded buttons example:
 <Button rounded content="Click me" color="primary" />
 <Button rounded content="Click me" color="default" disabled />
 <Button rounded content="Click me" color="primary" disabled />
+<Button rounded color="default"><span>Button with <b>HTML</b> content</span></Button>
 ```
 
 Regular buttons with arrow example:
