@@ -15,13 +15,12 @@ Input field example:
 <InputField id="textInput10" onChange={() => {console.log('onChange')}} label="InputField without value, contentOnly set to true and defaultContent" contentOnly={true} defaultContent="Please insert a value" />
 <InputField id="fileInput1" onChange={()=>{console.log('onchange')}} type="file" label="InputField with label, value and type set to file" />
 <InputField id="fileInput1" onChange={()=>{console.log('onchange')}} type="file" label="InputField with label, value, fileName, buttonContent and type set to file" selectedFileName="file.txt" buttonContent="Legg til fil" />
-<InputField id="dateInput1" onChange={(date) => console.log("date", date)} type="date" label="Datepicker without value" value="" />
-<InputField id="dateInput2" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value" value="2020-05-10T13:12:04" />
-<InputField id="dateInput3" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value, errors and error message" value="2020-05-10T13:12:04" hasErrors={true} errorMessage="Wrong date value" />
-<InputField id="dateInput4" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value and contentOnly set to true" value="2020-05-10T13:12:04" contentOnly={true} />
-<InputField id="dateInput5" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value for start date" value="2020-05-10T13:12:04" selectsStart startDate="2020-05-10T13:12:04" endDate="2020-05-19T13:12:04" />
-<InputField id="dateInput6" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value for end date" value="2020-05-19T13:12:04" selectsEnd startDate="2020-05-10T13:12:04" endDate="2020-05-19T13:12:04" />
-<InputField id="dateInput7" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with defaultContent and contentOnly set to true" contentOnly={true} defaultContent="Please insert a value" />
+<InputField id="dateInput1" onChange={(date) => console.log("date", date)} type="date" label="Date input without value" value="" />
+<InputField id="dateInput2" onChange={(date) => console.log("date", date)} type="date" label="Date input with value" value="2020-05-10" />
+<InputField id="dateInput3" onChange={(date) => console.log("date", date)} type="date" label="Date input with value, errors and error message" value="2020-05-10" hasErrors={true} errorMessage="Wrong date value" />
+<InputField id="dateInput4" onChange={(date) => console.log("date", date)} type="date" label="Date input with value and contentOnly set to true" value="2020-05-10" contentOnly={true} />
+<InputField id="dateInput5" onChange={(date) => console.log("date", date)} type="date" label="Date input with min and max date" value="2020-05-10" selectsStart min="2020-05-04" max="2020-05-19" />
+<InputField id="dateInput6" onChange={(date) => console.log("date", date)} type="date" label="Date input with defaultContent and contentOnly set to true" contentOnly={true} defaultContent="Please insert a value" />
 <InputField id="textInput9" value="InputField with value and custom width" width="400px" />
 <InputField id="textInput10" value="InputField with a not auto generated key" elementKey="inputKeyHere" />
 ```
@@ -34,7 +33,7 @@ import customTheme from 'data/customTheme';
     <InputField id="themedTextInput4" onChange={()=>{console.log('onchange')}} value="InputField with link in label" label={['InputField with ', <a key="labelLink" href="#">link</a>, ' in label']} theme={customTheme} />
     <InputField id="themedTextInput5" onChange={()=>{console.log('onchange')}} value="InputField with label, value, errors and error message" label="InputField with label, value, errors and error message" hasErrors={true} errorMessage="Wrong value" theme={customTheme} />
     <InputField id="themedFileInput1" onChange={()=>{console.log('onchange')}} type="file" label="InputField with label, value, fileName, buttonContent and type set to file" selectedFileName="file.txt" buttonContent="Legg til fil" theme={customTheme} />
-    <InputField id="themedDateInput3" onChange={(date) => console.log("date", date)} type="date" label="Datepicker with value, errors and error message" value="2020-05-10T13:12:04" hasErrors={true} errorMessage="Wrong date value" theme={customTheme} />
+    <InputField id="themedDateInput3" onChange={(date) => console.log("date", date)} type="date" label="Date input with value, errors and error message" value="2020-05-10" hasErrors={true} errorMessage="Wrong date value" theme={customTheme} />
     <InputField id="themedDateInput4" value="InputField with value, error and custom width" width="420px" hasErrors={true} theme={customTheme} errorMessage="Wrong value" />
 
 </React.Fragment>

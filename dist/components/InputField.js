@@ -11,12 +11,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactDatepicker = _interopRequireWildcard(require("react-datepicker"));
-
-var _dateFns = require("date-fns");
-
-var _nb = _interopRequireDefault(require("date-fns/locale/nb"));
-
 var _Button = _interopRequireDefault(require("./Button"));
 
 var _Label = _interopRequireDefault(require("./Label"));
@@ -27,21 +21,13 @@ var _theme = require("../functions/theme");
 
 var _generators = require("../functions/generators");
 
-require("react-datepicker/dist/react-datepicker.css");
-
 var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -63,7 +49,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-(0, _reactDatepicker.registerLocale)('nb', _nb.default);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var InputField = /*#__PURE__*/function (_React$Component) {
   _inherits(InputField, _React$Component);
@@ -71,30 +57,43 @@ var InputField = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(InputField);
 
   function InputField() {
+    var _this;
+
     _classCallCheck(this, InputField);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "formatDate", function (inputDate) {
+      if (!inputDate) {
+        return null;
+      }
+
+      var date = new Date(inputDate);
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1 < 10 ? "0".concat(date.getMonth() + 1) : date.getMonth() + 1;
+      var day = date.getDate() < 10 ? "0".concat(date.getDate()) : date.getDate();
+      return "".concat(day, ".").concat(month, ".").concat(year);
+    });
+
+    return _this;
   }
 
   _createClass(InputField, [{
     key: "getThemeErrorInputStyle",
     value: function getThemeErrorInputStyle(theme) {
       return {
-        boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')),
-        borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
+        boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, "warning")),
+        borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
       };
-    }
-  }, {
-    key: "convertDateToString",
-    value: function convertDateToString(date) {
-      return date ? (0, _dateFns.format)(new Date(date), this.props.dateFormat, {
-        locale: _nb.default
-      }) : '';
     }
   }, {
     key: "renderValueAsText",
     value: function renderValueAsText(value, defaultContent) {
-      return this.props.type === 'date' ? value ? this.convertDateToString(value) : defaultContent : value ? value : defaultContent;
+      return this.props.type === "date" ? value ? this.formatDate(value) : defaultContent : value ? value : defaultContent;
     }
   }, {
     key: "getInputElementProps",
@@ -108,39 +107,11 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         type: this.props.type,
         id: this.props.id,
         key: defaultKey || "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
+        min: this.props.min || null,
+        max: this.props.max || null,
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
-      }, _defineProperty(_ref, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''), _defineProperty(_ref, 'aria-required', this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
-    }
-  }, {
-    key: "getDatePickerElementProps",
-    value: function getDatePickerElementProps(defaultValue, defaultKey) {
-      var _this = this;
-
-      return {
-        name: this.props.name,
-        readOnly: this.props.readOnly,
-        disabled: this.props.disabled,
-        id: this.props.id,
-        key: defaultKey || "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
-        dateFormat: this.props.dateFormat,
-        locale: 'nb',
-        selectsStart: this.props.selectsStart,
-        selectsEnd: this.props.selectsEnd,
-        startDate: this.props.startDate ? new Date(this.props.startDate) : null,
-        endDate: this.props.endDate ? new Date(this.props.endDate) : null,
-        minDate: this.props.minDate || null,
-        maxDate: this.props.maxDate || null,
-        onChange: this.props.onChange ? function (date) {
-          return _this.props.onChange(date);
-        } : console.log("Missing onChange handler for date picker with id: ".concat(this.props.id)),
-        onBlur: this.props.onBlur ? function (date) {
-          return _this.props.onBlur(date);
-        } : null,
-        selected: defaultValue ? new Date(defaultValue) : null,
-        placeholderText: this.props.placeholder,
-        className: this.props.hasErrors ? _InputFieldModule.default.hasErrors : ''
-      };
+      }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder || null), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ""), _defineProperty(_ref, "aria-required", this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
     }
   }, {
     key: "render",
@@ -159,7 +130,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[this.props.type])
       }, /*#__PURE__*/_react.default.createElement(_Label.default, {
         htmlFor: this.props.id
-      }, this.props.label, this.props.type === 'file' ? /*#__PURE__*/_react.default.createElement("div", {
+      }, this.props.label, this.props.type === "file" ? /*#__PURE__*/_react.default.createElement("div", {
         className: _InputFieldModule.default.fileInputContainer
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: _InputFieldModule.default.input
@@ -170,9 +141,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         },
         content: this.props.buttonContent,
         theme: this.props.theme
-      }) : '') : ''), !this.props.contentOnly ? this.props.type === 'date' ? /*#__PURE__*/_react.default.createElement("div", {
-        style: styleRules
-      }, /*#__PURE__*/_react.default.createElement(_reactDatepicker.default, this.getDatePickerElementProps(defaultValue, defaultKey))) : /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, defaultKey, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
+      }) : null) : null), !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, defaultKey, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
         content: this.props.errorMessage,
         theme: this.props.theme
       }));
@@ -198,7 +167,6 @@ InputField.propTypes = {
   buttonColor: _propTypes.default.string,
   buttonContent: _propTypes.default.string,
   selectedFileName: _propTypes.default.string,
-  dateFormat: _propTypes.default.string,
   placeholder: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
@@ -207,16 +175,16 @@ InputField.propTypes = {
   theme: _propTypes.default.object
 };
 InputField.defaultProps = {
-  name: '',
-  type: 'text',
-  label: '',
+  name: "",
+  type: "text",
+  label: "",
   contentOnly: false,
-  buttonColor: 'default',
-  dateFormat: 'd. MMMM, yyyy',
-  placeholder: '',
-  defaultContent: '',
+  buttonColor: "default",
+  dateFormat: "d. MMMM, yyyy",
+  placeholder: "",
+  defaultContent: "",
   hasErrors: false,
-  errorMessage: '',
+  errorMessage: "",
   mandatory: false,
   onChange: function onChange() {
     return false;
