@@ -51,23 +51,28 @@ var RadioButtonInput = /*#__PURE__*/function (_React$Component) {
   _createClass(RadioButtonInput, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("label", {
-        htmlFor: this.props.id,
-        className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(this.props.checked ? _RadioButtonInputModule.default.checked : '', " ").concat(this.props.disabled ? _RadioButtonInputModule.default.disabled : '', " ").concat(this.props.hasErrors ? _RadioButtonInputModule.default.hasErrors : '')
-      }, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_RadioButtonIcon.default, {
+      var labelProps = {
+        className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(this.props.checked ? _RadioButtonInputModule.default.checked : "", " ").concat(this.props.disabled ? _RadioButtonInputModule.default.disabled : "", " ").concat(this.props.hasErrors ? _RadioButtonInputModule.default.hasErrors : ""),
+        htmlFor: this.props.id
+      };
+      var iconProps = {
         checked: this.props.checked,
         disabled: this.props.disabled,
         theme: this.props.theme,
-        hasErrors: this.props.hasErrors,
-        expandable: this.props.expandable
-      }), /*#__PURE__*/_react.default.createElement("input", {
-        type: "radio",
-        onChange: this.props.onChange,
+        hasErrors: this.props.contentOnly && this.props.hasErrors
+      };
+      var inputProps = {
         id: this.props.id,
-        name: this.props.name,
+        name: this.props.name || null,
+        type: "radio",
         value: this.props.inputValue,
-        checked: this.props.checked
-      })) : '', /*#__PURE__*/_react.default.createElement("span", null, this.props.children));
+        checked: this.props.checked,
+        disabled: this.props.disabled,
+        onChange: this.props.onChange,
+        "aria-expanded": this.props["aria-expanded"],
+        "aria-controls": this.props["aria-controls"]
+      };
+      return /*#__PURE__*/_react.default.createElement("label", labelProps, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_RadioButtonIcon.default, iconProps), /*#__PURE__*/_react.default.createElement("input", inputProps)) : null, /*#__PURE__*/_react.default.createElement("span", null, this.props.children));
     }
   }]);
 
@@ -77,22 +82,22 @@ var RadioButtonInput = /*#__PURE__*/function (_React$Component) {
 RadioButtonInput.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
-  inputValue: _propTypes.default.string.isRequired,
-  name: _propTypes.default.string,
   id: _propTypes.default.string.isRequired,
+  name: _propTypes.default.string,
   onChange: _propTypes.default.func,
   contentOnly: _propTypes.default.bool,
-  theme: _propTypes.default.object,
   hasErrors: _propTypes.default.bool,
-  expandable: _propTypes.default.bool
+  theme: _propTypes.default.object,
+  inputValue: _propTypes.default.string.isRequired,
+  "aria-expanded": _propTypes.default.string,
+  "aria-controls": _propTypes.default.string
 };
 RadioButtonInput.defaultProps = {
-  name: '',
+  name: "",
   checked: false,
   disabled: false,
   contentOnly: false,
-  hasErrors: false,
-  expandable: false
+  hasErrors: false
 };
 var _default = RadioButtonInput;
 exports.default = _default;

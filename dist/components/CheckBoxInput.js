@@ -51,29 +51,29 @@ var CheckBoxInput = /*#__PURE__*/function (_React$Component) {
   _createClass(CheckBoxInput, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("label", {
-        className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(this.props.contentOnly ? _CheckBoxInputModule.default.contentOnly : '', " ").concat(this.props.disabled ? _CheckBoxInputModule.default.disabled : '', " ").concat(this.props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ''),
+      var labelProps = {
+        className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(this.props.contentOnly ? _CheckBoxInputModule.default.contentOnly : "", " ").concat(this.props.disabled ? _CheckBoxInputModule.default.disabled : "", " ").concat(this.props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ""),
         htmlFor: this.props.id
-      }, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, {
+      };
+      var iconProps = {
         checked: this.props.checked,
         disabled: this.props.disabled,
         theme: this.props.theme,
-        hasErrors: this.props.hasErrors,
-        checkmarkCharacter: this.props.checkmarkCharacter,
-        expandable: this.props.expandable
-      }), /*#__PURE__*/_react.default.createElement("input", {
-        onChange: this.props.onChange,
-        type: "checkbox",
-        name: this.props.name,
+        showBox: !this.props.contentOnly,
+        hasErrors: this.props.contentOnly && this.props.hasErrors,
+        checkmarkCharacter: this.props.checkmarkCharacter
+      };
+      var inputProps = {
         id: this.props.id,
-        checked: this.props.checked,
-        disabled: this.props.disabled
-      })) : /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, {
+        name: this.props.name || null,
+        type: "checkbox",
         checked: this.props.checked,
         disabled: this.props.disabled,
-        showBox: false,
-        theme: this.props.theme
-      }), /*#__PURE__*/_react.default.createElement("span", null, this.props.children));
+        onChange: this.props.onChange,
+        "aria-expanded": this.props["aria-expanded"],
+        "aria-controls": this.props["aria-controls"]
+      };
+      return /*#__PURE__*/_react.default.createElement("label", labelProps, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, iconProps), /*#__PURE__*/_react.default.createElement("input", inputProps)) : /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, iconProps), /*#__PURE__*/_react.default.createElement("span", null, this.props.children));
     }
   }]);
 
@@ -90,15 +90,16 @@ CheckBoxInput.propTypes = {
   hasErrors: _propTypes.default.bool,
   theme: _propTypes.default.object,
   checkmarkCharacter: _propTypes.default.string,
-  expandable: _propTypes.default.bool
+  "aria-expanded": _propTypes.default.string,
+  "aria-controls": _propTypes.default.string
 };
 CheckBoxInput.defaultProps = {
   checked: false,
   disabled: false,
-  name: '',
+  name: "",
   contentOnly: false,
   hasErrors: false,
-  checkmarkCharacter: '✔',
+  checkmarkCharacter: "✔",
   expandable: false
 };
 var _default = CheckBoxInput;

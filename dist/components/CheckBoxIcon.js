@@ -71,13 +71,10 @@ var CheckBoxIcon = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      var ariaExpandedIndex = "aria-expanded";
-
-      var props = _defineProperty({
+      var props = {
         className: "".concat(_CheckBoxIconModule.default.checkBoxIcon, " ").concat(this.props.checked ? _CheckBoxIconModule.default.checked : '', " ").concat(this.props.disabled ? _CheckBoxIconModule.default.disabled : '', " ").concat(this.props.showBox ? _CheckBoxIconModule.default.showBox : '', " ").concat(this.props.hasErrors ? _CheckBoxIconModule.default.hasErrors : ''),
         style: inlineStyle
-      }, ariaExpandedIndex, this.props.expandable ? this.props.checked.toString() : null);
-
+      };
       return /*#__PURE__*/_react.default.createElement("span", props, /*#__PURE__*/_react.default.createElement("span", {
         className: _CheckBoxIconModule.default.checkmark
       }, this.props.checked ? this.props.checkmarkCharacter : ''));
@@ -94,8 +91,7 @@ CheckBoxIcon.propTypes = {
   showBox: _propTypes.default.bool,
   theme: _propTypes.default.object,
   hasErrors: _propTypes.default.bool,
-  checkmarkCharacter: _propTypes.default.string,
-  expandable: _propTypes.default.bool
+  checkmarkCharacter: _propTypes.default.string
 };
 CheckBoxIcon.defaultProps = {
   size: '20px',
@@ -103,8 +99,7 @@ CheckBoxIcon.defaultProps = {
   disabled: false,
   showBox: true,
   hasErrors: false,
-  checkmarkCharacter: '✔',
-  expandable: false
+  checkmarkCharacter: '✔'
 };
 var _default = CheckBoxIcon;
 exports.default = _default;
