@@ -23,11 +23,9 @@ class CheckBoxIcon extends React.Component {
       }
     }
 
-    const ariaExpandedIndex = "aria-expanded";
     const props = {
       className: `${style.checkBoxIcon} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.showBox ? style.showBox : ''} ${this.props.hasErrors ? style.hasErrors : ''}`,
-      style: inlineStyle,
-      [ariaExpandedIndex]: this.props.expandable ? this.props.checked.toString() : null
+      style: inlineStyle
     }
     
     return (
@@ -44,8 +42,7 @@ CheckBoxIcon.propTypes = {
   showBox: PropTypes.bool,
   theme: PropTypes.object,
   hasErrors: PropTypes.bool,
-  checkmarkCharacter: PropTypes.string,
-  expandable: PropTypes.bool
+  checkmarkCharacter: PropTypes.string
 }
 
 CheckBoxIcon.defaultProps = {
@@ -54,8 +51,7 @@ CheckBoxIcon.defaultProps = {
   disabled: false,
   showBox: true,
   hasErrors: false,
-  checkmarkCharacter: '✔',
-  expandable: false
+  checkmarkCharacter: '✔'
 }
 
 export default CheckBoxIcon;
