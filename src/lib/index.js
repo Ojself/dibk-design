@@ -23,6 +23,7 @@ import RadioButtonIcon from './components/RadioButtonIcon';
 import RadioButtonInput from './components/RadioButtonInput';
 import RadioButtonListItem from './components/RadioButtonListItem';
 import Select from './components/Select';
+import Table from './components/Table';
 import Textarea from './components/Textarea';
 import WizardNavigation from './components/WizardNavigation';
 import WizardNavigationStep from './components/WizardNavigation/Step';
@@ -54,6 +55,7 @@ export {
   RadioButtonInput,
   RadioButtonListItem,
   Select,
+  Table,
   Textarea,
   WizardNavigation,
   WizardNavigationStep
