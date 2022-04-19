@@ -153,6 +153,12 @@ Object.defineProperty(exports, "Select", {
     return _Select.default;
   }
 });
+Object.defineProperty(exports, "Table", {
+  enumerable: true,
+  get: function get() {
+    return _Table.default;
+  }
+});
 Object.defineProperty(exports, "Textarea", {
   enumerable: true,
   get: function get() {
@@ -221,6 +227,8 @@ var _RadioButtonInput = _interopRequireDefault(require("./components/RadioButton
 var _RadioButtonListItem = _interopRequireDefault(require("./components/RadioButtonListItem"));
 
 var _Select = _interopRequireDefault(require("./components/Select"));
+
+var _Table = _interopRequireDefault(require("./components/Table"));
 
 var _Textarea = _interopRequireDefault(require("./components/Textarea"));
 
