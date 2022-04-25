@@ -93,6 +93,7 @@
     color: $color-primary;
     &:not(:local(.hasTheme)) {
       &:hover:not(:local(.noHover)),
+      &:focus-visible,
       &:active {
         background-color: $color-primary;
         color: #fff;
@@ -109,6 +110,7 @@
     color: #fff;
     &:not(:local(.hasTheme)) {
       &:hover:not(:local(.noHover)),
+      &:focus-visible,
       &:active {
         background-color: #fff;
         color: $color-primary;
