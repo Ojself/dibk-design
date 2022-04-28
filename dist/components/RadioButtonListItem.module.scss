@@ -46,10 +46,6 @@
     @include box-shadow(0 0 6px $color-dark-blue);
   }
 
-  &:focus {
-    outline-color: #54acb8;
-  }
-
   label {
     width: 100%;
     padding: 10px;

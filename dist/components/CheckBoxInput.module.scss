@@ -19,8 +19,10 @@
   }
 
   &:focus-within{    
-    border-color: #072938;
-    outline-color: #54acb8;
+    outline-width: 2px;
+    outline-color: $color-focus-outline;
+    outline-style: auto;
+    outline-offset: 1px;
   }
 
   input[type="checkbox"] {
