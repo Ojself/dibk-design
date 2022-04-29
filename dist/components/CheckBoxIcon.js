@@ -76,6 +76,7 @@ var CheckBoxIcon = /*#__PURE__*/function (_React$Component) {
         style: inlineStyle
       };
       return /*#__PURE__*/_react.default.createElement("span", props, /*#__PURE__*/_react.default.createElement("span", {
+        "aria-hidden": true,
         className: _CheckBoxIconModule.default.checkmark
       }, this.props.checked ? this.props.checkmarkCharacter : ''));
     }
