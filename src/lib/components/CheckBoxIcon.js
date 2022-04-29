@@ -30,7 +30,7 @@ class CheckBoxIcon extends React.Component {
     
     return (
     <span {...props}>
-      <span className={style.checkmark}>{this.props.checked ? this.props.checkmarkCharacter : ''}</span>
+      <span aria-hidden className={style.checkmark}>{this.props.checked ? this.props.checkmarkCharacter : ''}</span>
     </span>)
   }
 }
