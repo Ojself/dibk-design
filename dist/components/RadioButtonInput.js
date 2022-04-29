@@ -69,7 +69,7 @@ var RadioButtonInput = /*#__PURE__*/function (_React$Component) {
         checked: this.props.checked,
         disabled: this.props.disabled,
         onChange: this.props.onChange,
-        "aria-expanded": this.props["aria-expanded"],
+        "aria-description": this.props["aria-description"],
         "aria-controls": this.props["aria-controls"]
       };
       return /*#__PURE__*/_react.default.createElement("label", labelProps, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_RadioButtonIcon.default, iconProps), /*#__PURE__*/_react.default.createElement("input", inputProps)) : null, /*#__PURE__*/_react.default.createElement("span", null, this.props.children));
@@ -89,7 +89,7 @@ RadioButtonInput.propTypes = {
   hasErrors: _propTypes.default.bool,
   theme: _propTypes.default.object,
   inputValue: _propTypes.default.string.isRequired,
-  "aria-expanded": _propTypes.default.string,
+  "aria-description": _propTypes.default.string,
   "aria-controls": _propTypes.default.string
 };
 RadioButtonInput.defaultProps = {
