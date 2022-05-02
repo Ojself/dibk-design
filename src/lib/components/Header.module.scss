@@ -60,5 +60,14 @@
 				font-size: 21px;
 			}
 		}
+		&:local(.size-5) {
+			font-family: $default-font;
+			font-size: 16px;
+			font-weight: normal;
+			line-height: 1;
+			@media only screen and (min-width: $screen-sm) {
+				font-size: 19px;
+			}
+		}
 	}
 }
