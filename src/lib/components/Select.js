@@ -128,7 +128,7 @@ Select.propTypes = {
   name: PropTypes.string,
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     PropTypes.shape({ key: PropTypes.string, value: PropTypes.string })
   ])),
   width: PropTypes.string,
