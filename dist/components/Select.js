@@ -177,7 +177,7 @@ Select.propTypes = {
   onChange: _propTypes.default.func.isRequired,
   name: _propTypes.default.string,
   multiple: _propTypes.default.bool,
-  options: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.shape({
+  options: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]), _propTypes.default.shape({
     key: _propTypes.default.string,
     value: _propTypes.default.string
   })])),
