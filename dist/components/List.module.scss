@@ -5,15 +5,14 @@
 	margin-bottom: 20px;
 	list-style-position: outside;
 	font-size: 16px;
+	list-style: var(--listStyle);
 	li {
 		line-height: 1.6;
 	}
-}
-
-:local(ul.list) {
-	list-style: disc;
-}
-
-:local(ol.list) {
-	list-style: decimal;
+	&:local(.compact) {
+		margin-left: 0px;
+		li {
+			line-height: 1.4;
+		}
+	}
 }
