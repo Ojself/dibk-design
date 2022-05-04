@@ -27,7 +27,6 @@ class RadioButtonInput extends React.Component {
             checked: this.props.checked,
             disabled: this.props.disabled,
             onChange: this.props.onChange,
-            "aria-description": this.props["aria-description"],
             "aria-controls": this.props["aria-controls"]
         };
 
@@ -55,7 +54,6 @@ RadioButtonInput.propTypes = {
     hasErrors: PropTypes.bool,
     theme: PropTypes.object,
     inputValue: PropTypes.string.isRequired,
-    "aria-description": PropTypes.string,
     "aria-controls": PropTypes.string
 };
 

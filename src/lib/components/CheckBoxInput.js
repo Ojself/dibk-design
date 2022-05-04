@@ -28,7 +28,6 @@ class CheckBoxInput extends React.Component {
             checked: this.props.checked,
             disabled: this.props.disabled,
             onChange: this.props.onChange,
-            "aria-description": this.props["aria-description"],
             "aria-controls": this.props["aria-controls"]
         };
 
@@ -58,7 +57,6 @@ CheckBoxInput.propTypes = {
     hasErrors: PropTypes.bool,
     theme: PropTypes.object,
     checkmarkCharacter: PropTypes.string,
-    "aria-description": PropTypes.string,
     "aria-controls": PropTypes.string
 };
 CheckBoxInput.defaultProps = {
@@ -67,7 +65,6 @@ CheckBoxInput.defaultProps = {
     name: "",
     contentOnly: false,
     hasErrors: false,
-    checkmarkCharacter: "✔",
-    expandable: false
+    checkmarkCharacter: "✔"
 };
 export default CheckBoxInput;
