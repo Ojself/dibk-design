@@ -6,12 +6,12 @@
 	list-style-position: outside;
 	font-size: 16px;
 	list-style: var(--listStyle);
-	li {
+	> li {
 		line-height: 1.6;
 	}
 	&:local(.compact) {
 		margin-left: 0px;
-		li {
+		> li {
 			line-height: 1.4;
 		}
 	}

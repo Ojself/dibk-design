@@ -14,6 +14,7 @@ import Header from './components/Header';
 import InputField from './components/InputField';
 import Label from './components/Label';
 import List from './components/List';
+import ListItem from './components/ListItem';
 import LoadingAnimation from './components/LoadingAnimation';
 import NavigationBar from './components/NavigationBar';
 import NavigationBarListItem from './components/NavigationBarListItem';
@@ -46,6 +47,7 @@ export {
   InputField,
   Label,
   List,
+  ListItem,
   LoadingAnimation,
   NavigationBar,
   NavigationBarListItem,
