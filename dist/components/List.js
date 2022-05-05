@@ -15,26 +15,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var ListItem = function ListItem(props) {
-  return /*#__PURE__*/_react.default.createElement("li", null, props.listItem);
-};
-
 var List = function List(props) {
   var renderList = function renderList() {
-    var listItems = props.listItems.map(function (listItem, i) {
-      return /*#__PURE__*/_react.default.createElement(ListItem, {
-        listItem: listItem,
-        key: i
-      });
-    });
     var listType = props.ordered ? "ol" : "ul";
-    var defaultListStyle = props.ordered ? 'decimal' : 'disc';
+    var defaultListStyle = props.ordered ? "decimal" : "disc";
     var scssValueProperty = "--listStyle";
 
     var listElement = /*#__PURE__*/_react.default.createElement(listType, {
-      className: "".concat(_ListModule.default.list, " ").concat(!!props.compact ? _ListModule.default.compact : ''),
+      className: "".concat(_ListModule.default.list, " ").concat(!!props.compact ? _ListModule.default.compact : ""),
       style: _defineProperty({}, scssValueProperty, props.listStyle || defaultListStyle)
-    }, listItems);
+    }, props.children);
 
     return listElement;
   };
@@ -43,12 +33,13 @@ var List = function List(props) {
 };
 
 List.propTypes = {
-  listItems: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object])),
+  listStyle: _propTypes.default.string,
+  compact: _propTypes.default.bool,
   ordered: _propTypes.default.bool
 };
 List.defaultProps = {
-  listItems: [],
-  ordered: false
+  ordered: false,
+  compact: false
 };
 var _default = List;
 exports.default = _default;

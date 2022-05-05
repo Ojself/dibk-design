@@ -1,35 +1,71 @@
 Ordered List example:
 
 ```js
-<List listItems={["item 1", "item 2", "item 3"]} ordered={true} />
+import ListItem from "lib/components/ListItem";
+<List ordered={true}>
+    <ListItem>item 1</ListItem>
+    <ListItem>item 2</ListItem>
+    <ListItem>item 3</ListItem>
+</List>;
 ```
 
 Unordered List example:
 
 ```js
-<List listItems={["item 1", "item 2", "item 3", <a href="hoy">test</a>]} />
+import ListItem from "lib/components/ListItem";
+<List>
+    <ListItem>item 1</ListItem>
+    <ListItem>item 2</ListItem>
+    <ListItem>item 3</ListItem>
+</List>;
 ```
 
 Unordered square-styled List example:
 
 ```js
-<List listItems={["item 1", "item 2", "item 3"]} listStyle="square" />
+import ListItem from "lib/components/ListItem";
+<List listStyle="square">
+    <ListItem>item 1</ListItem>
+    <ListItem>item 2</ListItem>
+    <ListItem>item 3</ListItem>
+</List>;
 ```
 
 Unordered unstyled List example:
 
 ```js
-<List listItems={["item 1", "item 2", "item 3"]} listStyle="none" />
+import ListItem from "lib/components/ListItem";
+<List listStyle="none">
+    <ListItem>item 1</ListItem>
+    <ListItem>item 2</ListItem>
+    <ListItem>item 3</ListItem>
+</List>;
 ```
 
 Unordered unstyled compact List example:
 
 ```js
-<List listItems={["item 1", "item 2", "item 3"]} listStyle="none" compact />
+import ListItem from "lib/components/ListItem";
+<List listStyle="none" compact>
+    <ListItem>item 1</ListItem>
+    <ListItem>item 2</ListItem>
+    <ListItem>item 3</ListItem>
+</List>;
 ```
 
 Unordered List with subitems example:
 
 ```js
-<List listItems={['item 1', <React.Fragment>item 2 <List listItems={['subitem 1', 'subitem 2', 'subitem 3']} /></React.Fragment>, 'item 2']} />
+import ListItem from "lib/components/ListItem";
+<List>
+    <ListItem>item 1</ListItem>
+    <ListItem>
+        item 2
+        <List>
+            <ListItem>subitem 1</ListItem>
+            <ListItem>subitem 2</ListItem>
+        </List>
+    </ListItem>
+    <ListItem>item 3</ListItem>
+</List>;
 ```
