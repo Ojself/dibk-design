@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.e965e985.chunk.css",
-    "main.js": "/build/main.363d7fa3.js",
+    "main.css": "/static/css/main.58cb9cae.chunk.css",
+    "main.js": "/build/main.ff506e1d.js",
     "runtime-main.js": "/build/bundle.5fd29ff5.js",
-    "build/2.48d87397.js": "/build/2.48d87397.js",
-    "build/2.48d87397.js.LICENSE.txt": "/build/2.48d87397.js.LICENSE.txt",
+    "build/2.ab9b7815.js": "/build/2.ab9b7815.js",
+    "build/2.ab9b7815.js.LICENSE.txt": "/build/2.ab9b7815.js.LICENSE.txt",
     "index.html": "/index.html",
-    "static/css/main.e965e985.chunk.css.map": "/static/css/main.e965e985.chunk.css.map",
+    "static/css/main.58cb9cae.chunk.css.map": "/static/css/main.58cb9cae.chunk.css.map",
     "static/media/fonts.css": "/static/media/open-sans-v27-latin-ext_latin-regular.d58b5ba8.ttf",
     "static/media/dibk-logo-mobile.svg": "/static/media/dibk-logo-mobile.120629cc.svg",
     "static/media/dibk-logo.972e244e.svg": "/static/media/dibk-logo.972e244e.svg",
@@ -14,8 +14,8 @@
   },
   "entrypoints": [
     "build/bundle.5fd29ff5.js",
-    "build/2.48d87397.js",
-    "static/css/main.e965e985.chunk.css",
-    "build/main.363d7fa3.js"
+    "build/2.ab9b7815.js",
+    "static/css/main.58cb9cae.chunk.css",
+    "build/main.ff506e1d.js"
   ]
 }
