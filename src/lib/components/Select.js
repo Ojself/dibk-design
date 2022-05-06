@@ -101,6 +101,7 @@ class Select extends React.Component {
         [defaultValue ? 'defaultValue' : 'value']: defaultValue || this.props.value,
         onChange: this.props.onChange,
         id: this.props.id,
+        role: this.props.role,
         key: `${this.props.id}-${generateRandomString(6)}`,
         className: this.props.hasErrors ? style.hasErrors : '',
         style: styleRules

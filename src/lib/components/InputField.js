@@ -49,6 +49,7 @@ class InputField extends React.Component {
             readOnly: this.props.readOnly,
             disabled: this.props.disabled,
             type: this.props.type,
+            role: this.props.role,
             id: this.props.id,
             key: defaultKey || `${this.props.id}-${generateRandomString(6)}`,
             min: this.props.min || null,
