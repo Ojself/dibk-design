@@ -148,7 +148,7 @@ var Select = /*#__PURE__*/function (_React$Component) {
         var props = (_props = {
           name: this.props.name,
           multiple: this.props.multiple
-        }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "onChange", this.props.onChange), _defineProperty(_props, "id", this.props.id), _defineProperty(_props, "key", "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_props, "className", this.props.hasErrors ? _SelectModule.default.hasErrors : ''), _defineProperty(_props, "style", styleRules), _props);
+        }, _defineProperty(_props, defaultValue ? 'defaultValue' : 'value', defaultValue || this.props.value), _defineProperty(_props, "onChange", this.props.onChange), _defineProperty(_props, "id", this.props.id), _defineProperty(_props, "role", this.props.role), _defineProperty(_props, "key", "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_props, "className", this.props.hasErrors ? _SelectModule.default.hasErrors : ''), _defineProperty(_props, "style", styleRules), _props);
         return /*#__PURE__*/_react.default.createElement("div", {
           className: _SelectModule.default.select
         }, /*#__PURE__*/_react.default.createElement(_Label.default, {

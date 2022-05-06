@@ -105,6 +105,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         readOnly: this.props.readOnly,
         disabled: this.props.disabled,
         type: this.props.type,
+        role: this.props.role,
         id: this.props.id,
         key: defaultKey || "".concat(this.props.id, "-").concat((0, _generators.generateRandomString)(6)),
         min: this.props.min || null,
