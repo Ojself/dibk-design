@@ -28,6 +28,7 @@ class CheckBoxInput extends React.Component {
             checked: this.props.checked,
             disabled: this.props.disabled,
             onChange: this.props.onChange,
+            tabIndex: this.props.tabIndex || null,
             "aria-controls": this.props["aria-controls"]
         };
 
