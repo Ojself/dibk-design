@@ -70,6 +70,7 @@ var CheckBoxInput = /*#__PURE__*/function (_React$Component) {
         checked: this.props.checked,
         disabled: this.props.disabled,
         onChange: this.props.onChange,
+        tabIndex: this.props.tabIndex || null,
         "aria-controls": this.props["aria-controls"]
       };
       return /*#__PURE__*/_react.default.createElement("label", labelProps, !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, iconProps), /*#__PURE__*/_react.default.createElement("input", inputProps)) : /*#__PURE__*/_react.default.createElement(_CheckBoxIcon.default, iconProps), /*#__PURE__*/_react.default.createElement("span", null, this.props.children));
