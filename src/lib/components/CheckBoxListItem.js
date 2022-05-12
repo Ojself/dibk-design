@@ -1,40 +1,50 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CheckBoxInput from './CheckBoxInput';
-import style from './CheckBoxListItem.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import CheckBoxInput from "./CheckBoxInput";
+import style from "./CheckBoxListItem.module.scss";
 
-class CheckBoxListItem extends React.Component {
-  render() {
+const CheckBoxListItem = (props) => {
+    const listItemClass = `${style.checkBoxListItem} ${props.checked ? style.checked : ""} ${
+        props.disabled ? style.disabled : ""
+    } ${props.contentOnly ? style.contentOnly : ""} ${props.compact ? style.compact : ""} ${
+        props.hasErrors ? style.hasErrors : ""
+    }`;
+    const inputProps = {
+        onChange: props.onChange,
+        checked: props.checked,
+        disabled: props.disabled,
+        contentOnly: props.contentOnly,
+        hasErrors: props.hasErrors,
+        id: props.id,
+        theme: props.theme,
+        checkmarkCharacter: props.checkmarkCharacter
+    };
     return (
-      <div className={`${style.checkBoxListItem} ${this.props.checked ? style.checked : ''} ${this.props.disabled ? style.disabled : ''} ${this.props.contentOnly ? style.contentOnly : ''} ${this.props.compact ? style.compact : ''} ${this.props.hasErrors ? style.hasErrors : ''}`}>
-        <CheckBoxInput onChange={this.props.onChange} checked={this.props.checked} disabled={this.props.disabled} contentOnly={this.props.contentOnly} hasErrors={this.props.hasErrors} id={this.props.id} theme={this.props.theme} checkmarkCharacter={this.props.checkmarkCharacter}>
-          {this.props.children}
-        </CheckBoxInput>
-      </div>
-    )
-  }
-}
+        <li className={listItemClass}>
+            <CheckBoxInput {...inputProps}>{props.children}</CheckBoxInput>
+        </li>
+    );
+};
 
 CheckBoxListItem.propTypes = {
-  /** Text content inside list item */
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  contentOnly: PropTypes.bool,
-  theme: PropTypes.object,
-  compact: PropTypes.bool,
-  hasErrors: PropTypes.bool,
-  checkmarkCharacter: PropTypes.string
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    contentOnly: PropTypes.bool,
+    theme: PropTypes.object,
+    compact: PropTypes.bool,
+    hasErrors: PropTypes.bool,
+    checkmarkCharacter: PropTypes.string
 };
 CheckBoxListItem.defaultProps = {
-  checked: false,
-  disabled: false,
-  id: '',
-  name: '',
-  contentOnly: false,
-  hasErrors: false,
-  checkmarkCharacter: '✔'
+    checked: false,
+    disabled: false,
+    id: "",
+    name: "",
+    contentOnly: false,
+    hasErrors: false,
+    checkmarkCharacter: "✔"
 };
 export default CheckBoxListItem;
