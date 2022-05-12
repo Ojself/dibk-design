@@ -1,14 +1,26 @@
+// Dependencies
 import React from "react";
 import PropTypes from "prop-types";
+
+// Components
 import CheckBoxInput from "./CheckBoxInput";
+
+// Functions
+import { classNameArrayToClassNameString } from "lib/functions/helpers";
+
+// Stylesheets
 import style from "./CheckBoxListItem.module.scss";
 
 const CheckBoxListItem = (props) => {
-    const listItemClass = `${style.checkBoxListItem} ${props.checked ? style.checked : ""} ${
-        props.disabled ? style.disabled : ""
-    } ${props.contentOnly ? style.contentOnly : ""} ${props.compact ? style.compact : ""} ${
-        props.hasErrors ? style.hasErrors : ""
-    }`;
+    const listItemClassNameArray = [
+        style.checkBoxListItem,
+        props.checked ? style.checked : null,
+        props.disabled ? style.disabled : null,
+        props.compact ? style.compact : null,
+        props.contentOnly ? style.contentOnly : null,
+        props.hasErrors ? style.hasErrors : null
+    ];
+    const listItemClassNameString = classNameArrayToClassNameString(listItemClassNameArray);
     const inputProps = {
         onChange: props.onChange,
         checked: props.checked,
@@ -20,7 +32,7 @@ const CheckBoxListItem = (props) => {
         checkmarkCharacter: props.checkmarkCharacter
     };
     return (
-        <li className={listItemClass}>
+        <li className={listItemClassNameString}>
             <CheckBoxInput {...inputProps}>{props.children}</CheckBoxInput>
         </li>
     );
