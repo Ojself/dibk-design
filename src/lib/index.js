@@ -2,6 +2,7 @@ import Accordion from './components/Accordion';
 import Button from './components/Button';
 import CheckBoxIcon from './components/CheckBoxIcon';
 import CheckBoxInput from './components/CheckBoxInput';
+import CheckBoxList from './components/CheckBoxList';
 import CheckBoxListItem from './components/CheckBoxListItem';
 import Container from './components/Container';
 import ContentBox from './components/ContentBox';
@@ -35,6 +36,7 @@ export {
   Button,
   CheckBoxIcon,
   CheckBoxInput,
+  CheckBoxList,
   CheckBoxListItem,
   Container,
   ContentBox,
