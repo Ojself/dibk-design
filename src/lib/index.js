@@ -23,6 +23,7 @@ import Paper from './components/Paper';
 import ProgressBar from './components/ProgressBar';
 import RadioButtonIcon from './components/RadioButtonIcon';
 import RadioButtonInput from './components/RadioButtonInput';
+import RadioButtonList from './components/RadioButtonList';
 import RadioButtonListItem from './components/RadioButtonListItem';
 import Select from './components/Select';
 import Table from './components/Table';
@@ -57,6 +58,7 @@ export {
   ProgressBar,
   RadioButtonIcon,
   RadioButtonInput,
+  RadioButtonList,
   RadioButtonListItem,
   Select,
   Table,
