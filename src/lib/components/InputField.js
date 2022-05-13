@@ -60,6 +60,7 @@ class InputField extends React.Component {
             placeholder: this.props.placeholder || null,
             className: this.props.hasErrors ? style.hasErrors : null,
             "aria-required": this.props.mandatory,
+            "aria-describedby": this.props["aria-describedby"] || null,
             style: styleRules
         };
     }
