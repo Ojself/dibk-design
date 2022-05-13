@@ -112,7 +112,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
         max: this.props.max || null,
         onChange: this.props.onChange,
         onBlur: this.props.onBlur
-      }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder || null), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : ""), _defineProperty(_ref, "aria-required", this.props.mandatory), _defineProperty(_ref, "style", styleRules), _ref;
+      }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || this.props.value), _defineProperty(_ref, "placeholder", this.props.placeholder || null), _defineProperty(_ref, "className", this.props.hasErrors ? _InputFieldModule.default.hasErrors : null), _defineProperty(_ref, "aria-required", this.props.mandatory), _defineProperty(_ref, "aria-describedby", this.props["aria-describedby"] || null), _defineProperty(_ref, "style", styleRules), _ref;
     }
   }, {
     key: "render",
