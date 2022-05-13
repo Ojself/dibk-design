@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import CheckBoxInput from "./CheckBoxInput";
 
 // Functions
-import { classNameArrayToClassNameString } from "lib/functions/helpers";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Stylesheets
 import style from "./CheckBoxListItem.module.scss";

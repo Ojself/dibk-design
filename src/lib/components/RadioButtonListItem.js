@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import RadioButtonInput from "./RadioButtonInput";
 
 // Functions
-import { classNameArrayToClassNameString } from "lib/functions/helpers";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Stylesheets
 import style from "./RadioButtonListItem.module.scss";
