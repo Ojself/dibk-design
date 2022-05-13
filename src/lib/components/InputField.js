@@ -58,7 +58,7 @@ class InputField extends React.Component {
             onBlur: this.props.onBlur,
             [defaultValue ? "defaultValue" : "value"]: defaultValue || this.props.value,
             placeholder: this.props.placeholder || null,
-            className: this.props.hasErrors ? style.hasErrors : "",
+            className: this.props.hasErrors ? style.hasErrors : null,
             "aria-required": this.props.mandatory,
             style: styleRules
         };
