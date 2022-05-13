@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _RadioButtonInput = _interopRequireDefault(require("./RadioButtonInput"));
 
-var _helpers = require("lib/functions/helpers");
+var _helpers = require("../functions/helpers");
 
 var _RadioButtonListItemModule = _interopRequireDefault(require("./RadioButtonListItem.module.scss"));
 

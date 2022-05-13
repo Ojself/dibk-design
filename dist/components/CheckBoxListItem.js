@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _CheckBoxInput = _interopRequireDefault(require("./CheckBoxInput"));
 
-var _helpers = require("lib/functions/helpers");
+var _helpers = require("../functions/helpers");
 
 var _CheckBoxListItemModule = _interopRequireDefault(require("./CheckBoxListItem.module.scss"));
 
