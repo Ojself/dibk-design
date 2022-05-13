@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.5b47a286.chunk.css",
-    "main.js": "/build/main.38af8e12.js",
+    "main.js": "/build/main.4628c9bc.js",
     "runtime-main.js": "/build/bundle.5fd29ff5.js",
-    "build/2.756f26fc.js": "/build/2.756f26fc.js",
-    "build/2.756f26fc.js.LICENSE.txt": "/build/2.756f26fc.js.LICENSE.txt",
+    "build/2.4c9ce0fb.js": "/build/2.4c9ce0fb.js",
+    "build/2.4c9ce0fb.js.LICENSE.txt": "/build/2.4c9ce0fb.js.LICENSE.txt",
     "index.html": "/index.html",
     "static/css/main.5b47a286.chunk.css.map": "/static/css/main.5b47a286.chunk.css.map",
     "static/media/fonts.css": "/static/media/open-sans-v27-latin-ext_latin-regular.d58b5ba8.ttf",
@@ -14,8 +14,8 @@
   },
   "entrypoints": [
     "build/bundle.5fd29ff5.js",
-    "build/2.756f26fc.js",
+    "build/2.4c9ce0fb.js",
     "static/css/main.5b47a286.chunk.css",
-    "build/main.38af8e12.js"
+    "build/main.4628c9bc.js"
   ]
 }
