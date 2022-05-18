@@ -96,7 +96,7 @@ class NavigationBar extends React.Component {
             {
               (this.props.primaryListItems && this.props.primaryListItems.length) || (this.props.secondaryListItems && this.props.secondaryListItems.length)
                 ? (
-                  <button type="button" className={`${style.menuToggle} ${this.state.active ? style.active : ''}`} onClick={() => this.toggleList()}>
+                  <button type="button" className={`${style.menuToggle} ${this.state.active ? style.active : ''}`} onClick={() => this.toggleList()} aria-expanded={this.state.active ? 'true' : 'false'} aria-controls="main-menu-dropdown">
                     <span className={style.hamburgerIcon}>
                       <span className={style.line} style={hamburgerIconLineStyle}></span>
                       <span className={style.line} style={hamburgerIconLineStyle}></span>
@@ -108,7 +108,9 @@ class NavigationBar extends React.Component {
             }
           </div>
           <div className={`${style.dropdownContainer} ${this.state.active ? style.active : ''}`}>
-            <div className={style.dropdown} style={navigationBarThemeStyle}>{this.renderPrimaryList()}{this.renderSecondaryList()}{this.props.children}</div>
+            <div id="main-menu-dropdown" className={style.dropdown} style={navigationBarThemeStyle}>
+              {this.renderPrimaryList()}{this.renderSecondaryList()}{this.props.children}
+            </div>
           </div>
           <div className={`${style.dropdownOverlay} ${this.state.active ? style.active : ''}`} />
         </div>
