@@ -124,6 +124,7 @@ class DragAndDropFileInput extends React.Component {
                       <div>{this.props.selectedFileName ? '' : 'eller klikk på knappen for å velge fil'}</div>
                       <Button
                         size='small'
+                        type='button'
                         color={this.props.buttonColor}
                         onClick={() => this.handleAddButtonOnClick()}
                         content={buttonContent} />

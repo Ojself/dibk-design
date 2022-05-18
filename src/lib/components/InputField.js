@@ -86,6 +86,7 @@ class InputField extends React.Component {
                                         document.getElementById(this.props.id).click();
                                     }}
                                     content={this.props.buttonContent}
+                                    type="button"
                                     theme={this.props.theme}
                                 />
                             ) : null}

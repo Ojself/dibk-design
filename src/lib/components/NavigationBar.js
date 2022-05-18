@@ -96,7 +96,7 @@ class NavigationBar extends React.Component {
             {
               (this.props.primaryListItems && this.props.primaryListItems.length) || (this.props.secondaryListItems && this.props.secondaryListItems.length)
                 ? (
-                  <button className={`${style.menuToggle} ${this.state.active ? style.active : ''}`} onClick={() => this.toggleList()}>
+                  <button type="button" className={`${style.menuToggle} ${this.state.active ? style.active : ''}`} onClick={() => this.toggleList()}>
                     <span className={style.hamburgerIcon}>
                       <span className={style.line} style={hamburgerIconLineStyle}></span>
                       <span className={style.line} style={hamburgerIconLineStyle}></span>
