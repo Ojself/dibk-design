@@ -184,10 +184,13 @@ var NavigationBar = /*#__PURE__*/function (_React$Component) {
       }, this.renderLogo(this.props.logoLink)), this.props.children ? /*#__PURE__*/_react.default.createElement("div", {
         className: _NavigationBarModule.default.childElements
       }, this.props.children) : '', this.props.primaryListItems && this.props.primaryListItems.length || this.props.secondaryListItems && this.props.secondaryListItems.length ? /*#__PURE__*/_react.default.createElement("button", {
+        type: "button",
         className: "".concat(_NavigationBarModule.default.menuToggle, " ").concat(this.state.active ? _NavigationBarModule.default.active : ''),
         onClick: function onClick() {
           return _this4.toggleList();
-        }
+        },
+        "aria-expanded": this.state.active ? 'true' : 'false',
+        "aria-controls": "main-menu-dropdown"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: _NavigationBarModule.default.hamburgerIcon
       }, /*#__PURE__*/_react.default.createElement("span", {
@@ -202,6 +205,7 @@ var NavigationBar = /*#__PURE__*/function (_React$Component) {
       }))) : ''), /*#__PURE__*/_react.default.createElement("div", {
         className: "".concat(_NavigationBarModule.default.dropdownContainer, " ").concat(this.state.active ? _NavigationBarModule.default.active : '')
       }, /*#__PURE__*/_react.default.createElement("div", {
+        id: "main-menu-dropdown",
         className: _NavigationBarModule.default.dropdown,
         style: navigationBarThemeStyle
       }, this.renderPrimaryList(), this.renderSecondaryList(), this.props.children)), /*#__PURE__*/_react.default.createElement("div", {

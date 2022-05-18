@@ -141,6 +141,7 @@ var InputField = /*#__PURE__*/function (_React$Component) {
           document.getElementById(_this2.props.id).click();
         },
         content: this.props.buttonContent,
+        type: "button",
         theme: this.props.theme
       }) : null) : null), !this.props.contentOnly ? /*#__PURE__*/_react.default.createElement("input", this.getInputElementProps(defaultValue, defaultKey, styleRules)) : /*#__PURE__*/_react.default.createElement("span", null, this.renderValueAsText(this.props.value || this.props.defaultValue, this.props.defaultContent)), /*#__PURE__*/_react.default.createElement(_ErrorMessage.default, {
         content: this.props.errorMessage,

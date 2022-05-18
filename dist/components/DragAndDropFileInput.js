@@ -164,6 +164,7 @@ var DragAndDropFileInput = /*#__PURE__*/function (_React$Component) {
         onChange: this.props.onSelectChange
       }), this.props.buttonContent ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, this.props.selectedFileName ? '' : 'eller klikk på knappen for å velge fil'), /*#__PURE__*/_react.default.createElement(_Button.default, {
         size: "small",
+        type: "button",
         color: this.props.buttonColor,
         onClick: function onClick() {
           return _this2.handleAddButtonOnClick();
