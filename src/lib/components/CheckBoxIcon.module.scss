@@ -20,7 +20,7 @@
     margin-top: 2px;
     background: white;
     &:not(:local(.hasErrors)) {
-      @include box-shadow(0 0 0 1px #afaba8);
+      @include box-shadow(0 0 0 1px #6A6262);
     }
     &:local(.hasErrors) {
       @include box-shadow(0 0 2px 1px #9d2024);
@@ -36,7 +36,7 @@
     }
     &:local(.showBox) {
       &:not(:local(.hasErrors)) {
-        @include box-shadow(0 0 0 1px #afaba8);
+        @include box-shadow(0 0 0 1px #6A6262);
       }
       &:local(.hasErrors) {
         @include box-shadow(0 0 2px 1px #9d2024);
