@@ -28,6 +28,7 @@ const RadioButtonListItem = (props) => {
         contentOnly: props.contentOnly,
         hasErrors: props.hasErrors,
         id: props.id,
+        name: props.name,
         theme: props.theme
     };
     return (
