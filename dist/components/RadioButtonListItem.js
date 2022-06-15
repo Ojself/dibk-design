@@ -32,6 +32,7 @@ var RadioButtonListItem = function RadioButtonListItem(props) {
     contentOnly: props.contentOnly,
     hasErrors: props.hasErrors,
     id: props.id,
+    name: props.name,
     theme: props.theme
   };
   return /*#__PURE__*/_react.default.createElement("li", {
