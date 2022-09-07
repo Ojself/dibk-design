@@ -1,4 +1,5 @@
 const path = require('path')
+
 module.exports = {
 	title: "DIBK design",
 	styleguideDir: "docs",
@@ -11,14 +12,6 @@ module.exports = {
 	    {name: 'Components', components: './src/lib/components/**/*.js'}
 	],
 	template: {
-		head: {
-			links: [
-				{
-					rel: 'stylesheet',
-					href: 'src/styleguide/styleguide.css'
-				}
-			]
-		},
 		favicon: 'src/styleguide/favicon.ico'
 	},
 	theme: {
