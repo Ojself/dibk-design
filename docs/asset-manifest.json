@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.e49b1ca4.chunk.css",
-    "main.js": "/build/main.d3f9df04.js",
-    "runtime-main.js": "/build/bundle.51be5a12.js",
-    "build/2.167dff2b.js": "/build/2.167dff2b.js",
-    "build/2.167dff2b.js.LICENSE.txt": "/build/2.167dff2b.js.LICENSE.txt",
+    "main.js": "/build/main.ed20bc9a.js",
+    "runtime-main.js": "/build/bundle.ba4241f6.js",
+    "build/2.0901a32a.js": "/build/2.0901a32a.js",
+    "build/2.0901a32a.js.LICENSE.txt": "/build/2.0901a32a.js.LICENSE.txt",
     "index.html": "/index.html",
     "static/css/main.e49b1ca4.chunk.css.map": "/static/css/main.e49b1ca4.chunk.css.map",
     "static/media/fonts.css": "/static/media/open-sans-v27-latin-ext_latin-regular.d58b5ba8.ttf",
@@ -13,9 +13,9 @@
     "static/media/LoadingAnimation.module.scss": "/static/media/spinner.9d4e5e9c.svg"
   },
   "entrypoints": [
-    "build/bundle.51be5a12.js",
-    "build/2.167dff2b.js",
+    "build/bundle.ba4241f6.js",
+    "build/2.0901a32a.js",
     "static/css/main.e49b1ca4.chunk.css",
-    "build/main.d3f9df04.js"
+    "build/main.ed20bc9a.js"
   ]
 }
