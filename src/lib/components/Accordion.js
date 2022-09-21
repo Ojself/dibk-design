@@ -29,10 +29,10 @@ class Accordion extends React.Component {
 
     renderPanel() {
         return (
-            <div className={style.panel} onClick={this.handleToggleExpand}>
+            <button className={style.panel} onClick={this.handleToggleExpand} aria-expanded={this.state.expanded ? 'true' : 'false'}>
                 <span className={style.panelText}>{this.props.title}</span>
                 <span className={`${style.panelChevron} ${this.state.expanded ? style.expanded : ''}`}></span>
-            </div>
+            </button>
         )
     }
     render() {
