@@ -152,6 +152,8 @@
     }
 
     :local(.panel) {
+        @include appearance(none);
+        @include border-radius(0);
         padding: 15px 15px;
         display: flex;
         align-items: center;
@@ -160,9 +162,18 @@
         overflow-wrap: break-word;
         line-height: 1.7;
         cursor: pointer;
+        border: none;
+        width: 100%;
+        background: none;
         @media only screen and (min-width: $screen-sm) {
             padding: 15px 30px;
         }
+        &:focus-visible {
+            outline-color: $color-focus-outline;
+            outline-style: auto;
+            outline-width: 2px;
+            outline-offset: 0px;
+          }
         :local(.panelText) {
             font-family: $heading-font;
             font-weight: bold;

@@ -74,9 +74,10 @@ var Accordion = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderPanel",
     value: function renderPanel() {
-      return /*#__PURE__*/_react.default.createElement("div", {
+      return /*#__PURE__*/_react.default.createElement("button", {
         className: _AccordionModule.default.panel,
-        onClick: this.handleToggleExpand
+        onClick: this.handleToggleExpand,
+        "aria-expanded": this.state.expanded ? 'true' : 'false'
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: _AccordionModule.default.panelText
       }, this.props.title), /*#__PURE__*/_react.default.createElement("span", {
