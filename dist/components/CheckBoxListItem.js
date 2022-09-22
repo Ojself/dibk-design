@@ -34,7 +34,7 @@ var CheckBoxListItem = function CheckBoxListItem(props) {
     theme: props.theme,
     checkmarkCharacter: props.checkmarkCharacter
   };
-  return /*#__PURE__*/_react.default.createElement("li", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: listItemClassNameString
   }, /*#__PURE__*/_react.default.createElement(_CheckBoxInput.default, inputProps, props.children));
 };

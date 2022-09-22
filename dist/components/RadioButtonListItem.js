@@ -35,7 +35,7 @@ var RadioButtonListItem = function RadioButtonListItem(props) {
     name: props.name,
     theme: props.theme
   };
-  return /*#__PURE__*/_react.default.createElement("li", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: listItemClassNameString
   }, /*#__PURE__*/_react.default.createElement(_RadioButtonInput.default, inputProps, props.children));
 };

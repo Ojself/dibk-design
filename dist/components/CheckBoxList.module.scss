@@ -1,5 +1,17 @@
-:local(.checkBoxList) {
+@import "../style/global.scss";
+
+:local(fieldset.checkBoxList) {
     margin: 0;
     padding: 0;
-    list-style: none;
+    border: none;
+    :local(legend) {
+        color: #000;
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.2;
+        margin-bottom: 2px;
+        font-family: $default-font;
+        overflow-wrap: break-word;
+    }
 }
