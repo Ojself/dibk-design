@@ -32,9 +32,9 @@ const RadioButtonListItem = (props) => {
         theme: props.theme
     };
     return (
-        <li className={listItemClassNameString}>
+        <div className={listItemClassNameString}>
             <RadioButtonInput {...inputProps}>{props.children}</RadioButtonInput>
-        </li>
+        </div>
     );
 };
 
