@@ -1,13 +1,21 @@
-import React from 'react';
-import style from './CheckBoxList.module.scss';
+// Dependencies
+import React from "react";
+import PropTypes from "prop-types";
+
+// Stylesheets
+import style from "./CheckBoxList.module.scss";
 
 const CheckBoxList = (props) => {
     return (
-      <ul className={style.checkBoxList}>
-          {props.children}
-      </ul>
-    )
-}
+        <fieldset className={style.checkBoxList}>
+            {!!props.legend?.length ? <legend>{props.legend}</legend> : null}
+            {props.children}
+        </fieldset>
+    );
+};
 
+CheckBoxList.propTypes = {
+    legend: PropTypes.string
+};
 
 export default CheckBoxList;

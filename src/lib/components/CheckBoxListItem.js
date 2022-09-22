@@ -32,9 +32,9 @@ const CheckBoxListItem = (props) => {
         checkmarkCharacter: props.checkmarkCharacter
     };
     return (
-        <li className={listItemClassNameString}>
+        <div className={listItemClassNameString}>
             <CheckBoxInput {...inputProps}>{props.children}</CheckBoxInput>
-        </li>
+        </div>
     );
 };
 
