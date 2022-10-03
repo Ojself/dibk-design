@@ -1,5 +1,7 @@
+// Dependencies
 import React from "react";
 
+// Components
 import Accordion from "./Accordion";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
