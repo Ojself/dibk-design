@@ -69,91 +69,92 @@
     }
 }
 
-:local(.accordion) {
+.accordion {
     font-family: $default-font;
     text-decoration: none;
     width: 100%;
     display: block;
-    &:local(.default) {
+    &.default {
         background-color: $color-default;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #000;
         }
     }
-    &:local(.primary) {
+    &.primary {
         background-color: $color-primary;
         color: #fff;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #fff;
         }
     }
-    &:local(.success) {
+    &.success {
         background-color: $color-success;
         color: #fff;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #fff;
         }
     }
-    &:local(.warning) {
+    &.warning {
         background-color: $color-warning;
         color: #fff;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #fff;
         }
     }
 
-    &:local(.info) {
+    &.info {
         background-color: $color-info;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #000;
         }
     }
-    &:local(.lightCyan) {
+    &.lightCyan {
         background-color: $color-light-cyan;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #000;
         }
     }
-    &:local(.orange) {
+    &.orange {
         background-color: $color-orange;
         color: #fff;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #fff;
         }
     }
-    &:local(.lightOrange) {
+    &.lightOrange {
         background-color: $color-light-orange;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #000;
         }
     }
-    &:local(.lime) {
+    &.lime {
         background-color: $color-lime;
         color: #fff;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #fff;
         }
     }
-    &:local(.lightLime) {
+    &.lightLime {
         background-color: $color-light-lime;
-        :local(.panel) span,
-        :local(.content) {
+        .panel span,
+        .content {
             color: #000;
         }
     }
 
-    :local(.panel) {
+    .panel {
         @include appearance(none);
         @include border-radius(0);
+        font-family: $default-font;
         padding: 15px 15px;
         display: flex;
         align-items: center;
@@ -174,14 +175,14 @@
             outline-style: auto;
             outline-width: 2px;
             outline-offset: 0px;
-          }
-        :local(.panelText) {
+        }
+        .panelText {
             font-family: $heading-font;
             font-weight: bold;
             font-size: 18px;
             flex: 1;
         }
-        :local(.panelChevron) {
+        .panelChevron {
             box-sizing: border-box;
             position: relative;
             display: block;
@@ -204,14 +205,14 @@
                 transform: translateY(-30%) rotate(45deg);
                 transition: transform 0.3s ease-in-out;
             }
-            &:local(.expanded) {
+            &.expanded {
                 &::after {
                     transform: translateY(30%) rotate(225deg);
                 }
             }
         }
     }
-    :local(.content) {
+    .content {
         opacity: 0;
         margin-top: 0px;
         line-height: 0;
@@ -221,11 +222,11 @@
         @media only screen and (min-width: $screen-sm) {
             padding: 0 30px 0;
         }
-        &:local(.initialized) {
+        &.initialized {
             animation: hide 0.3s ease-in-out;
         }
 
-        &:local(.expanded) {
+        &.expanded {
             animation: show 0.3s ease-in-out;
             opacity: 1;
             margin-top: 0px;
