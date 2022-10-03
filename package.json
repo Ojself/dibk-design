@@ -1,42 +1,70 @@
 {
-  "name": "dibk-design",
-  "version": "1.1.10",
-  "private": false,
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "name": "dibk-design-storybook",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^6.2.2",
-    "react-scripts": "^4.0.0"
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.55.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "windows-build": "rd /s dist && SET NODE_ENV=production&& babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "test": "react-scripts test",
+    "build": "rm -rf dist && NODE_ENV=production babel src/stories --ignore src/**/*.stories.jsx --out-dir dist --copy-files --no-copy-ignored",
     "eject": "react-scripts eject",
-    "styleguide": "FAST_REFRESH=false styleguidist server",
-    "windows-styleguide": "SET FAST_REFRESH=false && styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public -o docs"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "react-styleguidist": "^11.0.4",
-    "sass": "^1.28.0"
+    "@babel/cli": "^7.18.10",
+    "@storybook/addon-a11y": "^6.5.12",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addons": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/node-logger": "^6.5.12",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/theming": "^6.5.12",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "prop-types": "^15.8.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.74.0"
   }
 }

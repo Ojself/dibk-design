@@ -1,4 +1,4 @@
-import logo from 'lib/images/dibk-logo.svg';
+import logo from '../assets/png/dibk-logo.png';
 
 const customTheme = {
   appName: 'Custom theme',
