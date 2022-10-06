@@ -1,10 +1,10 @@
 @import "../style/global.scss";
 
-:local(fieldset.radioButtonList) {
+fieldset.radioButtonList {
     margin: 0;
     padding: 0;
     border: none;
-    :local(legend) {
+    legend {
         color: #000;
         display: block;
         font-size: 1rem;
