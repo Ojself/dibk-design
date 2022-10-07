@@ -1,6 +1,6 @@
 @import "../style/global.scss";
 
-:local(.label) {
+.label {
     color: #000;
     display: block;
     font-size: 1rem;
@@ -9,10 +9,10 @@
     margin-bottom: 2px;
     font-family: $default-font;
     overflow-wrap: break-word;
-    &:local(.inline) {
+    &.inline {
         display: inline-block;
     }
-    &:not(:local(.normalCursor)) {
+    &:not(.normalCursor) {
         cursor: pointer;
     }
 }
