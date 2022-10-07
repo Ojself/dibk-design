@@ -1,14 +1,6 @@
 @import "../style/global.scss";
 
-:local(.hidden) {
-    width: 0;
-    height: 0;
-    border: none;
-    position: absolute;
-    padding: 0;
-}
-
-:local(.dialogOverlay) {
+.dialogOverlay {
     display: flex;
     flex-wrap: wrap;
     position: fixed;
@@ -25,7 +17,17 @@
         padding: 36px;
     }
 
-    :local(.dialogContent) {
+    &.hidden,
+    .hidden {
+        width: 0;
+        height: 0;
+        border: none;
+        position: absolute;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .dialogContent {
         @include calc("max-height", "100% - 128px");
         @include box-shadow(
             0 11px 15px -7px rgba(0, 0, 0, 0.2),
@@ -37,7 +39,7 @@
         background-color: #fff;
         overflow: auto;
         position: relative;
-        &:not(:local(.noPadding)) {
+        &:not(.noPadding) {
             padding: 30px 15px;
             @media only screen and (min-width: $screen-sm) {
                 padding: 60px 40px;
@@ -47,7 +49,7 @@
             @include calc("width", "100% - 128px");
             max-height: 100%;
         }
-        :local(.closeButton) {
+        .closeButton {
             background: none;
             border: none;
             color: $color-primary;
