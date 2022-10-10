@@ -1,6 +1,6 @@
 @import "../style/global.scss";
 
-:local(.errorBox) {
+.errorBox {
     @include box-shadow(0 2px 3px rgb(0 0 0 / 18%));
     border-left: 12px solid $color-error;
     background: white;
