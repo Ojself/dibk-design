@@ -1,6 +1,6 @@
 @import "../style/global.scss";
 
-:local(.progressBar) {
+.progressBar {
     --size: 4rem;
     --fg: #{$color-primary};
     --bg: #e2e1e0;
@@ -20,7 +20,7 @@
         counter-reset: percentage var(--value);
         content: counter(percentage) "%";
     }
-    &:local(.hasErrors) {
+    &.hasErrors {
         --fg: #{$color-error};
     }
 }
