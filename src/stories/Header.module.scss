@@ -1,16 +1,16 @@
 @import "../style/global.scss";
 
-:local(.headerContainer) {
+.headerContainer {
 	padding: 5px 0;
-	:local(.header) {
+	.header {
 		margin: 0;
 		font-weight: normal;
 		line-height: 1.4;
 		font-style: normal;
-		&:not(:local(.hasTheme)) {
+		&:not(.hasTheme) {
 			color: $color-primary;
 		}
-		&:local(.size-1) {
+		&.size-1 {
 			font-family: "Altis", sans-serif;
 			font-size: 32px;
 			font-style: normal;
@@ -19,7 +19,7 @@
 			@media only screen and (min-width: $screen-sm) {
 				font-size: 38px;
 			}
-			&:local(.bigHeader) {
+			&.bigHeader {
 				font-family: "Altis-Light", "Open Sans", arial, sans-serif;
 				font-size: 40px;
 				line-height: 1.2;
@@ -30,7 +30,7 @@
 				}
 			}
 		}
-		&:local(.size-2) {
+		&.size-2 {
 			font-family: "Altis", sans-serif;
 			font-size: 25px;
 			font-style: normal;
@@ -40,7 +40,7 @@
 				font-size: 30px;
 			}
 		}
-		&:local(.size-3) {
+		&.size-3 {
 			font-family: $default-font;
 			font-size: 19px;
 			font-style: normal;
@@ -50,7 +50,7 @@
 				font-size: 22px;
 			}
 		}
-		&:local(.size-4) {
+		&.size-4 {
 			font-family: $default-font;
 			font-size: 17px;
 			font-style: italic;
@@ -60,7 +60,7 @@
 				font-size: 21px;
 			}
 		}
-		&:local(.size-5) {
+		&.size-5 {
 			font-family: $default-font;
 			font-size: 16px;
 			font-weight: normal;
