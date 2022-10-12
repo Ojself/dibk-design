@@ -64,6 +64,7 @@
     "@storybook/theming": "^6.5.12",
     "babel-plugin-named-exports-order": "^0.0.2",
     "prop-types": "^15.8.1",
+    "react-router-dom": "^6.4.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.74.0"
   }
