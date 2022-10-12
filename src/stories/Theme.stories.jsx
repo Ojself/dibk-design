@@ -23,22 +23,6 @@ export const Default = Template.bind({});
 Default.args = {};
 
 export const Custom = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Custom.args = {
     theme: customTheme
 };
-
-/*
-Default theme:
-```js
-<Theme />
-```
-
-
-
-Custom theme:
-```js
-import customTheme from 'data/customTheme';
-<Theme theme={customTheme} />
-```
-*/
