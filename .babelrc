@@ -1,7 +1,6 @@
 {
     "presets": ["@babel/preset-env", "@babel/preset-react"],
-    "plugins": ["@babel/plugin-proposal-class-properties"],
-    "ignore": [
-        "**/*.stories.jsx"
-      ]
+    "plugins": ["@babel/plugin-proposal-class-properties", ["transform-remove-console", { "exclude": ["error", "warn"] }]],
+    "ignore": ["**/*.stories.jsx"],
+    "comments": false
 }
