@@ -1,6 +1,6 @@
 @import "../style/global.scss";
 
-:local(.textarea) {
+.textarea {
     > div {
         display: block;
     }
@@ -41,7 +41,7 @@
             cursor: default;
         }
 
-        &:local(.hasErrors) {
+        &.hasErrors {
             border-color: $color-error;
             &:focus {
                 border-color: $color-error;
