@@ -1,7 +1,7 @@
 {
-  "name": "dibk-design-storybook",
-  "version": "0.1.0",
-  "private": true,
+  "name": "dibk-design",
+  "version": "1.1.10",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,7 +14,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && NODE_ENV=production babel src/stories --ignore src/**/*.stories.jsx --out-dir dist --copy-files --no-copy-ignored",
+    "build-components": "NODE_ENV=production babel src/stories --ignore src/**/*.stories.jsx --out-dir dist/components --copy-files --no-copy-ignored",
+    "build-functions": "NODE_ENV=production babel src/functions --out-dir dist/functions --copy-files --no-copy-ignored",
+    "build-index": "NODE_ENV=production babel src/index.js --out-dir dist --copy-files --no-copy-ignored",
+    "build-style": "NODE_ENV=production babel src/style --out-dir dist/style --copy-files --no-copy-ignored",
+    "build-assets": "NODE_ENV=production babel src/assets --out-dir dist/assets --copy-files --no-copy-ignored",
+    "build": "rm -rf dist && yarn build-components && yarn build-functions && yarn build-index && yarn build-style && yarn build-assets",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public -o docs"
