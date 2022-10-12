@@ -4,10 +4,10 @@
   background-color: $color-primary;
 }
 
-:local(.wizardTopnavItem) {
+.wizardTopnavItem {
   flex: 1;
   text-decoration: none;
-  :local(.wizardTopnavItemContent) {
+  .wizardTopnavItemContent {
     display: flex;
     height: 60px;
     align-items: center;
@@ -40,7 +40,7 @@
         margin-bottom: -30px;
       }
     }
-    :local(.stepNumber) {
+    .stepNumber {
       border-radius: 50%;
       width: 35px;
       height: 35px;
@@ -57,7 +57,7 @@
         margin: auto;
       }
     }
-    :local(.stepName) {
+    .stepName {
       display: block;
       text-align: left;
       color: $color-default-text;
@@ -69,36 +69,36 @@
       }
     }
   }
-  &:local(.active) {
+  &.active {
     :local(.stepNumber) {
       background-color: $color-dark-blue;
       color: #fff;
     }
   }
-  &:local(.finished) {
-    :local(.wizardTopnavItemContent) {
+  &.finished {
+    .wizardTopnavItemContent {
       &:before {
         background-color: $color-primary;
       }
-      :local(.stepNumber) {
+      .stepNumber {
         background-color: $color-primary;
         color: #fff;
       }
     }
   }
-  &:local(.hasErrors) {
-    :local(.wizardTopnavItemContent) {
+  &.hasErrors {
+    .wizardTopnavItemContent {
       &:before {
         background-color: $color-warning;
       }
-      :local(.stepNumber) {
+      .stepNumber {
         background-color: $color-warning;
         color: #fff;
       }
     }
   }
   &:last-child {
-    :local(.wizardTopnavItemContent) {
+    .wizardTopnavItemContent {
       &:before {
         @media only screen and (max-width: $screen-xs-max) {
           height: 0;
