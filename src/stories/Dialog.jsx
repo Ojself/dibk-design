@@ -1,9 +1,11 @@
+// Dependencies
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+
+// Stylesheets
 import style from "./Dialog.module.scss";
 
 const Dialog = (props) => {
-
     // Refs
     const wrapperRef = useRef();
     const hiddenInputWrapperRef = useRef();
@@ -26,7 +28,7 @@ const Dialog = (props) => {
         document.addEventListener("mousedown", handleClickOutside);
         document.addEventListener("keydown", keyDownFunction, false);
         hiddenInputWrapperRef.current.tabIndex = -1;
-    }, [props.onClickOutside]);
+    }, [props]);
 
     return (
         <div className={`${style.dialogOverlay} ${props.hidden && style.hidden}`}>

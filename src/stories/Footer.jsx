@@ -2,7 +2,7 @@
 import React from "react";
 
 // Components
-import Container from "stories/Container";
+import Container from "./Container";
 
 // Stylesheets
 import style from "./Footer.module.scss";

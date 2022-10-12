@@ -1,5 +1,8 @@
+// Dependencies
 import React from "react";
 import PropTypes from "prop-types";
+
+// Stylesheets
 import style from "./List.module.scss";
 
 const List = (props) => {

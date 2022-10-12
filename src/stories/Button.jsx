@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Functions
-import { getThemePaletteBackgroundColor, getThemePaletteTextColor, getThemePaletteBorderColor } from "functions/theme";
+import { getThemePaletteBackgroundColor, getThemePaletteTextColor, getThemePaletteBorderColor } from "../functions/theme";
 
 // Stylesheets
 import style from "./Button.module.scss";

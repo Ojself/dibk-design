@@ -1,5 +1,8 @@
+// Dependencies
 import React from "react";
 import PropTypes from "prop-types";
+
+// Stylesheets
 import style from "./Header.module.scss";
 
 const Header = (props) => {

@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Functions
-import { getThemePaletteBackgroundColor } from "functions/theme";
+import { getThemePaletteBackgroundColor } from "../functions/theme";
 
 // Stylesheets
 import style from "./RadioButtonIcon.module.scss";
