@@ -178,15 +178,15 @@ InputWithCustomWidth.args = {
     width: "400px"
 };
 
-export const DateInputWithCustomElementKey = Template.bind({});
-DateInputWithCustomElementKey.args = {
+export const InputWithCustomElementKey = Template.bind({});
+InputWithCustomElementKey.args = {
     id: "inputField20",
     label: "Input with custom element key",
     elementKey: "inputKeyHere"
 };
 
-export const DateInputWithCustomTheme = Template.bind({});
-DateInputWithCustomTheme.args = {
+export const InputWithCustomTheme = Template.bind({});
+InputWithCustomTheme.args = {
     id: "inputField21",
     label: "Input with custom thene",
     themne: customTheme

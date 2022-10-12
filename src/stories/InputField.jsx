@@ -54,7 +54,7 @@ const InputField = (props) => {
             [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
             placeholder: props.placeholder || null,
             className: props.hasErrors ? style.hasErrors : null,
-            "aria-required": props.mandatory, // TODO: change to this.props["aria-required"]
+            "aria-required": props.mandatory, // TODO: change to this.props.required
             "aria-describedby": props["aria-describedby"] || null,
             style: styleRules
         };
@@ -123,7 +123,7 @@ InputField.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    mandatory: PropTypes.bool, // TODO: change to this.props["aria-required"]
+    mandatory: PropTypes.bool, // TODO: change to props.required
     theme: PropTypes.object
 };
 
@@ -138,7 +138,7 @@ InputField.defaultProps = {
     defaultContent: "",
     hasErrors: false,
     errorMessage: "",
-    mandatory: false, // TODO: change to this.props["aria-required"]
+    mandatory: false, // TODO: change to props.required
     onChange: () => {
         return false;
     }
