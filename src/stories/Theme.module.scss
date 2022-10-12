@@ -13,62 +13,62 @@ img {
   max-height: 150px;
 }
 
-:local(.colorPalette) {
+.colorPalette {
   display: flex;
   flex-wrap: wrap;
 
-  :local(.color) {
+  .color {
     width: 20%;
     min-width: 120px;
     text-align: center;
     line-height: 3em;
 
-    &:local(.default) {
+    &.default {
       background-color: $color-default;
       color: #000;
     }
 
-    &:local(.primary) {
+    &.primary {
       background-color: $color-primary;
       color: #fff;
     }
 
-    &:local(.success) {
+    &.success {
       background-color: $color-success;
       color: #fff;
     }
 
-    &:local(.warning) {
+    &.warning {
       background-color: $color-warning;
       color: #fff;
     }
 
-    &:local(.info) {
+    &.info {
       background-color: $color-info;
       color: #000;
     }
 
-    &:local(.lightCyan) {
+    &.lightCyan {
       background-color: $color-light-cyan;
       color: #000;
     }
 
-    &:local(.orange) {
+    &.orange {
       background-color: $color-orange;
       color: #fff;
     }
 
-    &:local(.lightOrange) {
+    &.lightOrange {
       background-color: $color-light-orange;
       color: #000;
     }
 
-    &:local(.lime) {
+    &.lime {
       background-color: $color-lime;
       color: #fff;
     }
 
-    &:local(.lightLime) {
+    &.lightLime {
       background-color: $color-light-lime;
       color: #000;
     }
