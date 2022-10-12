@@ -3,7 +3,7 @@ export const getThemePaletteBackgroundColor = (theme, color) => {
 };
 
 export const getThemePaletteTextColor = (theme, color) => {
-    return theme?.colors?.palette?.[color].text || null;
+    return theme?.colors?.palette?.[color]?.text || null;
 };
 
 export const getThemePaletteBorderColor = (theme, color) => {
