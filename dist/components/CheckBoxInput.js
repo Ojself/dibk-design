@@ -4,15 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _CheckBoxIcon = _interopRequireDefault(require("./CheckBoxIcon"));
-
 var _CheckBoxInputModule = _interopRequireDefault(require("./CheckBoxInput.module.scss"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CheckBoxInput = function CheckBoxInput(props) {
@@ -40,7 +35,6 @@ var CheckBoxInput = function CheckBoxInput(props) {
   };
   return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("input", inputProps)) : _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("span", null, props.children));
 };
-
 CheckBoxInput.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,

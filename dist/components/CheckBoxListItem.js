@@ -4,17 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _CheckBoxInput = _interopRequireDefault(require("./CheckBoxInput"));
-
 var _helpers = require("../functions/helpers");
-
 var _CheckBoxListItemModule = _interopRequireDefault(require("./CheckBoxListItem.module.scss"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CheckBoxListItem = function CheckBoxListItem(props) {
@@ -34,7 +28,6 @@ var CheckBoxListItem = function CheckBoxListItem(props) {
     className: listItemClassNameString
   }, _react.default.createElement(_CheckBoxInput.default, inputProps, props.children));
 };
-
 CheckBoxListItem.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,

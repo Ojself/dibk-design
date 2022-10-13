@@ -4,31 +4,18 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _Label = _interopRequireDefault(require("./Label"));
-
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
-
 var _theme = require("../functions/theme");
-
 var _generators = require("../functions/generators");
-
 var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 var Select = function Select(props) {
   var getThemeErrorInputStyle = function getThemeErrorInputStyle(theme) {
     return {
@@ -36,13 +23,11 @@ var Select = function Select(props) {
       borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
     };
   };
-
   var getThemeArrowStyle = function getThemeArrowStyle(theme) {
     return {
       borderTopColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "primary")
     };
   };
-
   var getKeyByValue = function getKeyByValue(value, options) {
     var selectedOption = options && options.length ? options.find(function (option) {
       if (_typeof(option) === "object") {
@@ -51,7 +36,6 @@ var Select = function Select(props) {
         return option === value;
       }
     }) : null;
-
     if (selectedOption && selectedOption.key) {
       return selectedOption.key;
     } else if (selectedOption && selectedOption.value) {
@@ -60,11 +44,9 @@ var Select = function Select(props) {
       return selectedOption;
     }
   };
-
   var renderOptionElements = function renderOptionElements(options) {
     return options.map(function (option, key) {
       var optionObject = null;
-
       if (_typeof(option) === "object") {
         optionObject = {
           key: option.key ? option.key : "",
@@ -76,21 +58,18 @@ var Select = function Select(props) {
           value: option
         };
       }
-
       return _react.default.createElement("option", {
         value: optionObject.value,
         key: key
       }, optionObject.key);
     });
   };
-
   var renderPlaceholderOption = function renderPlaceholderOption(placeholder, placeholderValue) {
     return placeholder ? _react.default.createElement("option", {
       value: placeholderValue,
       disabled: true
     }, placeholder) : "";
   };
-
   if (props.contentOnly) {
     var value = props.defaultValue ? props.defaultValue : props.value || null;
     return _react.default.createElement("div", {
@@ -100,13 +79,10 @@ var Select = function Select(props) {
     }, props.label), _react.default.createElement("span", null, value ? props.keyAsContent ? getKeyByValue(value, props.options) : value : props.defaultContent));
   } else {
     var _props$width, _selectElementProps, _props$width2;
-
     var defaultValue = !props.value && props.defaultValue ? props.defaultValue : false;
-
     var styleRules = _objectSpread(_objectSpread({}, props.hasErrors ? getThemeErrorInputStyle(props.theme) : null), ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
       maxWidth: props.width
     });
-
     var selectElementProps = (_selectElementProps = {
       name: props.name,
       multiple: props.multiple
@@ -129,7 +105,6 @@ var Select = function Select(props) {
     }));
   }
 };
-
 Select.propTypes = {
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func.isRequired,

@@ -4,15 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _Step = _interopRequireDefault(require("./WizardNavigation/Step"));
-
 var _WizardNavigationModule = _interopRequireDefault(require("./WizardNavigation.module.scss"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var WizardNavigation = function WizardNavigation(props) {
@@ -28,12 +23,10 @@ var WizardNavigation = function WizardNavigation(props) {
       });
     }) : null;
   };
-
   return _react.default.createElement("div", {
     className: _WizardNavigationModule.default.wizardTopnav
   }, renderSteps(props.steps, props.activeStepId));
 };
-
 WizardNavigation.propTypes = {
   steps: _propTypes.default.shape({
     id: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
