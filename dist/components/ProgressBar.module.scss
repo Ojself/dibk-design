@@ -1,0 +1,26 @@
+@import "../style/global.scss";
+
+.progressBar {
+    --size: 4rem;
+    --fg: #{$color-primary};
+    --bg: #e2e1e0;
+    --pgPercentage: var(--value);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+        conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 4);
+    color: var(--fg);
+    flex-shrink: 0;
+    &::before {
+        counter-reset: percentage var(--value);
+        content: counter(percentage) "%";
+    }
+    &.hasErrors {
+        --fg: #{$color-error};
+    }
+}

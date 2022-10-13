@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -15,130 +15,62 @@ var _DialogModule = _interopRequireDefault(require("./Dialog.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var Dialog = /*#__PURE__*/function (_React$Component) {
-  _inherits(Dialog, _React$Component);
-
-  var _super = _createSuper(Dialog);
-
-  function Dialog(props) {
-    var _this;
-
-    _classCallCheck(this, Dialog);
-
-    _this = _super.call(this, props);
-    _this.state = {};
-    _this.setWrapperRef = _this.setWrapperRef.bind(_assertThisInitialized(_this));
-    _this.setHiddenInputWrapperRef = _this.setHiddenInputWrapperRef.bind(_assertThisInitialized(_this));
-    _this.handleClickOutside = _this.handleClickOutside.bind(_assertThisInitialized(_this));
-    _this.keyDownFunction = _this.keyDownFunction.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Dialog, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.addEventListener('mousedown', this.handleClickOutside);
-      document.addEventListener("keydown", this.keyDownFunction, false);
-      this.hiddenInputWrapperRef.tabIndex = -1;
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      document.removeEventListener('mousedown', this.handleClickOutside);
-      document.removeEventListener("keydown", this.keyDownFunction, false);
-    }
-  }, {
-    key: "keyDownFunction",
-    value: function keyDownFunction(event) {
+var Dialog = function Dialog(props) {
+  var wrapperRef = (0, _react.useRef)();
+  var hiddenInputWrapperRef = (0, _react.useRef)();
+  (0, _react.useEffect)(function () {
+    var keyDownFunction = function keyDownFunction(event) {
       switch (event.keyCode) {
         case 27:
-          // Escape
-          if (this.props.onClickOutside) this.props.onClickOutside();
+          if (props.onClickOutside) props.onClickOutside();
           break;
 
         default:
           return null;
       }
-    }
-  }, {
-    key: "setWrapperRef",
-    value: function setWrapperRef(node) {
-      this.wrapperRef = node;
-    }
-  }, {
-    key: "setHiddenInputWrapperRef",
-    value: function setHiddenInputWrapperRef(node) {
-      this.hiddenInputWrapperRef = node;
-    }
-  }, {
-    key: "handleClickOutside",
-    value: function handleClickOutside(event) {
-      if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-        this.props.onClickOutside();
+    };
+
+    var handleClickOutside = function handleClickOutside(event) {
+      if (wrapperRef !== null && wrapperRef !== void 0 && wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        props.onClickOutside();
       }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: _DialogModule.default.dialogOverlay
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        ref: this.setWrapperRef,
-        className: "".concat(_DialogModule.default.dialogContent, " ").concat(this.props.noPadding ? _DialogModule.default.noPadding : ''),
-        style: {
-          maxWidth: this.props.maxWidth
-        }
-      }, this.props.closeButton ? /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.props.onClickOutside,
-        className: _DialogModule.default.closeButton
-      }) : '', /*#__PURE__*/_react.default.createElement("input", {
-        type: "button",
-        ref: this.setHiddenInputWrapperRef,
-        className: _DialogModule.default.hidden,
-        autoFocus: true
-      }), this.props.children));
-    }
-  }]);
+    };
 
-  return Dialog;
-}(_react.default.Component);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", keyDownFunction, false);
+    hiddenInputWrapperRef.current.tabIndex = -1;
+  }, [props]);
+  return _react.default.createElement("div", {
+    className: "".concat(_DialogModule.default.dialogOverlay, " ").concat(props.hidden && _DialogModule.default.hidden)
+  }, _react.default.createElement("div", {
+    ref: wrapperRef,
+    className: "".concat(_DialogModule.default.dialogContent, " ").concat(props.noPadding ? _DialogModule.default.noPadding : ""),
+    style: {
+      maxWidth: props.maxWidth
+    }
+  }, props.closeButton ? _react.default.createElement("button", {
+    onClick: props.onClickOutside,
+    className: _DialogModule.default.closeButton
+  }) : "", _react.default.createElement("input", {
+    type: "button",
+    ref: hiddenInputWrapperRef,
+    className: _DialogModule.default.hidden,
+    autoFocus: true
+  }), props.children));
+};
 
-;
 Dialog.propTypes = {
-  /** Sets max width for modal content element */
   maxWidth: _propTypes.default.string,
-
-  /** Removes padding from modal content element */
   noPadding: _propTypes.default.bool,
-
-  /** Displays close button in upper right corner */
   closeButton: _propTypes.default.bool,
-
-  /** Function for click outside modal content element or click on close button element */
   onClickOutside: _propTypes.default.func.isRequired
 };
 Dialog.defaultProps = {
-  maxWidth: 'none'
+  maxWidth: "none"
 };
 var _default = Dialog;
 exports.default = _default;

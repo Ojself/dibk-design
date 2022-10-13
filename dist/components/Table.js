@@ -11,10 +11,8 @@ var _TableModule = _interopRequireDefault(require("./Table.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Dependencies
-// Stylesheets
 var Table = function Table(props) {
-  return /*#__PURE__*/_react.default.createElement("table", {
+  return _react.default.createElement("table", {
     className: _TableModule.default.table
   }, props.children);
 };

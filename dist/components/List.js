@@ -21,7 +21,7 @@ var List = function List(props) {
     var defaultListStyle = props.ordered ? "decimal" : "disc";
     var scssValueProperty = "--listStyle";
 
-    var listElement = /*#__PURE__*/_react.default.createElement(listType, {
+    var listElement = _react.default.createElement(listType, {
       className: "".concat(_ListModule.default.list, " ").concat(!!props.compact ? _ListModule.default.compact : ""),
       style: _defineProperty({}, scssValueProperty, props.listStyle || defaultListStyle)
     }, props.children);

@@ -1,0 +1,116 @@
+@import "../style/global.scss";
+
+.contentBox {
+    font-family: $default-font;
+    text-decoration: none;
+    padding: 20px;
+    width: 100%;
+    display: block;
+    &.link {
+        color: $color-primary;
+        @include transition(filter 0.3s);
+        &:hover,
+        &:focus {
+            filter: brightness(90%);
+        }
+        &:active {
+            filter: brightness(85%);
+        }
+    }
+    &.default {
+        background-color: $color-default;
+        .content,
+        .title {
+            color: #000;
+        }
+    }
+    &.primary {
+        background-color: $color-primary;
+        color: #fff;
+        .content,
+        .title {
+            color: #fff;
+        }
+    }
+    &.success {
+        background-color: $color-success;
+        color: #fff;
+        .content,
+        .title {
+            color: #fff;
+        }
+    }
+    &.warning {
+        background-color: $color-warning;
+        color: #fff;
+        .content,
+        .title {
+            color: #fff;
+        }
+    }
+
+    &.info {
+        background-color: $color-info;
+        .content,
+        .title {
+            color: #000;
+        }
+    }
+    &.lightCyan {
+        background-color: $color-light-cyan;
+        .content,
+        .title {
+            color: #000;
+        }
+    }
+    &.orange {
+        background-color: $color-orange;
+        color: #fff;
+        .content,
+        .title {
+            color: #fff;
+        }
+    }
+    &.lightOrange {
+        background-color: $color-light-orange;
+        .content,
+        .title {
+            color: #000;
+        }
+    }
+    &.lime {
+        background-color: $color-lime;
+        color: #fff;
+        .content,
+        .title {
+            color: #fff;
+        }
+    }
+    &.lightLime {
+        background-color: $color-light-lime;
+        .content,
+        .title {
+            color: #000;
+        }
+    }
+
+    .title {
+        &.regular {
+            font-family: $default-font;
+            font-weight: bold;
+            font-size: 21px;
+            font-style: normal;
+            line-height: 1.4;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e3e1;
+        }
+        &.large {
+            font-family: $default-font;
+            font-weight: normal;
+            font-size: 24px;
+            margin: 0;
+            margin-bottom: 20px;
+            font-style: normal;
+        }
+    }
+}

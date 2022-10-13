@@ -260,6 +260,4 @@ var _WizardNavigation = _interopRequireDefault(require("./components/WizardNavig
 
 var _Step = _interopRequireDefault(require("./components/WizardNavigation/Step"));
 
-require("./style/base/fonts.css");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

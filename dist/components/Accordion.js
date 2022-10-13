@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -15,106 +15,75 @@ var _AccordionModule = _interopRequireDefault(require("./Accordion.module.scss")
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+var Accordion = function Accordion(props) {
+  var _useState = (0, _react.useState)(props.expanded),
+      _useState2 = _slicedToArray(_useState, 2),
+      expanded = _useState2[0],
+      setExpanded = _useState2[1];
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+  var _useState3 = (0, _react.useState)(props.initialized),
+      _useState4 = _slicedToArray(_useState3, 2),
+      initialized = _useState4[0],
+      setInitialized = _useState4[1];
 
-var Accordion = /*#__PURE__*/function (_React$Component) {
-  _inherits(Accordion, _React$Component);
+  var handleToggleExpand = function handleToggleExpand() {
+    setExpanded(!expanded);
+    setInitialized(true);
+  };
 
-  var _super = _createSuper(Accordion);
+  (0, _react.useEffect)(function () {
+    setExpanded(props.expanded);
+  }, [props.expanded]);
 
-  function Accordion(props) {
-    var _this;
+  var renderPanel = function renderPanel() {
+    return _react.default.createElement("button", {
+      className: _AccordionModule.default.panel,
+      onClick: handleToggleExpand,
+      "aria-expanded": expanded ? "true" : "false"
+    }, _react.default.createElement("span", {
+      className: _AccordionModule.default.panelText
+    }, props.title), _react.default.createElement("span", {
+      className: "".concat(_AccordionModule.default.panelChevron, " ").concat(expanded ? _AccordionModule.default.expanded : "")
+    }));
+  };
 
-    _classCallCheck(this, Accordion);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      expanded: _this.props.expanded,
-      initialized: _this.props.expanded
-    };
-    _this.handleToggleExpand = _this.handleToggleExpand.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Accordion, [{
-    key: "handleToggleExpand",
-    value: function handleToggleExpand() {
-      this.setState({
-        expanded: !this.state.expanded,
-        initialized: true
-      });
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (this.props.expanded !== prevProps.expanded) {
-        this.setState({
-          expanded: this.props.expanded
-        });
-      }
-    }
-  }, {
-    key: "renderPanel",
-    value: function renderPanel() {
-      return /*#__PURE__*/_react.default.createElement("button", {
-        className: _AccordionModule.default.panel,
-        onClick: this.handleToggleExpand,
-        "aria-expanded": this.state.expanded ? 'true' : 'false'
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: _AccordionModule.default.panelText
-      }, this.props.title), /*#__PURE__*/_react.default.createElement("span", {
-        className: "".concat(_AccordionModule.default.panelChevron, " ").concat(this.state.expanded ? _AccordionModule.default.expanded : '')
-      }));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var className = "".concat(_AccordionModule.default.accordion, " ").concat(this.props.color ? _AccordionModule.default[this.props.color] : '');
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: className
-      }, this.renderPanel(), /*#__PURE__*/_react.default.createElement("div", {
-        className: "".concat(_AccordionModule.default.content, " ").concat(this.state.initialized ? _AccordionModule.default.initialized : '', " ").concat(this.state.expanded ? _AccordionModule.default.expanded : '')
-      }, this.props.children));
-    }
-  }]);
-
-  return Accordion;
-}(_react.default.Component);
+  var className = "".concat(_AccordionModule.default.accordion, " ").concat(props.color ? _AccordionModule.default[props.color] : "");
+  return _react.default.createElement("div", {
+    className: className
+  }, renderPanel(), _react.default.createElement("div", {
+    className: "".concat(_AccordionModule.default.content, " ").concat(initialized ? _AccordionModule.default.initialized : "", " ").concat(expanded ? _AccordionModule.default.expanded : "")
+  }, props.children));
+};
 
 Accordion.propTypes = {
-  /** Content title inside box */
   title: _propTypes.default.string,
-  titleSize: _propTypes.default.oneOf(['regular', 'large']),
-
-  /** Text content inside box */
+  titleSize: _propTypes.default.oneOf(["regular", "large"]),
   content: _propTypes.default.string,
-  color: _propTypes.default.oneOf(['default', 'primary', 'success', 'warning', 'info', 'lightCyan', 'orange', 'lightOrange', 'lime', 'lightLime']),
+  color: _propTypes.default.oneOf(["default", "primary", "success", "warning", "info", "lightCyan", "orange", "lightOrange", "lime", "lightLime"]),
   expanded: _propTypes.default.bool
 };
 Accordion.defaultProps = {
   title: null,
-  titleSize: 'regular',
+  titleSize: "regular",
   href: null,
-  content: '',
-  color: 'default',
+  content: "",
+  color: "default",
   expanded: false
 };
 var _default = Accordion;

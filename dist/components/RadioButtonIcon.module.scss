@@ -1,0 +1,44 @@
+@import "../style/global.scss";
+
+.radioButtonIcon {
+    @include border-radius(50%);
+    @include transition(all 0.1s ease-in-out);
+    @include box-sizing(content-box);
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    margin-right: 0.4em;
+    margin-top: 2px;
+    border: 0.3em solid white;
+    cursor: pointer;
+
+    &:not(.hasErrors) {
+        @include box-shadow(0 0 0 1px #6a6262);
+    }
+    &.hasErrors {
+        @include box-shadow(0 0 2px 1px $color-error);
+    }
+
+    &.checked {
+        background: $color-primary;
+        &.hasErrors {
+            background: $color-error;
+        }
+        &:not(.hasErrors) {
+            @include box-shadow(0 0 0 1px $color-dark-blue);
+        }
+        &.hasErrors {
+            @include box-shadow(0 0 2px 1px $color-error);
+        }
+    }
+    &.disabled {
+        opacity: 0.5;
+        border-color: #bfbfbf;
+        &:not(.checked) {
+            background: #bfbfbf;
+        }
+    }
+}

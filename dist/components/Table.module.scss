@@ -1,0 +1,27 @@
+@import "../style/global.scss";
+
+.table {
+    font-family: $default-font;
+    border-collapse: collapse;
+    width: 100%;
+    thead {
+        tr {
+            background-color: #ededed;
+            border: 1px solid #000;
+            th {
+                text-align: left;
+                font-size: 17px;
+                padding: 10px;
+            }
+        }
+    }
+    tbody {
+        tr {
+            border: 1px solid #000;
+            td {
+                padding: 10px;
+                font-size: 17px;
+            }
+        }
+    }
+}

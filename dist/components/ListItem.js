@@ -15,7 +15,7 @@ var ListItem = function ListItem(props) {
   var elementProps = {
     key: props.elementKey || null
   };
-  return /*#__PURE__*/_react.default.createElement("li", elementProps, props.children, props.elementKey);
+  return _react.default.createElement("li", elementProps, props.children, props.elementKey);
 };
 
 ListItem.propTypes = {

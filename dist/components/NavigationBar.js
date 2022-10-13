@@ -7,230 +7,177 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _NavigationBarListItem = _interopRequireDefault(require("./NavigationBarListItem"));
+
 var _theme = require("../functions/theme");
 
-var _dibkLogoMobile = _interopRequireDefault(require("../images/dibk-logo-mobile.svg"));
-
-var _NavigationBarListItem = _interopRequireDefault(require("./NavigationBarListItem"));
+var _dibkLogoMobile = _interopRequireDefault(require("../assets/svg/dibk-logo-mobile.svg?url"));
 
 var _NavigationBarModule = _interopRequireDefault(require("./NavigationBar.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+var NavigationBar = function NavigationBar(props) {
+  var _props$primaryListIte, _props$secondaryListI;
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      active = _useState2[0],
+      setActive = _useState2[1];
 
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+  var toggleList = function toggleList() {
+    setActive(!active);
+  };
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var NavigationBar = /*#__PURE__*/function (_React$Component) {
-  _inherits(NavigationBar, _React$Component);
-
-  var _super = _createSuper(NavigationBar);
-
-  function NavigationBar(props) {
-    var _this;
-
-    _classCallCheck(this, NavigationBar);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      active: false
+  var getNavigationBarThemeStyle = function getNavigationBarThemeStyle(theme) {
+    return {
+      backgroundColor: (0, _theme.getThemeNavigationBarBackgroundColor)(theme),
+      color: (0, _theme.getThemeNavigationBarTextColor)(theme)
     };
-    return _this;
-  }
+  };
 
-  _createClass(NavigationBar, [{
-    key: "handleClickOutside",
-    value: function handleClickOutside() {
-      this.setState({
-        active: false
-      });
-    }
-  }, {
-    key: "toggleList",
-    value: function toggleList() {
-      this.setState(function (prevState) {
-        return {
-          active: !prevState.active
-        };
-      });
-    }
-  }, {
-    key: "getNavigationBarThemeStyle",
-    value: function getNavigationBarThemeStyle(theme) {
-      return {
-        backgroundColor: (0, _theme.getThemeNavigationBarBackgroundColor)(theme),
-        color: (0, _theme.getThemeNavigationBarTextColor)(theme)
-      };
-    }
-  }, {
-    key: "getListItemThemeStyle",
-    value: function getListItemThemeStyle(theme) {
-      return {
-        color: (0, _theme.getThemeNavigationBarTextColor)(theme),
-        borderBottomColor: (0, _theme.getThemeNavigationBarTextColor)(theme)
-      };
-    }
-  }, {
-    key: "getLogoThemeStyle",
-    value: function getLogoThemeStyle(theme) {
-      return {
-        padding: (0, _theme.getThemeLogoPadding)(theme)
-      };
-    }
-  }, {
-    key: "renderPrimaryList",
-    value: function renderPrimaryList() {
-      var _this2 = this;
+  var getListItemThemeStyle = function getListItemThemeStyle(theme) {
+    return {
+      color: (0, _theme.getThemeNavigationBarTextColor)(theme),
+      borderBottomColor: (0, _theme.getThemeNavigationBarTextColor)(theme)
+    };
+  };
 
-      var items = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props.primaryListItems;
-      var iteration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      var listItemThemeStyle = this.getListItemThemeStyle(this.props.theme);
-      var listItems = items.map(function (listItem, i) {
-        var key = iteration + '-' + i;
+  var getLogoThemeStyle = function getLogoThemeStyle(theme) {
+    return {
+      padding: (0, _theme.getThemeLogoPadding)(theme)
+    };
+  };
 
-        if (listItem.listItems !== undefined) {
-          return /*#__PURE__*/_react.default.createElement("li", {
-            key: key
-          }, /*#__PURE__*/_react.default.createElement("span", {
-            style: listItemThemeStyle
-          }, listItem.name), _this2.renderPrimaryList(listItem.listItems, iteration + 1));
-        } else {
-          return /*#__PURE__*/_react.default.createElement(_NavigationBarListItem.default, {
-            listItem: listItem,
-            key: key,
-            theme: _this2.props.theme
-          });
-        }
-      });
-      return /*#__PURE__*/_react.default.createElement("ul", {
-        className: _NavigationBarModule.default.primaryList
-      }, listItems);
-    }
-  }, {
-    key: "renderSecondaryList",
-    value: function renderSecondaryList() {
-      var _this3 = this;
+  var renderPrimaryList = function renderPrimaryList() {
+    var items = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : props.primaryListItems;
+    var iteration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var listItemThemeStyle = getListItemThemeStyle(props.theme);
+    var listItems = items.map(function (listItem, i) {
+      var key = iteration + "-" + i;
 
-      var listItems = this.props.secondaryListItems.map(function (listItem, i) {
-        return /*#__PURE__*/_react.default.createElement(_NavigationBarListItem.default, {
+      if (listItem.listItems !== undefined) {
+        return _react.default.createElement("li", {
+          key: key
+        }, _react.default.createElement("span", {
+          style: listItemThemeStyle
+        }, listItem.name), renderPrimaryList(listItem.listItems, iteration + 1));
+      } else {
+        return _react.default.createElement(_NavigationBarListItem.default, {
           listItem: listItem,
-          key: i,
-          theme: _this3.props.theme
+          key: key,
+          theme: props.theme
         });
-      });
-      return /*#__PURE__*/_react.default.createElement("ul", {
-        className: _NavigationBarModule.default.secondaryList
-      }, listItems);
-    }
-  }, {
-    key: "renderLogo",
-    value: function renderLogo(logoLink) {
-      var themeLogo = (0, _theme.getThemeLogo)(this.props.theme);
-      var themeAppName = (0, _theme.getThemeAppName)(this.props.theme);
-      var logoElement = themeLogo && themeAppName ? /*#__PURE__*/_react.default.createElement("img", {
-        alt: "".concat(themeAppName, " logo"),
-        src: themeLogo,
-        style: this.getLogoThemeStyle(this.props.theme)
-      }) : /*#__PURE__*/_react.default.createElement("img", {
-        alt: "DIBK logo",
-        src: _dibkLogoMobile.default
-      });
-      var logoLinkProps = {
-        target: this.props.openLogoLinkInNewTab ? '_blank' : null,
-        rel: this.props.openLogoLinkInNewTab ? 'noopener noreferrer' : null
-      };
-      return logoLink && logoLink.length ? /*#__PURE__*/_react.default.createElement("a", _extends({}, logoLinkProps, {
-        href: logoLink
-      }), logoElement) : logoElement;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this4 = this;
+      }
+    });
+    return _react.default.createElement("ul", {
+      className: _NavigationBarModule.default.primaryList
+    }, listItems);
+  };
 
-      var navigationBarThemeStyle = this.getNavigationBarThemeStyle(this.props.theme);
-      var hamburgerIconLineStyle = {
-        backgroundColor: (0, _theme.getThemeNavigationBarTextColor)(this.props.theme)
-      };
-      return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("div", {
-        className: _NavigationBarModule.default.isPresent
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: _NavigationBarModule.default.navigationBar,
-        style: navigationBarThemeStyle
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: _NavigationBarModule.default.logoContainer
-      }, this.renderLogo(this.props.logoLink)), this.props.children ? /*#__PURE__*/_react.default.createElement("div", {
-        className: _NavigationBarModule.default.childElements
-      }, this.props.children) : '', this.props.primaryListItems && this.props.primaryListItems.length || this.props.secondaryListItems && this.props.secondaryListItems.length ? /*#__PURE__*/_react.default.createElement("button", {
-        type: "button",
-        className: "".concat(_NavigationBarModule.default.menuToggle, " ").concat(this.state.active ? _NavigationBarModule.default.active : ''),
-        onClick: function onClick() {
-          return _this4.toggleList();
-        },
-        "aria-expanded": this.state.active ? 'true' : 'false',
-        "aria-controls": "main-menu-dropdown"
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: _NavigationBarModule.default.hamburgerIcon
-      }, /*#__PURE__*/_react.default.createElement("span", {
-        className: _NavigationBarModule.default.line,
-        style: hamburgerIconLineStyle
-      }), /*#__PURE__*/_react.default.createElement("span", {
-        className: _NavigationBarModule.default.line,
-        style: hamburgerIconLineStyle
-      }), /*#__PURE__*/_react.default.createElement("span", {
-        className: _NavigationBarModule.default.line,
-        style: hamburgerIconLineStyle
-      }))) : ''), /*#__PURE__*/_react.default.createElement("div", {
-        className: "".concat(_NavigationBarModule.default.dropdownContainer, " ").concat(this.state.active ? _NavigationBarModule.default.active : '')
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        id: "main-menu-dropdown",
-        className: _NavigationBarModule.default.dropdown,
-        style: navigationBarThemeStyle
-      }, this.renderPrimaryList(), this.renderSecondaryList(), this.props.children)), /*#__PURE__*/_react.default.createElement("div", {
-        className: "".concat(_NavigationBarModule.default.dropdownOverlay, " ").concat(this.state.active ? _NavigationBarModule.default.active : '')
-      })));
-    }
-  }]);
+  var renderSecondaryList = function renderSecondaryList() {
+    var listItems = props.secondaryListItems.map(function (listItem, i) {
+      return _react.default.createElement(_NavigationBarListItem.default, {
+        listItem: listItem,
+        key: i,
+        theme: props.theme
+      });
+    });
+    return _react.default.createElement("ul", {
+      className: _NavigationBarModule.default.secondaryList
+    }, listItems);
+  };
 
-  return NavigationBar;
-}(_react.default.Component);
+  var renderLogo = function renderLogo(logoLink) {
+    var themeLogo = (0, _theme.getThemeLogo)(props.theme);
+    var themeAppName = (0, _theme.getThemeAppName)(props.theme);
+    var logoElement = themeLogo && themeAppName ? _react.default.createElement("img", {
+      alt: "".concat(themeAppName, " logo"),
+      src: themeLogo,
+      style: getLogoThemeStyle(props.theme)
+    }) : _react.default.createElement("img", {
+      alt: "DIBK logo",
+      src: _dibkLogoMobile.default
+    });
+    var logoLinkProps = {
+      target: props.openLogoLinkInNewTab ? "_blank" : null,
+      rel: props.openLogoLinkInNewTab ? "noopener noreferrer" : null
+    };
+    return logoLink && logoLink.length ? _react.default.createElement("a", _extends({}, logoLinkProps, {
+      href: logoLink
+    }), logoElement) : logoElement;
+  };
+
+  var navigationBarThemeStyle = getNavigationBarThemeStyle(props.theme);
+  var hamburgerIconLineStyle = {
+    backgroundColor: (0, _theme.getThemeNavigationBarTextColor)(props.theme)
+  };
+  return _react.default.createElement("header", null, _react.default.createElement("div", {
+    className: _NavigationBarModule.default.isPresent
+  }, _react.default.createElement("div", {
+    className: _NavigationBarModule.default.navigationBar,
+    style: navigationBarThemeStyle
+  }, _react.default.createElement("div", {
+    className: _NavigationBarModule.default.logoContainer
+  }, renderLogo(props.logoLink)), props.children ? _react.default.createElement("div", {
+    className: _NavigationBarModule.default.childElements
+  }, props.children) : null, !!((_props$primaryListIte = props.primaryListItems) !== null && _props$primaryListIte !== void 0 && _props$primaryListIte.length) || !!((_props$secondaryListI = props.secondaryListItems) !== null && _props$secondaryListI !== void 0 && _props$secondaryListI.length) ? _react.default.createElement("button", {
+    type: "button",
+    className: "".concat(_NavigationBarModule.default.menuToggle, " ").concat(active ? _NavigationBarModule.default.active : ""),
+    onClick: function onClick() {
+      return toggleList();
+    },
+    "aria-expanded": active ? "true" : "false",
+    "aria-controls": "main-menu-dropdown"
+  }, _react.default.createElement("span", {
+    className: _NavigationBarModule.default.hamburgerIcon
+  }, _react.default.createElement("span", {
+    className: _NavigationBarModule.default.line,
+    style: hamburgerIconLineStyle
+  }), _react.default.createElement("span", {
+    className: _NavigationBarModule.default.line,
+    style: hamburgerIconLineStyle
+  }), _react.default.createElement("span", {
+    className: _NavigationBarModule.default.line,
+    style: hamburgerIconLineStyle
+  }))) : null), _react.default.createElement("div", {
+    className: "".concat(_NavigationBarModule.default.dropdownContainer, " ").concat(active ? _NavigationBarModule.default.active : "")
+  }, _react.default.createElement("div", {
+    id: "main-menu-dropdown",
+    className: _NavigationBarModule.default.dropdown,
+    style: navigationBarThemeStyle
+  }, renderPrimaryList(), renderSecondaryList(), props.children)), _react.default.createElement("div", {
+    className: "".concat(_NavigationBarModule.default.dropdownOverlay, " ").concat(active ? _NavigationBarModule.default.active : "")
+  })));
+};
 
 NavigationBar.propTypes = {
-  /** Main links in navigation bar */
   primaryListItems: _propTypes.default.array,
-
-  /** Secondary links in navigation bar */
   secondaryListItems: _propTypes.default.array,
-
-  /** Link for logo */
   logoLink: _propTypes.default.string,
-
-  /** Opens logo link in a new tab on click */
   openLogoLinkInNewTab: _propTypes.default.bool,
-
-  /** Theme for navigation bar */
   theme: _propTypes.default.object
 };
 NavigationBar.defaultProps = {

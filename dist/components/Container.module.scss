@@ -1,6 +1,6 @@
 @import "../style/global.scss";
 
-:local(.container) {
+.container {
     margin: auto;
     padding: 16px;
     @media (min-width: $screen-sm) {

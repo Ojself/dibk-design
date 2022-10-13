@@ -1,7 +1,5 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -23,62 +21,24 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var RadioButtonIcon = function RadioButtonIcon(props) {
+  var inlineStyle = {
+    height: props.size,
+    width: props.size
+  };
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  if (props.theme && props.checked) {
+    var _objectSpread2;
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var RadioButtonIcon = /*#__PURE__*/function (_React$Component) {
-  _inherits(RadioButtonIcon, _React$Component);
-
-  var _super = _createSuper(RadioButtonIcon);
-
-  function RadioButtonIcon() {
-    _classCallCheck(this, RadioButtonIcon);
-
-    return _super.apply(this, arguments);
+    inlineStyle = _objectSpread(_objectSpread({}, inlineStyle), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, !props.hasErrors && "background", (0, _theme.getThemePaletteBackgroundColor)(props.theme, "primary")), _defineProperty(_objectSpread2, !props.hasErrors && "boxShadow", "0 0 0 1px ".concat((0, _theme.getThemePaletteBackgroundColor)(props.theme, "primary"))), _objectSpread2));
   }
 
-  _createClass(RadioButtonIcon, [{
-    key: "render",
-    value: function render() {
-      var inlineStyle = {
-        height: this.props.size,
-        width: this.props.size
-      };
-
-      if (this.props.theme && this.props.checked) {
-        inlineStyle = _objectSpread(_objectSpread({}, inlineStyle), {}, {
-          background: (0, _theme.getThemePaletteBackgroundColor)(this.props.theme, 'primary'),
-          boxShadow: "0 0 0 1px ".concat((0, _theme.getThemePaletteBackgroundColor)(this.props.theme, 'primary'))
-        });
-      }
-
-      var props = {
-        className: "".concat(_RadioButtonIconModule.default.radioButtonIcon, " ").concat(this.props.checked ? _RadioButtonIconModule.default.checked : '', " ").concat(this.props.disabled ? _RadioButtonIconModule.default.disabled : '', " ").concat(this.props.hasErrors ? _RadioButtonIconModule.default.hasErrors : ''),
-        style: inlineStyle
-      };
-      return /*#__PURE__*/_react.default.createElement("span", props);
-    }
-  }]);
-
-  return RadioButtonIcon;
-}(_react.default.Component);
+  var radioButtonIconProps = {
+    className: "".concat(_RadioButtonIconModule.default.radioButtonIcon, " ").concat(props.checked ? _RadioButtonIconModule.default.checked : "", " ").concat(props.disabled ? _RadioButtonIconModule.default.disabled : "", " ").concat(props.hasErrors ? _RadioButtonIconModule.default.hasErrors : ""),
+    style: inlineStyle
+  };
+  return _react.default.createElement("span", radioButtonIconProps);
+};
 
 RadioButtonIcon.propTypes = {
   size: _propTypes.default.string,
@@ -88,7 +48,7 @@ RadioButtonIcon.propTypes = {
   hasErrors: _propTypes.default.bool
 };
 RadioButtonIcon.defaultProps = {
-  size: '10px',
+  size: "10px",
   checked: false,
   disabled: false,
   hasErrors: false

@@ -23,18 +23,16 @@ var Header = function Header(props) {
 
   var headerSizeClass = _HeaderModule.default["size-".concat(props.size)];
 
-  var headerElement = /*#__PURE__*/_react.default.createElement(htmlTag, {
+  var headerElement = _react.default.createElement(htmlTag, {
     className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass)
-  }, !!((_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length) ? props.content : props.children // prps.content for backward compatibility
-  );
+  }, !!((_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length) ? props.content : props.children);
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return _react.default.createElement("div", {
     className: _HeaderModule.default.headerContainer
   }, " ", headerElement, " ");
 };
 
 Header.propTypes = {
-  /** Text content inside button */
   content: _propTypes.default.string,
   size: _propTypes.default.oneOf([1, 2, 3, 4, 5]),
   big: _propTypes.default.bool,

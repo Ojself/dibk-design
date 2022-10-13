@@ -15,30 +15,24 @@ var _ErrorBoxModule = _interopRequireDefault(require("./ErrorBox.module.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Dependencies
-// Functions
-// Stylesheets
-var ErrorBox = function ErrorBox(_ref) {
-  var theme = _ref.theme,
-      children = _ref.children;
-
+var ErrorBox = function ErrorBox(props) {
   var getThemeErrorBoxStyle = function getThemeErrorBoxStyle() {
     return {
-      borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, 'warning')
+      borderColor: (0, _theme.getThemePaletteBackgroundColor)(props.theme, "warning")
     };
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return _react.default.createElement("div", {
     className: _ErrorBoxModule.default.errorBox,
     style: getThemeErrorBoxStyle()
-  }, children);
+  }, props.children);
 };
 
 ErrorBox.propTypes = {
   theme: _propTypes.default.object
 };
 ErrorBox.defaultProps = {
-  children: ''
+  children: ""
 };
 var _default = ErrorBox;
 exports.default = _default;

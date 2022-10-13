@@ -1,7 +1,5 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -25,102 +23,64 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Button = function Button(props) {
+  var _props$href;
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  var getArrowClass = function getArrowClass(arrow) {
+    switch (arrow) {
+      case "left":
+        return _ButtonModule.default.hasArrowLeft;
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+      case "right":
+        return _ButtonModule.default.hasArrowRight;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var Button = /*#__PURE__*/function (_React$Component) {
-  _inherits(Button, _React$Component);
-
-  var _super = _createSuper(Button);
-
-  function Button() {
-    _classCallCheck(this, Button);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Button, [{
-    key: "getArrowClass",
-    value: function getArrowClass() {
-      switch (this.props.arrow) {
-        case 'left':
-          return _ButtonModule.default.hasArrowLeft;
-
-        case 'right':
-          return _ButtonModule.default.hasArrowRight;
-
-        default:
-          return '';
-      }
+      default:
+        return "";
     }
-  }, {
-    key: "getThemeStyle",
-    value: function getThemeStyle(theme, color) {
-      return {
-        backgroundColor: (0, _theme.getThemePaletteBackgroundColor)(theme, color),
-        color: (0, _theme.getThemePaletteTextColor)(theme, color),
-        borderColor: (0, _theme.getThemePaletteBorderColor)(theme, color),
-        borderWidth: (0, _theme.getThemePaletteBorderColor)(theme, color) ? '1px' : '0'
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props$href;
+  };
 
-      var buttonProps = _objectSpread({}, this.props);
+  var getThemeStyle = function getThemeStyle(theme, color) {
+    return {
+      backgroundColor: (0, _theme.getThemePaletteBackgroundColor)(theme, color),
+      color: (0, _theme.getThemePaletteTextColor)(theme, color),
+      borderColor: (0, _theme.getThemePaletteBorderColor)(theme, color),
+      borderWidth: (0, _theme.getThemePaletteBorderColor)(theme, color) ? "1px" : "0"
+    };
+  };
 
-      delete buttonProps.noHover;
-      delete buttonProps.rounded;
-      var themeStyle = this.props.theme ? this.getThemeStyle(this.props.theme, this.props.color) : null;
-      var className = "".concat(_ButtonModule.default.button, " ").concat(_ButtonModule.default[this.props.color], " ").concat(_ButtonModule.default[this.props.size], " ").concat(this.getArrowClass(), " ").concat(this.props.theme ? _ButtonModule.default.hasTheme : '', " ").concat(this.props.noHover ? _ButtonModule.default.noHover : '', " ").concat(this.props.rounded ? _ButtonModule.default.rounded : '');
-      return (_this$props$href = this.props.href) !== null && _this$props$href !== void 0 && _this$props$href.length ? /*#__PURE__*/_react.default.createElement("a", _extends({}, buttonProps, {
-        className: className,
-        style: themeStyle
-      }), this.props.content || this.props.children) : /*#__PURE__*/_react.default.createElement("button", _extends({}, buttonProps, {
-        className: className,
-        style: themeStyle
-      }), this.props.content || this.props.children);
-    }
-  }]);
+  var buttonProps = _objectSpread({}, props);
 
-  return Button;
-}(_react.default.Component);
+  delete buttonProps.noHover;
+  delete buttonProps.rounded;
+  var themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
+  var className = "".concat(_ButtonModule.default.button, " ").concat(_ButtonModule.default[props.color], " ").concat(_ButtonModule.default[props.size], " ").concat(getArrowClass(props.arrow), " ").concat(props.theme ? _ButtonModule.default.hasTheme : "", " ").concat(props.noHover ? _ButtonModule.default.noHover : "", " ").concat(props.rounded ? _ButtonModule.default.rounded : "");
+  return (_props$href = props.href) !== null && _props$href !== void 0 && _props$href.length ? _react.default.createElement("a", _extends({}, buttonProps, {
+    className: className,
+    style: themeStyle
+  }), props.content || props.children) : _react.default.createElement("button", _extends({}, buttonProps, {
+    className: className,
+    style: themeStyle
+  }), props.content || props.children);
+};
 
 Button.propTypes = {
-  /** Text content inside button */
   content: _propTypes.default.string,
-  color: _propTypes.default.oneOf(['default', 'primary']),
-  size: _propTypes.default.oneOf(['small', 'regular']),
-  arrow: _propTypes.default.oneOf(['left', 'right']),
+  color: _propTypes.default.oneOf(["default", "primary"]),
+  size: _propTypes.default.oneOf(["small", "regular"]),
+  arrow: _propTypes.default.oneOf(["none", "left", "right"]),
   theme: _propTypes.default.object,
   disabled: _propTypes.default.bool,
   noHover: _propTypes.default.bool,
   rounded: _propTypes.default.bool,
-  href: _propTypes.default.string
+  href: _propTypes.default.string,
+  onClick: _propTypes.default.func
 };
 Button.defaultProps = {
-  color: 'default',
-  size: 'regular',
+  color: "default",
+  size: "regular",
   disabled: false,
-  noHover: false
+  noHover: false,
+  arrow: 'none'
 };
 var _default = Button;
 exports.default = _default;

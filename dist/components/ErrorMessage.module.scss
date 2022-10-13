@@ -1,0 +1,16 @@
+@import "../style/global.scss";
+
+.errorMessage {
+    display: block;
+    color: $color-error;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 4px 0;
+    font-family: $default-font;
+    font-style: italic;
+    overflow-wrap: break-word;
+    @media only screen and (min-width: $screen-sm) {
+        font-size: 19px;
+    }
+}

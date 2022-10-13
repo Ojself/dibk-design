@@ -1,0 +1,76 @@
+@import "../style/global.scss";
+
+* {
+  color: $color-default-text;
+}
+
+a {
+  color: $color-link;
+}
+
+img {
+  max-width: 200px;
+  max-height: 150px;
+}
+
+.colorPalette {
+  display: flex;
+  flex-wrap: wrap;
+
+  .color {
+    width: 20%;
+    min-width: 120px;
+    text-align: center;
+    line-height: 3em;
+
+    &.default {
+      background-color: $color-default;
+      color: #000;
+    }
+
+    &.primary {
+      background-color: $color-primary;
+      color: #fff;
+    }
+
+    &.success {
+      background-color: $color-success;
+      color: #fff;
+    }
+
+    &.warning {
+      background-color: $color-warning;
+      color: #fff;
+    }
+
+    &.info {
+      background-color: $color-info;
+      color: #000;
+    }
+
+    &.lightCyan {
+      background-color: $color-light-cyan;
+      color: #000;
+    }
+
+    &.orange {
+      background-color: $color-orange;
+      color: #fff;
+    }
+
+    &.lightOrange {
+      background-color: $color-light-orange;
+      color: #000;
+    }
+
+    &.lime {
+      background-color: $color-lime;
+      color: #fff;
+    }
+
+    &.lightLime {
+      background-color: $color-light-lime;
+      color: #000;
+    }
+  }
+}

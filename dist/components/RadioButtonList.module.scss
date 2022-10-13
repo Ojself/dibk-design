@@ -1,0 +1,17 @@
+@import "../style/global.scss";
+
+fieldset.radioButtonList {
+    margin: 0;
+    padding: 0;
+    border: none;
+    legend {
+        color: #000;
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.2;
+        margin-bottom: 2px;
+        font-family: $default-font;
+        overflow-wrap: break-word;
+    }
+}

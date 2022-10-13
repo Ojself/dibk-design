@@ -17,10 +17,6 @@ var _RadioButtonListItemModule = _interopRequireDefault(require("./RadioButtonLi
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Dependencies
-// Components
-// Functions
-// Stylesheets
 var RadioButtonListItem = function RadioButtonListItem(props) {
   var listItemClassNameArray = [_RadioButtonListItemModule.default.radioButtonListItem, props.disabled ? _RadioButtonListItemModule.default.disabled : null, props.compact ? _RadioButtonListItemModule.default.compact : null, props.contentOnly ? _RadioButtonListItemModule.default.contentOnly : null, props.hasErrors ? _RadioButtonListItemModule.default.hasErrors : null];
   var listItemClassNameString = (0, _helpers.classNameArrayToClassNameString)(listItemClassNameArray);
@@ -35,9 +31,9 @@ var RadioButtonListItem = function RadioButtonListItem(props) {
     name: props.name,
     theme: props.theme
   };
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return _react.default.createElement("div", {
     className: listItemClassNameString
-  }, /*#__PURE__*/_react.default.createElement(_RadioButtonInput.default, inputProps, props.children));
+  }, _react.default.createElement(_RadioButtonInput.default, inputProps, props.children));
 };
 
 RadioButtonListItem.propTypes = {
@@ -48,6 +44,7 @@ RadioButtonListItem.propTypes = {
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func,
   contentOnly: _propTypes.default.bool,
+  compact: _propTypes.default.bool,
   theme: _propTypes.default.object,
   hasErrors: _propTypes.default.bool
 };

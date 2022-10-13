@@ -1,0 +1,86 @@
+@import "../style/global.scss";
+
+.select {
+    .selectContainer {
+        position: relative;
+
+        .selectListArrow {
+            box-sizing: border-box;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+            @media only screen and (min-width: $screen-sm) {
+                top: 20px;
+                right: 20px;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                border-bottom: 2px solid;
+                border-right: 2px solid;
+                transform: translateY(-30%) rotate(45deg);
+                transition: transform 0.3s ease-in-out;
+            }
+        }
+
+        select {
+            @include border-radius(0);
+            @include transition(border-color 0.15s linear);
+            @include appearance(none);
+            @include box-shadow(none);
+            height: 47px;
+            color: rgba(0, 0, 0, 0.75);
+            width: 100%;
+            font-family: inherit;
+            font-size: 16px;
+            padding: 10px 40px 10px 10px;
+            border: 1px solid #afaba8;
+            border-radius: 0;
+            line-height: normal;
+            background: white;
+            cursor: pointer;
+            @media only screen and (min-width: $screen-sm) {
+                font-size: 19px;
+                height: 56px;
+            }
+
+            &:hover {
+                border-color: $color-dark-blue;
+            }
+
+            &:focus {
+                border-color: $color-dark-blue;
+                outline-color: #54acb8;
+            }
+
+            &[disabled],
+            &[readonly] {
+                background-color: #ddd;
+                cursor: default;
+            }
+
+            &.hasErrors {
+                border-color: $color-error;
+                &:focus {
+                    border-color: $color-error;
+                    outline-color: #b8565d;
+                }
+                &[disabled],
+                &[readonly] {
+                    background-color: #ddd;
+                    cursor: default;
+                    border-color: #afaba8;
+                }
+            }
+        }
+    }
+}
