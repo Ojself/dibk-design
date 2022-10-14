@@ -30,6 +30,7 @@ const RadioButtonInput = (props) => {
         value: props.inputValue,
         checked: props.checked,
         disabled: props.disabled,
+        required: props.required || props.requiredGroup,
         onChange: props.onChange,
         tabIndex: props.tabIndex || null,
         "aria-controls": props["aria-controls"]
@@ -43,7 +44,10 @@ const RadioButtonInput = (props) => {
                     <input {...inputProps} />
                 </React.Fragment>
             ) : null}
-            <span>{props.children}</span>
+            <span>
+                {props.children}
+                {props.required && <span className={style.requiredSymbol}>*</span>}
+            </span>
         </label>
     );
 };
@@ -51,6 +55,8 @@ const RadioButtonInput = (props) => {
 RadioButtonInput.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    requiredGroup: PropTypes.bool,
     id: PropTypes.string.isRequired,
     name: PropTypes.string,
     onChange: PropTypes.func,
@@ -65,6 +71,8 @@ RadioButtonInput.defaultProps = {
     name: "",
     checked: false,
     disabled: false,
+    required: false,
+    requiredGroup: false,
     contentOnly: false,
     hasErrors: false
 };

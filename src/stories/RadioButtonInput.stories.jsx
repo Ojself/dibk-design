@@ -96,9 +96,17 @@ hasErrorsCheckedDisabled.args = {
     inputValue: "value"
 };
 
+export const Required = Template.bind({});
+Required.args = {
+    id: "radioButtonInput-10",
+    required: true,
+    children: "Label for required radio button",
+    inputValue: "value"
+};
+
 export const CheckedCustomTheme = Template.bind({});
 CheckedCustomTheme.args = {
-    id: "radioButtonInput-10",
+    id: "radioButtonInput-11",
     children: "Label for checked checkbox with custom theme",
     checked: true,
     theme: customTheme,

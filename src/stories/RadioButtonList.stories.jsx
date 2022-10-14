@@ -55,6 +55,12 @@ Default.args = {
     legend: "Default radio button list"
 };
 
+export const Required = Template.bind({});
+Required.args = {
+    legend: "Required radio button list",
+    required: true
+};
+
 export const Themed = Template.bind({});
 Themed.args = {
     legend: "Themed radio button list",
