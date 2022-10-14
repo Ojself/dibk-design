@@ -27,7 +27,7 @@ Default.args = {
 export const Required = Template.bind({});
 Required.args = {
     id: "inputField2",
-    reauired: true
+    required: true
 };
 
 export const WithValue = Template.bind({});

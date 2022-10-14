@@ -54,7 +54,6 @@ const InputField = (props) => {
             [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
             placeholder: props.placeholder || null,
             className: props.hasErrors ? style.hasErrors : null,
-            "aria-required": props.mandatory, // TODO: change to this.props.required
             "aria-describedby": props["aria-describedby"] || null,
             style: styleRules
         };
@@ -70,6 +69,7 @@ const InputField = (props) => {
         <div className={`${style.inputField} ${style[props.type]}`}>
             <Label htmlFor={props.id}>
                 {props.label}
+                {props.required && <span className={style.requiredSymbol}>*</span>}
                 {props.type === "file" ? (
                     <div className={style.fileInputContainer}>
                         <span className={style.input}>{props.selectedFileName}</span>
@@ -98,12 +98,12 @@ const InputField = (props) => {
 };
 
 InputField.propTypes = {
-    /** Text content inside list item */
     id: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     onBlur: PropTypes.func,
     name: PropTypes.string,
     type: PropTypes.string,
+    required: PropTypes.bool,
     width: PropTypes.string,
     value: PropTypes.any,
     defaultValue: PropTypes.any,
@@ -113,9 +113,10 @@ InputField.propTypes = {
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
     contentOnly: PropTypes.bool,
-    buttonColor: PropTypes.string,
+    buttonColor: PropTypes.oneOf(["default", "primary"]),
     buttonContent: PropTypes.string,
     selectedFileName: PropTypes.string,
+    dateFormat: PropTypes.string,
     placeholder: PropTypes.string,
     defaultContent: PropTypes.string,
     hasErrors: PropTypes.bool,
@@ -123,13 +124,16 @@ InputField.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    mandatory: PropTypes.bool, // TODO: change to props.required
     theme: PropTypes.object
 };
 
 InputField.defaultProps = {
+    onChange: () => {
+        return false;
+    },
     name: "",
     type: "text",
+    required: false,
     label: "",
     contentOnly: false,
     buttonColor: "default",
@@ -137,11 +141,7 @@ InputField.defaultProps = {
     placeholder: "",
     defaultContent: "",
     hasErrors: false,
-    errorMessage: "",
-    mandatory: false, // TODO: change to props.required
-    onChange: () => {
-        return false;
-    }
+    errorMessage: ""
 };
 
 export default InputField;
