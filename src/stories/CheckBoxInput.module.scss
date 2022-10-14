@@ -5,6 +5,12 @@
     margin-right: 1em;
     border: 1px solid transparent;
 
+    .requiredSymbol {
+        color: $color-error;
+        font-size: 0.8em;
+        vertical-align: top;
+    }
+
     &:not(.contentOnly):not(.disabled) {
         cursor: pointer;
         input {

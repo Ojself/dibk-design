@@ -53,6 +53,12 @@ Default.args = {
     legend: "Default checkbox list"
 };
 
+export const Required = Template.bind({});
+Required.args = {
+    legend: "Required checkbox list",
+    required: true
+};
+
 export const Themed = Template.bind({});
 Themed.args = {
     legend: "Themed checkbox list",

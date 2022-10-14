@@ -96,9 +96,16 @@ hasErrorsCheckedDisabled.args = {
     disabled: true
 };
 
+export const Required = Template.bind({});
+Required.args = {
+    id: "checkBoxInput-11",
+    required: true,
+    children: "Label for required checkbox"
+};
+
 export const CheckedCustomThemeAndCheckmark = Template.bind({});
 CheckedCustomThemeAndCheckmark.args = {
-    id: "checkBoxInput-11",
+    id: "checkBoxInput-12",
     children: "Label for checked checkbox with custom theme and checkmark",
     checked: true,
     checkmarkCharacter: "✕",

@@ -31,6 +31,7 @@ const CheckBoxInput = (props) => {
         type: "checkbox",
         checked: props.checked,
         disabled: props.disabled,
+        required: props.required || props.requiredGroup,
         onChange: props.onChange,
         tabIndex: props.tabIndex || null,
         "aria-controls": props["aria-controls"]
@@ -46,7 +47,7 @@ const CheckBoxInput = (props) => {
             ) : (
                 <CheckBoxIcon {...iconProps} />
             )}
-            <span>{props.children}</span>
+            <span>{props.children}{props.required && <span className={style.requiredSymbol}>*</span>}</span>
         </label>
     );
 };
@@ -54,6 +55,8 @@ const CheckBoxInput = (props) => {
 CheckBoxInput.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    requiredGroup: PropTypes.bool,
     id: PropTypes.string.isRequired,
     name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
@@ -66,6 +69,8 @@ CheckBoxInput.propTypes = {
 CheckBoxInput.defaultProps = {
     checked: false,
     disabled: false,
+    required: false,
+    requiredGroup: false,
     name: "",
     contentOnly: false,
     hasErrors: false,

@@ -13,5 +13,10 @@ fieldset.checkBoxList {
         margin-bottom: 2px;
         font-family: $default-font;
         overflow-wrap: break-word;
+        .requiredSymbol {
+            color: $color-error;
+            font-size: 0.8em;
+            vertical-align: top;
+        }
     }
 }
