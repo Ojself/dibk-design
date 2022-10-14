@@ -95,6 +95,7 @@ const DragAndDropFileInput = (props) => {
         <div className={style.dragAndDropFileInput}>
             <label htmlFor={props.id}>
                 {props.label}
+                {props.required && <span className={style.requiredSymbol}>*</span>}
                 {!props.contentOnly ? (
                     <div
                         ref={containerElementRef}
