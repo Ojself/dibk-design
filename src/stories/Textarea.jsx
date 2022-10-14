@@ -35,6 +35,7 @@ const Textarea = (props) => {
             name: props.name,
             readOnly: props.readOnly,
             disabled: props.disabled,
+            required: props.required,
             type: props.type,
             id: props.id,
             key: defaultKey || `${props.id}-${generateRandomString(6)}`,
@@ -44,7 +45,6 @@ const Textarea = (props) => {
             placeholder: props.placeholder,
             rows: props.rows,
             className: props.hasErrors ? style.hasErrors : "",
-            "aria-required": props.mandatory, // TODO: replace with required
             style: styleRules
         };
 
@@ -52,7 +52,10 @@ const Textarea = (props) => {
     };
     return (
         <div className={style.textarea}>
-            <Label htmlFor={props.id}>{props.label}</Label>
+            <Label htmlFor={props.id}>
+                {props.label}
+                {props.required && <span className={style.requiredSymbol}>*</span>}
+            </Label>
             {!props.contentOnly ? (
                 renderInputField()
             ) : (
@@ -70,8 +73,9 @@ Textarea.propTypes = {
     onBlur: PropTypes.func,
     name: PropTypes.string,
     type: PropTypes.string,
+    required: PropTypes.bool,
     width: PropTypes.string,
-    resize: PropTypes.oneOf(['both', 'horizontal', 'vertical', 'none']),
+    resize: PropTypes.oneOf(["both", "horizontal", "vertical", "none"]),
     value: PropTypes.string,
     defaultValue: PropTypes.string,
     elementKey: PropTypes.string,
@@ -88,24 +92,23 @@ Textarea.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    mandatory: PropTypes.bool, // TODO: replace with required
     theme: PropTypes.object
 };
 
 Textarea.defaultProps = {
+    onChange: () => {
+        return false;
+    },
     name: "",
     type: "text",
+    required: false,
     label: "",
     contentOnly: false,
-    resize: 'both',
+    resize: "both",
     placeholder: "",
     defaultContent: "",
     hasErrors: false,
-    errorMessage: "",
-    mandatory: false, // TODO: replace with required
-    onChange: () => {
-        return false;
-    }
+    errorMessage: ""
 };
 
 export default Textarea;
