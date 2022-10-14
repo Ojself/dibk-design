@@ -74,9 +74,26 @@ WithLinkInLabel.args = {
     options
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+    id: "select7",
+    disabled: true,
+    label: "Disabled select with label and selected value",
+    value: "value 3",
+    options
+};
+
+export const Required = Template.bind({});
+Required.args = {
+    id: "select8",
+    required: true,
+    label: "Required select with label",
+    options
+};
+
 export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {
-    id: "select8",
+    id: "select9",
     label: "Select with label, placeholder and placeholderValue",
     placeholder: "Select from list",
     placeholderValue: "notSelected",
@@ -86,7 +103,7 @@ WithPlaceholder.args = {
 
 export const WithContentOnly = Template.bind({});
 WithContentOnly.args = {
-    id: "select9",
+    id: "select10",
     label: "Select with label, selected value and contentOnly set to true",
     value: "value 3",
     contentOnly: true,
@@ -95,7 +112,7 @@ WithContentOnly.args = {
 
 export const WithContentOnlyAndKeyAsContent = Template.bind({});
 WithContentOnlyAndKeyAsContent.args = {
-    id: "select10",
+    id: "select11",
     label: "Select with label, selected value, contentOnly set to true and keyAsContent set to true",
     value: "value 3",
     contentOnly: true,
@@ -105,7 +122,7 @@ WithContentOnlyAndKeyAsContent.args = {
 
 export const WithContentOnlyAndDefaultContent = Template.bind({});
 WithContentOnlyAndDefaultContent.args = {
-    id: "select11",
+    id: "select12",
     label: "Select with label, contentOnly set to true, no value and defaultContent",
     contentOnly: true,
     defaultContent: "No value selected",
@@ -114,7 +131,7 @@ WithContentOnlyAndDefaultContent.args = {
 
 export const WithCustomWidth = Template.bind({});
 WithCustomWidth.args = {
-    id: "select12",
+    id: "select13",
     label: "Select with custom width",
     width: "250px",
     options
@@ -122,7 +139,7 @@ WithCustomWidth.args = {
 
 export const WithCustomTheme = Template.bind({});
 WithCustomTheme.args = {
-    id: "select13",
+    id: "select14",
     label: "Select with custom theme",
     theme: customTheme,
     options

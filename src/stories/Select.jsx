@@ -96,6 +96,8 @@ const Select = (props) => {
         const selectElementProps = {
             name: props.name,
             multiple: props.multiple,
+            required: props.required,
+            disabled: props.disabled,
             [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
             onChange: props.onChange,
             id: props.id,
@@ -106,7 +108,10 @@ const Select = (props) => {
         };
         return (
             <div className={style.select}>
-                <Label htmlFor={props.id}>{props.label}</Label>
+                <Label htmlFor={props.id}>
+                    {props.label}
+                    {props.required && <span className={style.requiredSymbol}>*</span>}
+                </Label>
                 <div
                     className={style.selectContainer}
                     style={{ ...(props.width?.length && { maxWidth: props.width }) }}
@@ -127,6 +132,8 @@ Select.propTypes = {
     id: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string,
+    required: PropTypes.bool,
+    disabled: PropTypes.bool,
     multiple: PropTypes.bool,
     options: PropTypes.arrayOf(
         PropTypes.oneOfType([
@@ -154,7 +161,12 @@ Select.propTypes = {
     theme: PropTypes.object
 };
 Select.defaultProps = {
+    onChange: () => {
+        return false;
+    },
     name: "",
+    required: false,
+    disabled: false,
     options: [],
     label: "",
     contentOnly: false,
@@ -163,9 +175,6 @@ Select.defaultProps = {
     placeholderValue: "",
     defaultContent: null,
     hasErrors: false,
-    errorMessage: "",
-    onChange: () => {
-        return false;
-    }
+    errorMessage: ""
 };
 export default Select;
