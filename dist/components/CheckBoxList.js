@@ -14,9 +14,10 @@ var CheckBoxList = function CheckBoxList(props) {
   var renderChildElements = function renderChildElements(childElements) {
     return childElements.map(function (childElement, index) {
       var _childElement$type;
-      if ((childElement === null || childElement === void 0 ? void 0 : (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem" && props.required) {
+      if ((childElement === null || childElement === void 0 ? void 0 : (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem") {
         var childElementCopy = _react.default.cloneElement(childElement, {
-          requiredGroup: true,
+          requiredGroup: props.required,
+          compact: props.compact,
           key: "checkboxListItem-".concat(index)
         });
         return childElementCopy;
@@ -36,7 +37,8 @@ var CheckBoxList = function CheckBoxList(props) {
 };
 CheckBoxList.propTypes = {
   legend: _propTypes.default.string,
-  required: _propTypes.default.bool
+  required: _propTypes.default.bool,
+  compact: _propTypes.default.bool
 };
 var _default = CheckBoxList;
 exports.default = _default;
