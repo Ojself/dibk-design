@@ -78,7 +78,9 @@ var DragAndDropFileInput = function DragAndDropFileInput(props) {
     className: _DragAndDropFileInputModule.default.dragAndDropFileInput
   }, _react.default.createElement("label", {
     htmlFor: props.id
-  }, props.label, !props.contentOnly ? _react.default.createElement("div", {
+  }, props.label, props.required && _react.default.createElement("span", {
+    className: _DragAndDropFileInputModule.default.requiredSymbol
+  }, "*"), !props.contentOnly ? _react.default.createElement("div", {
     ref: containerElementRef,
     className: "".concat(_DragAndDropFileInputModule.default.dragAndDropContainer, " ").concat(highlight ? _DragAndDropFileInputModule.default.highlighted : "")
   }, props.selectedFileName ? _react.default.createElement("div", null, _react.default.createElement("span", null, _react.default.createElement("b", null, "Valgt fil:"), " ", props.selectedFileName)) : _react.default.createElement("div", null, "Slipp fil her"), _react.default.createElement("input", {

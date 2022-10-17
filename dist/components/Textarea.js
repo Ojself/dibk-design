@@ -38,19 +38,22 @@ var Textarea = function Textarea(props) {
       name: props.name,
       readOnly: props.readOnly,
       disabled: props.disabled,
+      required: props.required,
       type: props.type,
       id: props.id,
       key: defaultKey || "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
       onChange: props.onChange,
       onBlur: props.onBlur
-    }, _defineProperty(_textareaElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_textareaElementProps, "placeholder", props.placeholder), _defineProperty(_textareaElementProps, "rows", props.rows), _defineProperty(_textareaElementProps, "className", props.hasErrors ? _TextareaModule.default.hasErrors : ""), _defineProperty(_textareaElementProps, "aria-required", props.mandatory), _defineProperty(_textareaElementProps, "style", styleRules), _textareaElementProps);
+    }, _defineProperty(_textareaElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_textareaElementProps, "placeholder", props.placeholder), _defineProperty(_textareaElementProps, "rows", props.rows), _defineProperty(_textareaElementProps, "className", props.hasErrors ? _TextareaModule.default.hasErrors : ""), _defineProperty(_textareaElementProps, "style", styleRules), _textareaElementProps);
     return _react.default.createElement("textarea", textareaElementProps);
   };
   return _react.default.createElement("div", {
     className: _TextareaModule.default.textarea
   }, _react.default.createElement(_Label.default, {
     htmlFor: props.id
-  }, props.label), !props.contentOnly ? renderInputField() : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
+  }, props.label, props.required && _react.default.createElement("span", {
+    className: _TextareaModule.default.requiredSymbol
+  }, "*")), !props.contentOnly ? renderInputField() : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
     content: props.errorMessage,
     theme: props.theme
   }));
@@ -61,8 +64,9 @@ Textarea.propTypes = {
   onBlur: _propTypes.default.func,
   name: _propTypes.default.string,
   type: _propTypes.default.string,
+  required: _propTypes.default.bool,
   width: _propTypes.default.string,
-  resize: _propTypes.default.oneOf(['both', 'horizontal', 'vertical', 'none']),
+  resize: _propTypes.default.oneOf(["both", "horizontal", "vertical", "none"]),
   value: _propTypes.default.string,
   defaultValue: _propTypes.default.string,
   elementKey: _propTypes.default.string,
@@ -73,23 +77,22 @@ Textarea.propTypes = {
   defaultContent: _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  mandatory: _propTypes.default.bool,
   theme: _propTypes.default.object
 };
 Textarea.defaultProps = {
+  onChange: function onChange() {
+    return false;
+  },
   name: "",
   type: "text",
+  required: false,
   label: "",
   contentOnly: false,
-  resize: 'both',
+  resize: "both",
   placeholder: "",
   defaultContent: "",
   hasErrors: false,
-  errorMessage: "",
-  mandatory: false,
-  onChange: function onChange() {
-    return false;
-  }
+  errorMessage: ""
 };
 var _default = Textarea;
 exports.default = _default;

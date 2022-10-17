@@ -85,13 +85,17 @@ var Select = function Select(props) {
     });
     var selectElementProps = (_selectElementProps = {
       name: props.name,
-      multiple: props.multiple
+      multiple: props.multiple,
+      required: props.required,
+      disabled: props.disabled
     }, _defineProperty(_selectElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_selectElementProps, "onChange", props.onChange), _defineProperty(_selectElementProps, "id", props.id), _defineProperty(_selectElementProps, "role", props.role), _defineProperty(_selectElementProps, "key", "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_selectElementProps, "className", props.hasErrors ? _SelectModule.default.hasErrors : ""), _defineProperty(_selectElementProps, "style", styleRules), _selectElementProps);
     return _react.default.createElement("div", {
       className: _SelectModule.default.select
     }, _react.default.createElement(_Label.default, {
       htmlFor: props.id
-    }, props.label), _react.default.createElement("div", {
+    }, props.label, props.required && _react.default.createElement("span", {
+      className: _SelectModule.default.requiredSymbol
+    }, "*")), _react.default.createElement("div", {
       className: _SelectModule.default.selectContainer,
       style: _objectSpread({}, ((_props$width2 = props.width) === null || _props$width2 === void 0 ? void 0 : _props$width2.length) && {
         maxWidth: props.width
@@ -109,6 +113,8 @@ Select.propTypes = {
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func.isRequired,
   name: _propTypes.default.string,
+  required: _propTypes.default.bool,
+  disabled: _propTypes.default.bool,
   multiple: _propTypes.default.bool,
   options: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]), _propTypes.default.shape({
     key: _propTypes.default.string,
@@ -128,7 +134,12 @@ Select.propTypes = {
   theme: _propTypes.default.object
 };
 Select.defaultProps = {
+  onChange: function onChange() {
+    return false;
+  },
   name: "",
+  required: false,
+  disabled: false,
   options: [],
   label: "",
   contentOnly: false,
@@ -137,10 +148,7 @@ Select.defaultProps = {
   placeholderValue: "",
   defaultContent: null,
   hasErrors: false,
-  errorMessage: "",
-  onChange: function onChange() {
-    return false;
-  }
+  errorMessage: ""
 };
 var _default = Select;
 exports.default = _default;

@@ -52,7 +52,7 @@ var InputField = function InputField(props) {
       max: props.max || null,
       onChange: props.onChange,
       onBlur: props.onBlur
-    }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_ref, "placeholder", props.placeholder || null), _defineProperty(_ref, "className", props.hasErrors ? _InputFieldModule.default.hasErrors : null), _defineProperty(_ref, "aria-required", props.mandatory), _defineProperty(_ref, "aria-describedby", props["aria-describedby"] || null), _defineProperty(_ref, "style", styleRules), _ref;
+    }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_ref, "placeholder", props.placeholder || null), _defineProperty(_ref, "className", props.hasErrors ? _InputFieldModule.default.hasErrors : null), _defineProperty(_ref, "aria-describedby", props["aria-describedby"] || null), _defineProperty(_ref, "style", styleRules), _ref;
   };
   var defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
   var defaultKey = props.elementKey || null;
@@ -63,7 +63,9 @@ var InputField = function InputField(props) {
     className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[props.type])
   }, _react.default.createElement(_Label.default, {
     htmlFor: props.id
-  }, props.label, props.type === "file" ? _react.default.createElement("div", {
+  }, props.label, props.required && _react.default.createElement("span", {
+    className: _InputFieldModule.default.requiredSymbol
+  }, "*"), props.type === "file" ? _react.default.createElement("div", {
     className: _InputFieldModule.default.fileInputContainer
   }, _react.default.createElement("span", {
     className: _InputFieldModule.default.input
@@ -86,25 +88,30 @@ InputField.propTypes = {
   onBlur: _propTypes.default.func,
   name: _propTypes.default.string,
   type: _propTypes.default.string,
+  required: _propTypes.default.bool,
   width: _propTypes.default.string,
   value: _propTypes.default.any,
   defaultValue: _propTypes.default.any,
   elementKey: _propTypes.default.string,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
-  buttonColor: _propTypes.default.string,
+  buttonColor: _propTypes.default.oneOf(["default", "primary"]),
   buttonContent: _propTypes.default.string,
   selectedFileName: _propTypes.default.string,
+  dateFormat: _propTypes.default.string,
   placeholder: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  mandatory: _propTypes.default.bool,
   theme: _propTypes.default.object
 };
 InputField.defaultProps = {
+  onChange: function onChange() {
+    return false;
+  },
   name: "",
   type: "text",
+  required: false,
   label: "",
   contentOnly: false,
   buttonColor: "default",
@@ -112,11 +119,7 @@ InputField.defaultProps = {
   placeholder: "",
   defaultContent: "",
   hasErrors: false,
-  errorMessage: "",
-  mandatory: false,
-  onChange: function onChange() {
-    return false;
-  }
+  errorMessage: ""
 };
 var _default = InputField;
 exports.default = _default;

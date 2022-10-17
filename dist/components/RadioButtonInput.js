@@ -28,15 +28,20 @@ var RadioButtonInput = function RadioButtonInput(props) {
     value: props.inputValue,
     checked: props.checked,
     disabled: props.disabled,
+    required: props.required || props.requiredGroup,
     onChange: props.onChange,
     tabIndex: props.tabIndex || null,
     "aria-controls": props["aria-controls"]
   };
-  return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_RadioButtonIcon.default, iconProps), _react.default.createElement("input", inputProps)) : null, _react.default.createElement("span", null, props.children));
+  return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_RadioButtonIcon.default, iconProps), _react.default.createElement("input", inputProps)) : null, _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("span", {
+    className: _RadioButtonInputModule.default.requiredSymbol
+  }, "*")));
 };
 RadioButtonInput.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
+  required: _propTypes.default.bool,
+  requiredGroup: _propTypes.default.bool,
   id: _propTypes.default.string.isRequired,
   name: _propTypes.default.string,
   onChange: _propTypes.default.func,
@@ -50,6 +55,8 @@ RadioButtonInput.defaultProps = {
   name: "",
   checked: false,
   disabled: false,
+  required: false,
+  requiredGroup: false,
   contentOnly: false,
   hasErrors: false
 };

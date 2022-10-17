@@ -19,6 +19,8 @@ var RadioButtonListItem = function RadioButtonListItem(props) {
     inputValue: props.inputValue,
     checked: props.checked,
     disabled: props.disabled,
+    required: props.required,
+    requiredGroup: props.requiredGroup,
     contentOnly: props.contentOnly,
     hasErrors: props.hasErrors,
     id: props.id,
@@ -33,6 +35,8 @@ RadioButtonListItem.propTypes = {
   inputValue: _propTypes.default.string.isRequired,
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
+  required: _propTypes.default.bool,
+  requiredGroup: _propTypes.default.bool,
   name: _propTypes.default.string,
   id: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func,
@@ -44,6 +48,8 @@ RadioButtonListItem.propTypes = {
 RadioButtonListItem.defaultProps = {
   name: "",
   checked: false,
+  required: false,
+  requiredGroup: false,
   disabled: false,
   contentOnly: false,
   hasErrors: false

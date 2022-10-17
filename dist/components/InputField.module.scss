@@ -8,6 +8,11 @@
     > div {
         display: block;
     }
+    .requiredSymbol {
+        color: $color-error;
+        font-size: 0.8em;
+        vertical-align: top;
+    }
     input,
     &.file span.input {
         @include appearance(none);

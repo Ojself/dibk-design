@@ -18,6 +18,8 @@ var CheckBoxListItem = function CheckBoxListItem(props) {
     onChange: props.onChange,
     checked: props.checked,
     disabled: props.disabled,
+    required: props.required,
+    requiredGroup: props.requiredGroup,
     contentOnly: props.contentOnly,
     hasErrors: props.hasErrors,
     id: props.id,
@@ -31,6 +33,8 @@ var CheckBoxListItem = function CheckBoxListItem(props) {
 CheckBoxListItem.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
+  required: _propTypes.default.bool,
+  requiredGroup: _propTypes.default.bool,
   id: _propTypes.default.string.isRequired,
   name: _propTypes.default.string,
   onChange: _propTypes.default.func.isRequired,
@@ -43,6 +47,8 @@ CheckBoxListItem.propTypes = {
 CheckBoxListItem.defaultProps = {
   checked: false,
   disabled: false,
+  required: false,
+  requiredGroup: false,
   id: "",
   name: "",
   contentOnly: false,

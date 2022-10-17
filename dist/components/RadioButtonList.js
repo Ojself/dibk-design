@@ -11,12 +11,32 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var RadioButtonList = function RadioButtonList(props) {
   var _props$legend;
+  var renderChildElements = function renderChildElements(childElements) {
+    return childElements.map(function (childElement, index) {
+      var _childElement$type;
+      if ((childElement === null || childElement === void 0 ? void 0 : (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "RadioButtonListItem" && props.required) {
+        var childElementCopy = _react.default.cloneElement(childElement, {
+          requiredGroup: true,
+          key: "radioButtonListItem-".concat(index)
+        });
+        return childElementCopy;
+      } else {
+        var _childElementCopy = _react.default.cloneElement(childElement, {
+          key: "radiobuttonListChild-".concat(index)
+        });
+        return _childElementCopy;
+      }
+    });
+  };
   return _react.default.createElement("fieldset", {
     className: _RadioButtonListModule.default.radioButtonList
-  }, !!((_props$legend = props.legend) !== null && _props$legend !== void 0 && _props$legend.length) ? _react.default.createElement("legend", null, props.legend) : null, props.children);
+  }, !!((_props$legend = props.legend) !== null && _props$legend !== void 0 && _props$legend.length) ? _react.default.createElement("legend", null, props.legend, props.required && _react.default.createElement("span", {
+    className: _RadioButtonListModule.default.requiredSymbol
+  }, "*")) : null, renderChildElements(props.children));
 };
 RadioButtonList.propTypes = {
-  legend: _propTypes.default.string
+  legend: _propTypes.default.string,
+  required: _propTypes.default.bool
 };
 var _default = RadioButtonList;
 exports.default = _default;
