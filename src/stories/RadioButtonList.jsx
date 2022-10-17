@@ -8,9 +8,10 @@ import style from "./RadioButtonList.module.scss";
 const RadioButtonList = (props) => {
     const renderChildElements = (childElements) => {
         return childElements.map((childElement, index) => {
-            if (childElement?.type?.name === "RadioButtonListItem" && props.required) {
+            if (childElement?.type?.name === "RadioButtonListItem") {
                 const childElementCopy = React.cloneElement(childElement, {
-                    requiredGroup: true,
+                    requiredGroup: props.required,
+                    compact: props.compact,
                     key: `radioButtonListItem-${index}`
                 });
                 return childElementCopy;
@@ -35,7 +36,8 @@ const RadioButtonList = (props) => {
 
 RadioButtonList.propTypes = {
     legend: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
+    compact: PropTypes.bool
 };
 
 export default RadioButtonList;

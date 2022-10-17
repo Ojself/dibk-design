@@ -111,9 +111,16 @@ Required.args = {
     children: "Label for required radio button"
 };
 
+export const Compact = Template.bind({});
+Compact.args = {
+    id: "radioButtonListItem-12",
+    compact: true,
+    children: "Label for compact radio button"
+};
+
 export const CheckedCustomThemeAndCheckmark = Template.bind({});
 CheckedCustomThemeAndCheckmark.args = {
-    id: "radioButtonListItem-12",
+    id: "radioButtonListItem-13",
     children: "Label for checked radio button with custom theme and checkmark",
     checked: true,
     checkmarkCharacter: "✕",

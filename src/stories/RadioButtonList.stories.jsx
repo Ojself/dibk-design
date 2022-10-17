@@ -61,6 +61,12 @@ Required.args = {
     required: true
 };
 
+export const Compact = Template.bind({});
+Compact.args = {
+    legend: "Compact radio button list",
+    compact: true
+};
+
 export const Themed = Template.bind({});
 Themed.args = {
     legend: "Themed radio button list",

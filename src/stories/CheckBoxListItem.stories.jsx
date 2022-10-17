@@ -105,10 +105,17 @@ Required.args = {
     children: "Label for required checkbox"
 };
 
+export const Compact = Template.bind({});
+Compact.args = {
+    id: "checkBoxListItem-12",
+    compact: true,
+    children: "Label for compact checkbox"
+};
+
 
 export const CheckedCustomThemeAndCheckmark = Template.bind({});
 CheckedCustomThemeAndCheckmark.args = {
-    id: "checkBoxListItem-12",
+    id: "checkBoxListItem-13",
     children: "Label for checked checkbox with custom theme and checkmark",
     checked: true,
     checkmarkCharacter: "✕",

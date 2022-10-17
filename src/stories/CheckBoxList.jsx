@@ -8,9 +8,10 @@ import style from "./CheckBoxList.module.scss";
 const CheckBoxList = (props) => {
     const renderChildElements = (childElements) => {
         return childElements.map((childElement, index) => {
-            if (childElement?.type?.name === "CheckBoxListItem" && props.required) {
+            if (childElement?.type?.name === "CheckBoxListItem") {
                 const childElementCopy = React.cloneElement(childElement, {
-                    requiredGroup: true,
+                    requiredGroup: props.required,
+                    compact: props.compact,
                     key: `checkboxListItem-${index}`
                 });
                 return childElementCopy;
@@ -31,7 +32,8 @@ const CheckBoxList = (props) => {
 
 CheckBoxList.propTypes = {
     legend: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
+    compact: PropTypes.bool
 };
 
 export default CheckBoxList;

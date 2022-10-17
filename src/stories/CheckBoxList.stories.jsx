@@ -59,6 +59,12 @@ Required.args = {
     required: true
 };
 
+export const Compact = Template.bind({});
+Compact.args = {
+    legend: "Compact checkbox list",
+    compact: true
+};
+
 export const Themed = Template.bind({});
 Themed.args = {
     legend: "Themed checkbox list",
