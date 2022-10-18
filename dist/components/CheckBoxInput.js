@@ -32,7 +32,9 @@ var CheckBoxInput = function CheckBoxInput(props) {
     required: props.required || props.requiredGroup,
     onChange: props.onChange,
     tabIndex: props.tabIndex || null,
-    "aria-controls": props["aria-controls"]
+    "aria-controls": props["aria-controls"],
+    "aria-invalid": props.hasErrors ? "true" : null,
+    "aria-describedby": props["aria-describedby"]
   };
   return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("input", inputProps)) : _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("span", {
     className: _CheckBoxInputModule.default.requiredSymbol
@@ -50,7 +52,8 @@ CheckBoxInput.propTypes = {
   hasErrors: _propTypes.default.bool,
   theme: _propTypes.default.object,
   checkmarkCharacter: _propTypes.default.string,
-  "aria-controls": _propTypes.default.string
+  "aria-controls": _propTypes.default.string,
+  "aria-describedby": _propTypes.default.string
 };
 CheckBoxInput.defaultProps = {
   checked: false,

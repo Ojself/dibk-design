@@ -37,8 +37,11 @@ var InputField = function InputField(props) {
   var renderValueAsText = function renderValueAsText(value, defaultContent) {
     return props.type === "date" ? value ? formatDate(value) : defaultContent : value ? value : defaultContent;
   };
+  var getErrorElementId = function getErrorElementId() {
+    return "".concat(props.id, "-errorMessage");
+  };
   var getInputElementProps = function getInputElementProps(defaultValue, defaultKey, styleRules) {
-    var _ref;
+    var _props$errorMessage, _props$ariaDescribed, _ref;
     return _ref = {
       name: props.name,
       readOnly: props.readOnly,
@@ -52,7 +55,7 @@ var InputField = function InputField(props) {
       max: props.max || null,
       onChange: props.onChange,
       onBlur: props.onBlur
-    }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_ref, "placeholder", props.placeholder || null), _defineProperty(_ref, "className", props.hasErrors ? _InputFieldModule.default.hasErrors : null), _defineProperty(_ref, "aria-describedby", props["aria-describedby"] || null), _defineProperty(_ref, "style", styleRules), _ref;
+    }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_ref, "placeholder", props.placeholder || null), _defineProperty(_ref, "className", props.hasErrors ? _InputFieldModule.default.hasErrors : null), _defineProperty(_ref, "aria-describedby", props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null), _defineProperty(_ref, "aria-invalid", props.hasErrors ? "true" : null), _defineProperty(_ref, "style", styleRules), _ref;
   };
   var defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
   var defaultKey = props.elementKey || null;
@@ -78,6 +81,7 @@ var InputField = function InputField(props) {
     type: "button",
     theme: props.theme
   }) : null) : null), !props.contentOnly ? _react.default.createElement("input", getInputElementProps(defaultValue, defaultKey, styleRules)) : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
+    id: getErrorElementId(),
     content: props.errorMessage,
     theme: props.theme
   }));
@@ -101,6 +105,7 @@ InputField.propTypes = {
   dateFormat: _propTypes.default.string,
   placeholder: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
+  "aria-describedby": _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   theme: _propTypes.default.object

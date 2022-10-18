@@ -25,8 +25,11 @@ var Textarea = function Textarea(props) {
   var renderValueAsText = function renderValueAsText(value, defaultContent) {
     return value ? value : defaultContent;
   };
+  var getErrorElementId = function getErrorElementId() {
+    return "".concat(props.id, "-errorMessage");
+  };
   var renderInputField = function renderInputField() {
-    var _props$value, _props$defaultValue, _props$width, _props$resize, _textareaElementProps;
+    var _props$value, _props$defaultValue, _props$width, _props$resize, _props$errorMessage, _props$ariaDescribed, _textareaElementProps;
     var defaultValue = !((_props$value = props.value) !== null && _props$value !== void 0 && _props$value.length) && (_props$defaultValue = props.defaultValue) !== null && _props$defaultValue !== void 0 && _props$defaultValue.length ? props.defaultValue : false;
     var defaultKey = props.elementKey || null;
     var styleRules = _objectSpread(_objectSpread(_objectSpread({}, props.hasErrors ? getThemeErrorInputStyle(props.theme) : null), ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
@@ -44,7 +47,7 @@ var Textarea = function Textarea(props) {
       key: defaultKey || "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
       onChange: props.onChange,
       onBlur: props.onBlur
-    }, _defineProperty(_textareaElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_textareaElementProps, "placeholder", props.placeholder), _defineProperty(_textareaElementProps, "rows", props.rows), _defineProperty(_textareaElementProps, "className", props.hasErrors ? _TextareaModule.default.hasErrors : ""), _defineProperty(_textareaElementProps, "style", styleRules), _textareaElementProps);
+    }, _defineProperty(_textareaElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_textareaElementProps, "placeholder", props.placeholder), _defineProperty(_textareaElementProps, "rows", props.rows), _defineProperty(_textareaElementProps, "className", props.hasErrors ? _TextareaModule.default.hasErrors : ""), _defineProperty(_textareaElementProps, "aria-describedby", props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null), _defineProperty(_textareaElementProps, "aria-invalid", props.hasErrors ? "true" : null), _defineProperty(_textareaElementProps, "style", styleRules), _textareaElementProps);
     return _react.default.createElement("textarea", textareaElementProps);
   };
   return _react.default.createElement("div", {
@@ -54,6 +57,7 @@ var Textarea = function Textarea(props) {
   }, props.label, props.required && _react.default.createElement("span", {
     className: _TextareaModule.default.requiredSymbol
   }, "*")), !props.contentOnly ? renderInputField() : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
+    id: getErrorElementId(),
     content: props.errorMessage,
     theme: props.theme
   }));
@@ -75,6 +79,7 @@ Textarea.propTypes = {
   contentOnly: _propTypes.default.bool,
   placeholder: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
+  "aria-describedby": _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   theme: _propTypes.default.object

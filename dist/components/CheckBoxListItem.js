@@ -22,6 +22,8 @@ var CheckBoxListItem = function CheckBoxListItem(props) {
     requiredGroup: props.requiredGroup,
     contentOnly: props.contentOnly,
     hasErrors: props.hasErrors,
+    "aria-controls": props["aria-controls"],
+    "aria-describedby": props["aria-describedby"],
     id: props.id,
     theme: props.theme,
     checkmarkCharacter: props.checkmarkCharacter
@@ -42,7 +44,9 @@ CheckBoxListItem.propTypes = {
   theme: _propTypes.default.object,
   compact: _propTypes.default.bool,
   hasErrors: _propTypes.default.bool,
-  checkmarkCharacter: _propTypes.default.string
+  checkmarkCharacter: _propTypes.default.string,
+  "aria-controls": _propTypes.default.string,
+  "aria-describedby": _propTypes.default.string
 };
 CheckBoxListItem.defaultProps = {
   checked: false,

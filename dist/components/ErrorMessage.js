@@ -16,12 +16,18 @@ var ErrorMessage = function ErrorMessage(props) {
       color: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
     };
   };
-  return _react.default.createElement("span", {
-    className: _ErrorMessageModule.default.errorMessage,
-    style: getThemeErrorMessageStyle(props.theme)
-  }, props.content ? props.content : "");
+  var getErrorElementProps = function getErrorElementProps() {
+    var _props$id;
+    return {
+      id: !!((_props$id = props.id) !== null && _props$id !== void 0 && _props$id.length) ? props.id : null,
+      className: _ErrorMessageModule.default.errorMessage,
+      style: getThemeErrorMessageStyle(props.theme)
+    };
+  };
+  return _react.default.createElement("span", getErrorElementProps(), props.content ? props.content : "");
 };
 ErrorMessage.propTypes = {
+  id: _propTypes.default.string,
   content: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   theme: _propTypes.default.object
 };

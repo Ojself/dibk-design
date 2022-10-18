@@ -70,6 +70,9 @@ var Select = function Select(props) {
       disabled: true
     }, placeholder) : "";
   };
+  var getErrorElementId = function getErrorElementId() {
+    return "".concat(props.id, "-errorMessage");
+  };
   if (props.contentOnly) {
     var value = props.defaultValue ? props.defaultValue : props.value || null;
     return _react.default.createElement("div", {
@@ -78,7 +81,7 @@ var Select = function Select(props) {
       htmlFor: props.id
     }, props.label), _react.default.createElement("span", null, value ? props.keyAsContent ? getKeyByValue(value, props.options) : value : props.defaultContent));
   } else {
-    var _props$width, _selectElementProps, _props$width2;
+    var _props$width, _props$errorMessage, _props$ariaDescribed, _selectElementProps, _props$width2;
     var defaultValue = !props.value && props.defaultValue ? props.defaultValue : false;
     var styleRules = _objectSpread(_objectSpread({}, props.hasErrors ? getThemeErrorInputStyle(props.theme) : null), ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
       maxWidth: props.width
@@ -88,7 +91,7 @@ var Select = function Select(props) {
       multiple: props.multiple,
       required: props.required,
       disabled: props.disabled
-    }, _defineProperty(_selectElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_selectElementProps, "onChange", props.onChange), _defineProperty(_selectElementProps, "id", props.id), _defineProperty(_selectElementProps, "role", props.role), _defineProperty(_selectElementProps, "key", "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_selectElementProps, "className", props.hasErrors ? _SelectModule.default.hasErrors : ""), _defineProperty(_selectElementProps, "style", styleRules), _selectElementProps);
+    }, _defineProperty(_selectElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_selectElementProps, "onChange", props.onChange), _defineProperty(_selectElementProps, "id", props.id), _defineProperty(_selectElementProps, "role", props.role), _defineProperty(_selectElementProps, "key", "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_selectElementProps, "className", props.hasErrors ? _SelectModule.default.hasErrors : ""), _defineProperty(_selectElementProps, "aria-describedby", props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null), _defineProperty(_selectElementProps, "aria-invalid", props.hasErrors ? "true" : null), _defineProperty(_selectElementProps, "style", styleRules), _selectElementProps);
     return _react.default.createElement("div", {
       className: _SelectModule.default.select
     }, _react.default.createElement(_Label.default, {
@@ -104,6 +107,7 @@ var Select = function Select(props) {
       className: _SelectModule.default.selectListArrow,
       style: getThemeArrowStyle(props.theme)
     }), _react.default.createElement("select", selectElementProps, renderPlaceholderOption(props.placeholder, props.placeholderValue), renderOptionElements(props.options))), _react.default.createElement(_ErrorMessage.default, {
+      id: getErrorElementId(),
       content: props.errorMessage,
       theme: props.theme
     }));
@@ -129,6 +133,7 @@ Select.propTypes = {
   placeholder: _propTypes.default.string,
   placeholderValue: _propTypes.default.string,
   defaultContent: _propTypes.default.string,
+  "aria-describedby": _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   theme: _propTypes.default.object
