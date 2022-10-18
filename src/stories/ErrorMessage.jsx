@@ -14,14 +14,18 @@ const ErrorMessage = (props) => {
             color: getThemePaletteBackgroundColor(theme, "warning")
         };
     };
-    return (
-        <span className={style.errorMessage} style={getThemeErrorMessageStyle(props.theme)}>
-            {props.content ? props.content : ""}
-        </span>
-    );
+    const getErrorElementProps = () => {
+        return {
+            id: !!props.id?.length ? props.id : null,
+            className: style.errorMessage,
+            style: getThemeErrorMessageStyle(props.theme)
+        };
+    };
+    return <span {...getErrorElementProps()}>{props.content ? props.content : ""}</span>;
 };
 
 ErrorMessage.propTypes = {
+    id: PropTypes.string,
     /** Text content inside error message */
     content: PropTypes.oneOfType([
         PropTypes.string,
