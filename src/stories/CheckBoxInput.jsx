@@ -34,7 +34,9 @@ const CheckBoxInput = (props) => {
         required: props.required || props.requiredGroup,
         onChange: props.onChange,
         tabIndex: props.tabIndex || null,
-        "aria-controls": props["aria-controls"]
+        "aria-controls": props["aria-controls"],
+        "aria-invalid": props.hasErrors ? "true" : null,
+        "aria-describedby": props["aria-describedby"]
     };
 
     return (
@@ -47,7 +49,10 @@ const CheckBoxInput = (props) => {
             ) : (
                 <CheckBoxIcon {...iconProps} />
             )}
-            <span>{props.children}{props.required && <span className={style.requiredSymbol}>*</span>}</span>
+            <span>
+                {props.children}
+                {props.required && <span className={style.requiredSymbol}>*</span>}
+            </span>
         </label>
     );
 };
@@ -64,7 +69,8 @@ CheckBoxInput.propTypes = {
     hasErrors: PropTypes.bool,
     theme: PropTypes.object,
     checkmarkCharacter: PropTypes.string,
-    "aria-controls": PropTypes.string
+    "aria-controls": PropTypes.string,
+    "aria-describedby": PropTypes.string
 };
 CheckBoxInput.defaultProps = {
     checked: false,

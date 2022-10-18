@@ -29,6 +29,8 @@ const RadioButtonListItem = (props) => {
         requiredGroup: props.requiredGroup,
         contentOnly: props.contentOnly,
         hasErrors: props.hasErrors,
+        "aria-controls": props["aria-controls"],
+        "aria-describedby": props["aria-describedby"],
         id: props.id,
         name: props.name,
         theme: props.theme
@@ -52,7 +54,9 @@ RadioButtonListItem.propTypes = {
     contentOnly: PropTypes.bool,
     compact: PropTypes.bool,
     theme: PropTypes.object,
-    hasErrors: PropTypes.bool
+    hasErrors: PropTypes.bool,
+    "aria-controls": PropTypes.string,
+    "aria-describedby": PropTypes.string
 };
 
 RadioButtonListItem.defaultProps = {
