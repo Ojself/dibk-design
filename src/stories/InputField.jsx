@@ -37,6 +37,10 @@ const InputField = (props) => {
         return props.type === "date" ? (value ? formatDate(value) : defaultContent) : value ? value : defaultContent;
     };
 
+    const getErrorElementId = () => {
+        return `${props.id}-errorMessage`;
+    };
+
     const getInputElementProps = (defaultValue, defaultKey, styleRules) => {
         return {
             name: props.name,
@@ -54,7 +58,13 @@ const InputField = (props) => {
             [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
             placeholder: props.placeholder || null,
             className: props.hasErrors ? style.hasErrors : null,
-            "aria-describedby": props["aria-describedby"] || null,
+            "aria-describedby":
+                props.hasErrors && !!props.errorMessage?.length
+                    ? getErrorElementId()
+                    : !!props["aria-describedby"]?.length
+                    ? props["aria-describedby"]
+                    : null,
+            "aria-invalid": props.hasErrors ? "true" : null,
             style: styleRules
         };
     };
@@ -92,7 +102,7 @@ const InputField = (props) => {
             ) : (
                 <span>{renderValueAsText(props.value || props.defaultValue, props.defaultContent)}</span>
             )}
-            <ErrorMessage content={props.errorMessage} theme={props.theme} />
+            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
         </div>
     );
 };
@@ -119,6 +129,7 @@ InputField.propTypes = {
     dateFormat: PropTypes.string,
     placeholder: PropTypes.string,
     defaultContent: PropTypes.string,
+    "aria-describedby": PropTypes.string,
     hasErrors: PropTypes.bool,
     errorMessage: PropTypes.oneOfType([
         PropTypes.string,

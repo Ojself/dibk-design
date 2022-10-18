@@ -77,6 +77,10 @@ const Select = (props) => {
         );
     };
 
+    const getErrorElementId = () => {
+        return `${props.id}-errorMessage`;
+    };
+
     if (props.contentOnly) {
         const value = props.defaultValue ? props.defaultValue : props.value || null;
         return (
@@ -104,6 +108,13 @@ const Select = (props) => {
             role: props.role,
             key: `${props.id}-${generateRandomString(6)}`,
             className: props.hasErrors ? style.hasErrors : "",
+            "aria-describedby":
+                props.hasErrors && !!props.errorMessage?.length
+                    ? getErrorElementId()
+                    : !!props["aria-describedby"]?.length
+                    ? props["aria-describedby"]
+                    : null,
+            "aria-invalid": props.hasErrors ? "true" : null,
             style: styleRules
         };
         return (
@@ -122,7 +133,7 @@ const Select = (props) => {
                         {renderOptionElements(props.options)}
                     </select>
                 </div>
-                <ErrorMessage content={props.errorMessage} theme={props.theme} />
+                <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
             </div>
         );
     }
@@ -153,6 +164,7 @@ Select.propTypes = {
     placeholder: PropTypes.string,
     placeholderValue: PropTypes.string,
     defaultContent: PropTypes.string,
+    "aria-describedby": PropTypes.string,
     hasErrors: PropTypes.bool,
     errorMessage: PropTypes.oneOfType([
         PropTypes.string,

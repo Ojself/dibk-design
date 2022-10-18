@@ -23,6 +23,11 @@ const Textarea = (props) => {
     const renderValueAsText = (value, defaultContent) => {
         return value ? value : defaultContent;
     };
+
+    const getErrorElementId = () => {
+        return `${props.id}-errorMessage`;
+    };
+
     const renderInputField = () => {
         const defaultValue = !props.value?.length && props.defaultValue?.length ? props.defaultValue : false;
         const defaultKey = props.elementKey || null;
@@ -45,6 +50,13 @@ const Textarea = (props) => {
             placeholder: props.placeholder,
             rows: props.rows,
             className: props.hasErrors ? style.hasErrors : "",
+            "aria-describedby":
+                props.hasErrors && !!props.errorMessage?.length
+                    ? getErrorElementId()
+                    : !!props["aria-describedby"]?.length
+                    ? props["aria-describedby"]
+                    : null,
+            "aria-invalid": props.hasErrors ? "true" : null,
             style: styleRules
         };
 
@@ -61,7 +73,7 @@ const Textarea = (props) => {
             ) : (
                 <span>{renderValueAsText(props.value || props.defaultValue, props.defaultContent)}</span>
             )}
-            <ErrorMessage content={props.errorMessage} theme={props.theme} />
+            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
         </div>
     );
 };
@@ -87,6 +99,7 @@ Textarea.propTypes = {
     contentOnly: PropTypes.bool,
     placeholder: PropTypes.string,
     defaultContent: PropTypes.string,
+    "aria-describedby": PropTypes.string,
     hasErrors: PropTypes.bool,
     errorMessage: PropTypes.oneOfType([
         PropTypes.string,
