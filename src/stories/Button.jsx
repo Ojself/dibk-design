@@ -8,7 +8,7 @@ import {
     getThemePaletteTextColor,
     getThemePaletteBorderColor
 } from "../functions/theme";
-import { classNameArrayToClassNameString } from "functions/helpers";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Stylesheets
 import style from "./Button.module.scss";
