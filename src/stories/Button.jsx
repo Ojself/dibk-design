@@ -3,7 +3,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Functions
-import { getThemePaletteBackgroundColor, getThemePaletteTextColor, getThemePaletteBorderColor } from "../functions/theme";
+import {
+    getThemePaletteBackgroundColor,
+    getThemePaletteTextColor,
+    getThemePaletteBorderColor
+} from "../functions/theme";
+import { classNameArrayToClassNameString } from "functions/helpers";
 
 // Stylesheets
 import style from "./Button.module.scss";
@@ -36,9 +41,19 @@ const Button = (props) => {
     delete buttonProps.noHover;
     delete buttonProps.rounded;
     const themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
-    const className = `${style.button} ${style[props.color]} ${style[props.size]} ${getArrowClass(props.arrow)} ${
-        props.theme ? style.hasTheme : ""
-    } ${props.noHover ? style.noHover : ""} ${props.rounded ? style.rounded : ""}`;
+    const className = classNameArrayToClassNameString([
+        style.button,
+        style[props.color],
+        style[props.size],
+        getArrowClass(props.arrow),
+        props.theme && style.hasTheme,
+        props.noHover && style.noHover,
+        props.rounded && style.rounded,
+        props.hasErrors && style.hasErrors
+    ]);
+    //const className = `${style.button} ${style[props.color]} ${style[props.size]} ${getArrowClass(props.arrow)} ${
+    //   props.theme ? style.hasTheme : ""
+    //} ${props.noHover ? style.noHover : ""} ${props.rounded ? style.rounded : ""}`;
     return props.href?.length ? (
         <a {...buttonProps} className={className} style={themeStyle}>
             {props.content || props.children}
@@ -69,6 +84,7 @@ Button.propTypes = {
     arrow: PropTypes.oneOf(["none", "left", "right"]),
     theme: PropTypes.object,
     disabled: PropTypes.bool,
+    hasErrors: PropTypes.bool,
     noHover: PropTypes.bool,
     rounded: PropTypes.bool,
     href: PropTypes.string,
@@ -83,8 +99,9 @@ Button.defaultProps = {
     color: "default",
     size: "regular",
     disabled: false,
+    hasErrors: false,
     noHover: false,
-    arrow: 'none'
+    arrow: "none"
 };
 
 export default Button;
