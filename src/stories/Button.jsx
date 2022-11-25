@@ -39,6 +39,7 @@ const Button = (props) => {
 
     let buttonProps = { ...props };
     delete buttonProps.noHover;
+    delete buttonProps.hasErrors;
     delete buttonProps.rounded;
     const themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
     const className = classNameArrayToClassNameString([
