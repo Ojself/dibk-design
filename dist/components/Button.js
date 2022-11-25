@@ -7,6 +7,7 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _theme = require("../functions/theme");
+var _helpers = require("functions/helpers");
 var _ButtonModule = _interopRequireDefault(require("./Button.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -37,7 +38,7 @@ var Button = function Button(props) {
   delete buttonProps.noHover;
   delete buttonProps.rounded;
   var themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
-  var className = "".concat(_ButtonModule.default.button, " ").concat(_ButtonModule.default[props.color], " ").concat(_ButtonModule.default[props.size], " ").concat(getArrowClass(props.arrow), " ").concat(props.theme ? _ButtonModule.default.hasTheme : "", " ").concat(props.noHover ? _ButtonModule.default.noHover : "", " ").concat(props.rounded ? _ButtonModule.default.rounded : "");
+  var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[props.color], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover && _ButtonModule.default.noHover, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors]);
   return (_props$href = props.href) !== null && _props$href !== void 0 && _props$href.length ? _react.default.createElement("a", _extends({}, buttonProps, {
     className: className,
     style: themeStyle
@@ -53,6 +54,7 @@ Button.propTypes = {
   arrow: _propTypes.default.oneOf(["none", "left", "right"]),
   theme: _propTypes.default.object,
   disabled: _propTypes.default.bool,
+  hasErrors: _propTypes.default.bool,
   noHover: _propTypes.default.bool,
   rounded: _propTypes.default.bool,
   href: _propTypes.default.string,
@@ -62,8 +64,9 @@ Button.defaultProps = {
   color: "default",
   size: "regular",
   disabled: false,
+  hasErrors: false,
   noHover: false,
-  arrow: 'none'
+  arrow: "none"
 };
 var _default = Button;
 exports.default = _default;

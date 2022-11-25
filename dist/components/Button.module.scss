@@ -177,6 +177,11 @@
     }
   }
 
+  &.hasErrors {
+    @include box-shadow(0 0 2px 1px $color-error);
+    border-color: $color-error;
+  }
+
   &.rounded {
     border-radius: 20px;
   }
