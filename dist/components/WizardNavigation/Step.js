@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _reactRouterDom = require("react-router-dom");
 var _StepModule = _interopRequireDefault(require("./Step.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var Step = function Step(props) {
   var getActiveClass = function getActiveClass() {
     return props.activeStepId === props.step.id ? _StepModule.default.active : "";

@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _CheckBoxIcon = _interopRequireDefault(require("./CheckBoxIcon"));
 var _CheckBoxInputModule = _interopRequireDefault(require("./CheckBoxInput.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var CheckBoxInput = function CheckBoxInput(props) {
   var labelProps = {
     className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(props.contentOnly ? _CheckBoxInputModule.default.contentOnly : "", " ").concat(props.disabled ? _CheckBoxInputModule.default.disabled : "", " ").concat(props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ""),

@@ -10,7 +10,6 @@ var _theme = require("../functions/theme");
 var _dibkLogoMobile = _interopRequireDefault(require("../assets/svg/dibk-logo-mobile.svg?url"));
 var _ThemeModule = _interopRequireDefault(require("./Theme.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var Theme = function Theme(props) {
   var getThemeColorPaletteStyle = function getThemeColorPaletteStyle(theme, color) {
     return {

@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _theme = require("../functions/theme");
 var _ErrorMessageModule = _interopRequireDefault(require("./ErrorMessage.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var ErrorMessage = function ErrorMessage(props) {
   var getThemeErrorMessageStyle = function getThemeErrorMessageStyle(theme) {
     return {

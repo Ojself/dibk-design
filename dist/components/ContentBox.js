@@ -8,7 +8,6 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _ContentBoxModule = _interopRequireDefault(require("./ContentBox.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var ContentBox = function ContentBox(props) {
   var _props$content;
   var renderTitle = function renderTitle() {

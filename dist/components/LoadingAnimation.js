@@ -8,7 +8,6 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _LoadingAnimationModule = _interopRequireDefault(require("./LoadingAnimation.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var LoadingAnimation = function LoadingAnimation(props) {
   return _react.default.createElement("div", {
     className: props.fixed ? _LoadingAnimationModule.default.loadingAnimation + " " + _LoadingAnimationModule.default.fixed : _LoadingAnimationModule.default.loadingAnimation

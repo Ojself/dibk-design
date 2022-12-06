@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _Step = _interopRequireDefault(require("./WizardNavigation/Step"));
 var _WizardNavigationModule = _interopRequireDefault(require("./WizardNavigation.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var WizardNavigation = function WizardNavigation(props) {
   var renderSteps = function renderSteps(steps, activeStepId) {
     var hasSteps = steps && Object.keys(steps).length;

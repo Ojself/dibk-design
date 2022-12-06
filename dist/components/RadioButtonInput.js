@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _RadioButtonIcon = _interopRequireDefault(require("./RadioButtonIcon"));
 var _RadioButtonInputModule = _interopRequireDefault(require("./RadioButtonInput.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var RadioButtonInput = function RadioButtonInput(props) {
   var labelProps = {
     className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(props.checked ? _RadioButtonInputModule.default.checked : "", " ").concat(props.disabled ? _RadioButtonInputModule.default.disabled : "", " ").concat(props.hasErrors ? _RadioButtonInputModule.default.hasErrors : ""),

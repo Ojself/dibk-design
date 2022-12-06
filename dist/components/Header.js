@@ -8,7 +8,6 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _HeaderModule = _interopRequireDefault(require("./Header.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var Header = function Header(props) {
   var _props$htmlTag, _props$content;
   var bigClass = props.big ? _HeaderModule.default.bigHeader : "";
@@ -19,7 +18,6 @@ var Header = function Header(props) {
   var headerElement = _react.default.createElement(htmlTag, {
     className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass)
   }, !!((_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length) ? props.content : props.children);
-
   return _react.default.createElement("div", {
     className: _HeaderModule.default.headerContainer
   }, " ", headerElement, " ");
