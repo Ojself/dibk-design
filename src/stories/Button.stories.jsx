@@ -9,7 +9,9 @@ export default {
     title: "Example/Button",
     component: Button,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {}
+    argTypes: {
+        color: { control: "radio", options: ["default", "primary"] }
+    }
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -52,4 +54,10 @@ ButtonWithHTMLContent.args = {
             Button with <b>HTML</b> content
         </span>
     )
+};
+
+export const InputButton = Template.bind({});
+InputButton.args = {
+    content: "InputButton",
+    input: true
 };

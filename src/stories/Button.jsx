@@ -37,10 +37,15 @@ const Button = (props) => {
         };
     };
 
-    let buttonProps = { ...props };
+    let buttonProps = {
+        ...props,
+        "aria-invalid": props.hasErrors || null
+    };
     delete buttonProps.noHover;
     delete buttonProps.hasErrors;
     delete buttonProps.rounded;
+    delete buttonProps.input;
+    delete buttonProps.color;
     const themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
     const className = classNameArrayToClassNameString([
         style.button,
@@ -52,18 +57,22 @@ const Button = (props) => {
         props.rounded && style.rounded,
         props.hasErrors && style.hasErrors
     ]);
-    //const className = `${style.button} ${style[props.color]} ${style[props.size]} ${getArrowClass(props.arrow)} ${
-    //   props.theme ? style.hasTheme : ""
-    //} ${props.noHover ? style.noHover : ""} ${props.rounded ? style.rounded : ""}`;
-    return props.href?.length ? (
-        <a {...buttonProps} className={className} style={themeStyle}>
-            {props.content || props.children}
-        </a>
-    ) : (
-        <button {...buttonProps} className={className} style={themeStyle}>
-            {props.content || props.children}
-        </button>
-    );
+
+    if (props.input) {
+        return <input {...buttonProps} className={className} style={themeStyle} type="button" value={props.content} />;
+    } else if (props.href?.length) {
+        return (
+            <a {...buttonProps} className={className} style={themeStyle}>
+                {props.content || props.children}
+            </a>
+        );
+    } else {
+        return (
+            <button {...buttonProps} className={className} style={themeStyle}>
+                {props.content || props.children}
+            </button>
+        );
+    }
 };
 
 Button.propTypes = {
@@ -85,7 +94,13 @@ Button.propTypes = {
     arrow: PropTypes.oneOf(["none", "left", "right"]),
     theme: PropTypes.object,
     disabled: PropTypes.bool,
+    /**
+     * Button is used as an <input />
+     */
+    input: PropTypes.bool,
+    required: PropTypes.bool,
     hasErrors: PropTypes.bool,
+    "aria-describedby": PropTypes.string,
     noHover: PropTypes.bool,
     rounded: PropTypes.bool,
     href: PropTypes.string,
