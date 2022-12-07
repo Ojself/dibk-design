@@ -58,7 +58,8 @@ const Button = (props) => {
         props.theme && style.hasTheme,
         props.noHover || props?.inputType === 'radio' ? style.noHover : null,
         props.rounded && style.rounded,
-        props.hasErrors && style.hasErrors
+        props.hasErrors && style.hasErrors,
+        props.disabled && style.disabled
     ]);
 
     if (props.inputType === "button") {
