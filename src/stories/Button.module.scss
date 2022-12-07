@@ -56,7 +56,8 @@
 
   &.hasTheme {
     &:hover,
-    &:focus {
+    &:focus,
+    &:focus-within {
       filter: brightness(90%);
     }
 
@@ -65,7 +66,8 @@
     }
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:focus-within {
     outline-color: $color-focus-outline;
     outline-style: auto;
     outline-width: 2px;
@@ -95,6 +97,7 @@
     &:not(.hasTheme) {
       &:hover:not(.noHover),
       &:focus-visible,
+      &:focus-within,
       &:active {
         background-color: $color-primary;
         color: #fff;
@@ -112,6 +115,7 @@
     &:not(.hasTheme) {
       &:hover:not(.noHover),
       &:focus-visible,
+      &:focus-within,
       &:active {
         background-color: #fff;
         color: $color-primary;
@@ -135,6 +139,7 @@
         border: 1px solid #e5e3e1;
         &:hover,
         &:focus,
+        &:focus-within,
         &:active {
           background-color: #fff;
           cursor: default;
@@ -159,7 +164,7 @@
         border: 1px solid $color-primary;
         &:hover,
         &:focus,
-        &:active {
+        &:focus-within &:active {
           background-color: $color-primary;
           cursor: default;
           opacity: 0.6;
