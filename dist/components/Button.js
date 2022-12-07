@@ -43,17 +43,27 @@ var Button = function Button(props) {
   delete buttonProps.noHover;
   delete buttonProps.hasErrors;
   delete buttonProps.rounded;
-  delete buttonProps.input;
+  delete buttonProps.inputType;
   delete buttonProps.color;
-  var themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
-  var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[props.color], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover && _ButtonModule.default.noHover, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors]);
-  if (props.input) {
+  delete buttonProps.content;
+  delete buttonProps.arrow;
+  var buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
+  var themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
+  var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === 'radio' ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors]);
+  if (props.inputType === "button") {
     return _react.default.createElement("input", _extends({}, buttonProps, {
       className: className,
       style: themeStyle,
       type: "button",
       value: props.content
     }));
+  } else if (props.inputType === "radio") {
+    return _react.default.createElement("label", {
+      className: className
+    }, _react.default.createElement("input", _extends({}, buttonProps, {
+      style: themeStyle,
+      type: "radio"
+    })), props.content);
   } else if ((_props$href = props.href) !== null && _props$href !== void 0 && _props$href.length) {
     return _react.default.createElement("a", _extends({}, buttonProps, {
       className: className,
@@ -73,7 +83,9 @@ Button.propTypes = {
   arrow: _propTypes.default.oneOf(["none", "left", "right"]),
   theme: _propTypes.default.object,
   disabled: _propTypes.default.bool,
-  input: _propTypes.default.bool,
+  inputType: _propTypes.default.oneOf(["button", "radio"]),
+  name: _propTypes.default.string,
+  defaultChecked: _propTypes.default.bool,
   required: _propTypes.default.bool,
   hasErrors: _propTypes.default.bool,
   "aria-describedby": _propTypes.default.string,

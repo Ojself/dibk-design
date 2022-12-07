@@ -250,3 +250,10 @@
     }
   }
 }
+
+label.button {
+  input[type="radio"] {
+    @include appearance(none);
+    margin: 0;
+  }
+}
