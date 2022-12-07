@@ -44,22 +44,32 @@ const Button = (props) => {
     delete buttonProps.noHover;
     delete buttonProps.hasErrors;
     delete buttonProps.rounded;
-    delete buttonProps.input;
+    delete buttonProps.inputType;
     delete buttonProps.color;
-    const themeStyle = props.theme ? getThemeStyle(props.theme, props.color) : null;
+    delete buttonProps.content;
+    delete buttonProps.arrow;
+    const buttonColor = props?.inputType === "radio" ? (props.defaultChecked ? "primary" : "default") : props.color;
+    const themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
     const className = classNameArrayToClassNameString([
         style.button,
-        style[props.color],
+        style[buttonColor],
         style[props.size],
         getArrowClass(props.arrow),
         props.theme && style.hasTheme,
-        props.noHover && style.noHover,
+        props.noHover || props?.inputType === 'radio' ? style.noHover : null,
         props.rounded && style.rounded,
         props.hasErrors && style.hasErrors
     ]);
 
-    if (props.input) {
+    if (props.inputType === "button") {
         return <input {...buttonProps} className={className} style={themeStyle} type="button" value={props.content} />;
+    } else if (props.inputType === "radio") {
+        return (
+            <label className={className}>
+                <input {...buttonProps} style={themeStyle} type="radio" />
+                {props.content}
+            </label>
+        );
     } else if (props.href?.length) {
         return (
             <a {...buttonProps} className={className} style={themeStyle}>
@@ -95,9 +105,17 @@ Button.propTypes = {
     theme: PropTypes.object,
     disabled: PropTypes.bool,
     /**
-     * Button is used as an <input />
+     * Button is used as an input
      */
-    input: PropTypes.bool,
+    inputType: PropTypes.oneOf(["button", "radio"]),
+    /**
+     * Name if button is used as an radio input
+     */
+    name: PropTypes.string,
+    /**
+     * Checked if button is used as an radio input
+     */
+    defaultChecked: PropTypes.bool,
     required: PropTypes.bool,
     hasErrors: PropTypes.bool,
     "aria-describedby": PropTypes.string,

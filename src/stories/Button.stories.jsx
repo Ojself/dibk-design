@@ -10,7 +10,8 @@ export default {
     component: Button,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        color: { control: "radio", options: ["default", "primary"] }
+        color: { control: "radio", options: ["default", "primary"] },
+        inputType: { control: "radio", options: ["button", "radio"] }
     }
 };
 
@@ -59,5 +60,13 @@ ButtonWithHTMLContent.args = {
 export const InputButton = Template.bind({});
 InputButton.args = {
     content: "InputButton",
-    input: true
+    inputType: "button"
+};
+
+export const RadioButton = Template.bind({});
+RadioButton.args = {
+    content: "RadioButton",
+    inputType: "radio",
+    name: "radio-button",
+    defaultChecked: false
 };
