@@ -30,6 +30,21 @@ const DragAndDropFileInput = (props) => {
         fileInputElementRef.current.click();
     };
 
+    const getErrorElementId = () => {
+        return `${props.id}-errorMessage`;
+    };
+
+    const inputElementProps = {
+        "aria-describedby":
+            props.hasErrors && !!props.errorMessage?.length
+                ? getErrorElementId()
+                : !!props["aria-describedby"]?.length
+                ? props["aria-describedby"]
+                : null,
+        "aria-invalid": props.hasErrors ? "true" : null,
+        required: props.required
+    };
+
     let buttonContent;
     if (props.selectedFileName) {
         buttonContent = props.buttonContentWhenSelectedFile ? props.buttonContentWhenSelectedFile : props.buttonContent;
@@ -110,7 +125,7 @@ const DragAndDropFileInput = (props) => {
                         ) : (
                             <div>Slipp fil her</div>
                         )}
-                        <input ref={fileInputElementRef} type="file" onChange={props.onSelectChange} />
+                        <input {...inputElementProps} ref={fileInputElementRef} type="file" onChange={props.onSelectChange} />
                         {props.buttonContent ? (
                             <React.Fragment>
                                 <div>{props.selectedFileName ? "" : "eller klikk på knappen for å velge fil"}</div>
@@ -120,6 +135,7 @@ const DragAndDropFileInput = (props) => {
                                     color={props.buttonColor}
                                     onClick={() => handleAddButtonOnClick()}
                                     content={buttonContent}
+                                    hasErrors={props.hasErrors}
                                 />
                             </React.Fragment>
                         ) : null}
@@ -127,7 +143,7 @@ const DragAndDropFileInput = (props) => {
                 ) : null}
             </label>
             {props.contentOnly ? <span>{renderValueAsText(props.selectedFileName, props.defaultContent)}</span> : ""}
-            <ErrorMessage content={props.errorMessage} theme={props.theme} />
+            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
         </div>
     );
 };
