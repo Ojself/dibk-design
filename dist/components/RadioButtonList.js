@@ -32,7 +32,7 @@ var RadioButtonList = function RadioButtonList(props) {
     className: _RadioButtonListModule.default.radioButtonList
   }, !!((_props$legend = props.legend) !== null && _props$legend !== void 0 && _props$legend.length) ? _react.default.createElement("legend", null, props.legend, props.required && _react.default.createElement("span", {
     className: _RadioButtonListModule.default.requiredSymbol
-  }, "*")) : null, renderChildElements(props.children));
+  }, "*")) : null, renderChildElements(_react.default.Children.toArray(props.children)));
 };
 RadioButtonList.propTypes = {
   legend: _propTypes.default.string,
