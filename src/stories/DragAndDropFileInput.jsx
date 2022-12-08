@@ -152,7 +152,7 @@ DragAndDropFileInput.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    mandatory: PropTypes.bool,
+    required: PropTypes.bool,
     theme: PropTypes.object
 };
 
@@ -163,7 +163,7 @@ DragAndDropFileInput.defaultProps = {
     defaultContent: "",
     hasErrors: false,
     errorMessage: "",
-    mandatory: false
+    required: false
 };
 
 export default DragAndDropFileInput;
