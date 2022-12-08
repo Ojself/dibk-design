@@ -29,7 +29,7 @@ const RadioButtonList = (props) => {
                     {props.required && <span className={style.requiredSymbol}>*</span>}
                 </legend>
             ) : null}
-            {renderChildElements(props.children)}
+            {renderChildElements(React.Children.toArray(props.children))}
         </fieldset>
     );
 };

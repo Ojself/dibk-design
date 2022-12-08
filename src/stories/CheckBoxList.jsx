@@ -24,8 +24,13 @@ const CheckBoxList = (props) => {
 
     return (
         <fieldset className={style.checkBoxList}>
-            {!!props.legend?.length ? <legend>{props.legend}{props.required && <span className={style.requiredSymbol}>*</span>}</legend> : null}
-            {renderChildElements(props.children)}
+            {!!props.legend?.length ? (
+                <legend>
+                    {props.legend}
+                    {props.required && <span className={style.requiredSymbol}>*</span>}
+                </legend>
+            ) : null}
+            {renderChildElements(React.Children.toArray(props.children))}
         </fieldset>
     );
 };
