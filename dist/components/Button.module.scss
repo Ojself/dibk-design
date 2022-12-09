@@ -115,7 +115,6 @@
     &:not(.hasTheme) {
       &:hover:not(.noHover),
       &:focus-visible,
-      &:focus-within,
       &:active {
         background-color: #fff;
         color: $color-primary;
@@ -164,7 +163,8 @@
         border: 1px solid $color-primary;
         &:hover,
         &:focus,
-        &:focus-within &:active {
+        &:focus-within,
+        &:active {
           background-color: $color-primary;
           cursor: default;
           opacity: 0.6;
