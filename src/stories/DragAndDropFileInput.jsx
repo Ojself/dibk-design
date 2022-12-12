@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 // Components
 import Button from "./Button";
 import ErrorMessage from "./ErrorMessage";
+import Label from "./Label";
 
 // Stylesheets
 import style from "./DragAndDropFileInput.module.scss";
@@ -108,10 +109,10 @@ const DragAndDropFileInput = (props) => {
 
     return (
         <div className={style.dragAndDropFileInput}>
-            <label htmlFor={props.id}>
+            <Label htmlFor={props.id}>
                 {props.label}
                 {props.required && <span className={style.requiredSymbol}>*</span>}
-            </label>
+            </Label>
             <div>{props.children}</div>
             {!props.contentOnly ? (
                 <div
