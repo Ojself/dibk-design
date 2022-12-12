@@ -86,7 +86,7 @@ var DragAndDropFileInput = function DragAndDropFileInput(props) {
     htmlFor: props.id
   }, props.label, props.required && _react.default.createElement("span", {
     className: _DragAndDropFileInputModule.default.requiredSymbol
-  }, "*"), !props.contentOnly ? _react.default.createElement("div", {
+  }, "*")), _react.default.createElement("div", null, props.children), !props.contentOnly ? _react.default.createElement("div", {
     ref: containerElementRef,
     className: "".concat(_DragAndDropFileInputModule.default.dragAndDropContainer, " ").concat(highlight ? _DragAndDropFileInputModule.default.highlighted : "")
   }, props.selectedFileName ? _react.default.createElement("div", null, _react.default.createElement("span", null, _react.default.createElement("b", null, "Valgt fil:"), " ", props.selectedFileName)) : _react.default.createElement("div", null, "Slipp fil her"), _react.default.createElement("input", _extends({}, inputElementProps, {
@@ -102,7 +102,7 @@ var DragAndDropFileInput = function DragAndDropFileInput(props) {
     },
     content: buttonContent,
     hasErrors: props.hasErrors
-  })) : null) : null), props.contentOnly ? _react.default.createElement("span", null, renderValueAsText(props.selectedFileName, props.defaultContent)) : "", _react.default.createElement(_ErrorMessage.default, {
+  })) : null) : null, props.contentOnly ? _react.default.createElement("span", null, renderValueAsText(props.selectedFileName, props.defaultContent)) : "", _react.default.createElement(_ErrorMessage.default, {
     id: getErrorElementId(),
     content: props.errorMessage,
     theme: props.theme
