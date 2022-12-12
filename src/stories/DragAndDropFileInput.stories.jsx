@@ -15,7 +15,7 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <DragAndDropFileInput {...args} />;
+const Template = (args) => <DragAndDropFileInput {...args}>{args.children}</DragAndDropFileInput>;
 
 export const WithoutSelectedFile = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -80,4 +80,14 @@ ContentOnly.args = {
     onSelectChange: () => console.log("Select change"),
     onDragAndDropChange: () => console.log("Drag and drop change"),
     contentOnly: true
+};
+
+export const WithChildElements = Template.bind({});
+WithChildElements.args = {
+    id: "dragAndDropInput-1",
+    label: "Input without selected file",
+    buttonContent: "Velg fil",
+    onSelectChange: () => console.log("Select change"),
+    onDragAndDropChange: () => console.log("Drag and drop change"),
+    children: <><p>First paragraph</p><p>second paragraph</p></>,
 };

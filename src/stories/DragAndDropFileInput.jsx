@@ -111,37 +111,44 @@ const DragAndDropFileInput = (props) => {
             <label htmlFor={props.id}>
                 {props.label}
                 {props.required && <span className={style.requiredSymbol}>*</span>}
-                {!props.contentOnly ? (
-                    <div
-                        ref={containerElementRef}
-                        className={`${style.dragAndDropContainer} ${highlight ? style.highlighted : ""}`}
-                    >
-                        {props.selectedFileName ? (
-                            <div>
-                                <span>
-                                    <b>Valgt fil:</b> {props.selectedFileName}
-                                </span>
-                            </div>
-                        ) : (
-                            <div>Slipp fil her</div>
-                        )}
-                        <input {...inputElementProps} ref={fileInputElementRef} type="file" onChange={props.onSelectChange} />
-                        {props.buttonContent ? (
-                            <React.Fragment>
-                                <div>{props.selectedFileName ? "" : "eller klikk på knappen for å velge fil"}</div>
-                                <Button
-                                    size="small"
-                                    type="button"
-                                    color={props.buttonColor}
-                                    onClick={() => handleAddButtonOnClick()}
-                                    content={buttonContent}
-                                    hasErrors={props.hasErrors}
-                                />
-                            </React.Fragment>
-                        ) : null}
-                    </div>
-                ) : null}
             </label>
+            <div>{props.children}</div>
+            {!props.contentOnly ? (
+                <div
+                    ref={containerElementRef}
+                    className={`${style.dragAndDropContainer} ${highlight ? style.highlighted : ""}`}
+                >
+                    {props.selectedFileName ? (
+                        <div>
+                            <span>
+                                <b>Valgt fil:</b> {props.selectedFileName}
+                            </span>
+                        </div>
+                    ) : (
+                        <div>Slipp fil her</div>
+                    )}
+                    <input
+                        {...inputElementProps}
+                        ref={fileInputElementRef}
+                        type="file"
+                        onChange={props.onSelectChange}
+                    />
+                    {props.buttonContent ? (
+                        <React.Fragment>
+                            <div>{props.selectedFileName ? "" : "eller klikk på knappen for å velge fil"}</div>
+                            <Button
+                                size="small"
+                                type="button"
+                                color={props.buttonColor}
+                                onClick={() => handleAddButtonOnClick()}
+                                content={buttonContent}
+                                hasErrors={props.hasErrors}
+                            />
+                        </React.Fragment>
+                    ) : null}
+                </div>
+            ) : null}
+
             {props.contentOnly ? <span>{renderValueAsText(props.selectedFileName, props.defaultContent)}</span> : ""}
             <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
         </div>
