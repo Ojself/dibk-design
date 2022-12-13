@@ -14,20 +14,12 @@ var CheckBoxList = function CheckBoxList(props) {
   var renderChildElements = function renderChildElements(childElements) {
     var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map(function (childElement, index) {
-      var _childElement$type;
-      if ((childElement === null || childElement === void 0 ? void 0 : (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem") {
-        var childElementCopy = _react.default.cloneElement(childElement, {
-          requiredGroup: props.required,
-          compact: props.compact,
-          key: "checkboxListItem-".concat(index)
-        });
-        return childElementCopy;
-      } else {
-        var _childElementCopy = _react.default.cloneElement(childElement, {
-          key: "checkboxListChild-".concat(index)
-        });
-        return _childElementCopy;
-      }
+      var childElementCopy = _react.default.cloneElement(childElement, {
+        requiredGroup: props.required,
+        compact: props.compact,
+        key: "checkboxListItem-".concat(index)
+      });
+      return childElementCopy;
     });
   };
   return _react.default.createElement("fieldset", {
