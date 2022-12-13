@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Helpers
-import { cloneThroughFragments } from "functions/helpers";
+import { cloneThroughFragments } from "../functions/helpers";
 
 // Stylesheets
 import style from "./RadioButtonList.module.scss";
