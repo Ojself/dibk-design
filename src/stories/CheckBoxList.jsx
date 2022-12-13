@@ -12,17 +12,12 @@ const CheckBoxList = (props) => {
     const renderChildElements = (childElements) => {
         const childElementsthroughFragments = cloneThroughFragments(childElements);
         return childElementsthroughFragments.map((childElement, index) => {
-            if (childElement?.type?.name === "CheckBoxListItem") {
-                const childElementCopy = React.cloneElement(childElement, {
-                    requiredGroup: props.required,
-                    compact: props.compact,
-                    key: `checkboxListItem-${index}`
-                });
-                return childElementCopy;
-            } else {
-                const childElementCopy = React.cloneElement(childElement, { key: `checkboxListChild-${index}` });
-                return childElementCopy;
-            }
+            const childElementCopy = React.cloneElement(childElement, {
+                requiredGroup: props.required,
+                compact: props.compact,
+                key: `checkboxListItem-${index}`
+            });
+            return childElementCopy;
         });
     };
 

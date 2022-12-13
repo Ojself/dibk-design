@@ -12,17 +12,12 @@ const RadioButtonList = (props) => {
     const renderChildElements = (childElements) => {
         const childElementsthroughFragments = cloneThroughFragments(childElements);
         return childElementsthroughFragments.map((childElement, index) => {
-            if (childElement?.type?.name === "RadioButtonListItem") {
-                const childElementCopy = React.cloneElement(childElement, {
-                    requiredGroup: props.required,
-                    compact: props.compact,
-                    key: `radioButtonListItem-${index}`
-                });
-                return childElementCopy;
-            } else {
-                const childElementCopy = React.cloneElement(childElement, { key: `radiobuttonListChild-${index}` });
-                return childElementCopy;
-            }
+            const childElementCopy = React.cloneElement(childElement, {
+                requiredGroup: props.required,
+                compact: props.compact,
+                key: `radioButtonListItem-${index}`
+            });
+            return childElementCopy;
         });
     };
 
