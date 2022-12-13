@@ -6,12 +6,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
+var _helpers = require("functions/helpers");
 var _CheckBoxListModule = _interopRequireDefault(require("./CheckBoxList.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var CheckBoxList = function CheckBoxList(props) {
   var _props$legend;
   var renderChildElements = function renderChildElements(childElements) {
-    return childElements.map(function (childElement, index) {
+    var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
+    return childElementsthroughFragments.map(function (childElement, index) {
       var _childElement$type;
       if ((childElement === null || childElement === void 0 ? void 0 : (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem") {
         var childElementCopy = _react.default.cloneElement(childElement, {
