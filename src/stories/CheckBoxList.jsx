@@ -2,12 +2,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// Helpers
+import { cloneThroughFragments } from "functions/helpers";
+
 // Stylesheets
 import style from "./CheckBoxList.module.scss";
 
 const CheckBoxList = (props) => {
     const renderChildElements = (childElements) => {
-        return childElements.map((childElement, index) => {
+        const childElementsthroughFragments = cloneThroughFragments(childElements);
+        return childElementsthroughFragments.map((childElement, index) => {
             if (childElement?.type?.name === "CheckBoxListItem") {
                 const childElementCopy = React.cloneElement(childElement, {
                     requiredGroup: props.required,

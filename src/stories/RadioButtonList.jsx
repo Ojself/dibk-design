@@ -2,12 +2,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// Helpers
+import { cloneThroughFragments } from "functions/helpers";
+
 // Stylesheets
 import style from "./RadioButtonList.module.scss";
 
 const RadioButtonList = (props) => {
     const renderChildElements = (childElements) => {
-        return childElements.map((childElement, index) => {
+        const childElementsthroughFragments = cloneThroughFragments(childElements);
+        return childElementsthroughFragments.map((childElement, index) => {
             if (childElement?.type?.name === "RadioButtonListItem") {
                 const childElementCopy = React.cloneElement(childElement, {
                     requiredGroup: props.required,
@@ -21,6 +25,7 @@ const RadioButtonList = (props) => {
             }
         });
     };
+
     return (
         <fieldset className={style.radioButtonList}>
             {!!props.legend?.length ? (
