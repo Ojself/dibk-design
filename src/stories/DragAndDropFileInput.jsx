@@ -7,6 +7,9 @@ import Button from "./Button";
 import ErrorMessage from "./ErrorMessage";
 import Label from "./Label";
 
+// Assets
+import asterisk from "../assets/svg/asterisk.svg?url";
+
 // Stylesheets
 import style from "./DragAndDropFileInput.module.scss";
 
@@ -111,7 +114,7 @@ const DragAndDropFileInput = (props) => {
         <div className={style.dragAndDropFileInput}>
             <Label htmlFor={props.id}>
                 {props.label}
-                {props.required && <span className={style.requiredSymbol}>*</span>}
+                {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
             </Label>
             <div>{props.children}</div>
             {!props.contentOnly ? (

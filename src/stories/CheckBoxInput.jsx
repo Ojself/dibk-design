@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 // Components
 import CheckBoxIcon from "./CheckBoxIcon";
 
+// Assets
+import asterisk from "../assets/svg/asterisk.svg?url";
+
 // Stylesheets
 import style from "./CheckBoxInput.module.scss";
 
@@ -51,7 +54,7 @@ const CheckBoxInput = (props) => {
             )}
             <span>
                 {props.children}
-                {props.required && <span className={style.requiredSymbol}>*</span>}
+                {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
             </span>
         </label>
     );

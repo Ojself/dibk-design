@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 // Helpers
 import { cloneThroughFragments } from "../functions/helpers";
 
+// Assets
+import asterisk from "../assets/svg/asterisk.svg?url";
+
 // Stylesheets
 import style from "./CheckBoxList.module.scss";
 
@@ -26,7 +29,7 @@ const CheckBoxList = (props) => {
             {!!props.legend?.length ? (
                 <legend>
                     {props.legend}
-                    {props.required && <span className={style.requiredSymbol}>*</span>}
+                    {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
                 </legend>
             ) : null}
             {renderChildElements(React.Children.toArray(props.children))}

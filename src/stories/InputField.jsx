@@ -11,6 +11,9 @@ import ErrorMessage from "./ErrorMessage";
 import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
 
+// Assets
+import asterisk from "../assets/svg/asterisk.svg?url";
+
 // Stylesheets
 import style from "./InputField.module.scss";
 
@@ -79,7 +82,7 @@ const InputField = (props) => {
         <div className={`${style.inputField} ${style[props.type]}`}>
             <Label htmlFor={props.id}>
                 {props.label}
-                {props.required && <span className={style.requiredSymbol}>*</span>}
+                {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
                 {props.type === "file" ? (
                     <div className={style.fileInputContainer}>
                         <span className={style.input}>{props.selectedFileName}</span>

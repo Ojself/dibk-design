@@ -2,9 +2,11 @@
 
 .select {
     .requiredSymbol {
-        color: $color-error;
-        font-size: 0.8em;
+        width: 1em;
+        height: 1em;
+        font-size: 0.4em;
         vertical-align: top;
+        margin-top: 2px;
     }
     .selectContainer {
         position: relative;

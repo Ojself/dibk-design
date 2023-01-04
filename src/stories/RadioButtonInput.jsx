@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 // Components
 import RadioButtonIcon from "./RadioButtonIcon";
 
+// Assets
+import asterisk from "../assets/svg/asterisk.svg?url";
+
 // Stylesheets
 import style from "./RadioButtonInput.module.scss";
 
@@ -48,7 +51,7 @@ const RadioButtonInput = (props) => {
             ) : null}
             <span>
                 {props.children}
-                {props.required && <span className={style.requiredSymbol}>*</span>}
+                {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
             </span>
         </label>
     );
