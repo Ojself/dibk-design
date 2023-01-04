@@ -10,6 +10,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _Button = _interopRequireDefault(require("./Button"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _Label = _interopRequireDefault(require("./Label"));
+var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _DragAndDropFileInputModule = _interopRequireDefault(require("./DragAndDropFileInput.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -85,9 +86,11 @@ var DragAndDropFileInput = function DragAndDropFileInput(props) {
     className: _DragAndDropFileInputModule.default.dragAndDropFileInput
   }, _react.default.createElement(_Label.default, {
     htmlFor: props.id
-  }, props.label, props.required && _react.default.createElement("span", {
+  }, props.label, props.required && _react.default.createElement("img", {
+    src: _asterisk.default,
+    alt: "",
     className: _DragAndDropFileInputModule.default.requiredSymbol
-  }, "*")), _react.default.createElement("div", null, props.children), !props.contentOnly ? _react.default.createElement("div", {
+  })), _react.default.createElement("div", null, props.children), !props.contentOnly ? _react.default.createElement("div", {
     ref: containerElementRef,
     className: "".concat(_DragAndDropFileInputModule.default.dragAndDropContainer, " ").concat(highlight ? _DragAndDropFileInputModule.default.highlighted : "")
   }, props.selectedFileName ? _react.default.createElement("div", null, _react.default.createElement("span", null, _react.default.createElement("b", null, "Valgt fil:"), " ", props.selectedFileName)) : _react.default.createElement("div", null, "Slipp fil her"), _react.default.createElement("input", _extends({}, inputElementProps, {

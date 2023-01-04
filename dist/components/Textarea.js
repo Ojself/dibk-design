@@ -10,6 +10,7 @@ var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
+var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -57,9 +58,11 @@ var Textarea = function Textarea(props) {
     className: _TextareaModule.default.textarea
   }, _react.default.createElement(_Label.default, {
     htmlFor: props.id
-  }, props.label, props.required && _react.default.createElement("span", {
+  }, props.label, props.required && _react.default.createElement("img", {
+    src: _asterisk.default,
+    alt: "",
     className: _TextareaModule.default.requiredSymbol
-  }, "*")), !props.contentOnly ? renderInputField() : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
+  })), !props.contentOnly ? renderInputField() : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
     id: getErrorElementId(),
     content: props.errorMessage,
     theme: props.theme

@@ -7,6 +7,7 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _CheckBoxIcon = _interopRequireDefault(require("./CheckBoxIcon"));
+var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _CheckBoxInputModule = _interopRequireDefault(require("./CheckBoxInput.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var CheckBoxInput = function CheckBoxInput(props) {
@@ -35,9 +36,11 @@ var CheckBoxInput = function CheckBoxInput(props) {
     "aria-invalid": props.hasErrors ? "true" : null,
     "aria-describedby": props["aria-describedby"]
   };
-  return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("input", inputProps)) : _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("span", {
+  return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("input", inputProps)) : _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("img", {
+    src: _asterisk.default,
+    alt: "",
     className: _CheckBoxInputModule.default.requiredSymbol
-  }, "*")));
+  })));
 };
 CheckBoxInput.propTypes = {
   checked: _propTypes.default.bool,

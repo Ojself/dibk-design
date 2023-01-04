@@ -10,6 +10,7 @@ var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
+var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -98,9 +99,11 @@ var Select = function Select(props) {
       className: _SelectModule.default.select
     }, _react.default.createElement(_Label.default, {
       htmlFor: props.id
-    }, props.label, props.required && _react.default.createElement("span", {
+    }, props.label, props.required && _react.default.createElement("img", {
+      src: _asterisk.default,
+      alt: "",
       className: _SelectModule.default.requiredSymbol
-    }, "*")), _react.default.createElement("div", {
+    })), _react.default.createElement("div", {
       className: _SelectModule.default.selectContainer,
       style: _objectSpread({}, ((_props$width2 = props.width) === null || _props$width2 === void 0 ? void 0 : _props$width2.length) && {
         maxWidth: props.width

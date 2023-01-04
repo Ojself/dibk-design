@@ -11,6 +11,7 @@ var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
+var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -69,9 +70,11 @@ var InputField = function InputField(props) {
     className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[props.type])
   }, _react.default.createElement(_Label.default, {
     htmlFor: props.id
-  }, props.label, props.required && _react.default.createElement("span", {
+  }, props.label, props.required && _react.default.createElement("img", {
+    src: _asterisk.default,
+    alt: "",
     className: _InputFieldModule.default.requiredSymbol
-  }, "*"), props.type === "file" ? _react.default.createElement("div", {
+  }), props.type === "file" ? _react.default.createElement("div", {
     className: _InputFieldModule.default.fileInputContainer
   }, _react.default.createElement("span", {
     className: _InputFieldModule.default.input
