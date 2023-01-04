@@ -9,6 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _theme = require("../functions/theme");
 var _ErrorMessageModule = _interopRequireDefault(require("./ErrorMessage.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 var ErrorMessage = function ErrorMessage(props) {
   var getThemeErrorMessageStyle = function getThemeErrorMessageStyle(theme) {
     return {
@@ -23,7 +24,9 @@ var ErrorMessage = function ErrorMessage(props) {
       style: getThemeErrorMessageStyle(props.theme)
     };
   };
-  return _react.default.createElement("span", getErrorElementProps(), props.content ? props.content : "");
+  return _react.default.createElement("span", _extends({
+    role: "alert"
+  }, getErrorElementProps()), props.content ? props.content : "");
 };
 ErrorMessage.propTypes = {
   id: _propTypes.default.string,
