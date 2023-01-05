@@ -25,7 +25,7 @@ var ErrorMessage = function ErrorMessage(props) {
     };
   };
   return _react.default.createElement("span", _extends({
-    role: "alert"
+    "aria-live": "polite"
   }, getErrorElementProps()), props.content ? props.content : "");
 };
 ErrorMessage.propTypes = {
