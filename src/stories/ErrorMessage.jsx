@@ -21,7 +21,7 @@ const ErrorMessage = (props) => {
             style: getThemeErrorMessageStyle(props.theme)
         };
     };
-    return <span role="alert" {...getErrorElementProps()}>{props.content ? props.content : ""}</span>;
+    return <span aria-live="polite" {...getErrorElementProps()}>{props.content ? props.content : ""}</span>;
 };
 
 ErrorMessage.propTypes = {
