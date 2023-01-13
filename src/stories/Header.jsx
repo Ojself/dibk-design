@@ -13,13 +13,17 @@ const Header = (props) => {
     const headerSizeClass = style[`size-${props.size}`];
     let headerElement = React.createElement(
         htmlTag,
-        { className: `${headerClass} ${headerSizeClass} ${bigClass} ${themeClass}` },
+        {
+            className: `${headerClass} ${headerSizeClass} ${bigClass} ${themeClass}`,
+            id: props.id || null
+        },
         !!props.content?.length ? props.content : props.children // props.content for backward compatibility
     );
     return <div className={style.headerContainer}> {headerElement} </div>;
 };
 
 Header.propTypes = {
+    id: PropTypes.string,
     /** Text content inside button */
     content: PropTypes.string,
     size: PropTypes.oneOf([1, 2, 3, 4, 5]),
