@@ -16,13 +16,15 @@ var Header = function Header(props) {
   var headerClass = _HeaderModule.default.header;
   var headerSizeClass = _HeaderModule.default["size-".concat(props.size)];
   var headerElement = _react.default.createElement(htmlTag, {
-    className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass)
+    className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass),
+    id: props.id || null
   }, !!((_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length) ? props.content : props.children);
   return _react.default.createElement("div", {
     className: _HeaderModule.default.headerContainer
   }, " ", headerElement, " ");
 };
 Header.propTypes = {
+  id: _propTypes.default.string,
   content: _propTypes.default.string,
   size: _propTypes.default.oneOf([1, 2, 3, 4, 5]),
   big: _propTypes.default.bool,
