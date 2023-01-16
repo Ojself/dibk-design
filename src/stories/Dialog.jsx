@@ -7,7 +7,7 @@ import xSymbol from "../assets/svg/x-symbol.svg?url";
 
 // Stylesheets
 import style from "./Dialog.module.scss";
-import { addFocusTrapInsideElement } from "functions/helpers";
+import { addFocusTrapInsideElement } from "../functions/helpers";
 
 const Dialog = (props) => {
     const dialogRef = useRef();
