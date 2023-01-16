@@ -1,14 +1,22 @@
 // Dependencies
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+
+// Assets
+import xSymbol from "../assets/svg/x-symbol.svg?url";
 
 // Stylesheets
 import style from "./Dialog.module.scss";
+import { addFocusTrapInsideElement } from "functions/helpers";
 
 const Dialog = (props) => {
-    // Refs
-    const wrapperRef = useRef();
-    const hiddenInputWrapperRef = useRef();
+    const dialogRef = useRef();
+
+    const wrapperRef = useCallback((element) => {
+        if (!!element) {
+            addFocusTrapInsideElement(element);
+        }
+    }, []);
 
     useEffect(() => {
         const keyDownFunction = (event) => {
@@ -21,29 +29,29 @@ const Dialog = (props) => {
             }
         };
         const handleClickOutside = (event) => {
-            if (wrapperRef?.current && !wrapperRef.current.contains(event.target)) {
+            if (dialogRef?.current && !dialogRef.current.contains(event.target)) {
                 props.onClickOutside();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
         document.addEventListener("keydown", keyDownFunction, false);
-        hiddenInputWrapperRef.current.tabIndex = -1;
-    }, [props]);
+    }, [props, wrapperRef]);
 
     return (
-        <div className={`${style.dialogOverlay} ${props.hidden && style.hidden}`}>
+        <div className={`${style.dialogOverlay} ${props.hidden && style.hidden}`} ref={wrapperRef}>
             <div
-                ref={wrapperRef}
+                ref={dialogRef}
                 className={`${style.dialogContent} ${props.noPadding ? style.noPadding : ""}`}
                 style={{ maxWidth: props.maxWidth }}
             >
                 {props.closeButton ? (
-                    <button aria-label="Lukk dialog" onClick={props.onClickOutside} className={style.closeButton}><img src={xSymbol} alt="" /></button>
-                ) : (
-                    ""
-                )}
-                <input type="button" ref={hiddenInputWrapperRef} className={style.hidden} autoFocus />
-                {props.children}
+                    <button aria-label="Lukk dialog" onClick={props.onClickOutside} className={style.closeButton}>
+                        <img src={xSymbol} alt="" />
+                    </button>
+                ) : null}
+                <div aria-live="assertive" role="dialog">
+                    {props.children}
+                </div>
             </div>
         </div>
     );

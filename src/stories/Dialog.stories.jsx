@@ -19,9 +19,7 @@ const Template = (args) => {
     return (
         <>
             <button onClick={() => setShowDialog(true)}>Show dialog</button>
-            {
-                    <Dialog {...args} hidden={!showDialog} onClickOutside={() => setShowDialog(false)}></Dialog>
-            }
+            {showDialog && <Dialog {...args} onClickOutside={() => setShowDialog(false)}></Dialog>}
         </>
     );
 };
@@ -29,7 +27,12 @@ const Template = (args) => {
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-    children: <><h3>Dialog title</h3><p>dialog paragraph</p></>,
+    children: (
+        <>
+            <h3>Dialog title</h3>
+            <p>dialog paragraph</p>
+        </>
+    ),
     closeButton: true,
     onClickOutside: () => {
         console.log("clicked outside");
