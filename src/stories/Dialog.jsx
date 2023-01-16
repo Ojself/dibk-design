@@ -38,7 +38,7 @@ const Dialog = (props) => {
                 style={{ maxWidth: props.maxWidth }}
             >
                 {props.closeButton ? (
-                    <button onClick={props.onClickOutside} className={style.closeButton}></button>
+                    <button aria-label="Lukk dialog" onClick={props.onClickOutside} className={style.closeButton}><img src={xSymbol} alt="" /></button>
                 ) : (
                     ""
                 )}
