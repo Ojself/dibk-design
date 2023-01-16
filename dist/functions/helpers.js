@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.cloneThroughFragments = exports.classNameArrayToClassNameString = void 0;
+exports.setFocusToElement = exports.getFocusableElementsInsideElement = exports.cloneThroughFragments = exports.classNameArrayToClassNameString = exports.addFocusTrapInsideElement = void 0;
 var _react = require("react");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -30,3 +30,37 @@ var cloneThroughFragments = function cloneThroughFragments(children) {
   });
 };
 exports.cloneThroughFragments = cloneThroughFragments;
+var setFocusToElement = function setFocusToElement(element) {
+  var autoFocusElement = document.createElement("button");
+  element.prepend(autoFocusElement);
+  autoFocusElement.focus();
+  autoFocusElement.remove();
+};
+exports.setFocusToElement = setFocusToElement;
+var getFocusableElementsInsideElement = function getFocusableElementsInsideElement(element) {
+  return Array.from(element.querySelectorAll('button, [href], input, [tabindex="0"]')).filter(function (resultElement) {
+    return resultElement;
+  });
+};
+exports.getFocusableElementsInsideElement = getFocusableElementsInsideElement;
+var addFocusTrapInsideElement = function addFocusTrapInsideElement(element) {
+  setFocusToElement(element);
+  var focusableElements = getFocusableElementsInsideElement(element);
+  var firstFocusableElement = focusableElements[0];
+  var lastFocusableElement = focusableElements[focusableElements.length - 1];
+  firstFocusableElement.onkeydown = function (event) {
+    if (event.keyCode === 9 && event.shiftKey) {
+      lastFocusableElement.focus();
+    }
+  };
+  lastFocusableElement.onclick = function () {
+    firstFocusableElement.focus();
+  };
+  lastFocusableElement.onkeydown = function (event) {
+    if (event.keyCode === 9 && !event.shiftKey) {
+      event.preventDefault();
+      firstFocusableElement.focus();
+    }
+  };
+};
+exports.addFocusTrapInsideElement = addFocusTrapInsideElement;

@@ -67,13 +67,9 @@
             &:hover {
                 text-decoration: none;
             }
-            &::after {
-                font-family: "Helvetica", "Arial", sans-serif;
-                display: inline-block;
-                content: "\00d7";
-                font-size: 30px;
-                line-height: 20px;
-                margin-left: 5px;
+            img {
+                width: 17px;
+                height: 17px;
             }
         }
     }
