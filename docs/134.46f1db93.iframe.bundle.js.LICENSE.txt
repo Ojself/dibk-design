@@ -72,7 +72,7 @@ object-assign
  */
 
 /**
- * @remix-run/router v1.2.1
+ * @remix-run/router v1.3.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -83,7 +83,7 @@ object-assign
  */
 
 /**
- * React Router DOM v6.6.2
+ * React Router DOM v6.7.0
  *
  * Copyright (c) Remix Software Inc.
  *
