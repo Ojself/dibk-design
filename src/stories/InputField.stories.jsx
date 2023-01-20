@@ -12,7 +12,10 @@ export default {
     title: "Example/InputField",
     component: InputField,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {}
+    argTypes: {
+        "aria-autocomplete": { control: 'select', options: ['none', 'inline', 'list', 'both'] }
+    }
+    
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -45,7 +48,6 @@ WithDefaultValue.args = {
 export const WithLabelAndValue = Template.bind({});
 WithLabelAndValue.args = {
     id: "inputField5",
-    value: "Input field value",
     label: "Input field label"
 };
 

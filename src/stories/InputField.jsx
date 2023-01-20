@@ -68,6 +68,7 @@ const InputField = (props) => {
                     ? props["aria-describedby"]
                     : null,
             "aria-invalid": props.hasErrors ? "true" : null,
+            "aria-autocomplete": props["aria-controls"] || null,
             style: styleRules
         };
     };
@@ -133,6 +134,7 @@ InputField.propTypes = {
     placeholder: PropTypes.string,
     defaultContent: PropTypes.string,
     "aria-describedby": PropTypes.string,
+    "aria-autocomplete": PropTypes.oneOf(["none", "inline", "list", "both"]),
     hasErrors: PropTypes.bool,
     errorMessage: PropTypes.oneOfType([
         PropTypes.string,
