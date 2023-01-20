@@ -48,6 +48,7 @@ WithDefaultValue.args = {
 export const WithLabelAndValue = Template.bind({});
 WithLabelAndValue.args = {
     id: "inputField5",
+    value: "Input field value",
     label: "Input field label"
 };
 
