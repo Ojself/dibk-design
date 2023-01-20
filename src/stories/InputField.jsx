@@ -68,7 +68,7 @@ const InputField = (props) => {
                     ? props["aria-describedby"]
                     : null,
             "aria-invalid": props.hasErrors ? "true" : null,
-            "aria-autocomplete": props["aria-controls"] || null,
+            "aria-autocomplete": props["aria-autocomplete"] || null,
             style: styleRules
         };
     };
