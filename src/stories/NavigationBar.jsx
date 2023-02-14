@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
 // Components
@@ -63,14 +63,14 @@ const NavigationBar = (props) => {
                 return <NavigationBarListItem listItem={listItem} key={key} theme={props.theme} />;
             }
         });
-        return <ul className={style.primaryList}>{listItems}</ul>;
+        return !!listItems?.length && <ul className={style.primaryList}>{listItems}</ul>;
     };
 
     const renderSecondaryList = () => {
         let listItems = props.secondaryListItems.map((listItem, i) => {
             return <NavigationBarListItem listItem={listItem} key={i} theme={props.theme} />;
         });
-        return <ul className={style.secondaryList}>{listItems}</ul>;
+        return !!listItems?.length && <ul className={style.secondaryList}>{listItems}</ul>;
     };
 
     const renderLogo = (logoLink) => {
@@ -102,13 +102,15 @@ const NavigationBar = (props) => {
         backgroundColor: getThemeNavigationBarTextColor(props.theme)
     };
 
+    const hasListItems = !!props.primaryListItems?.length || !!props.secondaryListItems?.length;
+
     return (
         <header>
             <div className={style.isPresent}>
                 <div className={style.navigationBar} style={navigationBarThemeStyle}>
                     <div className={style.logoContainer}>{renderLogo(props.logoLink)}</div>
-                    {props.children ? <div className={style.childElements}>{props.children}</div> : null}
-                    {!!props.primaryListItems?.length || !!props.secondaryListItems?.length ? (
+                    {!!props.children && <div className={style.childElements}>{props.children}</div>}
+                    {hasListItems && (
                         <button
                             type="button"
                             className={`${style.menuToggle} ${active ? style.active : ""}`}
@@ -122,16 +124,19 @@ const NavigationBar = (props) => {
                                 <span className={style.line} style={hamburgerIconLineStyle}></span>
                             </span>
                         </button>
-                    ) : null}
+                    )}
                 </div>
-                <div className={`${style.dropdownContainer} ${active ? style.active : ""}`}>
-                    <div id="main-menu-dropdown" className={style.dropdown} style={navigationBarThemeStyle}>
-                        {renderPrimaryList()}
-                        {renderSecondaryList()}
-                        {props.children}
-                    </div>
-                </div>
-                <div className={`${style.dropdownOverlay} ${active ? style.active : ""}`} />
+                {hasListItems && (
+                    <Fragment>
+                        <div className={`${style.dropdownContainer} ${active ? style.active : ""}`}>
+                            <div id="main-menu-dropdown" className={style.dropdown} style={navigationBarThemeStyle}>
+                                {renderPrimaryList()}
+                                {renderSecondaryList()}
+                            </div>
+                        </div>
+                        <div className={`${style.dropdownOverlay} ${active ? style.active : ""}`}></div>
+                    </Fragment>
+                )}
             </div>
         </header>
     );
