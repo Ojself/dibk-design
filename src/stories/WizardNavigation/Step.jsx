@@ -3,40 +3,53 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+// Helpers
+import { classNameArrayToClassNameString } from "../../functions/helpers";
+
 // Stylesheets
 import style from "./Step.module.scss";
 
 const Step = (props) => {
-    const getActiveClass = () => {
-        return props.activeStepId === props.step.id ? style.active : "";
+    const getActiveClass = (step) => {
+        return props.activeStepId === step.id ? style.active : "";
     };
 
-    const getFinishedClass = () => {
-        return props.step.finished ? style.finished : "";
+    const getFinishedClass = (step) => {
+        return step.finished ? style.finished : "";
     };
 
-    const getErrorClass = () => {
-        return props.step.hasErrors ? style.hasErrors : "";
+    const getErrorClass = (step) => {
+        return step.hasErrors ? style.hasErrors : "";
     };
 
-    const step = props.step;
-    return step.link && Object.keys(step.link).length ? (
-        <Link
-            to={step.link}
-            className={`${style.wizardTopnavItem} ${getActiveClass()} ${getFinishedClass()} ${getErrorClass()}`}
+    const renderStepContent = (step, index) => {
+        return (
+            <span className={style.wizardTopnavItemContent}>
+                <span className={style.stepNumber}>{index + 1}</span>
+                <span className={style.stepName}>{step.name}</span>
+            </span>
+        );
+    };
+
+    const { step, index } = props;
+
+    return (
+        <li
+            className={classNameArrayToClassNameString([
+                style.wizardTopnavItem,
+                getActiveClass(step),
+                getFinishedClass(step),
+                getErrorClass(step)
+            ])}
         >
-            <span className={style.wizardTopnavItemContent}>
-                <span className={style.stepNumber}>{props.index + 1}</span>
-                <span className={style.stepName}>{props.step.name}</span>
-            </span>
-        </Link>
-    ) : (
-        <div className={`${style.wizardTopnavItem} ${getActiveClass()} ${getFinishedClass()} ${getErrorClass()}`}>
-            <span className={style.wizardTopnavItemContent}>
-                <span className={style.stepNumber}>{props.index + 1}</span>
-                <span className={style.stepName}>{props.step.name}</span>
-            </span>
-        </div>
+            {step.link && Object.keys(step.link).length ? (
+                <Link to={step.link} aria-current={props.activeStepId === props.step.id ? "step" : null}>
+                    {renderStepContent(step, index)}
+                </Link>
+            ) : (
+                renderStepContent(step, index)
+            )}
+        </li>
     );
 };
 

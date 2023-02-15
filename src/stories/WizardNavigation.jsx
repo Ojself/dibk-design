@@ -18,7 +18,14 @@ const WizardNavigation = (props) => {
               })
             : null;
     };
-    return <div className={style.wizardTopnav}>{renderSteps(props.steps, props.activeStepId)}</div>;
+    const amountOfSteps = props.steps && Object.keys(props.steps)?.length ? Object.keys(props.steps).length : 0;
+    const defaultAriaLabel = `I dette skjemaet er det totalt ${amountOfSteps} steg som du skal gå igjennom`;
+    const ariaLabel = props["aria-label"]?.length ? props["aria-label"] : defaultAriaLabel;
+    return (
+        <nav aria-label={ariaLabel}>
+            <ol className={style.wizardTopnav}>{renderSteps(props.steps, props.activeStepId)}</ol>
+        </nav>
+    );
 };
 
 WizardNavigation.propTypes = {
@@ -32,7 +39,8 @@ WizardNavigation.propTypes = {
             reactLink: PropTypes.bool
         })
     }).isRequired,
-    activeStepId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+    activeStepId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    "aria-label": PropTypes.string
 };
 
 export default WizardNavigation;
