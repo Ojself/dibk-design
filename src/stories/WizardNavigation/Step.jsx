@@ -1,5 +1,5 @@
 // Dependencies
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -24,14 +24,14 @@ const Step = (props) => {
 
     const renderStepContent = (step, index) => {
         return (
-            <span className={style.wizardTopnavItemContent}>
+            <Fragment>
                 <span className={style.stepNumber}>{index + 1}</span>
                 <span className={style.stepName}>{step.name}</span>
-            </span>
+            </Fragment>
         );
     };
 
-    const { step, index } = props;
+    const { step, index, activeStepId } = props;
 
     return (
         <li
@@ -43,11 +43,17 @@ const Step = (props) => {
             ])}
         >
             {step.link && Object.keys(step.link).length ? (
-                <Link to={step.link} aria-current={props.activeStepId === props.step.id ? "step" : null}>
+                <Link
+                    to={step.link}
+                    aria-current={activeStepId === step.id ? "step" : null}
+                    className={style.wizardTopnavItemContent}
+                >
                     {renderStepContent(step, index)}
                 </Link>
             ) : (
-                renderStepContent(step, index)
+                <span aria-current={activeStepId === step.id ? "step" : null} className={style.wizardTopnavItemContent}>
+                    {renderStepContent(step, index)}
+                </span>
             )}
         </li>
     );
