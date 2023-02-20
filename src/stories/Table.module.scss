@@ -4,6 +4,40 @@
     font-family: $default-font;
     border-collapse: collapse;
     width: 100%;
+    caption {
+        font-family: $default-font;
+        font-weight: normal;
+        line-height: 1;
+        font-size: 19px;
+        color: #072938;
+    }
+    &.captionSide-top {
+        caption {
+            caption-side: top;
+            margin: 0 0 6px 0;
+        }
+    }
+    &.captionSide-bottom {
+        caption {
+            caption-side: bottom;
+            margin: 6px 0 0 0;
+        }
+    }
+    &.captionAlign-left {
+        caption {
+            text-align: left;
+        }
+    }
+    &.captionAlign-center {
+        caption {
+            text-align: center;
+        }
+    }
+    &.captionAlign-right {
+        caption {
+            text-align: right;
+        }
+    }
     thead {
         tr {
             background-color: #ededed;
