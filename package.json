@@ -1,7 +1,6 @@
 {
     "name": "dibk-design",
     "version": "2.7.1",
-    "private": false,
     "main": "dist/index.js",
     "module": "dist/index.js",
     "files": [
