@@ -107,12 +107,17 @@ var NavigationBar = function NavigationBar(props) {
     backgroundColor: (0, _theme.getThemeNavigationBarTextColor)(props.theme)
   };
   var hasListItems = !!((_props$primaryListIte = props.primaryListItems) !== null && _props$primaryListIte !== void 0 && _props$primaryListIte.length) || !!((_props$secondaryListI = props.secondaryListItems) !== null && _props$secondaryListI !== void 0 && _props$secondaryListI.length);
-  return _react.default.createElement("header", null, _react.default.createElement("div", {
+  return _react.default.createElement("div", {
     className: _NavigationBarModule.default.isPresent
   }, _react.default.createElement("div", {
     className: _NavigationBarModule.default.navigationBar,
     style: navigationBarThemeStyle
-  }, _react.default.createElement("div", {
+  }, _react.default.createElement("a", {
+    id: "main-content-link",
+    class: "main-content-link"
+  }, _react.default.createElement("span", {
+    id: "main-content-link-text"
+  }, "Hopp til hovedinnhold")), _react.default.createElement("div", {
     className: _NavigationBarModule.default.logoContainer
   }, renderLogo(props.logoLink)), !!props.children && _react.default.createElement("div", {
     className: _NavigationBarModule.default.childElements
@@ -141,9 +146,7 @@ var NavigationBar = function NavigationBar(props) {
     id: "main-menu-dropdown",
     className: _NavigationBarModule.default.dropdown,
     style: navigationBarThemeStyle
-  }, renderPrimaryList(), renderSecondaryList())), _react.default.createElement("div", {
-    className: "".concat(_NavigationBarModule.default.dropdownOverlay, " ").concat(active ? _NavigationBarModule.default.active : "")
-  }))));
+  }, renderPrimaryList(), renderSecondaryList()))));
 };
 NavigationBar.propTypes = {
   primaryListItems: _propTypes.default.array,

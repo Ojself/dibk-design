@@ -38,27 +38,6 @@
         flex: 1;
     }
 
-    .dropdownOverlay {
-        @media only screen and (max-width: $screen-lg) and (min-width: $screen-sm) {
-            @include transition(all 0.1s ease-out);
-            content: "";
-            position: absolute;
-            top: 73px;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            visibility: hidden;
-            opacity: 0;
-            background: transparent;
-            &.active {
-                opacity: 1;
-                background: rgba(0, 0, 0, 0.5);
-                visibility: visible;
-            }
-        }
-    }
-
     .menuToggle {
         @include appearance(none);
         @include transition(background-color 300ms ease-out);
