@@ -5,11 +5,12 @@ module.exports = {
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
         "@storybook/preset-create-react-app",
-        "@storybook/addon-a11y"
+        "@storybook/addon-a11y",
+        "@storybook/addon-mdx-gfm"
     ],
-    framework: "@storybook/react",
-    core: {
-        builder: "@storybook/builder-webpack5"
+    framework: {
+        name: "@storybook/react-webpack5",
+        options: {}
     },
     webpackFinal: async (config, { configType }) => {
         // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -31,7 +32,6 @@ module.exports = {
                     test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/
                 };
             }
-
             return rule;
         });
 
@@ -39,11 +39,17 @@ module.exports = {
         config.module.rules.unshift({
             test: /\.svg$/i,
             issuer: /\.[jt]sx?$/,
-            resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+            resourceQuery: {
+                not: [/url/]
+            },
+            // exclude react component if *.svg?url
             use: ["@svgr/webpack"]
         });
 
         // Return the altered config
         return config;
+    },
+    docs: {
+        autodocs: true
     }
 };

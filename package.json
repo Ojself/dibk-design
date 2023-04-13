@@ -1,82 +1,83 @@
 {
-    "name": "dibk-design",
-    "version": "2.8.0",
-    "main": "dist/index.js",
-    "module": "dist/index.js",
-    "files": [
-        "dist",
-        "README.md"
+  "name": "dibk-design",
+  "version": "2.8.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.55.0",
+    "web-vitals": "^3.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-components": "NODE_ENV=production babel src/stories --ignore src/**/*.stories.jsx --out-dir dist/components --copy-files --no-copy-ignored",
+    "build-functions": "NODE_ENV=production babel src/functions --out-dir dist/functions --copy-files --no-copy-ignored",
+    "build-index": "NODE_ENV=production babel src/index.js --out-dir dist --copy-files --no-copy-ignored",
+    "build-style": "NODE_ENV=production babel src/style --out-dir dist/style --copy-files --no-copy-ignored",
+    "build-assets": "NODE_ENV=production babel src/assets --out-dir dist/assets --copy-files --no-copy-ignored",
+    "build": "rm -rf dist && yarn build-components && yarn build-functions && yarn build-index && yarn build-style && yarn build-assets",
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "storybook build -s public -o docs"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
     ],
-    "dependencies": {
-        "@testing-library/jest-dom": "^5.16.5",
-        "@testing-library/react": "^14.0.0",
-        "@testing-library/user-event": "^14.4.3",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-scripts": "5.0.1",
-        "sass": "^1.55.0",
-        "web-vitals": "^3.0.3"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build-components": "NODE_ENV=production babel src/stories --ignore src/**/*.stories.jsx --out-dir dist/components --copy-files --no-copy-ignored",
-        "build-functions": "NODE_ENV=production babel src/functions --out-dir dist/functions --copy-files --no-copy-ignored",
-        "build-index": "NODE_ENV=production babel src/index.js --out-dir dist --copy-files --no-copy-ignored",
-        "build-style": "NODE_ENV=production babel src/style --out-dir dist/style --copy-files --no-copy-ignored",
-        "build-assets": "NODE_ENV=production babel src/assets --out-dir dist/assets --copy-files --no-copy-ignored",
-        "build": "rm -rf dist && yarn build-components && yarn build-functions && yarn build-index && yarn build-style && yarn build-assets",
-        "eject": "react-scripts eject",
-        "storybook": "start-storybook -p 6006 -s public",
-        "build-storybook": "build-storybook -s public -o docs"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
         ],
-        "overrides": [
-            {
-                "files": [
-                    "**/*.stories.*"
-                ],
-                "rules": {
-                    "import/no-anonymous-default-export": "off"
-                }
-            }
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.18.10",
-        "@storybook/addon-a11y": "^6.5.12",
-        "@storybook/addon-actions": "^6.5.12",
-        "@storybook/addon-essentials": "^6.5.12",
-        "@storybook/addon-interactions": "^6.5.12",
-        "@storybook/addon-links": "^6.5.12",
-        "@storybook/addons": "^6.5.12",
-        "@storybook/builder-webpack5": "^6.5.12",
-        "@storybook/manager-webpack5": "^6.5.12",
-        "@storybook/node-logger": "^6.5.12",
-        "@storybook/preset-create-react-app": "^4.1.2",
-        "@storybook/react": "^6.5.12",
-        "@storybook/testing-library": "^0.0.13",
-        "@storybook/theming": "^6.5.12",
-        "babel-plugin-named-exports-order": "^0.0.2",
-        "babel-plugin-transform-remove-console": "^6.9.4",
-        "prop-types": "^15.8.1",
-        "react-router-dom": "^6.4.2",
-        "url-loader": "^4.1.1",
-        "webpack": "^5.74.0"
-    }
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@storybook/addon-a11y": "^7.0.4",
+    "@storybook/addon-actions": "^7.0.4",
+    "@storybook/addon-essentials": "^7.0.4",
+    "@storybook/addon-interactions": "^7.0.4",
+    "@storybook/addon-links": "^7.0.4",
+    "@storybook/addon-mdx-gfm": "^7.0.4",
+    "@storybook/addons": "^7.0.4",
+    "@storybook/node-logger": "^7.0.4",
+    "@storybook/preset-create-react-app": "^7.0.4",
+    "@storybook/react": "^7.0.4",
+    "@storybook/react-webpack5": "^7.0.4",
+    "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "^7.0.4",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "prop-types": "^15.8.1",
+    "react-router-dom": "^6.4.2",
+    "storybook": "^7.0.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.74.0"
+  }
 }
