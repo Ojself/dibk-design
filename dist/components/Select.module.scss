@@ -56,7 +56,6 @@
             cursor: pointer;
             @media only screen and (min-width: $screen-sm) {
                 font-size: 19px;
-                height: 56px;
             }
 
             &:hover {
@@ -76,6 +75,9 @@
             &:not(.multiple) {
                 height: 47px;
                 padding: 10px 40px 10px 10px;
+                @media only screen and (min-width: $screen-sm) {
+                    height: 56px;
+                }
             }
             &.multiple {
                 max-height: 100px;
