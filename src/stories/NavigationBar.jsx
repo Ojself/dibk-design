@@ -105,40 +105,41 @@ const NavigationBar = (props) => {
     const hasListItems = !!props.primaryListItems?.length || !!props.secondaryListItems?.length;
 
     return (
-        <header>
-            <div className={style.isPresent}>
-                <div className={style.navigationBar} style={navigationBarThemeStyle}>
-                    <div className={style.logoContainer}>{renderLogo(props.logoLink)}</div>
-                    {!!props.children && <div className={style.childElements}>{props.children}</div>}
-                    {hasListItems && (
-                        <button
-                            type="button"
-                            className={`${style.menuToggle} ${active ? style.active : ""}`}
-                            onClick={() => toggleList()}
-                            aria-expanded={active ? "true" : "false"}
-                            aria-controls="main-menu-dropdown"
-                        >
-                            <span className={style.hamburgerIcon}>
-                                <span className={style.line} style={hamburgerIconLineStyle}></span>
-                                <span className={style.line} style={hamburgerIconLineStyle}></span>
-                                <span className={style.line} style={hamburgerIconLineStyle}></span>
-                            </span>
-                        </button>
-                    )}
-                </div>
+        <div className={style.isPresent}>
+           
+            <div className={style.navigationBar} style={navigationBarThemeStyle}>
+            <a id="main-content-link" class="main-content-link">
+                <span id="main-content-link-text">Hopp til hovedinnhold</span>
+            </a>
+                <div className={style.logoContainer}>{renderLogo(props.logoLink)}</div>
+                {!!props.children && <div className={style.childElements}>{props.children}</div>}
                 {hasListItems && (
-                    <Fragment>
-                        <div className={`${style.dropdownContainer} ${active ? style.active : ""}`}>
-                            <div id="main-menu-dropdown" className={style.dropdown} style={navigationBarThemeStyle}>
-                                {renderPrimaryList()}
-                                {renderSecondaryList()}
-                            </div>
-                        </div>
-                        <div className={`${style.dropdownOverlay} ${active ? style.active : ""}`}></div>
-                    </Fragment>
+                    <button
+                        type="button"
+                        className={`${style.menuToggle} ${active ? style.active : ""}`}
+                        onClick={() => toggleList()}
+                        aria-expanded={active ? "true" : "false"}
+                        aria-controls="main-menu-dropdown"
+                    >
+                        <span className={style.hamburgerIcon}>
+                            <span className={style.line} style={hamburgerIconLineStyle}></span>
+                            <span className={style.line} style={hamburgerIconLineStyle}></span>
+                            <span className={style.line} style={hamburgerIconLineStyle}></span>
+                        </span>
+                    </button>
                 )}
             </div>
-        </header>
+            {hasListItems && (
+                <Fragment>
+                    <div className={`${style.dropdownContainer} ${active ? style.active : ""}`}>
+                        <div id="main-menu-dropdown" className={style.dropdown} style={navigationBarThemeStyle}>
+                            {renderPrimaryList()}
+                            {renderSecondaryList()}
+                        </div>
+                    </div>
+                </Fragment>
+            )}
+        </div>
     );
 };
 
