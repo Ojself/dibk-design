@@ -9,6 +9,7 @@ import ErrorMessage from "./ErrorMessage";
 // Functions
 import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Assets
 import asterisk from "../assets/svg/asterisk.svg?url";
@@ -100,6 +101,7 @@ const Select = (props) => {
             ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
             ...(props.width?.length && { maxWidth: props.width })
         };
+        const className = classNameArrayToClassNameString([props.hasErrors && style.hasErrors, props.multiple && style.multiple]);
         const selectElementProps = {
             name: props.name,
             multiple: props.multiple,
@@ -110,7 +112,7 @@ const Select = (props) => {
             id: props.id,
             role: props.role,
             key: `${props.id}-${generateRandomString(6)}`,
-            className: props.hasErrors ? style.hasErrors : "",
+            className,
             "aria-describedby":
                 props.hasErrors && !!props.errorMessage?.length
                     ? getErrorElementId()
@@ -130,8 +132,11 @@ const Select = (props) => {
                     className={style.selectContainer}
                     style={{ ...(props.width?.length && { maxWidth: props.width }) }}
                 >
-                    <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
-                    <select {...selectElementProps}>
+                    {!props.multiple && (
+                        <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
+                    )}
+
+                    <select {...selectElementProps} onChange={e => {console.log(e.target.value)}}>
                         {renderPlaceholderOption(props.placeholder, props.placeholderValue)}
                         {renderOptionElements(props.options)}
                     </select>

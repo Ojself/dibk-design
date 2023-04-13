@@ -44,7 +44,6 @@
             @include transition(border-color 0.15s linear);
             @include appearance(none);
             @include box-shadow(none);
-            height: 47px;
             color: rgba(0, 0, 0, 0.75);
             width: 100%;
             font-family: inherit;
@@ -73,6 +72,14 @@
             &[readonly] {
                 background-color: #ddd;
                 cursor: default;
+            }
+            &:not(.multiple) {
+                height: 47px;
+                padding: 10px 40px 10px 10px;
+            }
+            &.multiple {
+                max-height: 100px;
+                padding: 10px;
             }
 
             &.hasErrors {

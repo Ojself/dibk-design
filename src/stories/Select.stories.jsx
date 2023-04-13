@@ -27,6 +27,8 @@ Default.args = {
     options
 };
 
+
+
 export const WithLabel = Template.bind({});
 WithLabel.args = {
     id: "select2",
@@ -142,5 +144,31 @@ WithCustomTheme.args = {
     id: "select14",
     label: "Select with custom theme",
     theme: customTheme,
+    options
+};
+
+export const Multiple = Template.bind({});
+Multiple.args = {
+    id: "select15",
+    label: "Multiple select with label",
+    multiple: true,
+    options
+};
+
+export const MultipleWithSelectedValue = Template.bind({});
+MultipleWithSelectedValue.args = {
+    id: "select16",
+    label: "Multiple select with label and selected value",
+    value: ["option 1", "value 3"],
+    multiple: true,
+    options
+};
+
+export const MultipleWithDefaultValue = Template.bind({});
+MultipleWithDefaultValue.args = {
+    id: "select17",
+    label: "Multiple select with label and default value",
+    defaultValue: ["option 1", "value 3"],
+    multiple: true,
     options
 };
