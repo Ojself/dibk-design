@@ -105,12 +105,13 @@ const NavigationBar = (props) => {
     const hasListItems = !!props.primaryListItems?.length || !!props.secondaryListItems?.length;
 
     return (
-        <div className={style.isPresent}>
-           
+        <div className={style.navigationBarContainer}>
+            {props.mainContentId?.length && (
+                <a id="main-content-link" href={`#${props.mainContentId}`} class={style.mainContentLink}>
+                    <span id="main-content-link-text">Hopp til hovedinnhold</span>
+                </a>
+            )}
             <div className={style.navigationBar} style={navigationBarThemeStyle}>
-            <a id="main-content-link" class="main-content-link">
-                <span id="main-content-link-text">Hopp til hovedinnhold</span>
-            </a>
                 <div className={style.logoContainer}>{renderLogo(props.logoLink)}</div>
                 {!!props.children && <div className={style.childElements}>{props.children}</div>}
                 {hasListItems && (

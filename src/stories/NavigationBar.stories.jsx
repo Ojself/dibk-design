@@ -40,16 +40,19 @@ Default.args = {};
 export const WithLogoLink = Template.bind({});
 WithLogoLink.args = {
     logoLink: "https://dibk.no/",
-    openLogoLinkInNewTab: true
+    openLogoLinkInNewTab: true,
+    mainContentId: "main-content"
 };
 
 export const WithListItems = Template.bind({});
 WithListItems.args = {
     primaryListItems,
-    secondaryListItems
+    secondaryListItems,
+    mainContentId: "main-content"
 };
 
 export const WithChildElements = Template.bind({});
 WithChildElements.args = {
-    children: <span>Content here</span>
+    children: <span>Content here</span>,
+    mainContentId: "main-content"
 };
