@@ -4293,9 +4293,9 @@ __metadata:
   linkType: hard
 
 "@types/lodash@npm:^4.14.167":
-  version: 4.14.192
-  resolution: "@types/lodash@npm:4.14.192"
-  checksum: 31e1f0543a04158d2c429c45efd7c77882736630d0652f82eb337d6159ec0c249c5d175c0af731537b53271e665ff8d76f43221d75d03646d31cb4bd6f0056b1
+  version: 4.14.194
+  resolution: "@types/lodash@npm:4.14.194"
+  checksum: 113f34831c461469d91feca2dde737f88487732898b4d25e9eb23b087bb193985f864d1e1e0f3b777edc5022e460443588b6000a3b2348c966f72d17eedc35ea
   languageName: node
   linkType: hard
 
@@ -6492,25 +6492,25 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.25.1":
-  version: 3.30.0
-  resolution: "core-js-compat@npm:3.30.0"
+  version: 3.30.1
+  resolution: "core-js-compat@npm:3.30.1"
   dependencies:
     browserslist: ^4.21.5
-  checksum: 51a34d8a292de51f52ac2d72b18ee94743a905d4570a42214262426ebf8f026c853fee22cf4d6c61c2d95f861749421c4de48e9389f551745c5ac1477a5f929f
+  checksum: e450a9771fc927ce982333929e1c4b32f180f641e4cfff9de6ed44b5930de19be7707cf74f45d1746ca69b8e8ac0698a555cb7244fbfbed6c38ca93844207bf7
   languageName: node
   linkType: hard
 
 "core-js-pure@npm:^3.23.3":
-  version: 3.30.0
-  resolution: "core-js-pure@npm:3.30.0"
-  checksum: 57573b18d8900ad0a34a0806491bb49774dfcbb6d022b61094d6afc9f6c3d833c1b6c1f5afb5e6a7caca235fa4db00b317de80bfd8ac8e2d9a4f738c4bf233ed
+  version: 3.30.1
+  resolution: "core-js-pure@npm:3.30.1"
+  checksum: ea64c72cd68ddde43eddb250033af784cc00251195faaee665163e7d6a69df964c9eba9e931f3adf4cc1e1be0fabc1b59aa54de1c847811583c09bf1737911f9
   languageName: node
   linkType: hard
 
 "core-js@npm:^3.19.2":
-  version: 3.30.0
-  resolution: "core-js@npm:3.30.0"
-  checksum: 276d4444a1261739ea4c350ef3f6aeab4c7ae7f36ac197f02d197a4566b42867c3a9b12c2fcda8a736aeca888d2c4131c8cb58ad17ed02294a10c9c97606df71
+  version: 3.30.1
+  resolution: "core-js@npm:3.30.1"
+  checksum: 6d4a00b488694d4c715c424e15dfef31433ac7aa395c39c518a0cfacec918ada1c716fed74682033197e0164e23bbf38bfd598ee9a239c4aaa590ab1ba862ac8
   languageName: node
   linkType: hard
 
@@ -7390,9 +7390,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.284":
-  version: 1.4.361
-  resolution: "electron-to-chromium@npm:1.4.361"
-  checksum: 66b3210c9c5abec7812ce8b936a9e53fa49a2ccb8b4345e1e4d601dfff5e1e22d07ddddeaf84b0dd6bb01522e505dbb7fc91929a7028b02281e5928f36d2e4dc
+  version: 1.4.363
+  resolution: "electron-to-chromium@npm:1.4.363"
+  checksum: e3a84cf652d97b124e0d328688454d6d7b81e533e671edc7c32dc4b18e5d90369001f61ffd503edf11a9d6d35ecb17385e74060b59b4a70b2bd53a71108ff286
   languageName: node
   linkType: hard
 
@@ -7977,12 +7977,12 @@ __metadata:
   linkType: hard
 
 "eslint-scope@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "eslint-scope@npm:7.1.1"
+  version: 7.2.0
+  resolution: "eslint-scope@npm:7.2.0"
   dependencies:
     esrecurse: ^4.3.0
     estraverse: ^5.2.0
-  checksum: 9f6e974ab2db641ca8ab13508c405b7b859e72afe9f254e8131ff154d2f40c99ad4545ce326fd9fde3212ff29707102562a4834f1c48617b35d98c71a97fbf3e
+  checksum: 64591a2d8b244ade9c690b59ef238a11d5c721a98bcee9e9f445454f442d03d3e04eda88e95a4daec558220a99fa384309d9faae3d459bd40e7a81b4063980ae
   languageName: node
   linkType: hard
 
