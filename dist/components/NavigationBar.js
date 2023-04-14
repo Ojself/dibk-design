@@ -22,7 +22,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var NavigationBar = function NavigationBar(props) {
-  var _props$primaryListIte, _props$secondaryListI;
+  var _props$primaryListIte, _props$secondaryListI, _props$mainContentId;
   var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     active = _useState2[0],
@@ -108,16 +108,17 @@ var NavigationBar = function NavigationBar(props) {
   };
   var hasListItems = !!((_props$primaryListIte = props.primaryListItems) !== null && _props$primaryListIte !== void 0 && _props$primaryListIte.length) || !!((_props$secondaryListI = props.secondaryListItems) !== null && _props$secondaryListI !== void 0 && _props$secondaryListI.length);
   return _react.default.createElement("div", {
-    className: _NavigationBarModule.default.isPresent
-  }, _react.default.createElement("div", {
-    className: _NavigationBarModule.default.navigationBar,
-    style: navigationBarThemeStyle
-  }, _react.default.createElement("a", {
+    className: _NavigationBarModule.default.navigationBarContainer
+  }, ((_props$mainContentId = props.mainContentId) === null || _props$mainContentId === void 0 ? void 0 : _props$mainContentId.length) && _react.default.createElement("a", {
     id: "main-content-link",
-    class: "main-content-link"
+    href: "#".concat(props.mainContentId),
+    class: _NavigationBarModule.default.mainContentLink
   }, _react.default.createElement("span", {
     id: "main-content-link-text"
   }, "Hopp til hovedinnhold")), _react.default.createElement("div", {
+    className: _NavigationBarModule.default.navigationBar,
+    style: navigationBarThemeStyle
+  }, _react.default.createElement("div", {
     className: _NavigationBarModule.default.logoContainer
   }, renderLogo(props.logoLink)), !!props.children && _react.default.createElement("div", {
     className: _NavigationBarModule.default.childElements
