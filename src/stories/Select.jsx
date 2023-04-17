@@ -101,7 +101,10 @@ const Select = (props) => {
             ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
             ...(props.width?.length && { maxWidth: props.width })
         };
-        const className = classNameArrayToClassNameString([props.hasErrors && style.hasErrors, props.multiple && style.multiple]);
+        const className = classNameArrayToClassNameString([
+            props.hasErrors && style.hasErrors,
+            props.multiple && style.multiple
+        ]);
         const selectElementProps = {
             name: props.name,
             multiple: props.multiple,
@@ -136,7 +139,12 @@ const Select = (props) => {
                         <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
                     )}
 
-                    <select {...selectElementProps} onChange={e => {console.log(e.target.value)}}>
+                    <select
+                        {...selectElementProps}
+                        onChange={(e) => {
+                            console.log(e.target.value);
+                        }}
+                    >
                         {renderPlaceholderOption(props.placeholder, props.placeholderValue)}
                         {renderOptionElements(props.options)}
                     </select>
@@ -157,7 +165,10 @@ Select.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.oneOfType([
             PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            PropTypes.shape({ key: PropTypes.string, value: PropTypes.string })
+            PropTypes.shape({
+                key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+                value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+            })
         ])
     ),
     width: PropTypes.string,
