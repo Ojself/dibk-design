@@ -131,8 +131,8 @@ Select.propTypes = {
   disabled: _propTypes.default.bool,
   multiple: _propTypes.default.bool,
   options: _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]), _propTypes.default.shape({
-    key: _propTypes.default.string,
-    value: _propTypes.default.string
+    key: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+    value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
   })])),
   width: _propTypes.default.string,
   value: _propTypes.default.any,
