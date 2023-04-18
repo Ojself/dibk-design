@@ -139,12 +139,7 @@ const Select = (props) => {
                         <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
                     )}
 
-                    <select
-                        {...selectElementProps}
-                        onChange={(e) => {
-                            console.log(e.target.value);
-                        }}
-                    >
+                    <select {...selectElementProps}>
                         {renderPlaceholderOption(props.placeholder, props.placeholderValue)}
                         {renderOptionElements(props.options)}
                     </select>
