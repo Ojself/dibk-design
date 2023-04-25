@@ -46,21 +46,25 @@ exports.getFocusableElementsInsideElement = getFocusableElementsInsideElement;
 var addFocusTrapInsideElement = function addFocusTrapInsideElement(element) {
   setFocusToElement(element);
   var focusableElements = getFocusableElementsInsideElement(element);
-  var firstFocusableElement = focusableElements[0];
-  var lastFocusableElement = focusableElements[focusableElements.length - 1];
-  firstFocusableElement.onkeydown = function (event) {
-    if (event.keyCode === 9 && event.shiftKey) {
-      lastFocusableElement.focus();
-    }
-  };
-  lastFocusableElement.onclick = function () {
-    firstFocusableElement.focus();
-  };
-  lastFocusableElement.onkeydown = function (event) {
-    if (event.keyCode === 9 && !event.shiftKey) {
-      event.preventDefault();
+  var firstFocusableElement = focusableElements !== null && focusableElements !== void 0 && focusableElements.length ? focusableElements[0] : null;
+  var lastFocusableElement = (focusableElements === null || focusableElements === void 0 ? void 0 : focusableElements.length) > 1 ? focusableElements[focusableElements.length - 1] : firstFocusableElement;
+  if (firstFocusableElement) {
+    firstFocusableElement.onkeydown = function (event) {
+      if (event.keyCode === 9 && event.shiftKey) {
+        lastFocusableElement.focus();
+      }
+    };
+  }
+  if (lastFocusableElement) {
+    lastFocusableElement.onclick = function () {
       firstFocusableElement.focus();
-    }
-  };
+    };
+    lastFocusableElement.onkeydown = function (event) {
+      if (event.keyCode === 9 && !event.shiftKey) {
+        event.preventDefault();
+        firstFocusableElement.focus();
+      }
+    };
+  }
 };
 exports.addFocusTrapInsideElement = addFocusTrapInsideElement;
