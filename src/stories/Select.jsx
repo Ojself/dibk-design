@@ -1,15 +1,17 @@
 // Dependencies
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 // Components
 import Label from "./Label";
 import ErrorMessage from "./ErrorMessage";
+import CheckBoxList from "./CheckBoxList";
+import CheckBoxListItem from "./CheckBoxListItem";
 
 // Functions
 import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
-import { classNameArrayToClassNameString } from "../functions/helpers";
+import { addFocusTrapInsideElement, classNameArrayToClassNameString } from "../functions/helpers";
 
 // Assets
 import asterisk from "../assets/svg/asterisk.svg?url";
@@ -18,6 +20,39 @@ import asterisk from "../assets/svg/asterisk.svg?url";
 import style from "./Select.module.scss";
 
 const Select = (props) => {
+    const [showDropdownList, setShowDropdownList] = useState(false);
+
+    const dropdownRef = useRef();
+
+    const wrapperRef = useCallback((element) => {
+        if (!!element) {
+            addFocusTrapInsideElement(element);
+        }
+    }, []);
+
+    const hideDropdownList = () => {
+        setShowDropdownList(false);
+    };
+
+    useEffect(() => {
+        const keyDownFunction = (event) => {
+            switch (event.keyCode) {
+                case 27: // Escape
+                    hideDropdownList();
+                    break;
+                default:
+                    return null;
+            }
+        };
+        const handleClickOutside = (event) => {
+            if (dropdownRef?.current && !dropdownRef.current.contains(event.target)) {
+                hideDropdownList();
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", keyDownFunction, false);
+    }, [props, wrapperRef]);
+
     const getThemeErrorInputStyle = (theme) => {
         return {
             boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, "warning")}`,
@@ -49,20 +84,54 @@ const Select = (props) => {
         }
     };
 
+    const createOptionObject = (option) => {
+        if (typeof option === "object") {
+            return {
+                key: option.key ? option.key : "",
+                value: option.value ? option.value : ""
+            };
+        } else {
+            return {
+                key: option,
+                value: option
+            };
+        }
+    };
+
+    const renderSelectedValues = (selectElementProps) => {
+        const selectedValues = selectElementProps.defaultValue || selectElementProps.value;
+        return selectedValues?.length
+            ? selectedValues
+                  .map((value) => {
+                      return value;
+                  })
+                  .join(", ")
+            : null;
+    };
+
+    const renderCheckBoxElements = (options, selectElementProps) => {
+        return options.map((option, index) => {
+            let optionObject = createOptionObject(option);
+            const selectedValues = selectElementProps.defaultValue || selectElementProps.value;
+            const isSelected = selectedValues && selectedValues.length && selectedValues.includes(optionObject.value);
+            return (
+                <CheckBoxListItem
+                    key={index}
+                    id={`${props.id}-${index}`}
+                    value={optionObject.value}
+                    checked={isSelected}
+                    onChange={() => selectElementProps.onChange(optionObject.value)}
+                    theme={props.theme}
+                >
+                    {optionObject.key}
+                </CheckBoxListItem>
+            );
+        });
+    };
+
     const renderOptionElements = (options) => {
         return options.map((option, key) => {
-            let optionObject = null;
-            if (typeof option === "object") {
-                optionObject = {
-                    key: option.key ? option.key : "",
-                    value: option.value ? option.value : ""
-                };
-            } else {
-                optionObject = {
-                    key: option,
-                    value: option
-                };
-            }
+            let optionObject = createOptionObject(option);
             return (
                 <option value={optionObject.value} key={key}>
                     {optionObject.key}
@@ -131,19 +200,38 @@ const Select = (props) => {
                     {props.label}
                     {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
                 </Label>
+
                 <div
                     className={style.selectContainer}
                     style={{ ...(props.width?.length && { maxWidth: props.width }) }}
                 >
-                    {!props.multiple && (
-                        <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
+                    <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
+                    {props.multiple ? (
+                        <div ref={dropdownRef}>
+                            <div
+                                onClick={() => {
+                                    setShowDropdownList(!showDropdownList);
+                                }}
+                                className={style.multipleSelectElement}
+                            >
+                                {renderSelectedValues(selectElementProps)}
+                            </div>
+                            {showDropdownList ? (
+                                <div className={style.multipleSelectDropdown}>
+                                    <CheckBoxList compact>
+                                        {renderCheckBoxElements(props.options, selectElementProps)}
+                                    </CheckBoxList>
+                                </div>
+                            ) : null}
+                        </div>
+                    ) : (
+                        <select {...selectElementProps}>
+                            {renderPlaceholderOption(props.placeholder, props.placeholderValue)}
+                            {renderOptionElements(props.options)}
+                        </select>
                     )}
-
-                    <select {...selectElementProps}>
-                        {renderPlaceholderOption(props.placeholder, props.placeholderValue)}
-                        {renderOptionElements(props.options)}
-                    </select>
                 </div>
+
                 <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
             </div>
         );

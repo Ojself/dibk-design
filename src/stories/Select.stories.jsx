@@ -161,7 +161,8 @@ MultipleWithSelectedValue.args = {
     label: "Multiple select with label and selected value",
     value: ["option 1", "value 3"],
     multiple: true,
-    options
+    options,
+    onChange: (value) => {console.log(value);}
 };
 
 export const MultipleWithDefaultValue = Template.bind({});
