@@ -39,7 +39,17 @@
             }
         }
 
-        select {
+        .multipleSelectDropdown {
+            @include border-radius(4px);
+            @include box-shadow(rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px);
+            width: 100%;
+            position: absolute;
+            background-color: #fff;
+            padding: 6px 10px;
+        }
+
+        select,
+        .multipleSelectElement {
             @include border-radius(0);
             @include transition(border-color 0.15s linear);
             @include appearance(none);
@@ -51,7 +61,7 @@
             padding: 10px 40px 10px 10px;
             border: 1px solid #afaba8;
             border-radius: 0;
-            line-height: normal;
+            line-height: 1.7;
             background: white;
             cursor: pointer;
             @media only screen and (min-width: $screen-sm) {

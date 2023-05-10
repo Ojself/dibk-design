@@ -4,23 +4,64 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
+var _CheckBoxList = _interopRequireDefault(require("./CheckBoxList"));
+var _CheckBoxListItem = _interopRequireDefault(require("./CheckBoxListItem"));
 var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
 var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Select = function Select(props) {
+  var _useState = (0, _react.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showDropdownList = _useState2[0],
+    setShowDropdownList = _useState2[1];
+  var dropdownRef = (0, _react.useRef)();
+  var wrapperRef = (0, _react.useCallback)(function (element) {
+    if (!!element) {
+      (0, _helpers.addFocusTrapInsideElement)(element);
+    }
+  }, []);
+  var hideDropdownList = function hideDropdownList() {
+    setShowDropdownList(false);
+  };
+  (0, _react.useEffect)(function () {
+    var keyDownFunction = function keyDownFunction(event) {
+      switch (event.keyCode) {
+        case 27:
+          hideDropdownList();
+          break;
+        default:
+          return null;
+      }
+    };
+    var handleClickOutside = function handleClickOutside(event) {
+      if (dropdownRef !== null && dropdownRef !== void 0 && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        hideDropdownList();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", keyDownFunction, false);
+  }, [props, wrapperRef]);
   var getThemeErrorInputStyle = function getThemeErrorInputStyle(theme) {
     return {
       boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, "warning")),
@@ -48,20 +89,45 @@ var Select = function Select(props) {
       return selectedOption;
     }
   };
+  var createOptionObject = function createOptionObject(option) {
+    if (_typeof(option) === "object") {
+      return {
+        key: option.key ? option.key : "",
+        value: option.value ? option.value : ""
+      };
+    } else {
+      return {
+        key: option,
+        value: option
+      };
+    }
+  };
+  var renderSelectedValues = function renderSelectedValues(selectElementProps) {
+    var selectedValues = selectElementProps.defaultValue || selectElementProps.value;
+    return selectedValues !== null && selectedValues !== void 0 && selectedValues.length ? selectedValues.map(function (value) {
+      return value;
+    }).join(", ") : null;
+  };
+  var renderCheckBoxElements = function renderCheckBoxElements(options, selectElementProps) {
+    return options.map(function (option, index) {
+      var optionObject = createOptionObject(option);
+      var selectedValues = selectElementProps.defaultValue || selectElementProps.value;
+      var isSelected = selectedValues && selectedValues.length && selectedValues.includes(optionObject.value);
+      return _react.default.createElement(_CheckBoxListItem.default, {
+        key: index,
+        id: "".concat(props.id, "-").concat(index),
+        value: optionObject.value,
+        checked: isSelected,
+        onChange: function onChange() {
+          return selectElementProps.onChange(optionObject.value);
+        },
+        theme: props.theme
+      }, optionObject.key);
+    });
+  };
   var renderOptionElements = function renderOptionElements(options) {
     return options.map(function (option, key) {
-      var optionObject = null;
-      if (_typeof(option) === "object") {
-        optionObject = {
-          key: option.key ? option.key : "",
-          value: option.value ? option.value : ""
-        };
-      } else {
-        optionObject = {
-          key: option,
-          value: option
-        };
-      }
+      var optionObject = createOptionObject(option);
       return _react.default.createElement("option", {
         value: optionObject.value,
         key: key
@@ -110,10 +176,21 @@ var Select = function Select(props) {
       style: _objectSpread({}, ((_props$width2 = props.width) === null || _props$width2 === void 0 ? void 0 : _props$width2.length) && {
         maxWidth: props.width
       })
-    }, !props.multiple && _react.default.createElement("span", {
+    }, _react.default.createElement("span", {
       className: _SelectModule.default.selectListArrow,
       style: getThemeArrowStyle(props.theme)
-    }), _react.default.createElement("select", selectElementProps, renderPlaceholderOption(props.placeholder, props.placeholderValue), renderOptionElements(props.options))), _react.default.createElement(_ErrorMessage.default, {
+    }), props.multiple ? _react.default.createElement("div", {
+      ref: dropdownRef
+    }, _react.default.createElement("div", {
+      onClick: function onClick() {
+        setShowDropdownList(!showDropdownList);
+      },
+      className: _SelectModule.default.multipleSelectElement
+    }, renderSelectedValues(selectElementProps)), showDropdownList ? _react.default.createElement("div", {
+      className: _SelectModule.default.multipleSelectDropdown
+    }, _react.default.createElement(_CheckBoxList.default, {
+      compact: true
+    }, renderCheckBoxElements(props.options, selectElementProps))) : null) : _react.default.createElement("select", selectElementProps, renderPlaceholderOption(props.placeholder, props.placeholderValue), renderOptionElements(props.options))), _react.default.createElement(_ErrorMessage.default, {
       id: getErrorElementId(),
       content: props.errorMessage,
       theme: props.theme
