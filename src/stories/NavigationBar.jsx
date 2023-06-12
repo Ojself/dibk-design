@@ -107,7 +107,7 @@ const NavigationBar = (props) => {
     return (
         <div className={style.navigationBarContainer}>
             {props.mainContentId?.length && (
-                <a id="main-content-link" href={`#${props.mainContentId}`} class={style.mainContentLink}>
+                <a id="main-content-link" href={`#${props.mainContentId}`} className={style.mainContentLink}>
                     <span id="main-content-link-text">Hopp til hovedinnhold</span>
                 </a>
             )}
