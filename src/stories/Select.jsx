@@ -98,14 +98,15 @@ const Select = (props) => {
         }
     };
 
-    const renderSelectedValues = (selectElementProps) => {
+    const renderSelectedValues = (options, selectElementProps) => {
         const selectedValues = selectElementProps.defaultValue || selectElementProps.value;
         return selectedValues?.length
             ? selectedValues
-                  .map((value) => {
-                      return value;
-                  })
-                  .join(", ")
+                .map((value) => {
+                    const keyForValue = getKeyByValue(value, options);
+                    return keyForValue;
+                })
+                .join(", ")
             : null;
     };
 
@@ -214,7 +215,7 @@ const Select = (props) => {
                                 }}
                                 className={style.multipleSelectElement}
                             >
-                                {renderSelectedValues(selectElementProps)}
+                                {renderSelectedValues(props.options, selectElementProps)}
                             </div>
                             {showDropdownList ? (
                                 <div className={style.multipleSelectDropdown}>
