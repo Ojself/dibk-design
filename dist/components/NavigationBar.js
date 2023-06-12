@@ -112,7 +112,7 @@ var NavigationBar = function NavigationBar(props) {
   }, ((_props$mainContentId = props.mainContentId) === null || _props$mainContentId === void 0 ? void 0 : _props$mainContentId.length) && _react.default.createElement("a", {
     id: "main-content-link",
     href: "#".concat(props.mainContentId),
-    class: _NavigationBarModule.default.mainContentLink
+    className: _NavigationBarModule.default.mainContentLink
   }, _react.default.createElement("span", {
     id: "main-content-link-text"
   }, "Hopp til hovedinnhold")), _react.default.createElement("div", {

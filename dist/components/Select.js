@@ -102,10 +102,11 @@ var Select = function Select(props) {
       };
     }
   };
-  var renderSelectedValues = function renderSelectedValues(selectElementProps) {
+  var renderSelectedValues = function renderSelectedValues(options, selectElementProps) {
     var selectedValues = selectElementProps.defaultValue || selectElementProps.value;
     return selectedValues !== null && selectedValues !== void 0 && selectedValues.length ? selectedValues.map(function (value) {
-      return value;
+      var keyForValue = getKeyByValue(value, options);
+      return keyForValue;
     }).join(", ") : null;
   };
   var renderCheckBoxElements = function renderCheckBoxElements(options, selectElementProps) {
@@ -186,7 +187,7 @@ var Select = function Select(props) {
         setShowDropdownList(!showDropdownList);
       },
       className: _SelectModule.default.multipleSelectElement
-    }, renderSelectedValues(selectElementProps)), showDropdownList ? _react.default.createElement("div", {
+    }, renderSelectedValues(props.options, selectElementProps)), showDropdownList ? _react.default.createElement("div", {
       className: _SelectModule.default.multipleSelectDropdown
     }, _react.default.createElement(_CheckBoxList.default, {
       compact: true
