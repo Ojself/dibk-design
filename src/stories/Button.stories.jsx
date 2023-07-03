@@ -64,6 +64,12 @@ ButtonWithHTMLContent.args = {
     )
 };
 
+export const ButtonWithLink = Template.bind({});
+ButtonWithLink.args = {
+    content: "Button with link",
+    href: "test"
+};
+
 export const ButtonWithReactLink = RouterTemplate.bind({});
 ButtonWithReactLink.args = {
     children: <Link to="/test">Button with React Link</Link>

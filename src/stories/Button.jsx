@@ -39,7 +39,8 @@ const Button = (props) => {
 
     let buttonProps = {
         ...props,
-        "aria-invalid": props.hasErrors || null
+        "aria-invalid": props.hasErrors || null,
+        href: !props.disabled && props.href?.length ? props.href : null
     };
     delete buttonProps.noHover;
     delete buttonProps.hasErrors;
@@ -68,7 +69,8 @@ const Button = (props) => {
             const childElementCopy = React.cloneElement(childElement, {
                 className: className,
                 style: themeStyle,
-                key: `button-${index}`
+                key: `button-${index}`,
+                to: !buttonProps.disabled && childElement?.props?.to ? childElement?.props?.to : null
             });
             return childElementCopy;
         });
@@ -83,7 +85,7 @@ const Button = (props) => {
                 {props.content}
             </label>
         );
-    } else if (props.href?.length) {
+    } else if (props.href?.length && !props.disabled) {
         return (
             <a {...buttonProps} className={className} style={themeStyle}>
                 {props.content || props.children}
