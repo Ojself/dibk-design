@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import Button from "./Button";
+import { BrowserRouter, Link } from "react-router-dom";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -17,6 +18,12 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <Button {...args}></Button>;
+
+const RouterTemplate = (args) => (
+    <BrowserRouter>
+        <Button {...args}></Button>
+    </BrowserRouter>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -55,6 +62,11 @@ ButtonWithHTMLContent.args = {
             Button with <b>HTML</b> content
         </span>
     )
+};
+
+export const ButtonWithReactLink = RouterTemplate.bind({});
+ButtonWithReactLink.args = {
+    children: <Link to="/test">Button with React Link</Link>
 };
 
 export const InputButton = Template.bind({});

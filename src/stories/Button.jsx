@@ -1,5 +1,5 @@
 // Dependencies
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 // Functions
@@ -8,7 +8,7 @@ import {
     getThemePaletteTextColor,
     getThemePaletteBorderColor
 } from "../functions/theme";
-import { classNameArrayToClassNameString } from "../functions/helpers";
+import { classNameArrayToClassNameString, cloneThroughFragments } from "../functions/helpers";
 
 // Stylesheets
 import style from "./Button.module.scss";
@@ -56,11 +56,23 @@ const Button = (props) => {
         style[props.size],
         getArrowClass(props.arrow),
         props.theme && style.hasTheme,
-        props.noHover || props?.inputType === 'radio' ? style.noHover : null,
+        props.noHover || props?.inputType === "radio" ? style.noHover : null,
         props.rounded && style.rounded,
         props.hasErrors && style.hasErrors,
         props.disabled && style.disabled
     ]);
+
+    const renderChildElements = (childElements) => {
+        const childElementsthroughFragments = cloneThroughFragments(childElements);
+        return childElementsthroughFragments.map((childElement, index) => {
+            const childElementCopy = React.cloneElement(childElement, {
+                className: className,
+                style: themeStyle,
+                key: `button-${index}`
+            });
+            return childElementCopy;
+        });
+    };
 
     if (props.inputType === "button") {
         return <input {...buttonProps} className={className} style={themeStyle} type="button" value={props.content} />;
@@ -77,6 +89,8 @@ const Button = (props) => {
                 {props.content || props.children}
             </a>
         );
+    } else if (props?.children?.type?.displayName === "Link") {
+        return <Fragment>{renderChildElements(React.Children.toArray(props.children))}</Fragment>;
     } else {
         return (
             <button {...buttonProps} className={className} style={themeStyle}>
