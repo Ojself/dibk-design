@@ -4,12 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _theme = require("../functions/theme");
 var _helpers = require("../functions/helpers");
 var _ButtonModule = _interopRequireDefault(require("./Button.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -18,7 +20,7 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Button = function Button(props) {
-  var _props$href;
+  var _props$href, _props$children, _props$children$type;
   var getArrowClass = function getArrowClass(arrow) {
     switch (arrow) {
       case "left":
@@ -49,7 +51,18 @@ var Button = function Button(props) {
   delete buttonProps.arrow;
   var buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
   var themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
-  var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === 'radio' ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled]);
+  var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled]);
+  var renderChildElements = function renderChildElements(childElements) {
+    var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
+    return childElementsthroughFragments.map(function (childElement, index) {
+      var childElementCopy = _react.default.cloneElement(childElement, {
+        className: className,
+        style: themeStyle,
+        key: "button-".concat(index)
+      });
+      return childElementCopy;
+    });
+  };
   if (props.inputType === "button") {
     return _react.default.createElement("input", _extends({}, buttonProps, {
       className: className,
@@ -69,6 +82,8 @@ var Button = function Button(props) {
       className: className,
       style: themeStyle
     }), props.content || props.children);
+  } else if ((props === null || props === void 0 ? void 0 : (_props$children = props.children) === null || _props$children === void 0 ? void 0 : (_props$children$type = _props$children.type) === null || _props$children$type === void 0 ? void 0 : _props$children$type.displayName) === "Link") {
+    return _react.default.createElement(_react.Fragment, null, renderChildElements(_react.default.Children.toArray(props.children)));
   } else {
     return _react.default.createElement("button", _extends({}, buttonProps, {
       className: className,
