@@ -20,7 +20,7 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Button = function Button(props) {
-  var _props$href, _props$children, _props$children$type;
+  var _props$href, _props$href2, _props$children, _props$children$type;
   var getArrowClass = function getArrowClass(arrow) {
     switch (arrow) {
       case "left":
@@ -40,7 +40,8 @@ var Button = function Button(props) {
     };
   };
   var buttonProps = _objectSpread(_objectSpread({}, props), {}, {
-    "aria-invalid": props.hasErrors || null
+    "aria-invalid": props.hasErrors || null,
+    href: !props.disabled && (_props$href = props.href) !== null && _props$href !== void 0 && _props$href.length ? props.href : null
   });
   delete buttonProps.noHover;
   delete buttonProps.hasErrors;
@@ -55,10 +56,12 @@ var Button = function Button(props) {
   var renderChildElements = function renderChildElements(childElements) {
     var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map(function (childElement, index) {
+      var _childElement$props, _childElement$props2;
       var childElementCopy = _react.default.cloneElement(childElement, {
         className: className,
         style: themeStyle,
-        key: "button-".concat(index)
+        key: "button-".concat(index),
+        to: !buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props = childElement.props) !== null && _childElement$props !== void 0 && _childElement$props.to ? childElement === null || childElement === void 0 ? void 0 : (_childElement$props2 = childElement.props) === null || _childElement$props2 === void 0 ? void 0 : _childElement$props2.to : null
       });
       return childElementCopy;
     });
@@ -77,7 +80,7 @@ var Button = function Button(props) {
       style: themeStyle,
       type: "radio"
     })), props.content);
-  } else if ((_props$href = props.href) !== null && _props$href !== void 0 && _props$href.length) {
+  } else if ((_props$href2 = props.href) !== null && _props$href2 !== void 0 && _props$href2.length && !props.disabled) {
     return _react.default.createElement("a", _extends({}, buttonProps, {
       className: className,
       style: themeStyle
