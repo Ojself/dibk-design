@@ -53,17 +53,26 @@ var Button = function Button(props) {
   var buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
   var themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
   var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled]);
-  var renderChildElements = function renderChildElements(childElements) {
+  var renderReactLinkElements = function renderReactLinkElements(childElements) {
     var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map(function (childElement, index) {
-      var _childElement$props, _childElement$props2;
-      var childElementCopy = _react.default.cloneElement(childElement, {
-        className: className,
-        style: themeStyle,
-        key: "button-".concat(index),
-        to: !buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props = childElement.props) !== null && _childElement$props !== void 0 && _childElement$props.to ? childElement === null || childElement === void 0 ? void 0 : (_childElement$props2 = childElement.props) === null || _childElement$props2 === void 0 ? void 0 : _childElement$props2.to : null
-      });
-      return childElementCopy;
+      var _childElement$props, _childElement$props$t;
+      if (!buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props = childElement.props) !== null && _childElement$props !== void 0 && (_childElement$props$t = _childElement$props.to) !== null && _childElement$props$t !== void 0 && _childElement$props$t.length) {
+        var _childElement$props2, _childElement$props3;
+        var childElementCopy = _react.default.cloneElement(childElement, {
+          className: className,
+          style: themeStyle,
+          key: "button-".concat(index),
+          to: !buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props2 = childElement.props) !== null && _childElement$props2 !== void 0 && _childElement$props2.to ? childElement === null || childElement === void 0 ? void 0 : (_childElement$props3 = childElement.props) === null || _childElement$props3 === void 0 ? void 0 : _childElement$props3.to : null
+        });
+        return childElementCopy;
+      } else {
+        return _react.default.createElement("button", _extends({}, buttonProps, {
+          key: "button-".concat(index),
+          className: className,
+          style: themeStyle
+        }), props.content || childElement.props.children);
+      }
     });
   };
   if (props.inputType === "button") {
@@ -86,7 +95,7 @@ var Button = function Button(props) {
       style: themeStyle
     }), props.content || props.children);
   } else if ((props === null || props === void 0 ? void 0 : (_props$children = props.children) === null || _props$children === void 0 ? void 0 : (_props$children$type = _props$children.type) === null || _props$children$type === void 0 ? void 0 : _props$children$type.displayName) === "Link") {
-    return _react.default.createElement(_react.Fragment, null, renderChildElements(_react.default.Children.toArray(props.children)));
+    return _react.default.createElement(_react.Fragment, null, renderReactLinkElements(_react.default.Children.toArray(props.children)));
   } else {
     return _react.default.createElement("button", _extends({}, buttonProps, {
       className: className,
