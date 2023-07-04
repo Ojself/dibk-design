@@ -63,16 +63,24 @@ const Button = (props) => {
         props.disabled && style.disabled
     ]);
 
-    const renderChildElements = (childElements) => {
+    const renderReactLinkElements = (childElements) => {
         const childElementsthroughFragments = cloneThroughFragments(childElements);
         return childElementsthroughFragments.map((childElement, index) => {
-            const childElementCopy = React.cloneElement(childElement, {
-                className: className,
-                style: themeStyle,
-                key: `button-${index}`,
-                to: !buttonProps.disabled && childElement?.props?.to ? childElement?.props?.to : null
-            });
-            return childElementCopy;
+            if (!buttonProps.disabled && childElement?.props?.to?.length) {
+                const childElementCopy = React.cloneElement(childElement, {
+                    className: className,
+                    style: themeStyle,
+                    key: `button-${index}`,
+                    to: !buttonProps.disabled && childElement?.props?.to ? childElement?.props?.to : null
+                });
+                return childElementCopy;
+            } else {
+                return (
+                    <button {...buttonProps} key={`button-${index}`} className={className} style={themeStyle}>
+                        {props.content || childElement.props.children}
+                    </button>
+                );
+            }
         });
     };
 
@@ -92,7 +100,7 @@ const Button = (props) => {
             </a>
         );
     } else if (props?.children?.type?.displayName === "Link") {
-        return <Fragment>{renderChildElements(React.Children.toArray(props.children))}</Fragment>;
+        return <Fragment>{renderReactLinkElements(React.Children.toArray(props.children))}</Fragment>;
     } else {
         return (
             <button {...buttonProps} className={className} style={themeStyle}>

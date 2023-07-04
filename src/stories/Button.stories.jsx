@@ -75,6 +75,12 @@ ButtonWithReactLink.args = {
     children: <Link to="/test">Button with React Link</Link>
 };
 
+export const DisabledButtonWithReactLink = RouterTemplate.bind({});
+DisabledButtonWithReactLink.args = {
+    disabled: true,
+    children: <Link to="/test">Disabled button with React Link</Link>
+};
+
 export const InputButton = Template.bind({});
 InputButton.args = {
     content: "InputButton",
