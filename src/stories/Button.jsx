@@ -66,7 +66,7 @@ const Button = (props) => {
     const renderReactLinkElements = (childElements) => {
         const childElementsthroughFragments = cloneThroughFragments(childElements);
         return childElementsthroughFragments.map((childElement, index) => {
-            if (!buttonProps.disabled && childElement?.props?.to?.length) {
+            if (!buttonProps.disabled && !!childElement?.props?.to) {
                 const childElementCopy = React.cloneElement(childElement, {
                     className: className,
                     style: themeStyle,
