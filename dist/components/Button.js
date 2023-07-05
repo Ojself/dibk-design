@@ -20,7 +20,7 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Button = function Button(props) {
-  var _props$href, _props$href2, _props$children, _props$children$type;
+  var _props$href, _props$href2, _props$children;
   var getArrowClass = function getArrowClass(arrow) {
     switch (arrow) {
       case "left":
@@ -56,14 +56,14 @@ var Button = function Button(props) {
   var renderReactLinkElements = function renderReactLinkElements(childElements) {
     var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map(function (childElement, index) {
-      var _childElement$props, _childElement$props$t;
-      if (!buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props = childElement.props) !== null && _childElement$props !== void 0 && (_childElement$props$t = _childElement$props.to) !== null && _childElement$props$t !== void 0 && _childElement$props$t.length) {
+      var _childElement$props;
+      if (!buttonProps.disabled && !!(childElement !== null && childElement !== void 0 && (_childElement$props = childElement.props) !== null && _childElement$props !== void 0 && _childElement$props.to)) {
         var _childElement$props2, _childElement$props3;
         var childElementCopy = _react.default.cloneElement(childElement, {
           className: className,
           style: themeStyle,
           key: "button-".concat(index),
-          to: !buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props2 = childElement.props) !== null && _childElement$props2 !== void 0 && _childElement$props2.to ? childElement === null || childElement === void 0 ? void 0 : (_childElement$props3 = childElement.props) === null || _childElement$props3 === void 0 ? void 0 : _childElement$props3.to : null
+          to: !buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props2 = childElement.props) !== null && _childElement$props2 !== void 0 && _childElement$props2.to ? childElement === null || childElement === void 0 || (_childElement$props3 = childElement.props) === null || _childElement$props3 === void 0 ? void 0 : _childElement$props3.to : null
         });
         return childElementCopy;
       } else {
@@ -94,7 +94,7 @@ var Button = function Button(props) {
       className: className,
       style: themeStyle
     }), props.content || props.children);
-  } else if ((props === null || props === void 0 ? void 0 : (_props$children = props.children) === null || _props$children === void 0 ? void 0 : (_props$children$type = _props$children.type) === null || _props$children$type === void 0 ? void 0 : _props$children$type.displayName) === "Link") {
+  } else if ((props === null || props === void 0 || (_props$children = props.children) === null || _props$children === void 0 || (_props$children = _props$children.type) === null || _props$children === void 0 ? void 0 : _props$children.displayName) === "Link") {
     return _react.default.createElement(_react.Fragment, null, renderReactLinkElements(_react.default.Children.toArray(props.children)));
   } else {
     return _react.default.createElement("button", _extends({}, buttonProps, {
