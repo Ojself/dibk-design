@@ -99,7 +99,7 @@ const Button = (props) => {
                 {props.content || props.children}
             </a>
         );
-    } else if (props?.children?.type?.displayName === "Link") {
+    } else if (props?.children?.type?.render?.name === "LinkWithRef") {
         return <Fragment>{renderReactLinkElements(React.Children.toArray(props.children))}</Fragment>;
     } else {
         return (
