@@ -94,7 +94,7 @@ var Button = function Button(props) {
       className: className,
       style: themeStyle
     }), props.content || props.children);
-  } else if ((props === null || props === void 0 || (_props$children = props.children) === null || _props$children === void 0 || (_props$children = _props$children.type) === null || _props$children === void 0 ? void 0 : _props$children.displayName) === "Link") {
+  } else if ((props === null || props === void 0 || (_props$children = props.children) === null || _props$children === void 0 || (_props$children = _props$children.type) === null || _props$children === void 0 || (_props$children = _props$children.render) === null || _props$children === void 0 ? void 0 : _props$children.name) === "LinkWithRef") {
     return _react.default.createElement(_react.Fragment, null, renderReactLinkElements(_react.default.Children.toArray(props.children)));
   } else {
     return _react.default.createElement("button", _extends({}, buttonProps, {
