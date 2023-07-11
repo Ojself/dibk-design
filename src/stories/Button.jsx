@@ -12,6 +12,7 @@ import { classNameArrayToClassNameString, cloneThroughFragments } from "../funct
 
 // Stylesheets
 import style from "./Button.module.scss";
+import { Link } from "react-router-dom";
 
 /**
  * Primary UI component for user interaction
@@ -83,7 +84,6 @@ const Button = (props) => {
             }
         });
     };
-
     if (props.inputType === "button") {
         return <input {...buttonProps} className={className} style={themeStyle} type="button" value={props.content} />;
     } else if (props.inputType === "radio") {
@@ -99,7 +99,7 @@ const Button = (props) => {
                 {props.content || props.children}
             </a>
         );
-    } else if (props?.children?.type?.render?.name === "LinkWithRef") {
+    } else if (props?.children?.type === Link) {
         return <Fragment>{renderReactLinkElements(React.Children.toArray(props.children))}</Fragment>;
     } else {
         return (
