@@ -26,3 +26,9 @@ Inline.args = {
     children: "Inline label",
     inline: true
 };
+
+export const LabelStyledSpan = Template.bind({});
+LabelStyledSpan.args = {
+    children: "Label styled span",
+    htmlTag: "span"
+};
