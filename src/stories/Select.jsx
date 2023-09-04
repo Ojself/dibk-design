@@ -143,7 +143,7 @@ const Select = (props) => {
 
     const renderPlaceholderOption = (placeholder, placeholderValue) => {
         return placeholder ? (
-            <option value={placeholderValue} disabled>
+            <option value={placeholderValue} disabled selected>
                 {placeholder}
             </option>
         ) : (
