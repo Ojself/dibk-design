@@ -143,7 +143,7 @@ const Select = (props) => {
 
     const renderPlaceholderOption = (placeholder, placeholderValue) => {
         return placeholder ? (
-            <option value={placeholderValue} disabled selected>
+            <option value={placeholderValue || ""} disabled>
                 {placeholder}
             </option>
         ) : (
@@ -180,7 +180,7 @@ const Select = (props) => {
             multiple: props.multiple,
             required: props.required,
             disabled: props.disabled,
-            [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
+            [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value || "",
             onChange: props.onChange,
             id: props.id,
             role: props.role,
