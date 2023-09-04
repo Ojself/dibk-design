@@ -137,9 +137,8 @@ var Select = function Select(props) {
   };
   var renderPlaceholderOption = function renderPlaceholderOption(placeholder, placeholderValue) {
     return placeholder ? _react.default.createElement("option", {
-      value: placeholderValue,
-      disabled: true,
-      selected: true
+      value: placeholderValue || "",
+      disabled: true
     }, placeholder) : "";
   };
   var getErrorElementId = function getErrorElementId() {
@@ -164,7 +163,7 @@ var Select = function Select(props) {
       multiple: props.multiple,
       required: props.required,
       disabled: props.disabled
-    }, _defineProperty(_selectElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_selectElementProps, "onChange", props.onChange), _defineProperty(_selectElementProps, "id", props.id), _defineProperty(_selectElementProps, "role", props.role), _defineProperty(_selectElementProps, "key", "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_selectElementProps, "className", className), _defineProperty(_selectElementProps, "aria-describedby", props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null), _defineProperty(_selectElementProps, "aria-invalid", props.hasErrors ? "true" : null), _defineProperty(_selectElementProps, "style", styleRules), _selectElementProps);
+    }, _defineProperty(_selectElementProps, defaultValue ? "defaultValue" : "value", defaultValue || props.value || ""), _defineProperty(_selectElementProps, "onChange", props.onChange), _defineProperty(_selectElementProps, "id", props.id), _defineProperty(_selectElementProps, "role", props.role), _defineProperty(_selectElementProps, "key", "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6))), _defineProperty(_selectElementProps, "className", className), _defineProperty(_selectElementProps, "aria-describedby", props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null), _defineProperty(_selectElementProps, "aria-invalid", props.hasErrors ? "true" : null), _defineProperty(_selectElementProps, "style", styleRules), _selectElementProps);
     return _react.default.createElement("div", {
       className: _SelectModule.default.select
     }, _react.default.createElement(_Label.default, {
