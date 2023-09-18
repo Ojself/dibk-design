@@ -15,11 +15,14 @@ var CheckBoxList = function CheckBoxList(props) {
   var renderChildElements = function renderChildElements(childElements) {
     var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map(function (childElement, index) {
-      var childElementCopy = _react.default.cloneElement(childElement, {
+      var _childElement$type;
+      var isCheckBoxListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem";
+      var childElementProps = isCheckBoxListItem ? {
         requiredGroup: props.required,
         compact: props.compact,
         key: "checkboxListItem-".concat(index)
-      });
+      } : null;
+      var childElementCopy = _react.default.cloneElement(childElement, childElementProps);
       return childElementCopy;
     });
   };
