@@ -73,27 +73,39 @@ const NavigationBar = (props) => {
         return !!listItems?.length && <ul className={style.secondaryList}>{listItems}</ul>;
     };
 
-    const renderLogo = (logoLink) => {
+    const renderLogo = (logoLink, logoLinkTitle) => {
         const themeLogo = getThemeLogo(props.theme);
         const themeAppName = getThemeAppName(props.theme);
 
-        const logoElement =
-            themeLogo && themeAppName ? (
-                <img alt={`${themeAppName} logo`} src={themeLogo} style={getLogoThemeStyle(props.theme)} />
+        const getLogoAltText = () => {
+            if (logoLink && logoLinkTitle) {
+                return "";
+            } else if (themeLogo && themeAppName) {
+                return `${themeAppName} logo`;
+            } else {
+                return "DIBK logo";
+            }
+        };
+
+        const renderLogoElement = () => {
+            const altText = getLogoAltText();
+            return themeLogo ? (
+                <img alt={altText} src={themeLogo} style={getLogoThemeStyle(props.theme)} />
             ) : (
-                <img alt="DIBK logo" src={logo} />
+                <img alt={altText} src={logo} />
             );
+        };
 
         const logoLinkProps = {
             target: props.openLogoLinkInNewTab ? "_blank" : null,
             rel: props.openLogoLinkInNewTab ? "noopener noreferrer" : null
         };
         return logoLink && logoLink.length ? (
-            <a {...logoLinkProps} href={logoLink}>
-                {logoElement}
+            <a {...logoLinkProps} href={logoLink} title={logoLinkTitle}>
+                {renderLogoElement()}
             </a>
         ) : (
-            logoElement
+            renderLogoElement()
         );
     };
 
@@ -112,7 +124,7 @@ const NavigationBar = (props) => {
                 </a>
             )}
             <div className={style.navigationBar} style={navigationBarThemeStyle}>
-                <div className={style.logoContainer}>{renderLogo(props.logoLink)}</div>
+                <div className={style.logoContainer}>{renderLogo(props.logoLink, props.logoLinkTitle)}</div>
                 {!!props.children && <div className={style.childElements}>{props.children}</div>}
                 {hasListItems && (
                     <button
@@ -151,6 +163,8 @@ NavigationBar.propTypes = {
     secondaryListItems: PropTypes.array,
     /** Link for logo */
     logoLink: PropTypes.string,
+    /** Title for the logo link */
+    logoLinkTitle: PropTypes.string,
     /** Opens logo link in a new tab on click */
     openLogoLinkInNewTab: PropTypes.bool,
     /** Theme for navigation bar */

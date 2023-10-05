@@ -40,6 +40,7 @@ Default.args = {};
 export const WithLogoLink = Template.bind({});
 WithLogoLink.args = {
     logoLink: "https://dibk.no/",
+    logoLinkTitle: "Gå til forside",
     openLogoLinkInNewTab: true,
     mainContentId: "main-content"
 };
