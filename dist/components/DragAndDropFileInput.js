@@ -137,5 +137,4 @@ DragAndDropFileInput.defaultProps = {
   errorMessage: "",
   required: false
 };
-var _default = DragAndDropFileInput;
-exports.default = _default;
+var _default = exports.default = DragAndDropFileInput;

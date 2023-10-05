@@ -26,5 +26,4 @@ ErrorBox.propTypes = {
 ErrorBox.defaultProps = {
   children: ""
 };
-var _default = ErrorBox;
-exports.default = _default;
+var _default = exports.default = ErrorBox;

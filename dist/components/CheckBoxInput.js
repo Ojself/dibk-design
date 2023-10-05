@@ -67,5 +67,4 @@ CheckBoxInput.defaultProps = {
   hasErrors: false,
   checkmarkCharacter: "✔"
 };
-var _default = CheckBoxInput;
-exports.default = _default;
+var _default = exports.default = CheckBoxInput;

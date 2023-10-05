@@ -28,5 +28,4 @@ Table.propTypes = {
   captionAlign: _propTypes.default.oneOf(["left", "center", "right"]),
   captionSide: _propTypes.default.oneOf(["top", "bottom"])
 };
-var _default = Table;
-exports.default = _default;
+var _default = exports.default = Table;

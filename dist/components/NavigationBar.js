@@ -83,24 +83,37 @@ var NavigationBar = function NavigationBar(props) {
       className: _NavigationBarModule.default.secondaryList
     }, listItems);
   };
-  var renderLogo = function renderLogo(logoLink) {
+  var renderLogo = function renderLogo(logoLink, logoLinkTitle) {
     var themeLogo = (0, _theme.getThemeLogo)(props.theme);
     var themeAppName = (0, _theme.getThemeAppName)(props.theme);
-    var logoElement = themeLogo && themeAppName ? _react.default.createElement("img", {
-      alt: "".concat(themeAppName, " logo"),
-      src: themeLogo,
-      style: getLogoThemeStyle(props.theme)
-    }) : _react.default.createElement("img", {
-      alt: "DIBK logo",
-      src: _dibkLogoMobile.default
-    });
+    var getLogoAltText = function getLogoAltText() {
+      if (logoLink && logoLinkTitle) {
+        return "";
+      } else if (themeLogo && themeAppName) {
+        return "".concat(themeAppName, " logo");
+      } else {
+        return "DIBK logo";
+      }
+    };
+    var renderLogoElement = function renderLogoElement() {
+      var altText = getLogoAltText();
+      return themeLogo ? _react.default.createElement("img", {
+        alt: altText,
+        src: themeLogo,
+        style: getLogoThemeStyle(props.theme)
+      }) : _react.default.createElement("img", {
+        alt: altText,
+        src: _dibkLogoMobile.default
+      });
+    };
     var logoLinkProps = {
       target: props.openLogoLinkInNewTab ? "_blank" : null,
       rel: props.openLogoLinkInNewTab ? "noopener noreferrer" : null
     };
     return logoLink && logoLink.length ? _react.default.createElement("a", _extends({}, logoLinkProps, {
-      href: logoLink
-    }), logoElement) : logoElement;
+      href: logoLink,
+      title: logoLinkTitle
+    }), renderLogoElement()) : renderLogoElement();
   };
   var navigationBarThemeStyle = getNavigationBarThemeStyle(props.theme);
   var hamburgerIconLineStyle = {
@@ -120,7 +133,7 @@ var NavigationBar = function NavigationBar(props) {
     style: navigationBarThemeStyle
   }, _react.default.createElement("div", {
     className: _NavigationBarModule.default.logoContainer
-  }, renderLogo(props.logoLink)), !!props.children && _react.default.createElement("div", {
+  }, renderLogo(props.logoLink, props.logoLinkTitle)), !!props.children && _react.default.createElement("div", {
     className: _NavigationBarModule.default.childElements
   }, props.children), hasListItems && _react.default.createElement("button", {
     type: "button",
@@ -153,6 +166,7 @@ NavigationBar.propTypes = {
   primaryListItems: _propTypes.default.array,
   secondaryListItems: _propTypes.default.array,
   logoLink: _propTypes.default.string,
+  logoLinkTitle: _propTypes.default.string,
   openLogoLinkInNewTab: _propTypes.default.bool,
   theme: _propTypes.default.object
 };
@@ -161,5 +175,4 @@ NavigationBar.defaultProps = {
   secondaryListItems: [],
   logoLink: null
 };
-var _default = NavigationBar;
-exports.default = _default;
+var _default = exports.default = NavigationBar;

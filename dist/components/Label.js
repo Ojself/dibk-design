@@ -38,5 +38,4 @@ Label.defaultProps = {
   normalCursor: false,
   htmlTag: "label"
 };
-var _default = Label;
-exports.default = _default;
+var _default = exports.default = Label;

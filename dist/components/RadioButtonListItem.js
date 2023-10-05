@@ -57,5 +57,4 @@ RadioButtonListItem.defaultProps = {
   contentOnly: false,
   hasErrors: false
 };
-var _default = RadioButtonListItem;
-exports.default = _default;
+var _default = exports.default = RadioButtonListItem;

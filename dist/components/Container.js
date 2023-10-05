@@ -12,5 +12,4 @@ var Container = function Container(props) {
     className: _ContainerModule.default.container
   }, props.children);
 };
-var _default = Container;
-exports.default = _default;
+var _default = exports.default = Container;

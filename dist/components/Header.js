@@ -34,5 +34,4 @@ Header.propTypes = {
 Header.defaultProps = {
   size: 1
 };
-var _default = Header;
-exports.default = _default;
+var _default = exports.default = Header;

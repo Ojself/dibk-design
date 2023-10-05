@@ -34,5 +34,4 @@ NavigationBarListItem.propTypes = {
   listItem: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
   theme: _propTypes.default.object
 };
-var _default = NavigationBarListItem;
-exports.default = _default;
+var _default = exports.default = NavigationBarListItem;

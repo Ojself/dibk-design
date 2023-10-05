@@ -133,5 +133,4 @@ InputField.defaultProps = {
   hasErrors: false,
   errorMessage: ""
 };
-var _default = InputField;
-exports.default = _default;
+var _default = exports.default = InputField;

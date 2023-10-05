@@ -23,5 +23,4 @@ LoadingAnimation.defaultProps = {
   active: true,
   message: ""
 };
-var _default = LoadingAnimation;
-exports.default = _default;
+var _default = exports.default = LoadingAnimation;

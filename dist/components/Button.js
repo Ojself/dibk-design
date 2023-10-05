@@ -130,5 +130,4 @@ Button.defaultProps = {
   noHover: false,
   arrow: "none"
 };
-var _default = Button;
-exports.default = _default;
+var _default = exports.default = Button;

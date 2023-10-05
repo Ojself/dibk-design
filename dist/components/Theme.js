@@ -68,5 +68,4 @@ Theme.propTypes = {
   theme: _propTypes.default.object
 };
 Theme.defaultProps = {};
-var _default = Theme;
-exports.default = _default;
+var _default = exports.default = Theme;

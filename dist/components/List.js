@@ -34,5 +34,4 @@ List.defaultProps = {
   ordered: false,
   compact: false
 };
-var _default = List;
-exports.default = _default;
+var _default = exports.default = List;

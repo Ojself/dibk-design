@@ -105,5 +105,4 @@ Textarea.defaultProps = {
   hasErrors: false,
   errorMessage: ""
 };
-var _default = Textarea;
-exports.default = _default;
+var _default = exports.default = Textarea;

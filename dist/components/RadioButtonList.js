@@ -39,5 +39,4 @@ RadioButtonList.propTypes = {
   required: _propTypes.default.bool,
   compact: _propTypes.default.bool
 };
-var _default = RadioButtonList;
-exports.default = _default;
+var _default = exports.default = RadioButtonList;

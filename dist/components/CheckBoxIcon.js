@@ -51,5 +51,4 @@ CheckBoxIcon.defaultProps = {
   hasErrors: false,
   checkmarkCharacter: "✔"
 };
-var _default = CheckBoxIcon;
-exports.default = _default;
+var _default = exports.default = CheckBoxIcon;

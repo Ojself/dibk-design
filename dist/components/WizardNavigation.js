@@ -46,5 +46,4 @@ WizardNavigation.propTypes = {
   activeStepId: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]).isRequired,
   "aria-label": _propTypes.default.string
 };
-var _default = WizardNavigation;
-exports.default = _default;
+var _default = exports.default = WizardNavigation;

@@ -49,5 +49,4 @@ Step.propTypes = {
   activeStepId: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]).isRequired,
   index: _propTypes.default.number.isRequired
 };
-var _default = Step;
-exports.default = _default;
+var _default = exports.default = Step;

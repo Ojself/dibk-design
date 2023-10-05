@@ -16,5 +16,4 @@ var ListItem = function ListItem(props) {
 ListItem.propTypes = {
   elementKey: _propTypes.default.string
 };
-var _default = ListItem;
-exports.default = _default;
+var _default = exports.default = ListItem;

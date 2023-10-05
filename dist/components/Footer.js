@@ -13,5 +13,4 @@ var Footer = function Footer(props) {
     className: _FooterModule.default.footer
   }, _react.default.createElement(_Container.default, null, props.children));
 };
-var _default = Footer;
-exports.default = _default;
+var _default = exports.default = Footer;

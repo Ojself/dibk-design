@@ -66,5 +66,4 @@ Accordion.defaultProps = {
   color: "default",
   expanded: false
 };
-var _default = Accordion;
-exports.default = _default;
+var _default = exports.default = Accordion;

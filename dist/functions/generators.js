@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.generateRandomString = void 0;
-var generateRandomString = function generateRandomString(length) {
+var generateRandomString = exports.generateRandomString = function generateRandomString(length) {
   var result = '';
   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
@@ -13,4 +13,3 @@ var generateRandomString = function generateRandomString(length) {
   }
   return result;
 };
-exports.generateRandomString = generateRandomString;

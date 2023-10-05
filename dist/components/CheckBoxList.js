@@ -39,5 +39,4 @@ CheckBoxList.propTypes = {
   required: _propTypes.default.bool,
   compact: _propTypes.default.bool
 };
-var _default = CheckBoxList;
-exports.default = _default;
+var _default = exports.default = CheckBoxList;

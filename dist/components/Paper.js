@@ -21,5 +21,4 @@ Paper.defaultProps = {
   noMargin: false,
   noPadding: false
 };
-var _default = Paper;
-exports.default = _default;
+var _default = exports.default = Paper;

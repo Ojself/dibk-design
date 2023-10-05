@@ -68,5 +68,4 @@ Dialog.propTypes = {
 Dialog.defaultProps = {
   maxWidth: "none"
 };
-var _default = Dialog;
-exports.default = _default;
+var _default = exports.default = Dialog;

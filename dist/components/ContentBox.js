@@ -53,5 +53,4 @@ ContentBox.defaultProps = {
   content: "",
   color: "default"
 };
-var _default = ContentBox;
-exports.default = _default;
+var _default = exports.default = ContentBox;

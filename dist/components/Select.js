@@ -240,5 +240,4 @@ Select.defaultProps = {
   hasErrors: false,
   errorMessage: ""
 };
-var _default = Select;
-exports.default = _default;
+var _default = exports.default = Select;

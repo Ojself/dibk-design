@@ -31,5 +31,4 @@ ProgressBar.defaultProps = {
   progress: 0,
   hasErrors: false
 };
-var _default = ProgressBar;
-exports.default = _default;
+var _default = exports.default = ProgressBar;

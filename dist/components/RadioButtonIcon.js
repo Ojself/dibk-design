@@ -43,5 +43,4 @@ RadioButtonIcon.defaultProps = {
   disabled: false,
   hasErrors: false
 };
-var _default = RadioButtonIcon;
-exports.default = _default;
+var _default = exports.default = RadioButtonIcon;

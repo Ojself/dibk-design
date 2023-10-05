@@ -36,5 +36,4 @@ ErrorMessage.propTypes = {
 ErrorMessage.defaultProps = {
   content: ""
 };
-var _default = ErrorMessage;
-exports.default = _default;
+var _default = exports.default = ErrorMessage;

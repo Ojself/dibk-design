@@ -11,14 +11,13 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var classNameArrayToClassNameString = function classNameArrayToClassNameString(classNameArray) {
+var classNameArrayToClassNameString = exports.classNameArrayToClassNameString = function classNameArrayToClassNameString(classNameArray) {
   var _classNameArray$filte;
   return (classNameArray === null || classNameArray === void 0 || (_classNameArray$filte = classNameArray.filter(function (className) {
     return className;
   })) === null || _classNameArray$filte === void 0 ? void 0 : _classNameArray$filte.join(" ")) || "";
 };
-exports.classNameArrayToClassNameString = classNameArrayToClassNameString;
-var cloneThroughFragments = function cloneThroughFragments(children) {
+var cloneThroughFragments = exports.cloneThroughFragments = function cloneThroughFragments(children) {
   return _react.Children.map(children, function (c) {
     if ((0, _react.isValidElement)(c)) {
       if (c.type === _react.Fragment) {
@@ -29,21 +28,18 @@ var cloneThroughFragments = function cloneThroughFragments(children) {
     return c;
   });
 };
-exports.cloneThroughFragments = cloneThroughFragments;
-var setFocusToElement = function setFocusToElement(element) {
+var setFocusToElement = exports.setFocusToElement = function setFocusToElement(element) {
   var autoFocusElement = document.createElement("button");
   element.prepend(autoFocusElement);
   autoFocusElement.focus();
   autoFocusElement.remove();
 };
-exports.setFocusToElement = setFocusToElement;
-var getFocusableElementsInsideElement = function getFocusableElementsInsideElement(element) {
+var getFocusableElementsInsideElement = exports.getFocusableElementsInsideElement = function getFocusableElementsInsideElement(element) {
   return Array.from(element.querySelectorAll('button, [href], input, [tabindex="0"]')).filter(function (resultElement) {
     return resultElement;
   });
 };
-exports.getFocusableElementsInsideElement = getFocusableElementsInsideElement;
-var addFocusTrapInsideElement = function addFocusTrapInsideElement(element) {
+var addFocusTrapInsideElement = exports.addFocusTrapInsideElement = function addFocusTrapInsideElement(element) {
   setFocusToElement(element);
   var focusableElements = getFocusableElementsInsideElement(element);
   var firstFocusableElement = focusableElements !== null && focusableElements !== void 0 && focusableElements.length ? focusableElements[0] : null;
@@ -67,4 +63,3 @@ var addFocusTrapInsideElement = function addFocusTrapInsideElement(element) {
     };
   }
 };
-exports.addFocusTrapInsideElement = addFocusTrapInsideElement;
