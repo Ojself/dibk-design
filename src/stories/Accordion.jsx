@@ -12,6 +12,9 @@ const Accordion = (props) => {
     const handleToggleExpand = () => {
         setExpanded(!expanded);
         setInitialized(true);
+        if (props.onToggleExpand) {
+            props.onToggleExpand();
+        }
     };
 
     useEffect(() => {
@@ -58,7 +61,8 @@ Accordion.propTypes = {
         "lime",
         "lightLime"
     ]),
-    expanded: PropTypes.bool
+    expanded: PropTypes.bool,
+    onToggleExpand: PropTypes.func
 };
 
 Accordion.defaultProps = {
