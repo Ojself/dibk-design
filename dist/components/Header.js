@@ -8,14 +8,14 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _HeaderModule = _interopRequireDefault(require("./Header.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var Header = function Header(props) {
+const Header = props => {
   var _props$htmlTag, _props$content;
-  var bigClass = props.big ? _HeaderModule.default.bigHeader : "";
-  var themeClass = props.theme ? _HeaderModule.default.hasTheme : "";
-  var htmlTag = (_props$htmlTag = props.htmlTag) !== null && _props$htmlTag !== void 0 && _props$htmlTag.length ? props.htmlTag : "h".concat(props.size);
-  var headerClass = _HeaderModule.default.header;
-  var headerSizeClass = _HeaderModule.default["size-".concat(props.size)];
-  var headerElement = _react.default.createElement(htmlTag, {
+  const bigClass = props.big ? _HeaderModule.default.bigHeader : "";
+  const themeClass = props.theme ? _HeaderModule.default.hasTheme : "";
+  const htmlTag = (_props$htmlTag = props.htmlTag) !== null && _props$htmlTag !== void 0 && _props$htmlTag.length ? props.htmlTag : "h".concat(props.size);
+  const headerClass = _HeaderModule.default.header;
+  const headerSizeClass = _HeaderModule.default["size-".concat(props.size)];
+  let headerElement = _react.default.createElement(htmlTag, {
     className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass),
     id: props.id || null
   }, !!((_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length) ? props.content : props.children);

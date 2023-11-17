@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _Container = _interopRequireDefault(require("./Container"));
 var _FooterModule = _interopRequireDefault(require("./Footer.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var Footer = function Footer(props) {
+const Footer = props => {
   return _react.default.createElement("footer", {
     className: _FooterModule.default.footer
   }, _react.default.createElement(_Container.default, null, props.children));

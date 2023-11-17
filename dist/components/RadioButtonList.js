@@ -10,19 +10,19 @@ var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _RadioButtonListModule = _interopRequireDefault(require("./RadioButtonList.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var RadioButtonList = function RadioButtonList(props) {
+const RadioButtonList = props => {
   var _props$legend;
-  var renderChildElements = function renderChildElements(childElements) {
-    var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
-    return childElementsthroughFragments.map(function (childElement, index) {
+  const renderChildElements = childElements => {
+    const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
+    return childElementsthroughFragments.map((childElement, index) => {
       var _childElement$type;
-      var isRadioButtonListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "RadioButtonListItem";
-      var childElementProps = isRadioButtonListItem ? {
+      const isRadioButtonListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "RadioButtonListItem";
+      const childElementProps = isRadioButtonListItem ? {
         requiredGroup: props.required,
         compact: props.compact,
         key: "radioButtonListItem-".concat(index)
       } : null;
-      var childElementCopy = _react.default.cloneElement(childElement, childElementProps);
+      const childElementCopy = _react.default.cloneElement(childElement, childElementProps);
       return childElementCopy;
     });
   };

@@ -10,19 +10,19 @@ var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _CheckBoxListModule = _interopRequireDefault(require("./CheckBoxList.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var CheckBoxList = function CheckBoxList(props) {
+const CheckBoxList = props => {
   var _props$legend;
-  var renderChildElements = function renderChildElements(childElements) {
-    var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
-    return childElementsthroughFragments.map(function (childElement, index) {
+  const renderChildElements = childElements => {
+    const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
+    return childElementsthroughFragments.map((childElement, index) => {
       var _childElement$type;
-      var isCheckBoxListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem";
-      var childElementProps = isCheckBoxListItem ? {
+      const isCheckBoxListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem";
+      const childElementProps = isCheckBoxListItem ? {
         requiredGroup: props.required,
         compact: props.compact,
         key: "checkboxListItem-".concat(index)
       } : null;
-      var childElementCopy = _react.default.cloneElement(childElement, childElementProps);
+      const childElementCopy = _react.default.cloneElement(childElement, childElementProps);
       return childElementCopy;
     });
   };

@@ -9,8 +9,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _theme = require("../functions/theme");
 var _ErrorBoxModule = _interopRequireDefault(require("./ErrorBox.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var ErrorBox = function ErrorBox(props) {
-  var getThemeErrorBoxStyle = function getThemeErrorBoxStyle() {
+const ErrorBox = props => {
+  const getThemeErrorBoxStyle = () => {
     return {
       borderColor: (0, _theme.getThemePaletteBackgroundColor)(props.theme, "warning")
     };

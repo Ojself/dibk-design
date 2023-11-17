@@ -1,6 +1,5 @@
 "use strict";
 
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -13,53 +12,44 @@ var _Label = _interopRequireDefault(require("./Label"));
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _DragAndDropFileInputModule = _interopRequireDefault(require("./DragAndDropFileInput.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var DragAndDropFileInput = function DragAndDropFileInput(props) {
+const DragAndDropFileInput = props => {
   var _props$errorMessage, _props$ariaDescribed;
-  var _useState = (0, _react.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    highlight = _useState2[0],
-    setHighlight = _useState2[1];
-  var containerElementRef = (0, _react.useRef)();
-  var fileInputElementRef = (0, _react.useRef)();
-  var preventDefaults = function preventDefaults(e) {
+  const [highlight, setHighlight] = (0, _react.useState)(false);
+  const containerElementRef = (0, _react.useRef)();
+  const fileInputElementRef = (0, _react.useRef)();
+  const preventDefaults = e => {
     e.preventDefault();
     e.stopPropagation();
   };
-  var renderValueAsText = function renderValueAsText(value, defaultContent) {
+  const renderValueAsText = (value, defaultContent) => {
     return value ? value : defaultContent;
   };
-  var handleAddButtonOnClick = function handleAddButtonOnClick() {
+  const handleAddButtonOnClick = () => {
     fileInputElementRef.current.click();
   };
-  var getErrorElementId = function getErrorElementId() {
+  const getErrorElementId = () => {
     return "".concat(props.id, "-errorMessage");
   };
-  var inputElementProps = {
+  const inputElementProps = {
     "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
     "aria-invalid": props.hasErrors ? "true" : null,
     required: props.required
   };
-  var buttonContent;
+  let buttonContent;
   if (props.selectedFileName) {
     buttonContent = props.buttonContentWhenSelectedFile ? props.buttonContentWhenSelectedFile : props.buttonContent;
   } else {
     buttonContent = props.buttonContent;
   }
-  (0, _react.useEffect)(function () {
-    var handleFiles = function handleFiles(files) {
+  (0, _react.useEffect)(() => {
+    const handleFiles = files => {
       props.onDragAndDropChange(files);
     };
-    var handleDrop = function handleDrop(e) {
-      var files = e.dataTransfer.files;
+    const handleDrop = e => {
+      const files = e.dataTransfer.files;
       handleFiles(files);
     };
     if (containerElementRef !== null && containerElementRef !== void 0 && containerElementRef.current) {
@@ -67,16 +57,16 @@ var DragAndDropFileInput = function DragAndDropFileInput(props) {
       containerElementRef.current.addEventListener("dragover", preventDefaults, false);
       containerElementRef.current.addEventListener("dragleave", preventDefaults, false);
       containerElementRef.current.addEventListener("drop", preventDefaults, false);
-      containerElementRef.current.addEventListener("dragenter", function () {
+      containerElementRef.current.addEventListener("dragenter", () => {
         setHighlight(true);
       }, false);
-      containerElementRef.current.addEventListener("dragover", function () {
+      containerElementRef.current.addEventListener("dragover", () => {
         setHighlight(true);
       }, false);
-      containerElementRef.current.addEventListener("dragleave", function () {
+      containerElementRef.current.addEventListener("dragleave", () => {
         setHighlight(false);
       }, false);
-      containerElementRef.current.addEventListener("drop", function () {
+      containerElementRef.current.addEventListener("drop", () => {
         setHighlight(false);
       }, false);
       containerElementRef.current.addEventListener("drop", handleDrop, false);
@@ -101,9 +91,7 @@ var DragAndDropFileInput = function DragAndDropFileInput(props) {
     size: "small",
     type: "button",
     color: props.buttonColor,
-    onClick: function onClick() {
-      return handleAddButtonOnClick();
-    },
+    onClick: () => handleAddButtonOnClick(),
     content: buttonContent,
     hasErrors: props.hasErrors
   })) : null) : null, props.contentOnly ? _react.default.createElement("span", null, renderValueAsText(props.selectedFileName, props.defaultContent)) : "", _react.default.createElement(_ErrorMessage.default, {

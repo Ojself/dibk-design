@@ -11,18 +11,12 @@ var _helpers = require("../functions/helpers");
 var _ButtonModule = _interopRequireDefault(require("./Button.module.scss"));
 var _reactRouterDom = require("react-router-dom");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var Button = function Button(props) {
+const Button = props => {
   var _props$href, _props$href2, _props$children;
-  var getArrowClass = function getArrowClass(arrow) {
+  const getArrowClass = arrow => {
     switch (arrow) {
       case "left":
         return _ButtonModule.default.hasArrowLeft;
@@ -32,7 +26,7 @@ var Button = function Button(props) {
         return "";
     }
   };
-  var getThemeStyle = function getThemeStyle(theme, color) {
+  const getThemeStyle = (theme, color) => {
     return {
       backgroundColor: (0, _theme.getThemePaletteBackgroundColor)(theme, color),
       color: (0, _theme.getThemePaletteTextColor)(theme, color),
@@ -40,10 +34,11 @@ var Button = function Button(props) {
       borderWidth: (0, _theme.getThemePaletteBorderColor)(theme, color) ? "1px" : "0"
     };
   };
-  var buttonProps = _objectSpread(_objectSpread({}, props), {}, {
+  let buttonProps = {
+    ...props,
     "aria-invalid": props.hasErrors || null,
     href: !props.disabled && (_props$href = props.href) !== null && _props$href !== void 0 && _props$href.length ? props.href : null
-  });
+  };
   delete buttonProps.noHover;
   delete buttonProps.hasErrors;
   delete buttonProps.rounded;
@@ -51,16 +46,16 @@ var Button = function Button(props) {
   delete buttonProps.color;
   delete buttonProps.content;
   delete buttonProps.arrow;
-  var buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
-  var themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
-  var className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled]);
-  var renderReactLinkElements = function renderReactLinkElements(childElements) {
-    var childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
-    return childElementsthroughFragments.map(function (childElement, index) {
+  const buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
+  const themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
+  const className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled]);
+  const renderReactLinkElements = childElements => {
+    const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
+    return childElementsthroughFragments.map((childElement, index) => {
       var _childElement$props;
       if (!buttonProps.disabled && !!(childElement !== null && childElement !== void 0 && (_childElement$props = childElement.props) !== null && _childElement$props !== void 0 && _childElement$props.to)) {
         var _childElement$props2, _childElement$props3;
-        var childElementCopy = _react.default.cloneElement(childElement, {
+        const childElementCopy = _react.default.cloneElement(childElement, {
           className: className,
           style: themeStyle,
           key: "button-".concat(index),

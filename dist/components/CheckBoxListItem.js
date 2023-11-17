@@ -10,10 +10,10 @@ var _CheckBoxInput = _interopRequireDefault(require("./CheckBoxInput"));
 var _helpers = require("../functions/helpers");
 var _CheckBoxListItemModule = _interopRequireDefault(require("./CheckBoxListItem.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var CheckBoxListItem = function CheckBoxListItem(props) {
-  var listItemClassNameArray = [_CheckBoxListItemModule.default.checkBoxListItem, props.checked ? _CheckBoxListItemModule.default.checked : null, props.disabled ? _CheckBoxListItemModule.default.disabled : null, props.compact ? _CheckBoxListItemModule.default.compact : null, props.contentOnly ? _CheckBoxListItemModule.default.contentOnly : null, props.hasErrors ? _CheckBoxListItemModule.default.hasErrors : null];
-  var listItemClassNameString = (0, _helpers.classNameArrayToClassNameString)(listItemClassNameArray);
-  var inputProps = {
+const CheckBoxListItem = props => {
+  const listItemClassNameArray = [_CheckBoxListItemModule.default.checkBoxListItem, props.checked ? _CheckBoxListItemModule.default.checked : null, props.disabled ? _CheckBoxListItemModule.default.disabled : null, props.compact ? _CheckBoxListItemModule.default.compact : null, props.contentOnly ? _CheckBoxListItemModule.default.contentOnly : null, props.hasErrors ? _CheckBoxListItemModule.default.hasErrors : null];
+  const listItemClassNameString = (0, _helpers.classNameArrayToClassNameString)(listItemClassNameArray);
+  const inputProps = {
     onChange: props.onChange,
     checked: props.checked,
     disabled: props.disabled,

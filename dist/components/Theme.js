@@ -10,28 +10,28 @@ var _theme = require("../functions/theme");
 var _dibkLogoMobile = _interopRequireDefault(require("../assets/svg/dibk-logo-mobile.svg?url"));
 var _ThemeModule = _interopRequireDefault(require("./Theme.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var Theme = function Theme(props) {
-  var getThemeColorPaletteStyle = function getThemeColorPaletteStyle(theme, color) {
+const Theme = props => {
+  const getThemeColorPaletteStyle = (theme, color) => {
     return {
       backgroundColor: (0, _theme.getThemePaletteBackgroundColor)(theme, color),
       color: (0, _theme.getThemePaletteTextColor)(theme, color)
     };
   };
-  var getThemeTextStyle = function getThemeTextStyle(theme) {
+  const getThemeTextStyle = theme => {
     return {
       color: (0, _theme.getThemeTextColor)(theme)
     };
   };
-  var getThemeLinkStyle = function getThemeLinkStyle(theme) {
+  const getThemeLinkStyle = theme => {
     return {
       color: (0, _theme.getThemeLinkColor)(theme)
     };
   };
-  var renderColors = function renderColors(theme) {
-    var colors = ["default", "primary", "success", "warning", "info", "lightCyan", "orange", "lightOrange", "lime", "lightLime"];
-    return colors.map(function (color) {
-      var colorClassName = _ThemeModule.default[color];
-      var colorPaletteStyle = props.theme ? getThemeColorPaletteStyle(props.theme, color) : null;
+  const renderColors = theme => {
+    const colors = ["default", "primary", "success", "warning", "info", "lightCyan", "orange", "lightOrange", "lime", "lightLime"];
+    return colors.map(color => {
+      const colorClassName = _ThemeModule.default[color];
+      const colorPaletteStyle = props.theme ? getThemeColorPaletteStyle(props.theme, color) : null;
       return _react.default.createElement("div", {
         key: color,
         className: "".concat(_ThemeModule.default.color, " ").concat(colorClassName),
@@ -39,10 +39,10 @@ var Theme = function Theme(props) {
       }, color);
     });
   };
-  var renderLogo = function renderLogo(logoLink) {
-    var themeLogo = (0, _theme.getThemeLogo)(props.theme);
-    var themeAppName = (0, _theme.getThemeAppName)(props.theme);
-    var logoElement = themeLogo && themeAppName ? _react.default.createElement("img", {
+  const renderLogo = logoLink => {
+    const themeLogo = (0, _theme.getThemeLogo)(props.theme);
+    const themeAppName = (0, _theme.getThemeAppName)(props.theme);
+    const logoElement = themeLogo && themeAppName ? _react.default.createElement("img", {
       alt: "".concat(themeAppName, " logo"),
       src: themeLogo
     }) : _react.default.createElement("img", {
@@ -53,8 +53,8 @@ var Theme = function Theme(props) {
       href: logoLink
     }, logoElement) : logoElement;
   };
-  var themeTextStyle = props.theme ? getThemeTextStyle(props.theme) : null;
-  var themeLinkStyle = props.theme ? getThemeLinkStyle(props.theme) : null;
+  const themeTextStyle = props.theme ? getThemeTextStyle(props.theme) : null;
+  const themeLinkStyle = props.theme ? getThemeLinkStyle(props.theme) : null;
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
     className: _ThemeModule.default.colorPalette
   }, renderColors(props.theme)), _react.default.createElement("p", {

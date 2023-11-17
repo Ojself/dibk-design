@@ -14,39 +14,33 @@ var _generators = require("../functions/generators");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var InputField = function InputField(props) {
+const InputField = props => {
   var _props$width;
-  var getThemeErrorInputStyle = function getThemeErrorInputStyle(theme) {
+  const getThemeErrorInputStyle = theme => {
     return {
       boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, "warning")),
       borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
     };
   };
-  var formatDate = function formatDate(inputDate) {
+  const formatDate = inputDate => {
     if (!inputDate) {
       return null;
     }
-    var date = new Date(inputDate);
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1 < 10 ? "0".concat(date.getMonth() + 1) : date.getMonth() + 1;
-    var day = date.getDate() < 10 ? "0".concat(date.getDate()) : date.getDate();
+    const date = new Date(inputDate);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1 < 10 ? "0".concat(date.getMonth() + 1) : date.getMonth() + 1;
+    const day = date.getDate() < 10 ? "0".concat(date.getDate()) : date.getDate();
     return "".concat(day, ".").concat(month, ".").concat(year);
   };
-  var renderValueAsText = function renderValueAsText(value, defaultContent) {
+  const renderValueAsText = (value, defaultContent) => {
     return props.type === "date" ? value ? formatDate(value) : defaultContent : value ? value : defaultContent;
   };
-  var getErrorElementId = function getErrorElementId() {
+  const getErrorElementId = () => {
     return "".concat(props.id, "-errorMessage");
   };
-  var getInputElementProps = function getInputElementProps(defaultValue, defaultKey, styleRules) {
-    var _props$errorMessage, _props$ariaDescribed, _ref;
-    return _ref = {
+  const getInputElementProps = (defaultValue, defaultKey, styleRules) => {
+    var _props$errorMessage, _props$ariaDescribed;
+    return {
       name: props.name,
       readOnly: props.readOnly,
       disabled: props.disabled,
@@ -58,14 +52,24 @@ var InputField = function InputField(props) {
       min: props.min || null,
       max: props.max || null,
       onChange: props.onChange,
-      onBlur: props.onBlur
-    }, _defineProperty(_ref, defaultValue ? "defaultValue" : "value", defaultValue || props.value), _defineProperty(_ref, "placeholder", props.placeholder || null), _defineProperty(_ref, "className", props.hasErrors ? _InputFieldModule.default.hasErrors : null), _defineProperty(_ref, "aria-describedby", props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null), _defineProperty(_ref, "aria-invalid", props.hasErrors ? "true" : null), _defineProperty(_ref, "aria-autocomplete", props["aria-autocomplete"] || null), _defineProperty(_ref, "style", styleRules), _ref;
+      onBlur: props.onBlur,
+      [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
+      placeholder: props.placeholder || null,
+      className: props.hasErrors ? _InputFieldModule.default.hasErrors : null,
+      "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
+      "aria-invalid": props.hasErrors ? "true" : null,
+      "aria-autocomplete": props["aria-autocomplete"] || null,
+      style: styleRules
+    };
   };
-  var defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
-  var defaultKey = props.elementKey || null;
-  var styleRules = _objectSpread(_objectSpread({}, props.hasErrors ? getThemeErrorInputStyle(props.theme) : null), ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
-    maxWidth: props.width
-  });
+  const defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
+  const defaultKey = props.elementKey || null;
+  const styleRules = {
+    ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
+    ...(((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
+      maxWidth: props.width
+    })
+  };
   return _react.default.createElement("div", {
     className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[props.type])
   }, _react.default.createElement(_Label.default, {
@@ -80,7 +84,7 @@ var InputField = function InputField(props) {
     className: _InputFieldModule.default.input
   }, props.selectedFileName), props.buttonContent ? _react.default.createElement(_Button.default, {
     color: props.buttonColor,
-    onClick: function onClick() {
+    onClick: () => {
       document.getElementById(props.id).click();
     },
     content: props.buttonContent,
@@ -118,7 +122,7 @@ InputField.propTypes = {
   theme: _propTypes.default.object
 };
 InputField.defaultProps = {
-  onChange: function onChange() {
+  onChange: () => {
     return false;
   },
   name: "",

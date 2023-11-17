@@ -10,18 +10,18 @@ var _RadioButtonIcon = _interopRequireDefault(require("./RadioButtonIcon"));
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _RadioButtonInputModule = _interopRequireDefault(require("./RadioButtonInput.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var RadioButtonInput = function RadioButtonInput(props) {
-  var labelProps = {
+const RadioButtonInput = props => {
+  const labelProps = {
     className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(props.checked ? _RadioButtonInputModule.default.checked : "", " ").concat(props.disabled ? _RadioButtonInputModule.default.disabled : "", " ").concat(props.hasErrors ? _RadioButtonInputModule.default.hasErrors : ""),
     htmlFor: props.id
   };
-  var iconProps = {
+  const iconProps = {
     checked: props.checked,
     disabled: props.disabled,
     theme: props.theme,
     hasErrors: !props.contentOnly && props.hasErrors
   };
-  var inputProps = {
+  const inputProps = {
     id: props.id,
     name: props.name || null,
     type: "radio",

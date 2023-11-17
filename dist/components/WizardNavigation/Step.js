@@ -1,6 +1,5 @@
 "use strict";
 
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -11,28 +10,30 @@ var _reactRouterDom = require("react-router-dom");
 var _helpers = require("../../functions/helpers");
 var _StepModule = _interopRequireDefault(require("./Step.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-var Step = function Step(props) {
-  var getActiveClass = function getActiveClass(step) {
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+const Step = props => {
+  const getActiveClass = step => {
     return props.activeStepId === step.id ? _StepModule.default.active : "";
   };
-  var getFinishedClass = function getFinishedClass(step) {
+  const getFinishedClass = step => {
     return step.finished ? _StepModule.default.finished : "";
   };
-  var getErrorClass = function getErrorClass(step) {
+  const getErrorClass = step => {
     return step.hasErrors ? _StepModule.default.hasErrors : "";
   };
-  var renderStepContent = function renderStepContent(step, index) {
+  const renderStepContent = (step, index) => {
     return _react.default.createElement(_react.Fragment, null, _react.default.createElement("span", {
       className: _StepModule.default.stepNumber
     }, index + 1), _react.default.createElement("span", {
       className: _StepModule.default.stepName
     }, step.name));
   };
-  var step = props.step,
-    index = props.index,
-    activeStepId = props.activeStepId;
+  const {
+    step,
+    index,
+    activeStepId
+  } = props;
   return _react.default.createElement("li", {
     className: (0, _helpers.classNameArrayToClassNameString)([_StepModule.default.wizardTopnavItem, getActiveClass(step), getFinishedClass(step), getErrorClass(step)])
   }, step.link && Object.keys(step.link).length ? _react.default.createElement(_reactRouterDom.Link, {

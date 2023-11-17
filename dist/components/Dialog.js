@@ -1,6 +1,5 @@
 "use strict";
 
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -11,17 +10,17 @@ var _xSymbol = _interopRequireDefault(require("../assets/svg/x-symbol.svg?url"))
 var _DialogModule = _interopRequireDefault(require("./Dialog.module.scss"));
 var _helpers = require("../functions/helpers");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-var Dialog = function Dialog(props) {
-  var dialogRef = (0, _react.useRef)();
-  var wrapperRef = (0, _react.useCallback)(function (element) {
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+const Dialog = props => {
+  const dialogRef = (0, _react.useRef)();
+  const wrapperRef = (0, _react.useCallback)(element => {
     if (!!element) {
       (0, _helpers.addFocusTrapInsideElement)(element);
     }
   }, []);
-  (0, _react.useEffect)(function () {
-    var keyDownFunction = function keyDownFunction(event) {
+  (0, _react.useEffect)(() => {
+    const keyDownFunction = event => {
       switch (event.keyCode) {
         case 27:
           if (props.onClickOutside) props.onClickOutside();
@@ -30,7 +29,7 @@ var Dialog = function Dialog(props) {
           return null;
       }
     };
-    var handleClickOutside = function handleClickOutside(event) {
+    const handleClickOutside = event => {
       if (dialogRef !== null && dialogRef !== void 0 && dialogRef.current && !dialogRef.current.contains(event.target)) {
         props.onClickOutside();
       }
