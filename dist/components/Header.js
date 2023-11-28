@@ -7,7 +7,7 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _HeaderModule = _interopRequireDefault(require("./Header.module.scss"));
-var _helpers = require("functions/helpers");
+var _helpers = require("../functions/helpers");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const Header = props => {
   var _props$htmlTag, _props$content;
