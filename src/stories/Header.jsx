@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 // Stylesheets
 import style from "./Header.module.scss";
+import { classNameArrayToClassNameString } from "functions/helpers";
 
 const Header = (props) => {
     const bigClass = props.big ? style.bigHeader : "";
@@ -14,8 +15,9 @@ const Header = (props) => {
     let headerElement = React.createElement(
         htmlTag,
         {
-            className: `${headerClass} ${headerSizeClass} ${bigClass} ${themeClass}`,
-            id: props.id || null
+            className: classNameArrayToClassNameString([headerClass, headerSizeClass, bigClass, themeClass]),
+            id: props.id || null,
+            htmlFor: props.htmlFor || null
         },
         !!props.content?.length ? props.content : props.children // props.content for backward compatibility
     );
@@ -29,7 +31,8 @@ Header.propTypes = {
     size: PropTypes.oneOf([1, 2, 3, 4, 5]),
     big: PropTypes.bool,
     htmlTag: PropTypes.string,
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    htmlFor: PropTypes.string
 };
 
 Header.defaultProps = {
