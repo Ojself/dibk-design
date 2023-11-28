@@ -7,6 +7,7 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _HeaderModule = _interopRequireDefault(require("./Header.module.scss"));
+var _helpers = require("functions/helpers");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const Header = props => {
   var _props$htmlTag, _props$content;
@@ -16,8 +17,9 @@ const Header = props => {
   const headerClass = _HeaderModule.default.header;
   const headerSizeClass = _HeaderModule.default["size-".concat(props.size)];
   let headerElement = _react.default.createElement(htmlTag, {
-    className: "".concat(headerClass, " ").concat(headerSizeClass, " ").concat(bigClass, " ").concat(themeClass),
-    id: props.id || null
+    className: (0, _helpers.classNameArrayToClassNameString)([headerClass, headerSizeClass, bigClass, themeClass]),
+    id: props.id || null,
+    htmlFor: props.htmlFor || null
   }, !!((_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length) ? props.content : props.children);
   return _react.default.createElement("div", {
     className: _HeaderModule.default.headerContainer
@@ -29,7 +31,8 @@ Header.propTypes = {
   size: _propTypes.default.oneOf([1, 2, 3, 4, 5]),
   big: _propTypes.default.bool,
   htmlTag: _propTypes.default.string,
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  htmlFor: _propTypes.default.string
 };
 Header.defaultProps = {
   size: 1
