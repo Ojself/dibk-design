@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 
 // Stylesheets
 import style from "./Header.module.scss";
-import { classNameArrayToClassNameString } from "functions/helpers";
+
+// Helpers
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 const Header = (props) => {
     const bigClass = props.big ? style.bigHeader : "";
