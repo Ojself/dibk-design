@@ -36,6 +36,7 @@ const DragAndDropFileInput = props => {
   const inputElementProps = {
     "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
     "aria-invalid": props.hasErrors ? "true" : null,
+    "data-transaction-name": props["data-transaction-name-for-input"],
     required: props.required
   };
   let buttonContent;
@@ -93,7 +94,8 @@ const DragAndDropFileInput = props => {
     color: props.buttonColor,
     onClick: () => handleAddButtonOnClick(),
     content: buttonContent,
-    hasErrors: props.hasErrors
+    hasErrors: props.hasErrors,
+    "data-transaction-name": props["data-transaction-name-for-button"]
   })) : null) : null, props.contentOnly ? _react.default.createElement("span", null, renderValueAsText(props.selectedFileName, props.defaultContent)) : "", _react.default.createElement(_ErrorMessage.default, {
     id: getErrorElementId(),
     content: props.errorMessage,
@@ -114,6 +116,8 @@ DragAndDropFileInput.propTypes = {
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   required: _propTypes.default.bool,
+  "data-transaction-name-for-button": _propTypes.default.string,
+  "data-transaction-name-for-input": _propTypes.default.string,
   theme: _propTypes.default.object
 };
 DragAndDropFileInput.defaultProps = {

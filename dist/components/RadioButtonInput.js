@@ -33,7 +33,8 @@ const RadioButtonInput = props => {
     tabIndex: props.tabIndex || null,
     "aria-controls": props["aria-controls"],
     "aria-invalid": props.hasErrors ? "true" : null,
-    "aria-describedby": props["aria-describedby"]
+    "aria-describedby": props["aria-describedby"],
+    "data-transaction-name": props["data-transaction-name"]
   };
   return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_RadioButtonIcon.default, iconProps), _react.default.createElement("input", inputProps)) : null, _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("img", {
     src: _asterisk.default,
@@ -54,7 +55,8 @@ RadioButtonInput.propTypes = {
   theme: _propTypes.default.object,
   inputValue: _propTypes.default.string.isRequired,
   "aria-controls": _propTypes.default.string,
-  "aria-describedby": _propTypes.default.string
+  "aria-describedby": _propTypes.default.string,
+  "data-transaction-name": _propTypes.default.string
 };
 RadioButtonInput.defaultProps = {
   name: "",
