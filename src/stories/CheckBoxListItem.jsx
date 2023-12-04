@@ -31,6 +31,7 @@ const CheckBoxListItem = (props) => {
         hasErrors: props.hasErrors,
         "aria-controls": props["aria-controls"],
         "aria-describedby": props["aria-describedby"],
+        "data-transaction-name": props["data-transaction-name"],
         id: props.id,
         theme: props.theme,
         checkmarkCharacter: props.checkmarkCharacter
@@ -56,7 +57,8 @@ CheckBoxListItem.propTypes = {
     hasErrors: PropTypes.bool,
     checkmarkCharacter: PropTypes.string,
     "aria-controls": PropTypes.string,
-    "aria-describedby": PropTypes.string
+    "aria-describedby": PropTypes.string,
+    "data-transaction-name": PropTypes.string
 };
 CheckBoxListItem.defaultProps = {
     checked: false,

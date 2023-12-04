@@ -193,6 +193,7 @@ const Select = (props) => {
                     ? props["aria-describedby"]
                     : null,
             "aria-invalid": props.hasErrors ? "true" : null,
+            "data-transaction-name": props["data-transaction-name"],
             style: styleRules
         };
         return (
@@ -273,6 +274,7 @@ Select.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
+    "data-transaction-name": PropTypes.string,
     theme: PropTypes.object
 };
 Select.defaultProps = {

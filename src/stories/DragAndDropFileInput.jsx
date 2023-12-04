@@ -46,6 +46,7 @@ const DragAndDropFileInput = (props) => {
                 ? props["aria-describedby"]
                 : null,
         "aria-invalid": props.hasErrors ? "true" : null,
+        "data-transaction-name": props["data-transaction-name-for-input"],
         required: props.required
     };
 
@@ -147,6 +148,7 @@ const DragAndDropFileInput = (props) => {
                                 onClick={() => handleAddButtonOnClick()}
                                 content={buttonContent}
                                 hasErrors={props.hasErrors}
+                                data-transaction-name={props["data-transaction-name-for-button"]}
                             />
                         </React.Fragment>
                     ) : null}
@@ -180,6 +182,8 @@ DragAndDropFileInput.propTypes = {
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
     required: PropTypes.bool,
+    "data-transaction-name-for-button": PropTypes.string,
+    "data-transaction-name-for-input": PropTypes.string,
     theme: PropTypes.object
 };
 

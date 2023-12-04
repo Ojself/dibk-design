@@ -23,7 +23,7 @@ const Accordion = (props) => {
 
     const renderPanel = () => {
         return (
-            <button className={style.panel} onClick={handleToggleExpand} aria-expanded={expanded ? "true" : "false"}>
+            <button {...props.buttonProps} className={style.panel} onClick={handleToggleExpand} aria-expanded={expanded ? "true" : "false"}>
                 <span className={style.panelText}>{props.title}</span>
                 <span className={`${style.panelChevron} ${expanded ? style.expanded : ""}`}></span>
             </button>
@@ -62,7 +62,8 @@ Accordion.propTypes = {
         "lightLime"
     ]),
     expanded: PropTypes.bool,
-    onToggleExpand: PropTypes.func
+    onToggleExpand: PropTypes.func,
+    buttonProps: PropTypes.object
 };
 
 Accordion.defaultProps = {
