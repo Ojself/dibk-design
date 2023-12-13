@@ -39,8 +39,7 @@ const CheckBoxInput = (props) => {
         tabIndex: props.tabIndex || null,
         "aria-controls": props["aria-controls"],
         "aria-invalid": props.hasErrors ? "true" : null,
-        "aria-describedby": props["aria-describedby"],
-        "data-transaction-name": props["data-transaction-name"]
+        "aria-describedby": props["aria-describedby"]
     };
 
     return (
@@ -74,8 +73,7 @@ CheckBoxInput.propTypes = {
     theme: PropTypes.object,
     checkmarkCharacter: PropTypes.string,
     "aria-controls": PropTypes.string,
-    "aria-describedby": PropTypes.string,
-    "data-transaction-name": PropTypes.string
+    "aria-describedby": PropTypes.string
 };
 CheckBoxInput.defaultProps = {
     checked: false,

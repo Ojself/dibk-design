@@ -38,8 +38,7 @@ const RadioButtonInput = (props) => {
         tabIndex: props.tabIndex || null,
         "aria-controls": props["aria-controls"],
         "aria-invalid": props.hasErrors ? "true" : null,
-        "aria-describedby": props["aria-describedby"],
-        "data-transaction-name": props["data-transaction-name"]
+        "aria-describedby": props["aria-describedby"]
     };
 
     return (
@@ -71,8 +70,7 @@ RadioButtonInput.propTypes = {
     theme: PropTypes.object,
     inputValue: PropTypes.string.isRequired,
     "aria-controls": PropTypes.string,
-    "aria-describedby": PropTypes.string,
-    "data-transaction-name": PropTypes.string
+    "aria-describedby": PropTypes.string
 };
 
 RadioButtonInput.defaultProps = {

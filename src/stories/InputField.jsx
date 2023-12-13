@@ -69,7 +69,6 @@ const InputField = (props) => {
                     : null,
             "aria-invalid": props.hasErrors ? "true" : null,
             "aria-autocomplete": props["aria-autocomplete"] || null,
-            "data-transaction-name": props["data-transaction-name"] || null,
             style: styleRules
         };
     };
@@ -141,8 +140,7 @@ InputField.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    theme: PropTypes.object,
-    "data-transaction-name": PropTypes.string
+    theme: PropTypes.object
 };
 
 InputField.defaultProps = {
