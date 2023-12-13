@@ -34,8 +34,7 @@ const CheckBoxInput = props => {
     tabIndex: props.tabIndex || null,
     "aria-controls": props["aria-controls"],
     "aria-invalid": props.hasErrors ? "true" : null,
-    "aria-describedby": props["aria-describedby"],
-    "data-transaction-name": props["data-transaction-name"]
+    "aria-describedby": props["aria-describedby"]
   };
   return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("input", inputProps)) : _react.default.createElement(_CheckBoxIcon.default, iconProps), _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("img", {
     src: _asterisk.default,
@@ -56,8 +55,7 @@ CheckBoxInput.propTypes = {
   theme: _propTypes.default.object,
   checkmarkCharacter: _propTypes.default.string,
   "aria-controls": _propTypes.default.string,
-  "aria-describedby": _propTypes.default.string,
-  "data-transaction-name": _propTypes.default.string
+  "aria-describedby": _propTypes.default.string
 };
 CheckBoxInput.defaultProps = {
   checked: false,

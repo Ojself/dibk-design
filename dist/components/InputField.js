@@ -59,7 +59,6 @@ const InputField = props => {
       "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
       "aria-invalid": props.hasErrors ? "true" : null,
       "aria-autocomplete": props["aria-autocomplete"] || null,
-      "data-transaction-name": props["data-transaction-name"] || null,
       style: styleRules
     };
   };
@@ -120,8 +119,7 @@ InputField.propTypes = {
   "aria-autocomplete": _propTypes.default.oneOf(["none", "inline", "list", "both"]),
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  theme: _propTypes.default.object,
-  "data-transaction-name": _propTypes.default.string
+  theme: _propTypes.default.object
 };
 InputField.defaultProps = {
   onChange: () => {
