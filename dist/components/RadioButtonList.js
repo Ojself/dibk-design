@@ -15,15 +15,18 @@ const RadioButtonList = props => {
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
-      var _childElement$type;
-      const isRadioButtonListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "RadioButtonListItem";
-      const childElementProps = isRadioButtonListItem ? {
-        requiredGroup: props.required,
-        compact: props.compact,
-        key: "radioButtonListItem-".concat(index)
-      } : null;
-      const childElementCopy = _react.default.cloneElement(childElement, childElementProps);
-      return childElementCopy;
+      var _childElement$props;
+      const isRadioButtonListItem = (childElement === null || childElement === void 0 || (_childElement$props = childElement.props) === null || _childElement$props === void 0 ? void 0 : _childElement$props.type) === "RadioButtonListItem";
+      if (isRadioButtonListItem) {
+        const childElementCopy = _react.default.cloneElement(childElement, {
+          requiredGroup: props.required,
+          compact: props.compact,
+          key: "radioButtonListItem-".concat(index)
+        });
+        return childElementCopy;
+      } else {
+        return childElement;
+      }
     });
   };
   return _react.default.createElement("fieldset", {

@@ -15,15 +15,18 @@ const CheckBoxList = props => {
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
-      var _childElement$type;
-      const isCheckBoxListItem = (childElement === null || childElement === void 0 || (_childElement$type = childElement.type) === null || _childElement$type === void 0 ? void 0 : _childElement$type.name) === "CheckBoxListItem";
-      const childElementProps = isCheckBoxListItem ? {
-        requiredGroup: props.required,
-        compact: props.compact,
-        key: "checkboxListItem-".concat(index)
-      } : null;
-      const childElementCopy = _react.default.cloneElement(childElement, childElementProps);
-      return childElementCopy;
+      var _childElement$props;
+      const isCheckBoxListItem = (childElement === null || childElement === void 0 || (_childElement$props = childElement.props) === null || _childElement$props === void 0 ? void 0 : _childElement$props.type) === "CheckBoxListItem";
+      if (isCheckBoxListItem) {
+        const childElementCopy = _react.default.cloneElement(childElement, {
+          requiredGroup: props.required,
+          compact: props.compact,
+          key: "checkboxListItem-".concat(index)
+        });
+        return childElementCopy;
+      } else {
+        return childElement;
+      }
     });
   };
   return _react.default.createElement("fieldset", {

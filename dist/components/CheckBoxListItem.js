@@ -57,6 +57,7 @@ CheckBoxListItem.defaultProps = {
   name: "",
   contentOnly: false,
   hasErrors: false,
-  checkmarkCharacter: "✔"
+  checkmarkCharacter: "✔",
+  type: "CheckBoxListItem"
 };
 var _default = exports.default = CheckBoxListItem;
