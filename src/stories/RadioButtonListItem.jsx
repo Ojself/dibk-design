@@ -66,7 +66,8 @@ RadioButtonListItem.defaultProps = {
     requiredGroup: false,
     disabled: false,
     contentOnly: false,
-    hasErrors: false
+    hasErrors: false,
+    type: "RadioButtonListItem"
 };
 
 export default RadioButtonListItem;
