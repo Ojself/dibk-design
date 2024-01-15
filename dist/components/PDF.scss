@@ -153,13 +153,12 @@ body {
         flex-flow: row wrap;
         dt {
             font-weight: bold;
-            width: var(--width);
+            width: var(--title-width);
         }
         dd {
             flex-grow: 1;
-            flex-basis: calc(100% - 120px);
+            flex-basis: calc(100% - var(--title-width));
             margin: 0;
-            width: var(--width);
             ul {
                 padding: 0;
                 margin: 0;

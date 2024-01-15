@@ -115,13 +115,12 @@ body {
 }
 .page dl dt {
   font-weight: bold;
-  width: var(--width);
+  width: var(--title-width);
 }
 .page dl dd {
   flex-grow: 1;
-  flex-basis: calc(100% - 120px);
+  flex-basis: calc(100% - var(--title-width));
   margin: 0;
-  width: var(--width);
 }
 .page dl dd ul {
   padding: 0;
