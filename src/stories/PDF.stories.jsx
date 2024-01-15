@@ -76,6 +76,19 @@ const textListExample = (
     </>
 );
 
+const descriptionListExample = (
+    <>
+        <dl style={{"--title-width": "120px"}}>
+            <dt>List item title:</dt>
+            <dd>List item content</dd>
+            <dt>List item title:</dt>
+            <dd>List item content</dd>
+            <dt>List item title:</dt>
+            <dd>List item content</dd>
+        </dl>
+    </>
+);
+
 const tableExample = (
     <table>
         <thead>
@@ -197,6 +210,12 @@ Text.args = {
             {textListExample}
         </>
     )
+};
+
+export const DescriptionList = Template.bind({});
+DescriptionList.args = {
+    signedDocument: false,
+    children: descriptionListExample
 };
 
 export const Table = Template.bind({});
