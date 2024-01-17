@@ -52,6 +52,8 @@ const h2Example = <h2>Heading level 2 example</h2>;
 
 const h3Example = <h3>Heading level 3 example</h3>;
 
+const h4Example = <h4>Heading level 4 example</h4>;
+
 const textParagraphsExample = (
     <>
         <p>
@@ -78,7 +80,7 @@ const textListExample = (
 
 const descriptionListExample = (
     <>
-        <dl style={{"--title-width": "120px"}}>
+        <dl style={{ "--title-width": "120px" }}>
             <dt>List item title:</dt>
             <dd>List item content</dd>
             <dt>List item title:</dt>
@@ -89,8 +91,8 @@ const descriptionListExample = (
     </>
 );
 
-const tableExample = (
-    <table>
+const tableExampleContent = (
+    <>
         <thead>
             <tr>
                 <th style={{ "--width": "200px" }}>Funksjon</th>
@@ -111,9 +113,6 @@ const tableExample = (
                 <td>Table data</td>
                 <td className="whitespace-nowrap">
                     <div>Table data</div>
-                    <div>Table data</div>
-                    <div>Table data</div>
-                    <div>Table data</div>
                 </td>
                 <td>-</td>
             </tr>
@@ -122,8 +121,6 @@ const tableExample = (
                 <td>Table data</td>
                 <td>Table data</td>
                 <td className="whitespace-nowrap">
-                    <div>Table data</div>
-                    <div>Table data</div>
                     <div>Table data</div>
                     <div>Table data</div>
                 </td>
@@ -137,8 +134,12 @@ const tableExample = (
                 <td>-</td>
             </tr>
         </tbody>
-    </table>
+    </>
 );
+
+const tableExample = <table>{tableExampleContent}</table>;
+
+const tableWithoutBordersExample = <table className="no-border">{tableExampleContent}</table>;
 
 const checkedCheckboxExample = (
     <div className="checkbox-container">
@@ -201,6 +202,12 @@ H3.args = {
     children: h3Example
 };
 
+export const H4 = Template.bind({});
+H4.args = {
+    signedDocument: false,
+    children: h4Example
+};
+
 export const Text = Template.bind({});
 Text.args = {
     signedDocument: false,
@@ -222,6 +229,12 @@ export const Table = Template.bind({});
 Table.args = {
     signedDocument: false,
     children: tableExample
+};
+
+export const TableWithoutBorders = Template.bind({});
+TableWithoutBorders.args = {
+    signedDocument: false,
+    children: tableWithoutBordersExample
 };
 
 export const Checkbox = Template.bind({});
