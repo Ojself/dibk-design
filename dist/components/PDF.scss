@@ -4,7 +4,8 @@ $font-size-body: 16px;
 $font-size-h1: 34px;
 $font-size-h1-small: 18px;
 $font-size-h2: 24px;
-$font-size-h3: 18px;
+$font-size-h3: 19px;
+$font-size-h4: 17px;
 $font-size-table-header: 15px;
 $font-size-table-data: 16px;
 $font-size-checkbox: 20px;
@@ -18,6 +19,8 @@ $margin-top-h2: 22px;
 $margin-bottom-h2: 2px;
 $margin-top-h3: 15px;
 $margin-bottom-h3: 2px;
+$margin-top-h4: 15px;
+$margin-bottom-h4: 2px;
 $margin-top-paragraph: 3px;
 $margin-bottom-paragraph: 12px;
 
@@ -28,6 +31,9 @@ $vertical-padding-table-header: 2px;
 $horizontal-padding-table-header: 4px;
 $vertical-padding-table-data: 4px;
 $horizontal-padding-table-data: 4px;
+
+$vertical-padding-no-border-table-header: 0px;
+$vertical-padding-no-border-table-data: 2px;
 
 $scaling-for-signed-documents: 1.10802;
 
@@ -104,7 +110,8 @@ body {
         float: right;
     }
 
-    h1 {
+    h1,
+    .h1 {
         font-size: $font-size-h1;
         font-weight: normal;
         line-height: 0.9em;
@@ -116,7 +123,8 @@ body {
             line-height: 1em;
         }
     }
-    h2 {
+    h2,
+    .h2 {
         font-size: $font-size-h2;
         font-weight: normal;
         line-height: 1em;
@@ -126,13 +134,26 @@ body {
             margin-top: 0;
         }
     }
-    h3 {
+    h3,
+    .h3 {
         font-size: $font-size-h3;
         font-weight: normal;
-        line-height: 1em;
+        line-height: 1.1em;
         text-decoration: underline;
         margin-top: $margin-top-h3;
         margin-bottom: $margin-bottom-h3;
+        & + p {
+            margin-top: 0;
+        }
+    }
+
+    h4,
+    .h4 {
+        font-size: $font-size-h4;
+        font-weight: bold;
+        line-height: 1.1em;
+        margin-top: $margin-top-h4;
+        margin-bottom: $margin-bottom-h4;
         & + p {
             margin-top: 0;
         }
@@ -143,7 +164,7 @@ body {
         margin-bottom: $margin-bottom-paragraph;
     }
 
-    .important-info-text {
+    .text-red {
         font-style: italic;
         color: red;
     }
@@ -201,11 +222,19 @@ body {
                 tr {
                     background-color: transparent;
                     border: none;
+                    th {
+                        padding-top: $vertical-padding-no-border-table-header;
+                        padding-bottom: $vertical-padding-no-border-table-header;
+                    }
                 }
             }
             tbody {
                 tr {
                     border: transparent;
+                    td {
+                        padding-top: $vertical-padding-no-border-table-data;
+                        padding-bottom: $vertical-padding-no-border-table-data;
+                    }
                 }
             }
         }
@@ -319,12 +348,22 @@ body {
                         calc($horizontal-padding-table-data * $scaling-for-signed-documents);
                 }
             }
+            &.no-border {
+                thead tr th {
+                    padding-top: calc($vertical-padding-no-border-table-header * $scaling-for-signed-documents);
+                    padding-bottom: calc($vertical-padding-no-border-table-header * $scaling-for-signed-documents);
+                }
+                tbody tr td {
+                    padding-top: calc($vertical-padding-no-border-table-data * $scaling-for-signed-documents);
+                    padding-bottom: calc($vertical-padding-no-border-table-data * $scaling-for-signed-documents);
+                }
+            }
         }
 
-        table tbody tr td,
-        table tbody tr th {
+        table thead tr th,
+        table tbody tr td {
             .indent {
-                width: calc(18 * $scaling-for-signed-documents);
+                width: calc(18px * $scaling-for-signed-documents);
             }
         }
 

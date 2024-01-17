@@ -68,44 +68,62 @@ body {
   width: 100px;
   float: right;
 }
-.page h1 {
+.page h1,
+.page .h1 {
   font-size: 34px;
   font-weight: normal;
   line-height: 0.9em;
   margin-top: 0;
   margin-bottom: 0.4em;
 }
-.page h1 small {
+.page h1 small,
+.page .h1 small {
   display: block;
   font-size: 18px;
   line-height: 1em;
 }
-.page h2 {
+.page h2,
+.page .h2 {
   font-size: 24px;
   font-weight: normal;
   line-height: 1em;
   margin-top: 22px;
   margin-bottom: 2px;
 }
-.page h2 + p {
+.page h2 + p,
+.page .h2 + p {
   margin-top: 0;
 }
-.page h3 {
-  font-size: 18px;
+.page h3,
+.page .h3 {
+  font-size: 19px;
   font-weight: normal;
-  line-height: 1em;
+  line-height: 1.1em;
   text-decoration: underline;
   margin-top: 15px;
   margin-bottom: 2px;
 }
-.page h3 + p {
+.page h3 + p,
+.page .h3 + p {
+  margin-top: 0;
+}
+.page h4,
+.page .h4 {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.1em;
+  margin-top: 15px;
+  margin-bottom: 2px;
+}
+.page h4 + p,
+.page .h4 + p {
   margin-top: 0;
 }
 .page p {
   margin-top: 3px;
   margin-bottom: 12px;
 }
-.page .important-info-text {
+.page .text-red {
   font-style: italic;
   color: red;
 }
@@ -156,8 +174,16 @@ body {
   background-color: transparent;
   border: none;
 }
+.page table.no-border thead tr th {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 .page table.no-border tbody tr {
   border: transparent;
+}
+.page table.no-border tbody tr td {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 .page table + table thead tr {
   border-top: none;
@@ -227,7 +253,7 @@ body {
   margin-bottom: 2.21604px;
 }
 .page.signed-document div.content-container h3 {
-  font-size: 19.94436px;
+  font-size: 21.05238px;
   margin-top: 16.6203px;
   margin-bottom: 2.21604px;
 }
@@ -251,9 +277,17 @@ body {
   font-size: 17.72832px;
   padding: 4.43208px 4.43208px;
 }
-.page.signed-document div.content-container table tbody tr td .indent,
-.page.signed-document div.content-container table tbody tr th .indent {
-  width: 19.94436;
+.page.signed-document div.content-container table.no-border thead tr th {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.page.signed-document div.content-container table.no-border tbody tr td {
+  padding-top: 2.21604px;
+  padding-bottom: 2.21604px;
+}
+.page.signed-document div.content-container table thead tr th .indent,
+.page.signed-document div.content-container table tbody tr td .indent {
+  width: 19.94436px;
 }
 .page.signed-document div.content-container .checkbox-container {
   margin-top: 11.0802px;
