@@ -14,6 +14,7 @@ $height-checkbox: 22px;
 $width-checkbox: 22px;
 
 $heading-logo-width: 100px;
+$heading-logo-margin-left: 15px;
 
 $margin-top-h2: 22px;
 $margin-bottom-h2: 2px;
@@ -108,6 +109,7 @@ body {
     .heading-logo {
         width: $heading-logo-width;
         float: right;
+        margin-left: $heading-logo-margin-left;
     }
 
     h1,
@@ -306,6 +308,7 @@ body {
         .heading-logo {
             width: calc($heading-logo-width * $scaling-for-signed-documents);
             float: right;
+            margin-left: calc($heading-logo-margin-left * $scaling-for-signed-documents);
         }
         h1 {
             font-size: calc($font-size-h1 * $scaling-for-signed-documents);
