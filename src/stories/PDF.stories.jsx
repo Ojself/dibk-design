@@ -21,7 +21,7 @@ const Template = (args) => {
         ? {
               scale: "0.90251",
               position: "relative",
-              top: "-40px",
+              top: "-17px",
               marginBottom: "-147px"
           }
         : {
@@ -81,6 +81,14 @@ const textListExample = (
 const descriptionListExample = (
     <>
         <dl style={{ "--title-width": "120px" }}>
+            <dt>List item title:</dt>
+            <dd>List item content</dd>
+            <dt>List item title:</dt>
+            <dd>List item content</dd>
+            <dt>List item title:</dt>
+            <dd>List item content</dd>
+        </dl>
+        <dl>
             <dt>List item title:</dt>
             <dd>List item content</dd>
             <dt>List item title:</dt>
