@@ -100,12 +100,11 @@ body {
         page-break-after: always;
     }
 
-    .no-page-break {
-        page-break-inside: avoid;
-    }
-
     section {
-        page-break-inside: avoid;
+        page-break-inside: auto;
+        &.no-page-break {
+            page-break-inside: avoid;
+        }
     }
 
     .heading-logo {
