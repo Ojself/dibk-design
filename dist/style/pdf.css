@@ -58,10 +58,10 @@ body {
 .page div.page-break {
   page-break-after: always;
 }
-.page .no-page-break {
-  page-break-inside: avoid;
-}
 .page section {
+  page-break-inside: auto;
+}
+.page section.no-page-break {
   page-break-inside: avoid;
 }
 .page .heading-logo {
