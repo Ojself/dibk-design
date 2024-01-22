@@ -130,6 +130,9 @@ body {
 .page .text-italic {
   font-style: italic;
 }
+.page .text-bold {
+  font-style: italic;
+}
 .page dl {
   margin-top: 3px;
   margin-bottom: 12px;
