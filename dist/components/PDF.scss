@@ -24,6 +24,8 @@ $margin-top-h4: 15px;
 $margin-bottom-h4: 6px;
 $margin-top-paragraph: 3px;
 $margin-bottom-paragraph: 12px;
+$margin-top-list: 3px;
+$margin-bottom-list: 12px;
 
 $margin-top-checkbox-container: 10px;
 $margin-bottom-checkbox-container: 10px;
@@ -175,20 +177,44 @@ body {
     }
 
     dl {
-        display: flex;
-        flex-flow: row wrap;
+        margin-top: $margin-top-list;
+        margin-bottom: $margin-bottom-list;
         dt {
             font-weight: bold;
-            width: var(--title-width);
         }
         dd {
-            flex-grow: 1;
-            flex-basis: calc(100% - var(--title-width));
             margin: 0;
             ul {
                 padding: 0;
                 margin: 0;
                 list-style: none;
+            }
+        }
+        &[style*="--title-width"] {
+            display: flex;
+            flex-flow: row wrap;
+            dt {
+                width: var(--title-width);
+            }
+            dd {
+                flex-basis: calc(100% - var(--title-width));
+                flex-grow: 1;
+            }
+        }
+        &:not([style*="--title-width"]) {
+            dt {
+                display: inline;
+                &::before {
+                    display: block;
+                    content: "";
+                }
+                &::after {
+                    display: inline;
+                    content: " ";
+                }
+            }
+            dd {
+                display: inline;
             }
         }
     }
@@ -200,10 +226,12 @@ body {
                 background-color: #ededed;
                 border: 1px solid #000;
                 th {
-                    width: var(--width);
                     text-align: left;
                     font-size: $font-size-table-header;
                     padding: $vertical-padding-table-header $horizontal-padding-table-header;
+                    &[style*="--width"] {
+                        width: var(--width);
+                    }
                 }
             }
         }
@@ -211,9 +239,11 @@ body {
             tr {
                 border: 1px solid #000;
                 td {
-                    width: var(--width);
                     padding: $vertical-padding-table-data $horizontal-padding-table-data;
                     font-size: $font-size-table-data;
+                    &[style*="--width"] {
+                        width: var(--width);
+                    }
                 }
                 &.sub-heading {
                     td {
@@ -330,28 +360,43 @@ body {
             margin-top: calc($margin-top-h3 * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-h3 * $scaling-for-signed-documents);
         }
-
         p {
             margin-top: calc($margin-top-paragraph * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-paragraph * $scaling-for-signed-documents);
+        }
+        dl {
+            margin-top: calc($margin-top-list * $scaling-for-signed-documents);
+            margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
+            &[style*="--title-width"] {
+                dt {
+                    width: calc(var(--title-width) * $scaling-for-signed-documents);
+                }
+                dd {
+                    flex-basis: calc(100% - (var(--title-width) * $scaling-for-signed-documents));
+                }
+            }
         }
         table {
             thead tr {
                 border-width: calc(1px * $scaling-for-signed-documents);
                 th {
-                    width: calc(var(--width) * $scaling-for-signed-documents);
                     font-size: calc($font-size-table-header * $scaling-for-signed-documents);
                     padding: calc($vertical-padding-table-header * $scaling-for-signed-documents)
                         calc($horizontal-padding-table-header * $scaling-for-signed-documents);
+                    &[style*="--width"] {
+                        width: calc(var(--width) * $scaling-for-signed-documents);
+                    }
                 }
             }
             tbody tr {
                 border-width: calc(1px * $scaling-for-signed-documents);
                 td {
-                    width: calc(var(--width) * $scaling-for-signed-documents);
                     font-size: calc($font-size-table-data * $scaling-for-signed-documents);
                     padding: calc($vertical-padding-table-data * $scaling-for-signed-documents)
                         calc($horizontal-padding-table-data * $scaling-for-signed-documents);
+                    &[style*="--width"] {
+                        width: calc(var(--width) * $scaling-for-signed-documents);
+                    }
                 }
             }
             &.no-border {

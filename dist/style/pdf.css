@@ -131,22 +131,44 @@ body {
   font-style: italic;
 }
 .page dl {
-  display: flex;
-  flex-flow: row wrap;
+  margin-top: 3px;
+  margin-bottom: 12px;
 }
 .page dl dt {
   font-weight: bold;
-  width: var(--title-width);
 }
 .page dl dd {
-  flex-grow: 1;
-  flex-basis: calc(100% - var(--title-width));
   margin: 0;
 }
 .page dl dd ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+.page dl[style*="--title-width"] {
+  display: flex;
+  flex-flow: row wrap;
+}
+.page dl[style*="--title-width"] dt {
+  width: var(--title-width);
+}
+.page dl[style*="--title-width"] dd {
+  flex-basis: calc(100% - var(--title-width));
+  flex-grow: 1;
+}
+.page dl:not([style*="--title-width"]) dt {
+  display: inline;
+}
+.page dl:not([style*="--title-width"]) dt::before {
+  display: block;
+  content: "";
+}
+.page dl:not([style*="--title-width"]) dt::after {
+  display: inline;
+  content: " ";
+}
+.page dl:not([style*="--title-width"]) dd {
+  display: inline;
 }
 .page table {
   border-collapse: collapse;
@@ -157,18 +179,22 @@ body {
   border: 1px solid #000;
 }
 .page table thead tr th {
-  width: var(--width);
   text-align: left;
   font-size: 15px;
   padding: 2px 4px;
+}
+.page table thead tr th[style*="--width"] {
+  width: var(--width);
 }
 .page table tbody tr {
   border: 1px solid #000;
 }
 .page table tbody tr td {
-  width: var(--width);
   padding: 4px 4px;
   font-size: 16px;
+}
+.page table tbody tr td[style*="--width"] {
+  width: var(--width);
 }
 .page table tbody tr.sub-heading td {
   font-weight: bold;
@@ -265,21 +291,35 @@ body {
   margin-top: 3.32406px;
   margin-bottom: 13.29624px;
 }
+.page.signed-document div.content-container dl {
+  margin-top: 3.32406px;
+  margin-bottom: 13.29624px;
+}
+.page.signed-document div.content-container dl[style*="--title-width"] dt {
+  width: calc(var(--title-width) * 1.10802);
+}
+.page.signed-document div.content-container dl[style*="--title-width"] dd {
+  flex-basis: calc(100% - var(--title-width) * 1.10802);
+}
 .page.signed-document div.content-container table thead tr {
   border-width: 1.10802px;
 }
 .page.signed-document div.content-container table thead tr th {
-  width: calc(var(--width) * 1.10802);
   font-size: 16.6203px;
   padding: 2.21604px 4.43208px;
+}
+.page.signed-document div.content-container table thead tr th[style*="--width"] {
+  width: calc(var(--width) * 1.10802);
 }
 .page.signed-document div.content-container table tbody tr {
   border-width: 1.10802px;
 }
 .page.signed-document div.content-container table tbody tr td {
-  width: calc(var(--width) * 1.10802);
   font-size: 17.72832px;
   padding: 4.43208px 4.43208px;
+}
+.page.signed-document div.content-container table tbody tr td[style*="--width"] {
+  width: calc(var(--width) * 1.10802);
 }
 .page.signed-document div.content-container table.no-border thead tr th {
   padding-top: 0px;
