@@ -151,6 +151,7 @@ body {
 .page dl[style*="--title-width"] {
   display: flex;
   flex-flow: row wrap;
+  align-items: end;
 }
 .page dl[style*="--title-width"] dt {
   width: var(--title-width);
