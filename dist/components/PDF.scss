@@ -4,6 +4,7 @@ $font-size-body: 16px;
 $font-size-h1: 34px;
 $font-size-h1-small: 18px;
 $font-size-h2: 24px;
+$font-size-h2-small: 16px;
 $font-size-h3: 19px;
 $font-size-h4: 17px;
 $font-size-table-header: 15px;
@@ -18,6 +19,7 @@ $heading-logo-margin-left: 15px;
 
 $margin-top-h2: 22px;
 $margin-bottom-h2: 2px;
+$margin-bottom-h2-small: 6px;
 $margin-top-h3: 15px;
 $margin-bottom-h3: 4px;
 $margin-top-h4: 15px;
@@ -32,6 +34,8 @@ $margin-horizontal-blockquote: 10px;
 $padding-horizontal-blockquote: 10px;
 $border-left-width-blockquote: 10px;
 $min-height-blockquote: 36px;
+
+$margin-vertical-description-list: 3px;
 
 $margin-top-checkbox-container: 10px;
 $margin-bottom-checkbox-container: 10px;
@@ -139,6 +143,12 @@ body {
         line-height: 1em;
         margin-top: $margin-top-h2;
         margin-bottom: $margin-bottom-h2;
+        small {
+            display: block;
+            font-size: $font-size-h2-small;
+            line-height: 1em;
+            margin-bottom: $margin-bottom-h2-small;
+        }
         & + p {
             margin-top: 0;
         }
@@ -188,11 +198,15 @@ body {
     dl {
         margin-top: $margin-top-list;
         margin-bottom: $margin-bottom-list;
+        dt,
+        dd {
+            margin: $margin-vertical-description-list 0;
+            line-height: 1em;
+        }
         dt {
             font-weight: bold;
         }
         dd {
-            margin: 0;
             ul {
                 padding: 0;
                 margin: 0;
@@ -364,7 +378,6 @@ body {
         h1 {
             font-size: calc($font-size-h1 * $scaling-for-signed-documents);
             small {
-                display: block;
                 font-size: calc($font-size-h1-small * $scaling-for-signed-documents);
             }
         }
@@ -372,6 +385,10 @@ body {
             font-size: calc($font-size-h2 * $scaling-for-signed-documents);
             margin-top: calc($margin-top-h2 * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-h2 * $scaling-for-signed-documents);
+            small {
+                font-size: calc($font-size-h2-small * $scaling-for-signed-documents);
+                margin-bottom: calc($margin-bottom-h2-small * $scaling-for-signed-documents);
+            }
         }
         h3 {
             font-size: calc($font-size-h3 * $scaling-for-signed-documents);
@@ -385,6 +402,10 @@ body {
         dl {
             margin-top: calc($margin-top-list * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
+            dt,
+            dd {
+                margin: calc($margin-vertical-description-list * $scaling-for-signed-documents) 0;
+            }
             &[style*="--title-width"] {
                 dt {
                     width: calc(var(--title-width) * $scaling-for-signed-documents);

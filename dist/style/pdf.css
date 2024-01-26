@@ -91,6 +91,13 @@ body {
   margin-top: 22px;
   margin-bottom: 2px;
 }
+.page h2 small,
+.page .h2 small {
+  display: block;
+  font-size: 16px;
+  line-height: 1em;
+  margin-bottom: 6px;
+}
 .page h2 + p,
 .page .h2 + p {
   margin-top: 0;
@@ -137,11 +144,13 @@ body {
   margin-top: 3px;
   margin-bottom: 12px;
 }
+.page dl dt,
+.page dl dd {
+  margin: 3px 0;
+  line-height: 1em;
+}
 .page dl dt {
   font-weight: bold;
-}
-.page dl dd {
-  margin: 0;
 }
 .page dl dd ul {
   padding: 0;
@@ -285,13 +294,16 @@ body {
   font-size: 37.67268px;
 }
 .page.signed-document div.content-container h1 small {
-  display: block;
   font-size: 19.94436px;
 }
 .page.signed-document div.content-container h2 {
   font-size: 26.59248px;
   margin-top: 24.37644px;
   margin-bottom: 2.21604px;
+}
+.page.signed-document div.content-container h2 small {
+  font-size: 17.72832px;
+  margin-bottom: 6.64812px;
 }
 .page.signed-document div.content-container h3 {
   font-size: 21.05238px;
@@ -305,6 +317,10 @@ body {
 .page.signed-document div.content-container dl {
   margin-top: 3.32406px;
   margin-bottom: 13.29624px;
+}
+.page.signed-document div.content-container dl dt,
+.page.signed-document div.content-container dl dd {
+  margin: 3.32406px 0;
 }
 .page.signed-document div.content-container dl[style*="--title-width"] dt {
   width: calc(var(--title-width) * 1.10802);
