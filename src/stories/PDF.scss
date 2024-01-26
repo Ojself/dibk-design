@@ -35,6 +35,8 @@ $padding-horizontal-blockquote: 10px;
 $border-left-width-blockquote: 10px;
 $min-height-blockquote: 36px;
 
+$margin-vertical-description-list: 3px;
+
 $margin-top-checkbox-container: 10px;
 $margin-bottom-checkbox-container: 10px;
 
@@ -196,11 +198,15 @@ body {
     dl {
         margin-top: $margin-top-list;
         margin-bottom: $margin-bottom-list;
+        dt,
+        dd {
+            margin: $margin-vertical-description-list 0;
+            line-height: 1em;
+        }
         dt {
             font-weight: bold;
         }
         dd {
-            margin: 0;
             ul {
                 padding: 0;
                 margin: 0;
@@ -396,6 +402,10 @@ body {
         dl {
             margin-top: calc($margin-top-list * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
+            dt,
+            dd {
+                margin: calc($margin-vertical-description-list * $scaling-for-signed-documents) 0;
+            }
             &[style*="--title-width"] {
                 dt {
                     width: calc(var(--title-width) * $scaling-for-signed-documents);
