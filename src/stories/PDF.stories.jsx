@@ -149,6 +149,8 @@ const tableExample = <table>{tableExampleContent}</table>;
 
 const tableWithoutBordersExample = <table className="no-border">{tableExampleContent}</table>;
 
+const blockquoteExample = <blockquote>Blockquote text</blockquote>;
+
 const checkedCheckboxExample = (
     <div className="checkbox-container">
         <span className="checkbox">X</span>
@@ -243,6 +245,12 @@ export const TableWithoutBorders = Template.bind({});
 TableWithoutBorders.args = {
     signedDocument: false,
     children: tableWithoutBordersExample
+};
+
+export const Blockquote = Template.bind({});
+Blockquote.args = {
+    signedDocument: false,
+    children: blockquoteExample
 };
 
 export const Checkbox = Template.bind({});
