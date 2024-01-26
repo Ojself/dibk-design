@@ -230,6 +230,13 @@ body {
 .page table tbody tr td.indent {
   width: 18px;
 }
+.page blockquote {
+  background: #f2f1f0;
+  border-left: 10px solid #acc5d4;
+  margin: 5px 10px;
+  padding: 0.5em 10px;
+  min-height: 36px;
+}
 .page .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -335,6 +342,13 @@ body {
 .page.signed-document div.content-container table thead tr th .indent,
 .page.signed-document div.content-container table tbody tr td .indent {
   width: 19.94436px;
+}
+.page.signed-document div.content-container blockquote {
+  background: #f2f1f0;
+  border-left: 11.0802px solid #acc5d4;
+  margin: 5.5401px 11.0802px;
+  padding: 0.5em 11.0802px;
+  min-height: 39.88872px;
 }
 .page.signed-document div.content-container .checkbox-container {
   margin-top: 11.0802px;

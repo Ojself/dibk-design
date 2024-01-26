@@ -27,16 +27,22 @@ $margin-bottom-paragraph: 12px;
 $margin-top-list: 3px;
 $margin-bottom-list: 12px;
 
+$margin-vertical-blockquote: 5px;
+$margin-horizontal-blockquote: 10px;
+$padding-horizontal-blockquote: 10px;
+$border-left-width-blockquote: 10px;
+$min-height-blockquote: 36px;
+
 $margin-top-checkbox-container: 10px;
 $margin-bottom-checkbox-container: 10px;
 
-$vertical-padding-table-header: 2px;
-$horizontal-padding-table-header: 4px;
-$vertical-padding-table-data: 4px;
-$horizontal-padding-table-data: 4px;
+$padding-vertical-table-header: 2px;
+$padding-horizontal-table-header: 4px;
+$padding-vertical-table-data: 4px;
+$padding-horizontal-table-data: 4px;
 
-$vertical-padding-no-border-table-header: 0px;
-$vertical-padding-no-border-table-data: 2px;
+$padding-vertical-no-border-table-header: 0px;
+$padding-vertical-no-border-table-data: 2px;
 
 $scaling-for-signed-documents: 1.10802;
 
@@ -231,7 +237,7 @@ body {
                 th {
                     text-align: left;
                     font-size: $font-size-table-header;
-                    padding: $vertical-padding-table-header $horizontal-padding-table-header;
+                    padding: $padding-vertical-table-header $padding-horizontal-table-header;
                     &[style*="--width"] {
                         width: var(--width);
                     }
@@ -242,7 +248,7 @@ body {
             tr {
                 border: 1px solid #000;
                 td {
-                    padding: $vertical-padding-table-data $horizontal-padding-table-data;
+                    padding: $padding-vertical-table-data $padding-horizontal-table-data;
                     font-size: $font-size-table-data;
                     &[style*="--width"] {
                         width: var(--width);
@@ -261,8 +267,8 @@ body {
                     background-color: transparent;
                     border: none;
                     th {
-                        padding-top: $vertical-padding-no-border-table-header;
-                        padding-bottom: $vertical-padding-no-border-table-header;
+                        padding-top: $padding-vertical-no-border-table-header;
+                        padding-bottom: $padding-vertical-no-border-table-header;
                     }
                 }
             }
@@ -270,8 +276,8 @@ body {
                 tr {
                     border: transparent;
                     td {
-                        padding-top: $vertical-padding-no-border-table-data;
-                        padding-bottom: $vertical-padding-no-border-table-data;
+                        padding-top: $padding-vertical-no-border-table-data;
+                        padding-bottom: $padding-vertical-no-border-table-data;
                     }
                 }
             }
@@ -295,6 +301,14 @@ body {
         &.indent {
             width: 18px;
         }
+    }
+
+    blockquote {
+        background: $color-default;
+        border-left: $border-left-width-blockquote solid $color-light-blue;
+        margin: $margin-vertical-blockquote $margin-horizontal-blockquote;
+        padding: 0.5em $padding-horizontal-blockquote;
+        min-height: $min-height-blockquote;
     }
 
     .whitespace-nowrap {
@@ -384,8 +398,8 @@ body {
                 border-width: calc(1px * $scaling-for-signed-documents);
                 th {
                     font-size: calc($font-size-table-header * $scaling-for-signed-documents);
-                    padding: calc($vertical-padding-table-header * $scaling-for-signed-documents)
-                        calc($horizontal-padding-table-header * $scaling-for-signed-documents);
+                    padding: calc($padding-vertical-table-header * $scaling-for-signed-documents)
+                        calc($padding-horizontal-table-header * $scaling-for-signed-documents);
                     &[style*="--width"] {
                         width: calc(var(--width) * $scaling-for-signed-documents);
                     }
@@ -395,8 +409,8 @@ body {
                 border-width: calc(1px * $scaling-for-signed-documents);
                 td {
                     font-size: calc($font-size-table-data * $scaling-for-signed-documents);
-                    padding: calc($vertical-padding-table-data * $scaling-for-signed-documents)
-                        calc($horizontal-padding-table-data * $scaling-for-signed-documents);
+                    padding: calc($padding-vertical-table-data * $scaling-for-signed-documents)
+                        calc($padding-horizontal-table-data * $scaling-for-signed-documents);
                     &[style*="--width"] {
                         width: calc(var(--width) * $scaling-for-signed-documents);
                     }
@@ -404,12 +418,12 @@ body {
             }
             &.no-border {
                 thead tr th {
-                    padding-top: calc($vertical-padding-no-border-table-header * $scaling-for-signed-documents);
-                    padding-bottom: calc($vertical-padding-no-border-table-header * $scaling-for-signed-documents);
+                    padding-top: calc($padding-vertical-no-border-table-header * $scaling-for-signed-documents);
+                    padding-bottom: calc($padding-vertical-no-border-table-header * $scaling-for-signed-documents);
                 }
                 tbody tr td {
-                    padding-top: calc($vertical-padding-no-border-table-data * $scaling-for-signed-documents);
-                    padding-bottom: calc($vertical-padding-no-border-table-data * $scaling-for-signed-documents);
+                    padding-top: calc($padding-vertical-no-border-table-data * $scaling-for-signed-documents);
+                    padding-bottom: calc($padding-vertical-no-border-table-data * $scaling-for-signed-documents);
                 }
             }
         }
@@ -419,6 +433,15 @@ body {
             .indent {
                 width: calc(18px * $scaling-for-signed-documents);
             }
+        }
+
+        blockquote {
+            background: $color-default;
+            border-left: calc($border-left-width-blockquote * $scaling-for-signed-documents) solid $color-light-blue;
+            margin: calc($margin-vertical-blockquote * $scaling-for-signed-documents)
+                calc($margin-horizontal-blockquote * $scaling-for-signed-documents);
+            padding: 0.5em calc($padding-horizontal-blockquote * $scaling-for-signed-documents);
+            min-height: calc($min-height-blockquote * $scaling-for-signed-documents);
         }
 
         .checkbox-container {
