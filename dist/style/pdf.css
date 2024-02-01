@@ -135,15 +135,6 @@ body {
   margin-top: 3px;
   margin-bottom: 12px;
 }
-.page .text-red {
-  color: red;
-}
-.page .text-italic {
-  font-style: italic;
-}
-.page .text-bold {
-  font-style: italic;
-}
 .page dl {
   margin-top: 3px;
   margin-bottom: 12px;
@@ -265,6 +256,15 @@ body {
 }
 .page .text-center {
   text-align: center;
+}
+.page .text-red {
+  color: red;
+}
+.page .text-italic {
+  font-style: italic;
+}
+.page .text-bold {
+  font-style: bold;
 }
 .page .block {
   display: block;
