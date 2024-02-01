@@ -187,18 +187,6 @@ body {
         margin-bottom: $margin-bottom-paragraph;
     }
 
-    .text-red {
-        color: red;
-    }
-
-    .text-italic {
-        font-style: italic;
-    }
-
-    .text-bold {
-        font-style: italic;
-    }
-
     dl {
         margin-top: $margin-top-list;
         margin-bottom: $margin-bottom-list;
@@ -348,6 +336,17 @@ body {
 
     .text-center {
         text-align: center;
+    }
+    .text-red {
+        color: red;
+    }
+
+    .text-italic {
+        font-style: italic;
+    }
+
+    .text-bold {
+        font-style: bold;
     }
 
     .block {
