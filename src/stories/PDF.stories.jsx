@@ -60,6 +60,15 @@ const textParagraphsExample = (
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat.
+            <br />
+            <span>Text without class</span> <span className="text-bold">Text with class .text-bold</span>{" "}
+            <span className="text-italic">Text with class .text-italic</span>{" "}
+            <span className="text-red">Text with class .text-red</span>
+            <div>
+                <span className="block text-left">Text with class .block and .text-left</span>
+                <span className="block text-center">Text with class .block and .text-center</span>
+                <span className="block text-right">Text with class .block and .text-right</span>
+            </div>
         </p>
     </>
 );
@@ -221,12 +230,7 @@ H4.args = {
 export const Text = Template.bind({});
 Text.args = {
     signedDocument: false,
-    children: (
-        <>
-            {textParagraphsExample}
-            {textListExample}
-        </>
-    )
+    children: textParagraphsExample
 };
 
 export const DescriptionList = Template.bind({});
