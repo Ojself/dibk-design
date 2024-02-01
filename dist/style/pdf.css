@@ -75,7 +75,7 @@ body {
   font-size: 34px;
   font-weight: normal;
   line-height: 0.9em;
-  margin-top: 0;
+  margin-top: 5px;
   margin-bottom: 0.4em;
 }
 .page h1 small,
@@ -264,7 +264,7 @@ body {
   font-style: italic;
 }
 .page .text-bold {
-  font-style: bold;
+  font-weight: bold;
 }
 .page .block {
   display: block;
@@ -311,6 +311,7 @@ body {
 }
 .page.signed-document div.content-container h1 {
   font-size: 37.67268px;
+  margin-top: 5.5401px;
 }
 .page.signed-document div.content-container h1 small {
   font-size: 19.94436px;
