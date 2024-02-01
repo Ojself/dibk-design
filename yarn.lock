@@ -1660,7 +1660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.23.9, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.23.9
   resolution: "@babel/runtime@npm:7.23.9"
   dependencies:
@@ -13926,11 +13926,11 @@ __metadata:
   linkType: hard
 
 "polished@npm:^4.2.2":
-  version: 4.3.0
-  resolution: "polished@npm:4.3.0"
+  version: 4.2.2
+  resolution: "polished@npm:4.2.2"
   dependencies:
-    "@babel/runtime": ^7.23.9
-  checksum: 8ae15f1be8f6b86d2e82f4957ccb8778d52a76b0704ca8340943bebc372d76110cae553b16a2c1708e6858b541be1ccffd0dc870c15a3f0f29a6165d6b6013e5
+    "@babel/runtime": ^7.17.8
+  checksum: 97fb927dc55cd34aeb11b31ae2a3332463f114351c86e8aa6580d7755864a0120164fdc3770e6160c8b1775052f0eda14db9a6e34402cd4b08ab2d658a593725
   languageName: node
   linkType: hard
 
@@ -16891,12 +16891,12 @@ __metadata:
   linkType: hard
 
 "swc-loader@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "swc-loader@npm:0.2.3"
+  version: 0.2.4
+  resolution: "swc-loader@npm:0.2.4"
   peerDependencies:
     "@swc/core": ^1.2.147
     webpack: ">=2"
-  checksum: 010d84d399525c0185d36d62c86c55ae017e7a90046bc8a39be4b7e07526924037868049f6037bc966da98151cb2600934b96a66279b742d3c413a718b427251
+  checksum: f23bfe8900b35abdcb9910a2749f3c9d66edf5c660afc67fcf7983647eaec322e024d1edd3bd9fd48bd3191eea0616f67b5f8b5f923e3a648fa5b448683c3213
   languageName: node
   linkType: hard
 
