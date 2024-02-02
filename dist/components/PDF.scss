@@ -7,6 +7,7 @@ $font-size-h2: 24px;
 $font-size-h2-small: 16px;
 $font-size-h3: 19px;
 $font-size-h4: 17px;
+$font-size-h5: 16px;
 $font-size-table-header: 15px;
 $font-size-table-data: 16px;
 $font-size-checkbox: 20px;
@@ -25,6 +26,8 @@ $margin-top-h3: 15px;
 $margin-bottom-h3: 4px;
 $margin-top-h4: 15px;
 $margin-bottom-h4: 6px;
+$margin-top-h5: 12px;
+$margin-bottom-h5: 2px;
 $margin-top-paragraph: 3px;
 $margin-bottom-paragraph: 12px;
 $margin-top-list: 3px;
@@ -181,6 +184,15 @@ body {
         & + p {
             margin-top: 0;
         }
+    }
+
+    h5,
+    .h5 {
+        page-break-after: avoid;
+        font-size: $font-size-h5;
+        font-weight: bold;
+        margin-top: $margin-top-h5;
+        margin-bottom: $margin-bottom-h5;
     }
 
     p {
@@ -399,14 +411,16 @@ body {
             float: right;
             margin-left: calc($heading-logo-margin-left * $scaling-for-signed-documents);
         }
-        h1 {
+        h1,
+        .h1 {
             font-size: calc($font-size-h1 * $scaling-for-signed-documents);
             margin-top: calc($margin-top-h1 * $scaling-for-signed-documents);
             small {
                 font-size: calc($font-size-h1-small * $scaling-for-signed-documents);
             }
         }
-        h2 {
+        h2,
+        .h2 {
             font-size: calc($font-size-h2 * $scaling-for-signed-documents);
             margin-top: calc($margin-top-h2 * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-h2 * $scaling-for-signed-documents);
@@ -415,10 +429,23 @@ body {
                 margin-bottom: calc($margin-bottom-h2-small * $scaling-for-signed-documents);
             }
         }
-        h3 {
+        h3,
+        .h3 {
             font-size: calc($font-size-h3 * $scaling-for-signed-documents);
             margin-top: calc($margin-top-h3 * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-h3 * $scaling-for-signed-documents);
+        }
+        h4,
+        .h4 {
+            font-size: calc($font-size-h4 * $scaling-for-signed-documents);
+            margin-top: calc($margin-top-h4 * $scaling-for-signed-documents);
+            margin-bottom: calc($margin-bottom-h4 * $scaling-for-signed-documents);
+        }
+        h5,
+        .h5 {
+            font-size: calc($font-size-h5 * $scaling-for-signed-documents);
+            margin-top: calc($margin-top-h5 * $scaling-for-signed-documents);
+            margin-bottom: calc($margin-bottom-h5 * $scaling-for-signed-documents);
         }
         p {
             margin-top: calc($margin-top-paragraph * $scaling-for-signed-documents);

@@ -131,6 +131,14 @@ body {
 .page .h4 + p {
   margin-top: 0;
 }
+.page h5,
+.page .h5 {
+  page-break-after: avoid;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
 .page p {
   margin-top: 3px;
   margin-bottom: 12px;
@@ -309,26 +317,43 @@ body {
   float: right;
   margin-left: 16.6203px;
 }
-.page.signed-document div.content-container h1 {
+.page.signed-document div.content-container h1,
+.page.signed-document div.content-container .h1 {
   font-size: 37.67268px;
   margin-top: 5.5401px;
 }
-.page.signed-document div.content-container h1 small {
+.page.signed-document div.content-container h1 small,
+.page.signed-document div.content-container .h1 small {
   font-size: 19.94436px;
 }
-.page.signed-document div.content-container h2 {
+.page.signed-document div.content-container h2,
+.page.signed-document div.content-container .h2 {
   font-size: 26.59248px;
   margin-top: 24.37644px;
   margin-bottom: 2.21604px;
 }
-.page.signed-document div.content-container h2 small {
+.page.signed-document div.content-container h2 small,
+.page.signed-document div.content-container .h2 small {
   font-size: 17.72832px;
   margin-bottom: 6.64812px;
 }
-.page.signed-document div.content-container h3 {
+.page.signed-document div.content-container h3,
+.page.signed-document div.content-container .h3 {
   font-size: 21.05238px;
   margin-top: 16.6203px;
   margin-bottom: 4.43208px;
+}
+.page.signed-document div.content-container h4,
+.page.signed-document div.content-container .h4 {
+  font-size: 18.83634px;
+  margin-top: 16.6203px;
+  margin-bottom: 6.64812px;
+}
+.page.signed-document div.content-container h5,
+.page.signed-document div.content-container .h5 {
+  font-size: 17.72832px;
+  margin-top: 13.29624px;
+  margin-bottom: 2.21604px;
 }
 .page.signed-document div.content-container p {
   margin-top: 3.32406px;
