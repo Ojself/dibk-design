@@ -48,11 +48,17 @@ const h1Example = (
     </h1>
 );
 
-const h2Example = <h2>Heading level 2 example</h2>;
+const h2Example = (
+    <h2>
+        Heading level 2 example <small>small text example</small>
+    </h2>
+);
 
 const h3Example = <h3>Heading level 3 example</h3>;
 
 const h4Example = <h4>Heading level 4 example</h4>;
+
+const h5Example = <h5>Heading level 5 example</h5>;
 
 const textParagraphsExample = (
     <>
@@ -203,28 +209,18 @@ Logo.args = {
     children: logoExample
 };
 
-export const H1 = Template.bind({});
-H1.args = {
+export const Headings = Template.bind({});
+Headings.args = {
     signedDocument: false,
-    children: h1Example
-};
-
-export const H2 = Template.bind({});
-H2.args = {
-    signedDocument: false,
-    children: h2Example
-};
-
-export const H3 = Template.bind({});
-H3.args = {
-    signedDocument: false,
-    children: h3Example
-};
-
-export const H4 = Template.bind({});
-H4.args = {
-    signedDocument: false,
-    children: h4Example
+    children: (
+        <>
+            {h1Example}
+            {h2Example}
+            {h3Example}
+            {h4Example}
+            {h5Example}
+        </>
+    )
 };
 
 export const Text = Template.bind({});
