@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 // Functions
 import { getThemePaletteBackgroundColor } from "../functions/theme";
-import { classNameArrayToClassNameString } from "functions/helpers";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Stylesheets
 import style from "./ErrorBox.module.scss";

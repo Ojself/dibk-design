@@ -20,7 +20,7 @@ import logo from "../assets/svg/dibk-logo.svg?url";
 
 // Stylesheets
 import style from "./NavigationBar.module.scss";
-import { classNameArrayToClassNameString } from "functions/helpers";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 const NavigationBar = (props) => {
     // State
