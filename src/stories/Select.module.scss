@@ -41,7 +41,11 @@
 
         .multipleSelectDropdown {
             @include border-radius(4px);
-            @include box-shadow(rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px);
+            @include box-shadow(
+                rgba(0, 0, 0, 0.2) 0px 5px 5px -3px,
+                rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
+                rgba(0, 0, 0, 0.12) 0px 3px 14px 2px
+            );
             width: 100%;
             position: absolute;
             background-color: #fff;
@@ -51,30 +55,27 @@
         select,
         .multipleSelectElement {
             @include border-radius(0);
-            @include transition(border-color 0.15s linear);
+            @include transition(background $default-transition);
             @include appearance(none);
             @include box-shadow(none);
             color: rgba(0, 0, 0, 0.75);
             width: 100%;
             font-family: inherit;
-            font-size: 16px;
+            font-size: 18px;
             padding: 10px 40px 10px 10px;
-            border: 1px solid #afaba8;
+            border: 1px solid $color-primary;
             border-radius: 0;
             line-height: 1.7;
             background: white;
             cursor: pointer;
-            @media only screen and (min-width: $screen-sm) {
-                font-size: 19px;
-            }
 
             &:hover {
-                border-color: $color-dark-blue;
+                border-color: $color-primary;
+                background-color: $color-secondary-x-light;
             }
 
             &:focus {
-                border-color: $color-dark-blue;
-                outline-color: #54acb8;
+                outline-color: $color-primary;
             }
 
             &[disabled],
@@ -83,15 +84,12 @@
                 cursor: default;
             }
             &:not(.multiple) {
-                height: 47px;
-                padding: 10px 40px 10px 10px;
-                @media only screen and (min-width: $screen-sm) {
-                    height: 56px;
-                }
+                height: 52px;
+                padding: 12px 40px 12px 12px;
             }
             &.multiple {
                 max-height: 100px;
-                padding: 10px;
+                padding: 12px;
             }
 
             &.hasErrors {
