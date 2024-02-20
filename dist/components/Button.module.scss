@@ -31,12 +31,12 @@
   @include appearance(none);
   @include border-radius(0);
   @include transition(
-    filter 300ms ease-out,
-    background-color 300ms ease-out,
-    color 300ms ease-out,
-    border-color 300ms ease-out
+    filter 200ms $default-transition,
+    background-color 200ms $default-transition,
+    color 200ms $default-transition,
+    border-color 200ms $default-transition
   );
-  font-family: "Altis", sans-serif;
+  font-family: $default-font;
   border-style: solid;
   border-width: 1px;
   border-color: $color-primary;
@@ -66,19 +66,17 @@
     }
   }
 
+  &:focus {
+    outline-offset: 3px;
+  }
+
   &:focus-visible,
   &:focus-within {
-    outline-color: $color-focus-outline;
-    outline-style: auto;
-    outline-width: 2px;
-    outline-offset: 0px;
+    outline-color: $color-primary;
   }
 
   &.regular {
-    padding: 14px 24px;
-    @media only screen and (min-width: $screen-sm) {
-      padding: 17px 32px;
-    }
+    padding: 16px 24px;
   }
 
   &.small {
@@ -92,18 +90,26 @@
   }
 
   &.default {
-    background-color: #fff;
-    color: $color-primary;
+    background-color: transparent;
+    color: $color-primary-text;
+    border-color: $color-secondary-light;
     &:not(.hasTheme) {
       &:hover:not(.noHover),
-      &:focus-visible,
-      &:focus-within,
-      &:active {
-        background-color: $color-primary;
-        color: #fff;
+      &:focus-visible {
+        background-color: $color-secondary-x-light;
+        color: $color-primary-text;
         &:after,
         &:before {
-          border-color: #fff;
+          border-color: $color-secondary-light;
+        }
+      }
+      &:active:not(.noHover),
+      &:active:hover:not(.noHover) {
+        background-color: $color-secondary-light;
+        color: $color-primary-text;
+        &:after,
+        &:before {
+          border-color: $color-secondary-light;
         }
       }
     }
@@ -114,13 +120,23 @@
     color: #fff;
     &:not(.hasTheme) {
       &:hover:not(.noHover),
-      &:focus-visible,
-      &:active {
-        background-color: #fff;
-        color: $color-primary;
+      &:focus-visible {
+        background-color: $color-primary-light;
+        border-color: $color-primary-light;
+        color: #fff;
         &:after,
         &:before {
-          border-color: $color-primary;
+          border-color: $color-primary-light;
+        }
+      }
+      &:active:not(.noHover),
+      &:active:hover:not(.noHover) {
+        background-color: $color-primary-x-light;
+        border-color: $color-primary-x-light;
+        color: #fff;
+        &:after,
+        &:before {
+          border-color: $color-primary-x-light;
         }
       }
     }
@@ -128,56 +144,40 @@
 
   &:disabled,
   &.disabled {
-    &.hasTheme,
-    &:not(.hasTheme) {
-      &.default {
-        background-color: #fff;
-        cursor: default;
+    &.hasTheme {
+      opacity: 0.6;
+      cursor: default;
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &:active {
         opacity: 0.6;
-        color: #afaba8;
-        border: 1px solid #e5e3e1;
-        &:hover,
-        &:focus,
-        &:focus-within,
-        &:active {
-          background-color: #fff;
-          cursor: default;
-          opacity: 0.6;
-          color: #afaba8;
-          border: 1px solid #e5e3e1;
-          &:before,
-          &:after {
-            border-color: #afaba8;
-          }
-        }
-        &:before,
-        &:after {
-          border-color: #afaba8;
-        }
+        cursor: default;
       }
+    }
+    &:not(.hasTheme) {
+      &.default,
       &.primary {
-        background-color: $color-primary;
+        background-color: $color-secondary-light;
         cursor: default;
-        opacity: 0.6;
         color: #fff;
-        border: 1px solid $color-primary;
-        &:hover,
-        &:focus,
-        &:focus-within,
-        &:active {
-          background-color: $color-primary;
+        border: 1px solid $color-secondary-light;
+        &:hover:not(.noHover),
+        &:focus-visible,
+        &:active:not(.noHover),
+        &:active:hover:not(.noHover) {
+          background-color: $color-secondary-light;
           cursor: default;
-          opacity: 0.6;
           color: #fff;
-          border: 1px solid $color-primary;
+          border: 1px solid $color-secondary-light;
           &:before,
           &:after {
-            border-color: $color-primary;
+            border-color: $color-secondary-light;
           }
         }
         &:before,
         &:after {
-          border-color: $color-primary;
+          border-color: $color-secondary-light;
         }
       }
     }
@@ -195,16 +195,13 @@
   &.hasArrowLeft {
     &:before {
       @include transform(rotate(-135deg));
-      @include calc("top", "50% - 0.4rem");
       content: " ";
       display: inline-block;
-      position: absolute;
-      right: auto;
-      left: 0.55em;
+      margin-right: 1em;
       width: 0.5rem;
       height: 0.5rem;
       vertical-align: middle;
-      border: 2px solid white;
+      border-style: solid;
       border-width: 2px 2px 0 0;
       margin-right: 1em;
       @media only screen and (min-width: $screen-sm) {
@@ -212,14 +209,22 @@
       }
     }
 
-    &:hover {
+    &:hover:not(.noHover),
+    &:focus-visible,
+    &:active:not(.noHover),
+    &:active:hover:not(.noHover) {
       &:before {
         @include animation(pushprev 0.8s linear infinite);
       }
-    }
-    &.default {
-      &:before {
-        border-color: $color-primary;
+      &.default {
+        &:before {
+          border-color: $color-primary;
+        }
+      }
+      &.primary {
+        &:before {
+          border-color: #fff;
+        }
       }
     }
   }
@@ -227,12 +232,9 @@
   &.hasArrowRight {
     &:after {
       @include transform(rotate(45deg));
-      @include calc("top", "50% - 0.4rem");
       content: " ";
       display: inline-block;
-      position: absolute;
-      left: auto;
-      right: 0.55em;
+      margin-left: 1em;
       width: 0.5rem;
       height: 0.5rem;
       vertical-align: middle;
@@ -244,14 +246,22 @@
       }
     }
 
-    &:hover {
+    &:hover:not(.noHover),
+    &:focus-visible,
+    &:active:not(.noHover),
+    &:active:hover:not(.noHover) {
       &:after {
         @include animation(pushnext 0.8s linear infinite);
       }
-    }
-    &.default {
-      &:after {
-        border-color: $color-primary;
+      &.default {
+        &:after {
+          border-color: $color-primary;
+        }
+      }
+      &.primary {
+        &:after {
+          border-color: #fff;
+        }
       }
     }
   }

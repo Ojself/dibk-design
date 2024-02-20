@@ -11,7 +11,7 @@ var _helpers = require("../functions/helpers");
 var _RadioButtonListItemModule = _interopRequireDefault(require("./RadioButtonListItem.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const RadioButtonListItem = props => {
-  const listItemClassNameArray = [_RadioButtonListItemModule.default.radioButtonListItem, props.disabled ? _RadioButtonListItemModule.default.disabled : null, props.compact ? _RadioButtonListItemModule.default.compact : null, props.contentOnly ? _RadioButtonListItemModule.default.contentOnly : null, props.hasErrors ? _RadioButtonListItemModule.default.hasErrors : null];
+  const listItemClassNameArray = [_RadioButtonListItemModule.default.radioButtonListItem, props.checked ? _RadioButtonListItemModule.default.checked : null, props.disabled ? _RadioButtonListItemModule.default.disabled : null, props.compact ? _RadioButtonListItemModule.default.compact : null, props.contentOnly ? _RadioButtonListItemModule.default.contentOnly : null, props.hasErrors ? _RadioButtonListItemModule.default.hasErrors : null, props.theme && _RadioButtonListItemModule.default.hasTheme];
   const listItemClassNameString = (0, _helpers.classNameArrayToClassNameString)(listItemClassNameArray);
   const inputProps = {
     onChange: props.onChange,

@@ -1,17 +1,12 @@
 @import "../style/global.scss";
 
 .navigationBarContainer {
-    @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
-    position: relative;
-    z-index: 1;
     .mainContentLink {
         display: block;
-        background-color: #072938;
         padding: 8px;
         text-align: center;
         text-decoration: none;
         font-size: 19px;
-        color: #fff;
         position: absolute;
         overflow: hidden;
         clip: rect(1px, 1px, 1px, 1px);
@@ -25,159 +20,440 @@
             clip: auto;
             width: auto;
             height: auto;
+            outline: none;
             span {
                 z-index: 100;
-                outline: 3px solid #005fca;
-                outline-offset: 2px;
+                outline-style: solid;
+                outline-width: 2px;
+                outline-offset: 3px;
                 transition: none;
                 text-decoration: none;
             }
         }
     }
-    .navigationBar {
-        background-color: $color-dark-blue;
-        height: 54px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    &:not(.compact) {
+        position: relative;
+        background-color: $body-background;
+        padding: 5px;
         @media only screen and (min-width: $screen-sm) {
-            height: 73px;
+            padding: 20px;
         }
-    }
-
-    .logoContainer {
-        width: 200px;
-        height: 54px;
-        display: inline-block;
-        img {
-            height: 54px;
-            max-width: none;
+        @media only screen and (min-width: $screen-md) {
+            padding-bottom: 40px;
         }
-        @media only screen and (min-width: $screen-sm) {
-            width: 270px;
-            height: 73px;
-            img {
-                height: 73px;
+        .mainContentLink {
+            background-color: $body-background;
+            color: $color-primary;
+            &:focus,
+            &:active {
+                span {
+                    outline-color: $color-primary;
+                }
             }
         }
-    }
+        .navigationBar {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin: 0;
+            font-size: 18px;
+            padding: 0;
+            @media only screen and (min-width: $screen-sm) {
+                -ms-flex-direction: row;
+                flex-direction: row;
+            }
+            @media only screen and (min-width: $screen-md) {
+                margin: 0;
+            }
+        }
+        .logoContainer {
+            width: 85px;
+            margin-bottom: 0;
+            @media only screen and (min-width: $screen-sm) {
+                width: 100px;
+            }
+        }
+        .childElements {
+            display: flex;
+            flex: 1 1;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .menuToggle {
+            transition: background-color $default-transition;
+            font-family: $default-font;
+            display: inline-block;
+            line-height: 1.1;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: auto;
+            margin: auto;
+            border: 1px solid $color-primary;
+            padding: 10px 20px;
+            padding-right: 54px;
+            background-color: transparent;
+            color: $color-primary;
+            font-size: 20px;
+            font-weight: 400;
+            cursor: pointer;
+            @media only screen and (min-width: $screen-sm) {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-right: 0;
+                height: 53px;
+            }
 
-    .childElements {
-        display: block;
-        color: #fff;
-        flex: 1;
-    }
-
-    .menuToggle {
-        @include appearance(none);
-        @include transition(background-color 300ms ease-out);
-        border: none;
-        cursor: pointer;
-        position: relative;
-        background-color: transparent;
-        float: right;
-        margin: 0 12px;
-        .hamburgerIcon {
-            width: 30px;
-            display: block;
-            .line {
-                background-color: #fff;
-                height: 2px;
-                margin: 6px 0;
+            .hamburgerIcon {
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                height: 4px;
+                width: 24px;
+                border-radius: 3px;
+                background-color: $color-primary;
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 4px;
+                    left: 0;
+                    right: 0;
+                    border-radius: 3px;
+                    background-color: $color-primary;
+                    transition: transform 0.3s ease-out;
+                }
+                &::before {
+                    top: -8px;
+                }
+                &::after {
+                    bottom: -8px;
+                }
+                .line {
+                }
+            }
+            &:hover,
+            &:focus,
+            &:active {
+                color: #fff;
+                background-color: $color-primary;
+                .hamburgerIcon {
+                    background-color: #fff;
+                    &::before,
+                    &::after {
+                        background-color: #fff;
+                    }
+                }
+            }
+            &.active {
+                .hamburgerIcon {
+                    background-color: transparent;
+                    &::before {
+                        transform: translate(0, 8px) rotate(45deg);
+                    }
+                    &::after {
+                        transform: translate(0, -8px) rotate(-45deg);
+                    }
+                }
+            }
+        }
+        .dropdownContainer {
+            z-index: 1000;
+            display: none;
+            width: 100%;
+            overflow: hidden;
+            transition: all $default-transition;
+            background-color: $body-background;
+            &.active {
                 display: block;
             }
         }
-        @media only screen and (min-width: $screen-sm) {
-            margin: 0 21px;
-        }
-    }
-
-    .dropdownContainer {
-        @include transition(max-height 0.15s ease-out);
-        max-height: 0;
-        overflow: hidden;
-        &.active {
-            @include transition(max-height 0.15s ease-out);
-            max-height: 500px;
-        }
-    }
-
-    .dropdown {
-        @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
-        background-color: $color-dark-blue;
-        z-index: 2;
-        > ul.primaryList {
-            list-style: none;
+        .dropdown {
+            margin: 0 auto;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: 0;
             padding: 20px;
-            margin: 0;
-            li {
-                a,
-                span {
-                    color: #fff;
-                    text-transform: uppercase;
-                    text-decoration: none;
-                    font-family: $default-font;
-                    padding: 10px 0;
-                    display: block;
-                    border-bottom: 1px solid $color-primary;
-                    font-size: 14px;
-                    line-height: 1.6;
+            @media only screen and (min-width: $screen-sm) {
+                padding: 40px 5%;
+            }
+            > ul.primaryList,
+            > ul.secondaryList {
+                width: 100%;
+                padding: 0;
+                list-style: none;
+                margin: 0;
+                @media only screen and (min-width: $screen-sm) {
+                    padding: 20px 0;
                 }
-                > ul.primaryList {
-                    list-style: none;
-                    padding: 0;
-                    li {
-                        a,
-                        span {
-                            color: #fff;
-                            text-transform: none;
+            }
+            > ul.primaryList {
+                float: left;
+                @media only screen and (min-width: $screen-sm) {
+                    width: 60%;
+                }
+                > li {
+                    line-height: 1.6;
+                    padding: 15px 0;
+                    @media only screen and (min-width: $screen-sm) {
+                        margin-left: 100px;
+                    }
+                    > a,
+                    > span {
+                        font-size: 18px;
+                        line-height: 1.56;
+                        font-weight: 600;
+                        text-decoration: underline;
+                        color: $color-primary;
+                        cursor: pointer;
+                        &:hover {
                             text-decoration: none;
-                            font-family: $default-font;
-                            padding: 10px 0;
-                            margin-left: 20px;
-                            display: block;
-                            border-bottom: 1px solid #1b3a48;
-                            font-size: 14px;
+                        }
+                        @media only screen and (min-width: $screen-sm) {
+                            font-size: 26px;
+                            line-height: 1.58;
+                        }
+                    }
+                    > ul.primaryList {
+                        display: none;
+                        list-style: none;
+                        @media only screen and (min-width: $screen-sm) {
+                            display: -ms-flexbox;
+                            display: flex;
+                            -ms-flex-direction: row;
+                            flex-direction: row;
+                            -ms-flex-wrap: wrap;
+                            flex-wrap: wrap;
+                            margin-left: -5px;
+                        }
+                        li {
+                            padding: 5px;
                             line-height: 1.6;
+                            font-size: 16px;
+                            @media only screen and (min-width: $screen-md) {
+                                font-size: 20px;
+                            }
+                            &:not(:last-of-type)::after {
+                                @media only screen and (min-width: $screen-sm) {
+                                    content: "-";
+                                    padding-left: 10px;
+                                }
+                            }
+                            a,
+                            span {
+                                cursor: pointer;
+                                text-decoration: underline;
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            > ul.secondaryList {
+                float: right;
+                margin: 20px 0;
+                @media only screen and (min-width: $screen-sm) {
+                    margin: 0;
+                    width: 40%;
+                    padding-left: 20px;
+                }
+                li {
+                    padding: 5px 0;
+                    line-height: 1.6;
+                    @media only screen and (min-width: $screen-sm) {
+                        padding: 10px 0;
+                        position: relative;
+                    }
+                    a,
+                    span {
+                        font-size: 17px;
+                        text-decoration: underline;
+                        font-weight: 600;
+                        line-height: 1.5;
+                        cursor: pointer;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                        @media only screen and (min-width: $screen-sm) {
+                            font-size: 22px;
                         }
                     }
                 }
             }
         }
-        > ul.secondaryList {
-            list-style: none;
-            padding: 20px;
-            margin: 0;
+    }
+    &.compact {
+        @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
+        position: relative;
+        z-index: 1;
 
-            li {
-                a,
+        .mainContentLink {
+            background-color: $color-primary;
+            color: #fff;
+            &:focus,
+            &:active {
                 span {
-                    color: #fff;
-                    text-decoration: underline;
-                    font-family: "Arial";
-                    font-size: 14px;
-                    padding: 10px 0;
-                    line-height: 1;
+                    outline-color: #fff;
                 }
             }
         }
-    }
 
-    @media only screen and (min-width: $screen-sm) {
-        .dropdownContainer {
-            position: relative;
-            overflow: visible;
-            .dropdown {
-                @include transition(max-height 0.15s ease-out);
-                width: 300px;
-                position: absolute;
-                right: 0;
-                max-height: 0;
-                overflow: hidden;
+        .navigationBar {
+            background-color: $color-primary;
+            height: 54px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media only screen and (min-width: $screen-sm) {
+                height: 73px;
             }
+        }
+
+        .logoContainer {
+            width: 200px;
+            height: 54px;
+            display: inline-block;
+            img {
+                height: 54px;
+                max-width: none;
+            }
+            @media only screen and (min-width: $screen-sm) {
+                width: 270px;
+                height: 73px;
+                img {
+                    height: 73px;
+                }
+            }
+        }
+
+        .childElements {
+            display: block;
+            color: #fff;
+            flex: 1;
+        }
+
+        .menuToggle {
+            @include appearance(none);
+            @include transition(background-color 300ms ease-out);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            background-color: transparent;
+            float: right;
+            margin: 0 12px;
+            .hamburgerIcon {
+                width: 30px;
+                display: block;
+                .line {
+                    background-color: #fff;
+                    height: 2px;
+                    margin: 6px 0;
+                    display: block;
+                }
+            }
+            @media only screen and (min-width: $screen-sm) {
+                margin: 0 21px;
+            }
+        }
+
+        .dropdownContainer {
+            @include transition(max-height 0.15s ease-out);
+            max-height: 0;
+            overflow: hidden;
             &.active {
+                @include transition(max-height 0.15s ease-out);
+                max-height: 500px;
+            }
+        }
+
+        .dropdown {
+            @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
+            background-color: $color-primary;
+            z-index: 2;
+            > ul.primaryList {
+                list-style: none;
+                padding: 20px;
+                margin: 0;
+                li {
+                    a,
+                    span {
+                        color: #fff;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-family: $default-font;
+                        padding: 10px 0;
+                        display: block;
+                        border-bottom: 1px solid $color-primary;
+                        font-size: 14px;
+                        line-height: 1.6;
+                    }
+                    > ul.primaryList {
+                        list-style: none;
+                        padding: 0;
+                        li {
+                            a,
+                            span {
+                                color: #fff;
+                                text-transform: none;
+                                text-decoration: none;
+                                font-family: $default-font;
+                                padding: 10px 0;
+                                margin-left: 20px;
+                                display: block;
+                                border-bottom: 1px solid #1b3a48;
+                                font-size: 14px;
+                                line-height: 1.6;
+                            }
+                        }
+                    }
+                }
+            }
+            > ul.secondaryList {
+                list-style: none;
+                padding: 20px;
+                margin: 0;
+
+                li {
+                    a,
+                    span {
+                        color: #fff;
+                        text-decoration: underline;
+                        font-family: "Arial";
+                        font-size: 14px;
+                        padding: 10px 0;
+                        line-height: 1;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (min-width: $screen-sm) {
+            .dropdownContainer {
+                position: relative;
+                overflow: visible;
                 .dropdown {
-                    max-height: 500px;
+                    @include transition(max-height 0.15s ease-out);
+                    width: 300px;
+                    position: absolute;
+                    right: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                }
+                &.active {
+                    .dropdown {
+                        max-height: 500px;
+                    }
                 }
             }
         }

@@ -35,7 +35,9 @@ const RadioButtonInput = props => {
     "aria-invalid": props.hasErrors ? "true" : null,
     "aria-describedby": props["aria-describedby"]
   };
-  return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_RadioButtonIcon.default, iconProps), _react.default.createElement("input", inputProps)) : null, _react.default.createElement("span", null, props.children, props.required && _react.default.createElement("img", {
+  return _react.default.createElement("label", labelProps, !props.contentOnly ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_RadioButtonIcon.default, iconProps), _react.default.createElement("input", inputProps)) : null, _react.default.createElement("span", {
+    className: _RadioButtonInputModule.default.labelText
+  }, props.children, props.required && _react.default.createElement("img", {
     src: _asterisk.default,
     alt: "",
     className: _RadioButtonInputModule.default.requiredSymbol

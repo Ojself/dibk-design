@@ -2,8 +2,8 @@
 
 .checkBoxListItem {
     @include box-sizing(content-box);
-    @include border-radius(5px);
-    @include transition(all 0.1s ease-in-out);
+    @include border-radius(0);
+    @include transition(all $default-transition);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -19,9 +19,12 @@
     color: #000;
 
     &:not(.contentOnly):not(.compact) {
-        @include box-shadow(0 0 2px $color-dark-blue);
+        border: 1px solid $color-secondary-light;
         background: white;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        label {
+            padding: 20px;
+        }
     }
 
     &.contentOnly {
@@ -38,12 +41,17 @@
         }
     }
 
-    &.checked:not(.contentOnly):not(.compact):not(.disabled) {
-        @include box-shadow(0 0 0 1px $color-dark-blue, 0 0 4px 0 $color-dark-blue);
+    &.checked:not(.contentOnly):not(.compact):not(.disabled):not(.hasTheme) {
+        background-color: $color-secondary-light;
     }
 
-    &:not(.checked):not(.contentOnly):not(.compact):not(.disabled):hover {
-        @include box-shadow(0 0 6px $color-dark-blue);
+    &:not(.checked):not(.contentOnly):not(.compact):not(.disabled):not(.hasTheme) {
+        &:hover {
+            background-color: $color-secondary-x-light;
+        }
+        &:focus-within {
+            background-color: $color-secondary-x-light;
+        }
     }
 
     label {

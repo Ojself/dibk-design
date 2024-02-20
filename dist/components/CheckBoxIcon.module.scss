@@ -20,10 +20,10 @@
         margin-top: 2px;
         background: white;
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px #6a6262);
+            @include box-shadow(0 0 0 1px $color-primary);
         }
         &.hasErrors {
-            @include box-shadow(0 0 2px 1px $color-error);
+            @include box-shadow(0 0 0 1px $color-error);
         }
     }
 
@@ -36,16 +36,16 @@
         }
         &.showBox {
             &:not(.hasErrors) {
-                @include box-shadow(0 0 0 1px #6a6262);
+                @include box-shadow(0 0 0 1px $color-primary);
             }
             &.hasErrors {
-                @include box-shadow(0 0 2px 1px $color-error);
+                @include box-shadow(0 0 0 1px $color-error);
             }
         }
     }
 
     &.disabled {
-        opacity: 0.5;
+        opacity: 0.4;
         background: rgba(0, 0, 0, 0.25);
         cursor: default;
     }

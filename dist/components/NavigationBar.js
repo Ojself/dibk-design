@@ -9,7 +9,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _NavigationBarListItem = _interopRequireDefault(require("./NavigationBarListItem"));
 var _theme = require("../functions/theme");
 var _dibkLogoMobile = _interopRequireDefault(require("../assets/svg/dibk-logo-mobile.svg?url"));
+var _dibkLogo = _interopRequireDefault(require("../assets/svg/dibk-logo.svg?url"));
 var _NavigationBarModule = _interopRequireDefault(require("./NavigationBar.module.scss"));
+var _helpers = require("functions/helpers");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -93,7 +95,7 @@ const NavigationBar = props => {
         style: getLogoThemeStyle(props.theme)
       }) : _react.default.createElement("img", {
         alt: altText,
-        src: _dibkLogoMobile.default
+        src: props.compact ? _dibkLogoMobile.default : _dibkLogo.default
       });
     };
     const logoLinkProps = {
@@ -111,7 +113,7 @@ const NavigationBar = props => {
   };
   const hasListItems = !!((_props$primaryListIte = props.primaryListItems) !== null && _props$primaryListIte !== void 0 && _props$primaryListIte.length) || !!((_props$secondaryListI = props.secondaryListItems) !== null && _props$secondaryListI !== void 0 && _props$secondaryListI.length);
   return _react.default.createElement("div", {
-    className: _NavigationBarModule.default.navigationBarContainer
+    className: (0, _helpers.classNameArrayToClassNameString)([props.compact && _NavigationBarModule.default.compact, _NavigationBarModule.default.navigationBarContainer])
   }, ((_props$mainContentId = props.mainContentId) === null || _props$mainContentId === void 0 ? void 0 : _props$mainContentId.length) && _react.default.createElement("a", {
     id: "main-content-link",
     href: "#".concat(props.mainContentId),
@@ -131,7 +133,7 @@ const NavigationBar = props => {
     onClick: () => toggleList(),
     "aria-expanded": active ? "true" : "false",
     "aria-controls": "main-menu-dropdown"
-  }, _react.default.createElement("span", {
+  }, !props.compact && "Meny", _react.default.createElement("span", {
     className: _NavigationBarModule.default.hamburgerIcon
   }, _react.default.createElement("span", {
     className: _NavigationBarModule.default.line,

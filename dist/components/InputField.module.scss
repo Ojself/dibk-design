@@ -1,10 +1,7 @@
 @import "../style/global.scss";
 
 .inputField {
-    font-size: 16px;
-    @media only screen and (min-width: $screen-sm) {
-        font-size: 19px;
-    }
+    font-size: 18px;
     > div {
         display: block;
     }
@@ -18,39 +15,33 @@
     input,
     &.file span.input {
         @include appearance(none);
-        @include transition(border-color 0.15s linear, background 0.15s linear);
         @include border-radius(0);
         @include box-shadow(none);
-        height: 47px;
+        height: 54px;
         width: 100%;
         display: block;
-        padding: 10px;
+        padding: 12px;
         margin-bottom: 0;
-        font-weight: 300;
         background-color: #fff;
         box-shadow: none;
-        color: rgba(0, 0, 0, 0.75);
+        color: $color-default-text;
         font-family: inherit;
-        font-size: 16px;
+        font-size: 18px;
         box-sizing: border-box;
-        border: 1px solid #afaba8;
-        @media only screen and (min-width: $screen-sm) {
-            font-size: 19px;
-            height: 56px;
-        }
+        border: 1px solid $color-primary;
 
         &:hover {
-            border-color: $color-dark-blue;
+            border-color: $color-primary;
         }
 
         &:focus {
-            border-color: $color-dark-blue;
-            outline-color: #54acb8;
+            border-color: $color-primary;
+            outline: $color-focus solid 3px;
         }
 
         &[disabled],
         &[readonly] {
-            background-color: #ddd;
+            background-color: $color-secondary-x-light;
             cursor: default;
         }
 
@@ -62,7 +53,7 @@
             }
             &[disabled],
             &[readonly] {
-                background-color: #ddd;
+                background-color: $color-secondary-x-light;
                 cursor: default;
                 border-color: #afaba8;
             }

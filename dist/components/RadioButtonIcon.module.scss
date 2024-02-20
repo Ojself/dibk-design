@@ -2,7 +2,7 @@
 
 .radioButtonIcon {
     @include border-radius(50%);
-    @include transition(all 0.1s ease-in-out);
+    @include transition(all $default-transition);
     @include box-sizing(content-box);
     display: inline-block;
     vertical-align: middle;
@@ -16,10 +16,10 @@
     cursor: pointer;
 
     &:not(.hasErrors) {
-        @include box-shadow(0 0 0 1px #6a6262);
+        @include box-shadow(0 0 0 1px $color-primary);
     }
     &.hasErrors {
-        @include box-shadow(0 0 2px 1px $color-error);
+        @include box-shadow(0 0 0 1px $color-error);
     }
 
     &.checked {
@@ -28,17 +28,14 @@
             background: $color-error;
         }
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px $color-dark-blue);
+            @include box-shadow(0 0 0 1px $color-primary);
         }
         &.hasErrors {
-            @include box-shadow(0 0 2px 1px $color-error);
+            @include box-shadow(0 0 0 1px $color-error);
         }
     }
     &.disabled {
-        opacity: 0.5;
-        border-color: #bfbfbf;
-        &:not(.checked) {
-            background: #bfbfbf;
-        }
+        border-color: #fff;
+        opacity: 0.4;
     }
 }
