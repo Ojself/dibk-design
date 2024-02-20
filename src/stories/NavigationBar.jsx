@@ -15,10 +15,12 @@ import {
 } from "../functions/theme";
 
 // Assets
-import logo from "../assets/svg/dibk-logo-mobile.svg?url";
+import compactLogo from "../assets/svg/dibk-logo-mobile.svg?url";
+import logo from "../assets/svg/dibk-logo.svg?url";
 
 // Stylesheets
 import style from "./NavigationBar.module.scss";
+import { classNameArrayToClassNameString } from "functions/helpers";
 
 const NavigationBar = (props) => {
     // State
@@ -92,7 +94,7 @@ const NavigationBar = (props) => {
             return themeLogo ? (
                 <img alt={altText} src={themeLogo} style={getLogoThemeStyle(props.theme)} />
             ) : (
-                <img alt={altText} src={logo} />
+                <img alt={altText} src={props.compact ? compactLogo : logo} />
             );
         };
 
@@ -117,7 +119,9 @@ const NavigationBar = (props) => {
     const hasListItems = !!props.primaryListItems?.length || !!props.secondaryListItems?.length;
 
     return (
-        <div className={style.navigationBarContainer}>
+        <div
+            className={classNameArrayToClassNameString([props.compact && style.compact, style.navigationBarContainer])}
+        >
             {props.mainContentId?.length && (
                 <a id="main-content-link" href={`#${props.mainContentId}`} className={style.mainContentLink}>
                     <span id="main-content-link-text">Hopp til hovedinnhold</span>
@@ -134,6 +138,7 @@ const NavigationBar = (props) => {
                         aria-expanded={active ? "true" : "false"}
                         aria-controls="main-menu-dropdown"
                     >
+                        {!props.compact && "Meny"}
                         <span className={style.hamburgerIcon}>
                             <span className={style.line} style={hamburgerIconLineStyle}></span>
                             <span className={style.line} style={hamburgerIconLineStyle}></span>

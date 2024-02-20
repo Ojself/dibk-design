@@ -10,6 +10,11 @@ export default {
     component: NavigationBar,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
+        compact: {
+            name: "compact",
+            type: { name: "boolean", required: false },
+            defaultValue: false
+        },
         primaryListItems: {
             name: "primaryListItems",
             type: { name: "array", required: false },
