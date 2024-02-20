@@ -7,7 +7,7 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _theme = require("../functions/theme");
-var _helpers = require("functions/helpers");
+var _helpers = require("../functions/helpers");
 var _ErrorBoxModule = _interopRequireDefault(require("./ErrorBox.module.scss"));
 var _infoSign = _interopRequireDefault(require("../assets/svg/info-sign.svg?url"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
