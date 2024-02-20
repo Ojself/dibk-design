@@ -6,13 +6,16 @@ import ErrorBox from "./ErrorBox";
 
 // Theme
 import customTheme from "data/customTheme";
+import Header from "./Header";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: "Example/ErrorBox",
     component: ErrorBox,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {}
+    argTypes: {
+        type: { control: "radio", options: ["warning", "error"] }
+    }
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -23,7 +26,7 @@ export const Default = Template.bind({});
 Default.args = {
     children: (
         <>
-            <h3>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</h3>
+            <Header size={3}>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</Header>
             <ul>
                 <li>Du må krysse av for at foretaket erklærer ansvar i henhold til plan- og bygningsloven.</li>
                 <li>Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen.</li>
@@ -37,7 +40,9 @@ export const WithCustomTheme = Template.bind({});
 WithCustomTheme.args = {
     children: (
         <>
-            <h3>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</h3>
+            <Header size={3} theme={customTheme}>
+                Du kan ikke signere erklæringen før alle opplysningene er fylt ut:
+            </Header>
             <ul>
                 <li>Du må krysse av for at foretaket erklærer ansvar i henhold til plan- og bygningsloven.</li>
                 <li>Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen.</li>
@@ -46,34 +51,3 @@ WithCustomTheme.args = {
     ),
     theme: customTheme
 };
-
-/*
-Error box example:
-
-```js
-<ErrorBox>
-<h3>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</h3>
-<ul>
-    <li>Du må krysse av for at foretaket erklærer ansvar i henhold til plan- og bygningsloven.</li>
-    <li>Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen.</li>
-</ul>
-</ErrorBox>
-```
-
-
-Themed error box example:
-
-```js
-import customTheme from 'data/customTheme';
-<React.Fragment>
-    <ErrorBox theme={customTheme}>
-    <h3>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</h3>
-    <ul>
-        <li>Du må krysse av for at foretaket erklærer ansvar i henhold til plan- og bygningsloven.</li>
-        <li>Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen.</li>
-    </ul>
-</ErrorBox>
-</React.Fragment>
-```
-
-*/
