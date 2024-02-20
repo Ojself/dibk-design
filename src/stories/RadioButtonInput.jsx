@@ -49,7 +49,7 @@ const RadioButtonInput = (props) => {
                     <input {...inputProps} />
                 </React.Fragment>
             ) : null}
-            <span>
+            <span className={style.labelText}>
                 {props.children}
                 {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
             </span>

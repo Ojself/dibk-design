@@ -14,10 +14,12 @@ import style from "./RadioButtonListItem.module.scss";
 const RadioButtonListItem = (props) => {
     const listItemClassNameArray = [
         style.radioButtonListItem,
+        props.checked ? style.checked : null,
         props.disabled ? style.disabled : null,
         props.compact ? style.compact : null,
         props.contentOnly ? style.contentOnly : null,
-        props.hasErrors ? style.hasErrors : null
+        props.hasErrors ? style.hasErrors : null,
+        props.theme && style.hasTheme
     ];
     const listItemClassNameString = classNameArrayToClassNameString(listItemClassNameArray);
     const inputProps = {

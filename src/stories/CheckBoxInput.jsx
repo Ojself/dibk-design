@@ -52,7 +52,7 @@ const CheckBoxInput = (props) => {
             ) : (
                 <CheckBoxIcon {...iconProps} />
             )}
-            <span>
+            <span className={style.labelText}>
                 {props.children}
                 {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
             </span>

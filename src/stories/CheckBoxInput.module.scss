@@ -20,6 +20,16 @@
         }
     }
 
+    .labelText {
+        color: $color-primary;
+    }
+
+    &.disabled {
+        .labelText {
+            opacity: 0.4;
+        }
+    }
+
     &.hasErrors {
         span {
             color: $color-error;
