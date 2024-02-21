@@ -10,7 +10,7 @@
         font-style: italic;
         line-height: 1;
         font-size: 19px;
-        color: #072938;
+        color: $color-primary;
     }
     &.captionSide-top {
         caption {
@@ -42,20 +42,20 @@
     thead {
         tr {
             background-color: #ededed;
-            border: 1px solid #000;
+            border: 1px solid $color-secondary;
             th {
                 text-align: left;
-                font-size: 17px;
+                font-size: 16px;
                 padding: 10px;
             }
         }
     }
     tbody {
         tr {
-            border: 1px solid #000;
+            border: 1px solid $color-secondary;
             td {
                 padding: 10px;
-                font-size: 17px;
+                font-size: 16px;
             }
         }
     }
