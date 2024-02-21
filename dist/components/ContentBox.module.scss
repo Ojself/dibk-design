@@ -18,79 +18,18 @@
         }
     }
     &.default {
-        background-color: $color-default;
+        background-color: $color-default-background;
         .content,
         .title {
-            color: #000;
+            color: $color-default-text;
         }
     }
-    &.primary {
-        background-color: $color-primary;
-        color: #fff;
+    &.secondary {
+        background-color: $color-secondary-background;
+        color: $color-default-text;
         .content,
         .title {
-            color: #fff;
-        }
-    }
-    &.success {
-        background-color: $color-success;
-        color: #fff;
-        .content,
-        .title {
-            color: #fff;
-        }
-    }
-    &.warning {
-        background-color: $color-warning;
-        color: #fff;
-        .content,
-        .title {
-            color: #fff;
-        }
-    }
-
-    &.info {
-        background-color: $color-info;
-        .content,
-        .title {
-            color: #000;
-        }
-    }
-    &.lightCyan {
-        background-color: $color-light-cyan;
-        .content,
-        .title {
-            color: #000;
-        }
-    }
-    &.orange {
-        background-color: $color-orange;
-        color: #fff;
-        .content,
-        .title {
-            color: #fff;
-        }
-    }
-    &.lightOrange {
-        background-color: $color-light-orange;
-        .content,
-        .title {
-            color: #000;
-        }
-    }
-    &.lime {
-        background-color: $color-lime;
-        color: #fff;
-        .content,
-        .title {
-            color: #fff;
-        }
-    }
-    &.lightLime {
-        background-color: $color-light-lime;
-        .content,
-        .title {
-            color: #000;
+            color: $color-default-text;
         }
     }
 

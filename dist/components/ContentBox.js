@@ -44,7 +44,7 @@ ContentBox.propTypes = {
   titleSize: _propTypes.default.oneOf(["regular", "large"]),
   content: _propTypes.default.string,
   children: _propTypes.default.any,
-  color: _propTypes.default.oneOf(["default", "primary", "success", "warning", "info", "lightCyan", "orange", "lightOrange", "lime", "lightLime"])
+  color: _propTypes.default.oneOf(["default", "secondary"])
 };
 ContentBox.defaultProps = {
   title: null,

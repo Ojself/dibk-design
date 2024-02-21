@@ -31,10 +31,10 @@
   @include appearance(none);
   @include border-radius(0);
   @include transition(
-    filter 200ms $default-transition,
-    background-color 200ms $default-transition,
-    color 200ms $default-transition,
-    border-color 200ms $default-transition
+    filter $default-transition,
+    background-color $default-transition,
+    color $default-transition,
+    border-color $default-transition
   );
   font-family: $default-font;
   border-style: solid;
@@ -90,7 +90,7 @@
   }
 
   &.default {
-    background-color: transparent;
+    background-color: #fff;
     color: $color-primary-text;
     border-color: $color-secondary-light;
     &:not(.hasTheme) {

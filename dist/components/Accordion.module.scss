@@ -75,79 +75,18 @@
     width: 100%;
     display: block;
     &.default {
-        background-color: $color-default;
+        background-color: $color-default-background;
         .panel span,
         .content {
-            color: #000;
+            color: $color-default-text;
         }
     }
-    &.primary {
-        background-color: $color-primary;
-        color: #fff;
+    &.secondary {
+        background-color: $color-secondary-background;
+        color: $color-default-text;
         .panel span,
         .content {
-            color: #fff;
-        }
-    }
-    &.success {
-        background-color: $color-success;
-        color: #fff;
-        .panel span,
-        .content {
-            color: #fff;
-        }
-    }
-    &.warning {
-        background-color: $color-warning;
-        color: #fff;
-        .panel span,
-        .content {
-            color: #fff;
-        }
-    }
-
-    &.info {
-        background-color: $color-info;
-        .panel span,
-        .content {
-            color: #000;
-        }
-    }
-    &.lightCyan {
-        background-color: $color-light-cyan;
-        .panel span,
-        .content {
-            color: #000;
-        }
-    }
-    &.orange {
-        background-color: $color-orange;
-        color: #fff;
-        .panel span,
-        .content {
-            color: #fff;
-        }
-    }
-    &.lightOrange {
-        background-color: $color-light-orange;
-        .panel span,
-        .content {
-            color: #000;
-        }
-    }
-    &.lime {
-        background-color: $color-lime;
-        color: #fff;
-        .panel span,
-        .content {
-            color: #fff;
-        }
-    }
-    &.lightLime {
-        background-color: $color-light-lime;
-        .panel span,
-        .content {
-            color: #000;
+            color: $color-default-text;
         }
     }
 

@@ -24,53 +24,13 @@ img {
     line-height: 3em;
 
     &.default {
-      background-color: $color-default;
-      color: #000;
+      background-color: $color-default-background;
+      color: $color-default-text;
     }
 
-    &.primary {
-      background-color: $color-primary;
-      color: #fff;
-    }
-
-    &.success {
-      background-color: $color-success;
-      color: #fff;
-    }
-
-    &.warning {
-      background-color: $color-warning;
-      color: #fff;
-    }
-
-    &.info {
-      background-color: $color-info;
-      color: #000;
-    }
-
-    &.lightCyan {
-      background-color: $color-light-cyan;
-      color: #000;
-    }
-
-    &.orange {
-      background-color: $color-orange;
-      color: #fff;
-    }
-
-    &.lightOrange {
-      background-color: $color-light-orange;
-      color: #000;
-    }
-
-    &.lime {
-      background-color: $color-lime;
-      color: #fff;
-    }
-
-    &.lightLime {
-      background-color: $color-light-lime;
-      color: #000;
+    &.secodary {
+      background-color: $color-secondary-background;
+      color: $color-default-text;
     }
   }
 }
