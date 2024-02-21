@@ -45,15 +45,7 @@ ContentBox.propTypes = {
     children: PropTypes.any,
     color: PropTypes.oneOf([
         "default",
-        "primary",
-        "success",
-        "warning",
-        "info",
-        "lightCyan",
-        "orange",
-        "lightOrange",
-        "lime",
-        "lightLime"
+        "secondary"
     ])
 };
 

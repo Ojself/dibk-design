@@ -23,7 +23,12 @@ const Accordion = (props) => {
 
     const renderPanel = () => {
         return (
-            <button {...props.buttonProps} className={style.panel} onClick={handleToggleExpand} aria-expanded={expanded ? "true" : "false"}>
+            <button
+                {...props.buttonProps}
+                className={style.panel}
+                onClick={handleToggleExpand}
+                aria-expanded={expanded ? "true" : "false"}
+            >
                 <span className={style.panelText}>{props.title}</span>
                 <span className={`${style.panelChevron} ${expanded ? style.expanded : ""}`}></span>
             </button>
@@ -49,18 +54,7 @@ Accordion.propTypes = {
     titleSize: PropTypes.oneOf(["regular", "large"]),
     /** Text content inside box */
     content: PropTypes.string,
-    color: PropTypes.oneOf([
-        "default",
-        "primary",
-        "success",
-        "warning",
-        "info",
-        "lightCyan",
-        "orange",
-        "lightOrange",
-        "lime",
-        "lightLime"
-    ]),
+    color: PropTypes.oneOf(["default", "secondary"]),
     expanded: PropTypes.bool,
     onToggleExpand: PropTypes.func,
     buttonProps: PropTypes.object
