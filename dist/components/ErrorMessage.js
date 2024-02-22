@@ -12,6 +12,7 @@ var _errorSign = _interopRequireDefault(require("../assets/svg/error-sign.svg?ur
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 const ErrorMessage = props => {
+  var _props$content;
   const getThemeErrorMessageStyle = theme => {
     return {
       color: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
@@ -25,13 +26,13 @@ const ErrorMessage = props => {
       style: getThemeErrorMessageStyle(props.theme)
     };
   };
-  return _react.default.createElement("span", _extends({
+  return props !== null && props !== void 0 && (_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length ? _react.default.createElement("span", _extends({
     "aria-live": "polite"
   }, getErrorElementProps()), _react.default.createElement("img", {
     src: _errorSign.default,
     alt: "",
     className: _ErrorMessageModule.default.errorSign
-  }), props.content ? props.content : "");
+  }), props.content) : null;
 };
 ErrorMessage.propTypes = {
   id: _propTypes.default.string,
