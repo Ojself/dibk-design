@@ -9,7 +9,7 @@ export default create({
   brandTarget: '_self',
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
-
+  fontBase: '"PP Mori", sans-serif',
+  fontSize: '16px',
   colorPrimary: '#072938',
 });
