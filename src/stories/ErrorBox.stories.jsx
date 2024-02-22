@@ -26,7 +26,7 @@ export const Default = Template.bind({});
 Default.args = {
     children: (
         <>
-            <Header size={3}>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</Header>
+            <Header size={2}>Du kan ikke signere erklæringen før alle opplysningene er fylt ut:</Header>
             <ul>
                 <li>Du må krysse av for at foretaket erklærer ansvar i henhold til plan- og bygningsloven.</li>
                 <li>Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen.</li>
@@ -40,7 +40,7 @@ export const WithCustomTheme = Template.bind({});
 WithCustomTheme.args = {
     children: (
         <>
-            <Header size={3} theme={customTheme}>
+            <Header size={2} theme={customTheme}>
                 Du kan ikke signere erklæringen før alle opplysningene er fylt ut:
             </Header>
             <ul>

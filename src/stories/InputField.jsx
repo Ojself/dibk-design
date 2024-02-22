@@ -10,6 +10,7 @@ import ErrorMessage from "./ErrorMessage";
 // Functions
 import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Assets
 import asterisk from "../assets/svg/asterisk.svg?url";
@@ -80,7 +81,7 @@ const InputField = (props) => {
         ...(props.width?.length && { maxWidth: props.width })
     };
     return (
-        <div className={`${style.inputField} ${style[props.type]}`}>
+        <div className={classNameArrayToClassNameString([style.inputField, style[props.type], props.noMargin && style.noMargin])}>
             <Label htmlFor={props.id}>
                 {props.label}
                 {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
@@ -141,7 +142,8 @@ InputField.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    noMargin: PropTypes.bool
 };
 
 InputField.defaultProps = {
@@ -159,7 +161,8 @@ InputField.defaultProps = {
     placeholder: "",
     defaultContent: "",
     hasErrors: false,
-    errorMessage: ""
+    errorMessage: "",
+    noMargin: false
 };
 
 export default InputField;

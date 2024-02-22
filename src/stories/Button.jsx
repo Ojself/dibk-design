@@ -61,7 +61,8 @@ const Button = (props) => {
         props.noHover || props?.inputType === "radio" ? style.noHover : null,
         props.rounded && style.rounded,
         props.hasErrors && style.hasErrors,
-        props.disabled && style.disabled
+        props.disabled && style.disabled,
+        props.noMargin && style.noMargin
     ]);
 
     const renderReactLinkElements = (childElements) => {
@@ -151,7 +152,8 @@ Button.propTypes = {
     /**
      * Optional click handler
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    noMargin: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -160,7 +162,8 @@ Button.defaultProps = {
     disabled: false,
     hasErrors: false,
     noHover: false,
-    arrow: "none"
+    arrow: "none",
+    noMargin: false
 };
 
 export default Button;

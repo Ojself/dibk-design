@@ -46,12 +46,15 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 5px;
+
   font-size: 17px;
   font-weight: 500;
   @media only screen and (min-width: $screen-sm) {
     font-size: 20px;
+  }
+  &:not(.noMargin) {
+    margin-right: 5px;
+    margin-bottom: 8px;
   }
 
   &.hasTheme {

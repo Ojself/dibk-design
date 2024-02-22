@@ -2,6 +2,9 @@
 
 .inputField {
     font-size: 18px;
+    &:not(.noMargin) {
+        margin-bottom: 8px;
+    }
     > div {
         display: block;
     }
