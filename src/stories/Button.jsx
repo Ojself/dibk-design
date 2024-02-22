@@ -50,6 +50,7 @@ const Button = (props) => {
     delete buttonProps.color;
     delete buttonProps.content;
     delete buttonProps.arrow;
+    delete buttonProps.noMargin;
     const buttonColor = props?.inputType === "radio" ? (props.defaultChecked ? "primary" : "default") : props.color;
     const themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
     const className = classNameArrayToClassNameString([
