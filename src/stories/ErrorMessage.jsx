@@ -24,12 +24,12 @@ const ErrorMessage = (props) => {
             style: getThemeErrorMessageStyle(props.theme)
         };
     };
-    return (
+    return props?.content?.length ? (
         <span aria-live="polite" {...getErrorElementProps()}>
             <img src={errorSign} alt="" className={style.errorSign} />
-            {props.content ? props.content : ""}
+            {props.content}
         </span>
-    );
+    ) : null;
 };
 
 ErrorMessage.propTypes = {
