@@ -8,6 +8,9 @@ import { getThemePaletteBackgroundColor } from "../functions/theme";
 // Stylesheets
 import style from "./ErrorMessage.module.scss";
 
+// Assets
+import errorSign from "../assets/svg/error-sign.svg?url";
+
 const ErrorMessage = (props) => {
     const getThemeErrorMessageStyle = (theme) => {
         return {
@@ -21,7 +24,12 @@ const ErrorMessage = (props) => {
             style: getThemeErrorMessageStyle(props.theme)
         };
     };
-    return <span aria-live="polite" {...getErrorElementProps()}>{props.content ? props.content : ""}</span>;
+    return (
+        <span aria-live="polite" {...getErrorElementProps()}>
+            <img src={errorSign} alt="" className={style.errorSign} />
+            {props.content ? props.content : ""}
+        </span>
+    );
 };
 
 ErrorMessage.propTypes = {

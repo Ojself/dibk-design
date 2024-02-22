@@ -1,16 +1,28 @@
 @import "../style/global.scss";
 
+@keyframes messageIn {
+    0% {
+        opacity: 0;
+        transform: translateX(2em);
+    }
+}
+
 .errorMessage {
-    display: block;
-    color: $color-error;
+    display: flex;
+    align-items: center;
+    font-family: $default-font;
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.2;
-    margin: 4px 0;
-    font-family: $default-font;
-    font-style: italic;
-    overflow-wrap: break-word;
-    @media only screen and (min-width: $screen-sm) {
-        font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: $color-error;
+    margin: 12px 0 0;
+    animation: 1000ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal none running messageIn;
+    .errorSign {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5em;
     }
 }
