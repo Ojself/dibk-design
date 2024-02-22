@@ -11,6 +11,7 @@ var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
+var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -71,7 +72,7 @@ const InputField = props => {
     })
   };
   return _react.default.createElement("div", {
-    className: "".concat(_InputFieldModule.default.inputField, " ").concat(_InputFieldModule.default[props.type])
+    className: (0, _helpers.classNameArrayToClassNameString)([_InputFieldModule.default.inputField, _InputFieldModule.default[props.type], props.noMargin && _InputFieldModule.default.noMargin])
   }, _react.default.createElement(_Label.default, {
     htmlFor: props.id
   }, props.label, props.required && _react.default.createElement("img", {
@@ -120,7 +121,8 @@ InputField.propTypes = {
   "aria-autocomplete": _propTypes.default.oneOf(["none", "inline", "list", "both"]),
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  noMargin: _propTypes.default.bool
 };
 InputField.defaultProps = {
   onChange: () => {
@@ -137,6 +139,7 @@ InputField.defaultProps = {
   placeholder: "",
   defaultContent: "",
   hasErrors: false,
-  errorMessage: ""
+  errorMessage: "",
+  noMargin: false
 };
 var _default = exports.default = InputField;

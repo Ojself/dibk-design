@@ -87,6 +87,12 @@ Object.defineProperty(exports, "Header", {
     return _Header.default;
   }
 });
+Object.defineProperty(exports, "InfoBox", {
+  enumerable: true,
+  get: function () {
+    return _InfoBox.default;
+  }
+});
 Object.defineProperty(exports, "InputField", {
   enumerable: true,
   get: function () {
@@ -209,6 +215,7 @@ var _ErrorBox = _interopRequireDefault(require("./components/ErrorBox"));
 var _ErrorMessage = _interopRequireDefault(require("./components/ErrorMessage"));
 var _Footer = _interopRequireDefault(require("./components/Footer"));
 var _Header = _interopRequireDefault(require("./components/Header"));
+var _InfoBox = _interopRequireDefault(require("./components/InfoBox"));
 var _InputField = _interopRequireDefault(require("./components/InputField"));
 var _Label = _interopRequireDefault(require("./components/Label"));
 var _List = _interopRequireDefault(require("./components/List"));

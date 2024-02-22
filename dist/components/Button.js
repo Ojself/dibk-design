@@ -48,7 +48,7 @@ const Button = props => {
   delete buttonProps.arrow;
   const buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
   const themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
-  const className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled]);
+  const className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled, props.noMargin && _ButtonModule.default.noMargin]);
   const renderReactLinkElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
@@ -115,7 +115,8 @@ Button.propTypes = {
   noHover: _propTypes.default.bool,
   rounded: _propTypes.default.bool,
   href: _propTypes.default.string,
-  onClick: _propTypes.default.func
+  onClick: _propTypes.default.func,
+  noMargin: _propTypes.default.bool
 };
 Button.defaultProps = {
   color: "default",
@@ -123,6 +124,7 @@ Button.defaultProps = {
   disabled: false,
   hasErrors: false,
   noHover: false,
-  arrow: "none"
+  arrow: "none",
+  noMargin: false
 };
 var _default = exports.default = Button;
