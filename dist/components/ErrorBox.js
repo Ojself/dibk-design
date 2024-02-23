@@ -18,20 +18,24 @@ const ErrorBox = props => {
     };
   };
   return _react.default.createElement("div", {
-    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBox, _ErrorBoxModule.default[props.type]]),
+    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBoxContainer, _ErrorBoxModule.default[props.type]]),
     style: getThemeErrorBoxStyle()
+  }, _react.default.createElement("div", {
+    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBox, props.fullScreen && _ErrorBoxModule.default.fullScreen])
   }, _react.default.createElement("img", {
     src: _infoSign.default,
     alt: "",
     className: _ErrorBoxModule.default.infoSign
-  }), props.children);
+  }), props.children));
 };
 ErrorBox.propTypes = {
   theme: _propTypes.default.object,
-  type: _propTypes.default.oneOf(["warning", "error"])
+  type: _propTypes.default.oneOf(["warning", "error"]),
+  fullScreen: _propTypes.default.bool
 };
 ErrorBox.defaultProps = {
   children: "",
-  type: "warning"
+  type: "warning",
+  fullScreen: false
 };
 var _default = exports.default = ErrorBox;
