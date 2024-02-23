@@ -14,7 +14,8 @@ export default {
     component: ErrorBox,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        type: { control: "radio", options: ["warning", "error"] }
+        type: { control: "radio", options: ["warning", "error"] },
+        fullScreen: { control: "boolean" }
     }
 };
 

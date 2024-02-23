@@ -24,23 +24,27 @@ const ErrorBox = (props) => {
 
     return (
         <div
-            className={classNameArrayToClassNameString([style.errorBox, style[props.type]])}
+            className={classNameArrayToClassNameString([style.errorBoxContainer, style[props.type]])}
             style={getThemeErrorBoxStyle()}
         >
-            <img src={infoSign} alt="" className={style.infoSign} />
-            {props.children}
+            <div className={classNameArrayToClassNameString([style.errorBox, props.fullScreen && style.fullScreen])}>
+                <img src={infoSign} alt="" className={style.infoSign} />
+                {props.children}
+            </div>
         </div>
     );
 };
 
 ErrorBox.propTypes = {
     theme: PropTypes.object,
-    type: PropTypes.oneOf(["warning", "error"])
+    type: PropTypes.oneOf(["warning", "error"]),
+    fullScreen: PropTypes.bool
 };
 
 ErrorBox.defaultProps = {
     children: "",
-    type: "warning"
+    type: "warning",
+    fullScreen: false
 };
 
 export default ErrorBox;
