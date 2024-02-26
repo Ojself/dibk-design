@@ -24,7 +24,11 @@ const ErrorBox = (props) => {
 
     return (
         <div
-            className={classNameArrayToClassNameString([style.errorBoxContainer, style[props.type]])}
+            className={classNameArrayToClassNameString([
+                style.errorBoxContainer,
+                style[props.type],
+                props.fullScreen && style.fullScreen
+            ])}
             style={getThemeErrorBoxStyle()}
         >
             <div className={classNameArrayToClassNameString([style.errorBox, props.fullScreen && style.fullScreen])}>
