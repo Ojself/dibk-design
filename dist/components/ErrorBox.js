@@ -18,7 +18,7 @@ const ErrorBox = props => {
     };
   };
   return _react.default.createElement("div", {
-    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBoxContainer, _ErrorBoxModule.default[props.type]]),
+    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBoxContainer, _ErrorBoxModule.default[props.type], props.fullScreen && _ErrorBoxModule.default.fullScreen]),
     style: getThemeErrorBoxStyle()
   }, _react.default.createElement("div", {
     className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBox, props.fullScreen && _ErrorBoxModule.default.fullScreen])
