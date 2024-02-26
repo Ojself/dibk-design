@@ -39,6 +39,7 @@ const DragAndDropFileInput = (props) => {
     };
 
     const inputElementProps = {
+        id: props.id,
         "aria-describedby":
             props.hasErrors && !!props.errorMessage?.length
                 ? getErrorElementId()
