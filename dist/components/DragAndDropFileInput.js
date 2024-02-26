@@ -34,6 +34,7 @@ const DragAndDropFileInput = props => {
     return "".concat(props.id, "-errorMessage");
   };
   const inputElementProps = {
+    id: props.id,
     "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
     "aria-invalid": props.hasErrors ? "true" : null,
     name: props.name,
