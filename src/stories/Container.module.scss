@@ -6,5 +6,8 @@
     @media (min-width: $screen-sm) {
         padding: 20px;
         max-width: $content-width;
+        &[style*="--max-width"] {
+            max-width: var(--max-width);
+        }
     }
 }

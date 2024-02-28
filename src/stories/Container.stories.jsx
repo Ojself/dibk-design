@@ -20,3 +20,10 @@ export const Default = Template.bind({});
 Default.args = {
     children: <>Container content here</>
 };
+
+export const WithMaxWidth = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+WithMaxWidth.args = {
+    children: <>Container with max width</>,
+    maxWidth: "230px"
+};
