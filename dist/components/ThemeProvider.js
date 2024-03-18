@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _helpers = require("functions/helpers");
+var _helpers = require("../functions/helpers");
 var _ThemeProviderModule = _interopRequireDefault(require("!!raw-loader!sass-loader!./ThemeProvider.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const ThemeProvider = _ref => {
