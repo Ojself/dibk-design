@@ -1,4 +1,4 @@
-import customTheme from "../src/data/customTheme";
+import customThemes from "../src/data/customTheme";
 
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,4 +11,10 @@ export const parameters = {
 };
 
 // All stories expect a theme arg
-export const argTypes = { theme: { control: "select", options: ["Default", "Custom theme"], mapping: {"Default": null, "Custom theme": customTheme} } };
+export const argTypes = {
+    theme: {
+        control: "select",
+        options: ["Default", "DiBK", "Arbeidstilsynet"],
+        mapping: { Default: null, DiBK: customThemes.dibk, "Arbeidstilsynet": customThemes.arbeidstilsynet }
+    }
+};
