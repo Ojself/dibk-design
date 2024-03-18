@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 // Helpers
-import { addGlobalStylesheet, getCssVariablesFromTheme, stringifyCssColorVariables } from "functions/helpers";
+import { addGlobalStylesheet, getCssVariablesFromTheme, stringifyCssColorVariables } from "../functions/helpers";
 
 // Stylesheets
 /* eslint import/no-webpack-loader-syntax: off */
