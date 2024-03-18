@@ -1,26 +1,25 @@
 @import "../style/global.scss";
 
-* {
-  color: $color-default-text;
+section:not(:last-of-type) {
+  margin: 24px 0;
 }
 
-a {
-  color: $color-primary;
-}
-
-img {
-  max-width: 200px;
-  max-height: 150px;
+section:last-of-type {
+  margin: 24px 0 0 0;
 }
 
 .colorPalette {
   display: flex;
   flex-wrap: wrap;
+  font-size: 12px;
   > div {
-    width: 25%;
     padding: 8px;
     text-align: right;
-    @media screen and (min-width: 930px) {
+    width: 50%;
+    @media screen and (min-width: $screen-sm) {
+      width: 25%;
+    }
+    @media screen and (min-width: $screen-md) {
       width: 16.6%;
     }
   }
