@@ -72,10 +72,10 @@
             }
         }
         .logoContainer {
-            width: 85px;
+            width: var(--size-logo-small-width, 85px);
             margin-bottom: 0;
             @media only screen and (min-width: $screen-sm) {
-                width: 100px;
+                width: var(--size-logo-small-width, 100px);
             }
         }
         .childElements {

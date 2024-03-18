@@ -1,10 +1,14 @@
-import logo from "../assets/png/dibk-logo.png";
+import dibkLogo from "../assets/svg/dibk-logo.svg?url";
+import arbeidstilsynetLogo from "../assets/svg/arbeidstilsynet-logo.svg?url";
 
 const customThemes = {
     dibk: {
         appName: "DiBK",
-        logo,
-        logoPadding: "10px 30px",
+        logo: dibkLogo,
+        sizes: {
+            logoSmallWidth: "85px",
+            logoLargeWidth: "100px"
+        },
         colors: {
             bodyBackground: "#ebf4fa",
             defaultText: "#202020",
@@ -34,26 +38,29 @@ const customThemes = {
         }
     },
     arbeidstilsynet: {
-        appName: "Custom theme",
-        logo,
-        logoPadding: "10px 30px",
+        appName: "Arbeidstilsynet",
+        logo: arbeidstilsynetLogo,
+        sizes: {
+            logoSmallWidth: "169px",
+            logoLargeWidth: "198px"
+        },
         colors: {
-            bodyBackground: "#ffffff",//
-            defaultText: "#262626",//
-            headingText: "#323232",//
+            bodyBackground: "#ffffff", //
+            defaultText: "#262626", //
+            headingText: "#323232", //
             primaryText: "#D13C0A", //
             secondaryText: "#89bad6",
-            primary: "#0D7168",//
-            primaryLight: "#13a094",//
-            primaryXLight: "#18cdbe",//
-            primaryContrast: "#ffffff",//
-            secondary: "#a0e6df",//
-            secondaryLight: "#effbfa",//
-            secondaryXLight: "#c7f0ec",//
-            secondaryContrast: "#38514e",//
+            primary: "#0D7168", //
+            primaryLight: "#13a094", //
+            primaryXLight: "#18cdbe", //
+            primaryContrast: "#ffffff", //
+            secondary: "#a0e6df", //
+            secondaryLight: "#effbfa", //
+            secondaryXLight: "#c7f0ec", //
+            secondaryContrast: "#38514e", //
             focus: "#00C0B0", //
-            defaultBackground: "#EDEEF2",//
-            secondaryBackground: "#f6f7f9",//
+            defaultBackground: "#EDEEF2", //
+            secondaryBackground: "#f6f7f9", //
             success: "#177912",
             successLight: "#cbebb0",
             successXLight: "#f1fae3",
