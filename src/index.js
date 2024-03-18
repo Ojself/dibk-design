@@ -29,6 +29,7 @@ import RadioButtonListItem from "./components/RadioButtonListItem";
 import Select from "./components/Select";
 import Table from "./components/Table";
 import Textarea from "./components/Textarea";
+import ThemeProvider from "./components/ThemeProvider";
 import WizardNavigation from "./components/WizardNavigation";
 import WizardNavigationStep from "./components/WizardNavigation/Step";
 
@@ -64,6 +65,7 @@ export {
     Select,
     Table,
     Textarea,
+    ThemeProvider,
     WizardNavigation,
     WizardNavigationStep
 };
