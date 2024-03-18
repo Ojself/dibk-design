@@ -8,18 +8,11 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
-var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const Textarea = props => {
-  const getThemeErrorInputStyle = theme => {
-    return {
-      boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, "warning")),
-      borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
-    };
-  };
   const renderValueAsText = (value, defaultContent) => {
     return value ? value : defaultContent;
   };
@@ -31,7 +24,6 @@ const Textarea = props => {
     const defaultValue = !((_props$value = props.value) !== null && _props$value !== void 0 && _props$value.length) && (_props$defaultValue = props.defaultValue) !== null && _props$defaultValue !== void 0 && _props$defaultValue.length ? props.defaultValue : false;
     const defaultKey = props.elementKey || null;
     const styleRules = {
-      ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
       ...(((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
         maxWidth: props.width
       }),
@@ -69,8 +61,7 @@ const Textarea = props => {
     className: _TextareaModule.default.requiredSymbol
   })), !props.contentOnly ? renderInputField() : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
     id: getErrorElementId(),
-    content: props.errorMessage,
-    theme: props.theme
+    content: props.errorMessage
   }));
 };
 Textarea.propTypes = {
@@ -92,8 +83,7 @@ Textarea.propTypes = {
   defaultContent: _propTypes.default.string,
   "aria-describedby": _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
-  errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  theme: _propTypes.default.object
+  errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))])
 };
 Textarea.defaultProps = {
   onChange: () => {

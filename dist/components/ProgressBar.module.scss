@@ -2,7 +2,7 @@
 
 .progressBar {
     --size: 4rem;
-    --fg: #{$color-primary};
+    --fg: #{var(--color-primary, $color-primary)};
     --bg: #e2e1e0;
     --pgPercentage: var(--value);
     width: var(--size);
@@ -21,6 +21,6 @@
         content: counter(percentage) "%";
     }
     &.hasErrors {
-        --fg: #{$color-error};
+        --fg: #{var(--color-error, $color-error)};
     }
 }

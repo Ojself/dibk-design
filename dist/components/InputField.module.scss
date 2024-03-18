@@ -31,32 +31,32 @@
         font-family: inherit;
         font-size: 18px;
         box-sizing: border-box;
-        border: 1px solid $color-primary;
+        border: 1px solid var(--color-primary, $color-primary);
 
         &:hover {
-            border-color: $color-primary;
+            border-color: var(--color-primary, $color-primary);
         }
 
         &:focus {
-            border-color: $color-primary;
+            border-color: var(--color-primary, $color-primary);
             outline: $color-focus solid 3px;
         }
 
         &[disabled],
         &[readonly] {
-            background-color: $color-secondary-x-light;
+            background-color: var(--color-secondary-x-light, $color-secondary-x-light);
             cursor: default;
         }
 
         &.hasErrors {
-            border-color: $color-error;
+            border-color: var(--color-error, $color-error);
             &:focus {
-                border-color: $color-error;
+                border-color: var(--color-error, $color-error);
                 outline-color: #b8565d;
             }
             &[disabled],
             &[readonly] {
-                background-color: $color-secondary-x-light;
+                background-color: var(--color-secondary-x-light, $color-secondary-x-light);
                 cursor: default;
                 border-color: #afaba8;
             }

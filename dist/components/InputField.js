@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _Button = _interopRequireDefault(require("./Button"));
 var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
-var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
 var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
@@ -17,12 +16,6 @@ var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const InputField = props => {
   var _props$width;
-  const getThemeErrorInputStyle = theme => {
-    return {
-      boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, "warning")),
-      borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
-    };
-  };
   const formatDate = inputDate => {
     if (!inputDate) {
       return null;
@@ -66,7 +59,6 @@ const InputField = props => {
   const defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
   const defaultKey = props.elementKey || null;
   const styleRules = {
-    ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
     ...(((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
       maxWidth: props.width
     })
@@ -89,12 +81,10 @@ const InputField = props => {
       document.getElementById(props.id).click();
     },
     content: props.buttonContent,
-    type: "button",
-    theme: props.theme
+    type: "button"
   }) : null) : null), !props.contentOnly ? _react.default.createElement("input", getInputElementProps(defaultValue, defaultKey, styleRules)) : _react.default.createElement("span", null, renderValueAsText(props.value || props.defaultValue, props.defaultContent)), _react.default.createElement(_ErrorMessage.default, {
     id: getErrorElementId(),
-    content: props.errorMessage,
-    theme: props.theme
+    content: props.errorMessage
   }));
 };
 InputField.propTypes = {
@@ -111,7 +101,7 @@ InputField.propTypes = {
   elementKey: _propTypes.default.string,
   label: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   contentOnly: _propTypes.default.bool,
-  buttonColor: _propTypes.default.oneOf(["default", "primary"]),
+  buttonColor: _propTypes.default.oneOf(["primary", "secondary"]),
   buttonContent: _propTypes.default.string,
   selectedFileName: _propTypes.default.string,
   dateFormat: _propTypes.default.string,
@@ -121,7 +111,6 @@ InputField.propTypes = {
   "aria-autocomplete": _propTypes.default.oneOf(["none", "inline", "list", "both"]),
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  theme: _propTypes.default.object,
   noMargin: _propTypes.default.bool
 };
 InputField.defaultProps = {

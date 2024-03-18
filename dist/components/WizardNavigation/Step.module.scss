@@ -1,7 +1,7 @@
 @import "../../style/global.scss";
 
 .wizard-topnav .wizard-topnav-item.finished .wizard-topnav-item-content:before {
-  background-color: $color-primary;
+  background-color: var(--color-primary, $color-primary);
 }
 
 .wizardTopnavItem {
@@ -49,7 +49,7 @@
       display: block;
       text-align: center;
       background-color: #e2e1e0;
-      color: $color-default-text;
+      color: var(--color-default-text, $color-default-text);
       position: relative;
       font-size: 20px;
       line-height: 1.75em;
@@ -62,7 +62,7 @@
     .stepName {
       display: block;
       text-align: left;
-      color: $color-default-text;
+      color: var(--color-default-text, $color-default-text);
       flex: 1;
       flex-basis: min-content;
       @media only screen and (min-width: $screen-sm) {
@@ -73,17 +73,17 @@
   }
   &.active {
     :local(.stepNumber) {
-      background-color: $color-primary;
+      background-color: var(--color-primary, $color-primary);
       color: #fff;
     }
   }
   &.finished {
     .wizardTopnavItemContent {
       &:before {
-        background-color: $color-primary;
+        background-color: var(--color-primary, $color-primary);
       }
       .stepNumber {
-        background-color: $color-primary;
+        background-color: var(--color-primary, $color-primary);
         color: #fff;
       }
     }
@@ -91,10 +91,10 @@
   &.hasErrors {
     .wizardTopnavItemContent {
       &:before {
-        background-color: $color-warning;
+        background-color: var(--color-warning, $color-warning);
       }
       .stepNumber {
-        background-color: $color-warning;
+        background-color: var(--color-warning, $color-warning);
         color: #fff;
       }
     }

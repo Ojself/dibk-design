@@ -10,7 +10,6 @@ var _Label = _interopRequireDefault(require("./Label"));
 var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _CheckBoxList = _interopRequireDefault(require("./CheckBoxList"));
 var _CheckBoxListItem = _interopRequireDefault(require("./CheckBoxListItem"));
-var _theme = require("../functions/theme");
 var _generators = require("../functions/generators");
 var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
@@ -47,17 +46,6 @@ const Select = props => {
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", keyDownFunction, false);
   }, [props, wrapperRef]);
-  const getThemeErrorInputStyle = theme => {
-    return {
-      boxShadow: "0 0 3px ".concat((0, _theme.getThemePaletteBackgroundColor)(theme, "warning")),
-      borderColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "warning")
-    };
-  };
-  const getThemeArrowStyle = theme => {
-    return {
-      borderTopColor: (0, _theme.getThemePaletteBackgroundColor)(theme, "primary")
-    };
-  };
   const getKeyByValue = (value, options) => {
     const selectedOption = options && options.length ? options.find(option => {
       if (typeof option === "object") {
@@ -104,8 +92,7 @@ const Select = props => {
         id: "".concat(props.id, "-").concat(index),
         value: optionObject.value,
         checked: isSelected,
-        onChange: () => selectElementProps.onChange(optionObject.value),
-        theme: props.theme
+        onChange: () => selectElementProps.onChange(optionObject.value)
       }, optionObject.key);
     });
   };
@@ -138,7 +125,6 @@ const Select = props => {
     var _props$width, _props$errorMessage, _props$ariaDescribed, _props$width2;
     const defaultValue = !props.value && props.defaultValue ? props.defaultValue : false;
     const styleRules = {
-      ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
       ...(((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
         maxWidth: props.width
       })
@@ -175,8 +161,7 @@ const Select = props => {
         })
       }
     }, _react.default.createElement("span", {
-      className: _SelectModule.default.selectListArrow,
-      style: getThemeArrowStyle(props.theme)
+      className: _SelectModule.default.selectListArrow
     }), props.multiple ? _react.default.createElement("div", {
       ref: dropdownRef
     }, _react.default.createElement("div", {
@@ -190,8 +175,7 @@ const Select = props => {
       compact: true
     }, renderCheckBoxElements(props.options, selectElementProps))) : null) : _react.default.createElement("select", selectElementProps, renderPlaceholderOption(props.placeholder, props.placeholderValue), renderOptionElements(props.options))), _react.default.createElement(_ErrorMessage.default, {
       id: getErrorElementId(),
-      content: props.errorMessage,
-      theme: props.theme
+      content: props.errorMessage
     }));
   }
 };
@@ -217,8 +201,7 @@ Select.propTypes = {
   defaultContent: _propTypes.default.string,
   "aria-describedby": _propTypes.default.string,
   hasErrors: _propTypes.default.bool,
-  errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
-  theme: _propTypes.default.object
+  errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))])
 };
 Select.defaultProps = {
   onChange: () => {

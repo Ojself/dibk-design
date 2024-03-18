@@ -63,19 +63,19 @@
             font-family: inherit;
             font-size: 18px;
             padding: 10px 40px 10px 10px;
-            border: 1px solid $color-primary;
+            border: 1px solid var(--color-primary, $color-primary);
             border-radius: 0;
             line-height: 1.7;
             background: white;
             cursor: pointer;
 
             &:hover {
-                border-color: $color-primary;
-                background-color: $color-secondary-x-light;
+                border-color: var(--color-primary, $color-primary);
+                background-color: var(--color-secondary-x-light, $color-secondary-x-light);
             }
 
             &:focus {
-                outline-color: $color-primary;
+                outline-color: var(--color-primary, $color-primary);
             }
 
             &[disabled],
@@ -93,9 +93,9 @@
             }
 
             &.hasErrors {
-                border-color: $color-error;
+                border-color: var(--color-error, $color-error);
                 &:focus {
-                    border-color: $color-error;
+                    border-color: var(--color-error, $color-error);
                     outline-color: #b8565d;
                 }
                 &[disabled],

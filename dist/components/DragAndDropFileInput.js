@@ -99,8 +99,7 @@ const DragAndDropFileInput = props => {
     "data-transaction-name": props["data-transaction-name"]
   })) : null) : null, props.contentOnly ? _react.default.createElement("span", null, renderValueAsText(props.selectedFileName, props.defaultContent)) : "", _react.default.createElement(_ErrorMessage.default, {
     id: getErrorElementId(),
-    content: props.errorMessage,
-    theme: props.theme
+    content: props.errorMessage
   }));
 };
 DragAndDropFileInput.propTypes = {
@@ -118,13 +117,12 @@ DragAndDropFileInput.propTypes = {
   hasErrors: _propTypes.default.bool,
   errorMessage: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]))]),
   required: _propTypes.default.bool,
-  "data-transaction-name": _propTypes.default.string,
-  theme: _propTypes.default.object
+  "data-transaction-name": _propTypes.default.string
 };
 DragAndDropFileInput.defaultProps = {
   label: "",
   contentOnly: false,
-  buttonColor: "default",
+  buttonColor: "primary",
   defaultContent: "",
   hasErrors: false,
   errorMessage: "",

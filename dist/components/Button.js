@@ -6,10 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _theme = require("../functions/theme");
+var _reactRouterDom = require("react-router-dom");
 var _helpers = require("../functions/helpers");
 var _ButtonModule = _interopRequireDefault(require("./Button.module.scss"));
-var _reactRouterDom = require("react-router-dom");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -26,14 +25,6 @@ const Button = props => {
         return "";
     }
   };
-  const getThemeStyle = (theme, color) => {
-    return {
-      backgroundColor: (0, _theme.getThemePaletteBackgroundColor)(theme, color),
-      color: (0, _theme.getThemePaletteTextColor)(theme, color),
-      borderColor: (0, _theme.getThemePaletteBorderColor)(theme, color),
-      borderWidth: (0, _theme.getThemePaletteBorderColor)(theme, color) ? "1px" : "0"
-    };
-  };
   let buttonProps = {
     ...props,
     "aria-invalid": props.hasErrors || null,
@@ -48,8 +39,7 @@ const Button = props => {
   delete buttonProps.arrow;
   delete buttonProps.noMargin;
   const buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
-  const themeStyle = props.theme ? getThemeStyle(props.theme, buttonColor) : null;
-  const className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.theme && _ButtonModule.default.hasTheme, props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled, props.noMargin && _ButtonModule.default.noMargin]);
+  const className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled, props.noMargin && _ButtonModule.default.noMargin]);
   const renderReactLinkElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
@@ -58,7 +48,6 @@ const Button = props => {
         var _childElement$props2, _childElement$props3;
         const childElementCopy = _react.default.cloneElement(childElement, {
           className: className,
-          style: themeStyle,
           key: "button-".concat(index),
           to: !buttonProps.disabled && childElement !== null && childElement !== void 0 && (_childElement$props2 = childElement.props) !== null && _childElement$props2 !== void 0 && _childElement$props2.to ? childElement === null || childElement === void 0 || (_childElement$props3 = childElement.props) === null || _childElement$props3 === void 0 ? void 0 : _childElement$props3.to : null
         });
@@ -66,8 +55,7 @@ const Button = props => {
       } else {
         return _react.default.createElement("button", _extends({}, buttonProps, {
           key: "button-".concat(index),
-          className: className,
-          style: themeStyle
+          className: className
         }), props.content || childElement.props.children);
       }
     });
@@ -75,7 +63,6 @@ const Button = props => {
   if (props.inputType === "button") {
     return _react.default.createElement("input", _extends({}, buttonProps, {
       className: className,
-      style: themeStyle,
       type: "button",
       value: props.content
     }));
@@ -83,29 +70,25 @@ const Button = props => {
     return _react.default.createElement("label", {
       className: className
     }, _react.default.createElement("input", _extends({}, buttonProps, {
-      style: themeStyle,
       type: "radio"
     })), props.content);
   } else if ((_props$href2 = props.href) !== null && _props$href2 !== void 0 && _props$href2.length && !props.disabled) {
     return _react.default.createElement("a", _extends({}, buttonProps, {
-      className: className,
-      style: themeStyle
+      className: className
     }), props.content || props.children);
   } else if ((props === null || props === void 0 || (_props$children = props.children) === null || _props$children === void 0 ? void 0 : _props$children.type) === _reactRouterDom.Link) {
     return _react.default.createElement(_react.Fragment, null, renderReactLinkElements(_react.default.Children.toArray(props.children)));
   } else {
     return _react.default.createElement("button", _extends({}, buttonProps, {
-      className: className,
-      style: themeStyle
+      className: className
     }), props.content || props.children);
   }
 };
 Button.propTypes = {
   content: _propTypes.default.string,
-  color: _propTypes.default.oneOf(["default", "primary"]),
+  color: _propTypes.default.oneOf(["primary", "secondary"]),
   size: _propTypes.default.oneOf(["small", "regular"]),
   arrow: _propTypes.default.oneOf(["none", "left", "right"]),
-  theme: _propTypes.default.object,
   disabled: _propTypes.default.bool,
   inputType: _propTypes.default.oneOf(["button", "radio"]),
   name: _propTypes.default.string,
@@ -120,7 +103,7 @@ Button.propTypes = {
   noMargin: _propTypes.default.bool
 };
 Button.defaultProps = {
-  color: "default",
+  color: "primary",
   size: "regular",
   disabled: false,
   hasErrors: false,

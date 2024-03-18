@@ -1,36 +1,101 @@
 @import "../style/global.scss";
 
-* {
-  color: $color-default-text;
+section:not(:last-of-type) {
+  margin: 24px 0;
 }
 
-a {
-  color: $color-primary;
-}
-
-img {
-  max-width: 200px;
-  max-height: 150px;
+section:last-of-type {
+  margin: 24px 0 0 0;
 }
 
 .colorPalette {
   display: flex;
   flex-wrap: wrap;
+  font-size: 12px;
+  > div {
+    padding: 8px;
+    text-align: right;
+    width: 50%;
+    @media screen and (min-width: $screen-sm) {
+      width: 25%;
+    }
+    @media screen and (min-width: $screen-md) {
+      width: 16.6%;
+    }
+  }
 
   .color {
-    width: 20%;
-    min-width: 120px;
-    text-align: center;
-    line-height: 3em;
-
-    &.default {
-      background-color: $color-default-background;
-      color: $color-default-text;
+    &.bodyBackground {
+      background-color: var(--color-body-background, $color-body-background);
     }
-
-    &.secodary {
-      background-color: $color-secondary-background;
-      color: $color-default-text;
+    &.defaultText {
+      background-color: var(--color-default-text, $color-default-text);
+    }
+    &.primaryText {
+      background-color: var(--color-primary-text, $color-primary-text);
+    }
+    &.secondaryText {
+      background-color: var(--color-secondary-text, $color-secondary-text);
+    }
+    &.primary {
+      background-color: var(--color-primary, $color-primary);
+    }
+    &.primaryLight {
+      background-color: var(--color-primary-light, $color-primary-light);
+    }
+    &.primaryXLight {
+      background-color: var(--color-primary-x-light, $color-primary-x-light);
+    }
+    &.primaryContrast {
+      background-color: var(--color-primary-contrast, $color-primary-contrast);
+    }
+    &.secondary {
+      background-color: var(--color-secondary, $color-secondary);
+    }
+    &.secondaryLight {
+      background-color: var(--color-secondary-light, $color-secondary-light);
+    }
+    &.secondaryXLight {
+      background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+    }
+    &.secondaryContrast {
+      background-color: var(--color-secondary-contrast, $color-secondary-contrast);
+    }
+    &.focus {
+      background-color: var(--color-focus, $color-focus);
+    }
+    &.defaultBackground {
+      background-color: var(--color-default-background, $color-default-background);
+    }
+    &.secondaryBackground {
+      background-color: var(--color-secondary-background, $color-secondary-background);
+    }
+    &.success {
+      background-color: var(--color-success, $color-success);
+    }
+    &.successLight {
+      background-color: var(--color-success-light, $color-success-light);
+    }
+    &.successXLight {
+      background-color: var(--color-success-x-light, $color-success-x-light);
+    }
+    &.warning {
+      background-color: var(--color-warning, $color-warning);
+    }
+    &.warningLight {
+      background-color: var(--color-warning-light, $color-warning-light);
+    }
+    &.warningXLight {
+      background-color: var(--color-warning-x-light, $color-warning-x-light);
+    }
+    &.error {
+      background-color: var(--color-error, $color-error);
+    }
+    &.errorLight {
+      background-color: var(--color-error-light, $color-error-light);
+    }
+    &.errorXLight {
+      background-color: var(--color-error-x-light, $color-error-x-light);
     }
   }
 }

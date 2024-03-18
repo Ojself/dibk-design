@@ -11,7 +11,7 @@
 
     .dragAndDropContainer {
         @include transition(all 0.1s ease-in-out);
-        border: 2px dashed $color-secondary-light;
+        border: 2px dashed var(--color-secondary-light, $color-secondary-light);
         border-radius: 20px;
         width: 100%;
         padding: 20px;
@@ -27,8 +27,8 @@
         }
 
         &.highlighted {
-            background: $color-secondary-x-light;
-            border-color: $color-primary;
+            background: var(--color-secondary-x-light, $color-secondary-x-light);
+            border-color: var(--color-primary, $color-primary);
         }
     }
 }

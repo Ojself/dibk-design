@@ -55,7 +55,7 @@
         .closeButton {
             background: none;
             border: none;
-            color: $color-primary;
+            color: var(--color-primary, $color-primary);
             display: inline-block;
             position: absolute;
             right: 7px;

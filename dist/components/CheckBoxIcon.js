@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _theme = require("../functions/theme");
 var _CheckBoxIconModule = _interopRequireDefault(require("./CheckBoxIcon.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const CheckBoxIcon = props => {
@@ -15,13 +14,6 @@ const CheckBoxIcon = props => {
     width: props.size,
     fontSize: props.size
   };
-  if (props.theme && props.checked) {
-    inlineStyle = {
-      ...inlineStyle,
-      [!props.hasErrors && "color"]: (0, _theme.getThemePaletteBackgroundColor)(props.theme, "primary"),
-      [!props.hasErrors && props.showBox && "boxShadow"]: "0 0 0 1px ".concat((0, _theme.getThemePaletteBackgroundColor)(props.theme, "primary"))
-    };
-  }
   const checkBoxIconProps = {
     className: "".concat(_CheckBoxIconModule.default.checkBoxIcon, " ").concat(props.checked ? _CheckBoxIconModule.default.checked : "", " ").concat(props.disabled ? _CheckBoxIconModule.default.disabled : "", " ").concat(props.showBox ? _CheckBoxIconModule.default.showBox : "", " ").concat(props.hasErrors ? _CheckBoxIconModule.default.hasErrors : ""),
     style: inlineStyle
@@ -36,7 +28,6 @@ CheckBoxIcon.propTypes = {
   checked: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
   showBox: _propTypes.default.bool,
-  theme: _propTypes.default.object,
   hasErrors: _propTypes.default.bool,
   checkmarkCharacter: _propTypes.default.string
 };

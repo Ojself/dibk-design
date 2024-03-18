@@ -11,7 +11,7 @@ var _helpers = require("../functions/helpers");
 var _CheckBoxListItemModule = _interopRequireDefault(require("./CheckBoxListItem.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const CheckBoxListItem = props => {
-  const listItemClassNameArray = [_CheckBoxListItemModule.default.checkBoxListItem, props.checked ? _CheckBoxListItemModule.default.checked : null, props.disabled ? _CheckBoxListItemModule.default.disabled : null, props.compact ? _CheckBoxListItemModule.default.compact : null, props.contentOnly ? _CheckBoxListItemModule.default.contentOnly : null, props.hasErrors ? _CheckBoxListItemModule.default.hasErrors : null, props.theme && _CheckBoxListItemModule.default.hasTheme];
+  const listItemClassNameArray = [_CheckBoxListItemModule.default.checkBoxListItem, props.checked ? _CheckBoxListItemModule.default.checked : null, props.disabled ? _CheckBoxListItemModule.default.disabled : null, props.compact ? _CheckBoxListItemModule.default.compact : null, props.contentOnly ? _CheckBoxListItemModule.default.contentOnly : null, props.hasErrors ? _CheckBoxListItemModule.default.hasErrors : null];
   const listItemClassNameString = (0, _helpers.classNameArrayToClassNameString)(listItemClassNameArray);
   const inputProps = {
     onChange: props.onChange,
@@ -25,7 +25,6 @@ const CheckBoxListItem = props => {
     "aria-describedby": props["aria-describedby"],
     id: props.id,
     name: props.name,
-    theme: props.theme,
     checkmarkCharacter: props.checkmarkCharacter
   };
   return _react.default.createElement("div", {
@@ -41,7 +40,6 @@ CheckBoxListItem.propTypes = {
   name: _propTypes.default.string,
   onChange: _propTypes.default.func.isRequired,
   contentOnly: _propTypes.default.bool,
-  theme: _propTypes.default.object,
   compact: _propTypes.default.bool,
   hasErrors: _propTypes.default.bool,
   checkmarkCharacter: _propTypes.default.string,

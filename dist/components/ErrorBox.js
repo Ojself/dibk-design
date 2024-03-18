@@ -6,20 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _theme = require("../functions/theme");
 var _helpers = require("../functions/helpers");
 var _ErrorBoxModule = _interopRequireDefault(require("./ErrorBox.module.scss"));
 var _infoSign = _interopRequireDefault(require("../assets/svg/info-sign.svg?url"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const ErrorBox = props => {
-  const getThemeErrorBoxStyle = () => {
-    return {
-      borderColor: props.type === "error" ? (0, _theme.getThemePaletteBackgroundColor)(props.theme, "error") : (0, _theme.getThemePaletteBackgroundColor)(props.theme, "warning")
-    };
-  };
   return _react.default.createElement("div", {
-    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBoxContainer, _ErrorBoxModule.default[props.type], props.fullScreen && _ErrorBoxModule.default.fullScreen]),
-    style: getThemeErrorBoxStyle()
+    className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBoxContainer, _ErrorBoxModule.default[props.type], props.fullScreen && _ErrorBoxModule.default.fullScreen])
   }, _react.default.createElement("div", {
     className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBox, props.fullScreen && _ErrorBoxModule.default.fullScreen])
   }, _react.default.createElement("img", {
@@ -29,7 +22,6 @@ const ErrorBox = props => {
   }), props.children));
 };
 ErrorBox.propTypes = {
-  theme: _propTypes.default.object,
   type: _propTypes.default.oneOf(["warning", "error"]),
   fullScreen: _propTypes.default.bool
 };

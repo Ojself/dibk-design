@@ -18,7 +18,6 @@ const RadioButtonInput = props => {
   const iconProps = {
     checked: props.checked,
     disabled: props.disabled,
-    theme: props.theme,
     hasErrors: !props.contentOnly && props.hasErrors
   };
   const inputProps = {
@@ -53,7 +52,6 @@ RadioButtonInput.propTypes = {
   onChange: _propTypes.default.func,
   contentOnly: _propTypes.default.bool,
   hasErrors: _propTypes.default.bool,
-  theme: _propTypes.default.object,
   inputValue: _propTypes.default.string.isRequired,
   "aria-controls": _propTypes.default.string,
   "aria-describedby": _propTypes.default.string

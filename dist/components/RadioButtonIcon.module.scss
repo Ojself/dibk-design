@@ -16,22 +16,22 @@
     cursor: pointer;
 
     &:not(.hasErrors) {
-        @include box-shadow(0 0 0 1px $color-primary);
+        @include box-shadow(0 0 0 1px var(--color-primary, $color-primary));
     }
     &.hasErrors {
-        @include box-shadow(0 0 0 1px $color-error);
+        @include box-shadow(0 0 0 1px var(--color-error, $color-error));
     }
 
     &.checked {
-        background: $color-primary;
+        background: var(--color-primary, $color-primary);
         &.hasErrors {
-            background: $color-error;
+            background: var(--color-error, $color-error);
         }
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px $color-primary);
+            @include box-shadow(0 0 0 1px var(--color-primary, $color-primary));
         }
         &.hasErrors {
-            @include box-shadow(0 0 0 1px $color-error);
+            @include box-shadow(0 0 0 1px var(--color-error, $color-error));
         }
     }
     &.disabled {

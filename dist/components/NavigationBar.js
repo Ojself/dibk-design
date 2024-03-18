@@ -22,18 +22,6 @@ const NavigationBar = props => {
   const toggleList = () => {
     setActive(!active);
   };
-  const getNavigationBarThemeStyle = theme => {
-    return {
-      backgroundColor: (0, _theme.getThemeNavigationBarBackgroundColor)(theme),
-      color: (0, _theme.getThemeNavigationBarTextColor)(theme)
-    };
-  };
-  const getListItemThemeStyle = theme => {
-    return {
-      color: (0, _theme.getThemeNavigationBarTextColor)(theme),
-      borderBottomColor: (0, _theme.getThemeNavigationBarTextColor)(theme)
-    };
-  };
   const getLogoThemeStyle = theme => {
     return {
       padding: (0, _theme.getThemeLogoPadding)(theme)
@@ -42,15 +30,12 @@ const NavigationBar = props => {
   const renderPrimaryList = function () {
     let items = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : props.primaryListItems;
     let iteration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-    const listItemThemeStyle = getListItemThemeStyle(props.theme);
     let listItems = items.map((listItem, i) => {
       let key = iteration + "-" + i;
       if (listItem.listItems !== undefined) {
         return _react.default.createElement("li", {
           key: key
-        }, _react.default.createElement("span", {
-          style: listItemThemeStyle
-        }, listItem.name), renderPrimaryList(listItem.listItems, iteration + 1));
+        }, _react.default.createElement("span", null, listItem.name), renderPrimaryList(listItem.listItems, iteration + 1));
       } else {
         return _react.default.createElement(_NavigationBarListItem.default, {
           listItem: listItem,
@@ -107,10 +92,6 @@ const NavigationBar = props => {
       title: logoLinkTitle
     }), renderLogoElement()) : renderLogoElement();
   };
-  const navigationBarThemeStyle = getNavigationBarThemeStyle(props.theme);
-  const hamburgerIconLineStyle = {
-    backgroundColor: (0, _theme.getThemeNavigationBarTextColor)(props.theme)
-  };
   const hasListItems = !!((_props$primaryListIte = props.primaryListItems) !== null && _props$primaryListIte !== void 0 && _props$primaryListIte.length) || !!((_props$secondaryListI = props.secondaryListItems) !== null && _props$secondaryListI !== void 0 && _props$secondaryListI.length);
   return _react.default.createElement("div", {
     className: (0, _helpers.classNameArrayToClassNameString)([props.compact && _NavigationBarModule.default.compact, _NavigationBarModule.default.navigationBarContainer])
@@ -121,8 +102,7 @@ const NavigationBar = props => {
   }, _react.default.createElement("span", {
     id: "main-content-link-text"
   }, "Hopp til hovedinnhold")), _react.default.createElement("div", {
-    className: _NavigationBarModule.default.navigationBar,
-    style: navigationBarThemeStyle
+    className: _NavigationBarModule.default.navigationBar
   }, _react.default.createElement("div", {
     className: _NavigationBarModule.default.logoContainer
   }, renderLogo(props.logoLink, props.logoLinkTitle)), !!props.children && _react.default.createElement("div", {
@@ -136,20 +116,16 @@ const NavigationBar = props => {
   }, !props.compact && "Meny", _react.default.createElement("span", {
     className: _NavigationBarModule.default.hamburgerIcon
   }, _react.default.createElement("span", {
-    className: _NavigationBarModule.default.line,
-    style: hamburgerIconLineStyle
+    className: _NavigationBarModule.default.line
   }), _react.default.createElement("span", {
-    className: _NavigationBarModule.default.line,
-    style: hamburgerIconLineStyle
+    className: _NavigationBarModule.default.line
   }), _react.default.createElement("span", {
-    className: _NavigationBarModule.default.line,
-    style: hamburgerIconLineStyle
+    className: _NavigationBarModule.default.line
   })))), hasListItems && _react.default.createElement(_react.Fragment, null, _react.default.createElement("div", {
     className: "".concat(_NavigationBarModule.default.dropdownContainer, " ").concat(active ? _NavigationBarModule.default.active : "")
   }, _react.default.createElement("div", {
     id: "main-menu-dropdown",
-    className: _NavigationBarModule.default.dropdown,
-    style: navigationBarThemeStyle
+    className: _NavigationBarModule.default.dropdown
   }, renderPrimaryList(), renderSecondaryList()))));
 };
 NavigationBar.propTypes = {
