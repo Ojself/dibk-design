@@ -12,6 +12,8 @@ $font-size-table-header: 15px;
 $font-size-table-data: 16px;
 $font-size-checkbox: 20px;
 
+$line-height-default: 22.5px;
+
 $height-checkbox: 22px;
 $width-checkbox: 22px;
 
@@ -62,7 +64,6 @@ body {
     font-family: Carlito, sans-serif;
     color: #000;
     font-size: $font-size-body;
-    line-height: 1.25em;
     font-weight: normal;
     font-style: normal;
 }
@@ -79,6 +80,7 @@ body {
     font-family: Carlito, sans-serif;
     color: #000;
     font-size: $font-size-body;
+    line-height: $line-height-default;
 }
 @page {
     size: A4 portrait;
@@ -405,6 +407,7 @@ body {
     padding-left: 0.2cm;
     padding-right: 0.2cm;
     font-size: calc($font-size-body * $scaling-for-signed-documents);
+    line-height: calc($line-height-default * $scaling-for-signed-documents);
     div.content-container {
         .heading-logo {
             width: calc($heading-logo-width * $scaling-for-signed-documents);
