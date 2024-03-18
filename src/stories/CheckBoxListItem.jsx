@@ -18,8 +18,7 @@ const CheckBoxListItem = (props) => {
         props.disabled ? style.disabled : null,
         props.compact ? style.compact : null,
         props.contentOnly ? style.contentOnly : null,
-        props.hasErrors ? style.hasErrors : null,
-        props.theme && style.hasTheme
+        props.hasErrors ? style.hasErrors : null
     ];
     const listItemClassNameString = classNameArrayToClassNameString(listItemClassNameArray);
     const inputProps = {
@@ -34,7 +33,6 @@ const CheckBoxListItem = (props) => {
         "aria-describedby": props["aria-describedby"],
         id: props.id,
         name: props.name,
-        theme: props.theme,
         checkmarkCharacter: props.checkmarkCharacter
     };
     return (
@@ -53,7 +51,6 @@ CheckBoxListItem.propTypes = {
     name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     contentOnly: PropTypes.bool,
-    theme: PropTypes.object,
     compact: PropTypes.bool,
     hasErrors: PropTypes.bool,
     checkmarkCharacter: PropTypes.string,

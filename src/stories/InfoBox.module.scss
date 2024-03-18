@@ -9,7 +9,7 @@
 
 .infoBox {
     background-color: #fff;
-    border: 1px solid $color-secondary-light;
+    border: 1px solid var(--color-secondary-light, $color-secondary-light);
     padding: 24px 24px 24px calc(1.2em + 48px);
     font-family: $default-font;
     animation: 1000ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal none running messageIn;
@@ -22,8 +22,8 @@
         height: 24px;
         display: inline-block;
         vertical-align: middle;
-        background-color: $color-warning-x-light;
-        border-left-color: $color-warning;
+        background-color: var(--color-warning-x-light, $color-warning-x-light);
+        border-left-color: var(--color-warning, $color-warning);
     }
     h1,
     h2,

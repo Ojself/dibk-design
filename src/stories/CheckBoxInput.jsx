@@ -22,7 +22,6 @@ const CheckBoxInput = (props) => {
     const iconProps = {
         checked: props.checked,
         disabled: props.disabled,
-        theme: props.theme,
         showBox: !props.contentOnly,
         hasErrors: props.contentOnly && props.hasErrors,
         checkmarkCharacter: props.checkmarkCharacter
@@ -70,7 +69,6 @@ CheckBoxInput.propTypes = {
     onChange: PropTypes.func.isRequired,
     contentOnly: PropTypes.bool,
     hasErrors: PropTypes.bool,
-    theme: PropTypes.object,
     checkmarkCharacter: PropTypes.string,
     "aria-controls": PropTypes.string,
     "aria-describedby": PropTypes.string

@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import CheckBoxInput from "./CheckBoxInput";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +14,13 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <CheckBoxInput {...args} />;
+const Template = (args) => {
+    return (
+        <ThemeProvider theme={args.theme}>
+            <CheckBoxInput {...args} />
+        </ThemeProvider>
+    );
+};
 
 export const Unchecked = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -101,13 +105,4 @@ Required.args = {
     id: "checkBoxInput-11",
     required: true,
     children: "Label for required checkbox"
-};
-
-export const CheckedCustomThemeAndCheckmark = Template.bind({});
-CheckedCustomThemeAndCheckmark.args = {
-    id: "checkBoxInput-12",
-    children: "Label for checked checkbox with custom theme and checkmark",
-    checked: true,
-    checkmarkCharacter: "✕",
-    theme: customTheme
 };

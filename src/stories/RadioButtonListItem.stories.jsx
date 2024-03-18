@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import RadioButtonListItem from "./RadioButtonListItem";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +14,11 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <RadioButtonListItem {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <RadioButtonListItem {...args} />;
+    </ThemeProvider>
+);
 
 export const Unchecked = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -116,13 +118,4 @@ Compact.args = {
     id: "radioButtonListItem-12",
     compact: true,
     children: "Label for compact radio button"
-};
-
-export const CheckedCustomThemeAndCheckmark = Template.bind({});
-CheckedCustomThemeAndCheckmark.args = {
-    id: "radioButtonListItem-13",
-    children: "Label for checked radio button with custom theme and checkmark",
-    checked: true,
-    checkmarkCharacter: "✕",
-    theme: customTheme
 };

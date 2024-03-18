@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import DragAndDropFileInput from "./DragAndDropFileInput";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -10,12 +11,16 @@ export default {
     component: DragAndDropFileInput,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        buttonColor: { control: "radio", options: ["default", "primary"] }
+        buttonColor: { control: "radio", options: ["primary", "secondary"] }
     }
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <DragAndDropFileInput {...args}>{args.children}</DragAndDropFileInput>;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <DragAndDropFileInput {...args}>{args.children}</DragAndDropFileInput>
+    </ThemeProvider>
+);
 
 export const WithoutSelectedFile = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -89,5 +94,10 @@ WithChildElements.args = {
     buttonContent: "Velg fil",
     onSelectChange: () => console.log("Select change"),
     onDragAndDropChange: () => console.log("Drag and drop change"),
-    children: <><p>First paragraph</p><p>second paragraph</p></>,
+    children: (
+        <>
+            <p>First paragraph</p>
+            <p>second paragraph</p>
+        </>
+    )
 };

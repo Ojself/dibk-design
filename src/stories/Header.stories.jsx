@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import Header from "./Header";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -10,13 +11,17 @@ export default {
     component: Header,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        size: { control: 'select', options: [1, 2, 3, 4, 5] },
-        htmlTag: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5'] }
+        size: { control: "select", options: [1, 2, 3, 4, 5] },
+        htmlTag: { control: "select", options: ["h1", "h2", "h3", "h4", "h5"] }
     }
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Header {...args}></Header>;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <Header {...args}></Header>
+    </ThemeProvider>
+);
 
 export const Header1 = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

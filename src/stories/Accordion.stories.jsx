@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import Accordion from "./Accordion";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -13,7 +14,13 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Accordion {...args}></Accordion>;
+const Template = (args) => {
+    return (
+        <ThemeProvider theme={args.theme}>
+            <Accordion {...args}></Accordion>
+        </ThemeProvider>
+    );
+};
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

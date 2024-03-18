@@ -20,7 +20,7 @@
   color: #000;
 
   &:not(.contentOnly):not(.compact) {
-    border: 1px solid $color-secondary-light;
+    border: 1px solid var(--color-secondary-light, $color-secondary-light);
     background: white;
     margin-bottom: 8px;
     label {
@@ -42,16 +42,16 @@
     }
   }
 
-  &.checked:not(.contentOnly):not(.compact):not(.disabled):not(.hasTheme) {
-    background-color: $color-secondary-light;
+  &.checked:not(.contentOnly):not(.compact):not(.disabled) {
+    background-color: var(--color-secondary-light, $color-secondary-light);
   }
 
-  &:not(.checked):not(.contentOnly):not(.compact):not(.disabled):not(.hasTheme):hover {
+  &:not(.checked):not(.contentOnly):not(.compact):not(.disabled):hover {
     &:hover {
-      background-color: $color-secondary-x-light;
+      background-color: var(--color-secondary-x-light, $color-secondary-x-light);
     }
     &:focus-within {
-      background-color: $color-secondary-x-light;
+      background-color: var(--color-secondary-x-light, $color-secondary-x-light);
     }
   }
 

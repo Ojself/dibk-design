@@ -6,13 +6,7 @@ import PropTypes from "prop-types";
 import NavigationBarListItem from "./NavigationBarListItem";
 
 // Functions
-import {
-    getThemeAppName,
-    getThemeLogo,
-    getThemeLogoPadding,
-    getThemeNavigationBarBackgroundColor,
-    getThemeNavigationBarTextColor
-} from "../functions/theme";
+import { getThemeAppName, getThemeLogo, getThemeLogoPadding } from "../functions/theme";
 
 // Assets
 import compactLogo from "../assets/svg/dibk-logo-mobile.svg?url";
@@ -30,20 +24,6 @@ const NavigationBar = (props) => {
         setActive(!active);
     };
 
-    const getNavigationBarThemeStyle = (theme) => {
-        return {
-            backgroundColor: getThemeNavigationBarBackgroundColor(theme),
-            color: getThemeNavigationBarTextColor(theme)
-        };
-    };
-
-    const getListItemThemeStyle = (theme) => {
-        return {
-            color: getThemeNavigationBarTextColor(theme),
-            borderBottomColor: getThemeNavigationBarTextColor(theme)
-        };
-    };
-
     const getLogoThemeStyle = (theme) => {
         return {
             padding: getThemeLogoPadding(theme)
@@ -51,13 +31,12 @@ const NavigationBar = (props) => {
     };
 
     const renderPrimaryList = (items = props.primaryListItems, iteration = 0) => {
-        const listItemThemeStyle = getListItemThemeStyle(props.theme);
         let listItems = items.map((listItem, i) => {
             let key = iteration + "-" + i;
             if (listItem.listItems !== undefined) {
                 return (
                     <li key={key}>
-                        <span style={listItemThemeStyle}>{listItem.name}</span>
+                        <span>{listItem.name}</span>
                         {renderPrimaryList(listItem.listItems, iteration + 1)}
                     </li>
                 );
@@ -111,11 +90,6 @@ const NavigationBar = (props) => {
         );
     };
 
-    const navigationBarThemeStyle = getNavigationBarThemeStyle(props.theme);
-    const hamburgerIconLineStyle = {
-        backgroundColor: getThemeNavigationBarTextColor(props.theme)
-    };
-
     const hasListItems = !!props.primaryListItems?.length || !!props.secondaryListItems?.length;
 
     return (
@@ -127,7 +101,7 @@ const NavigationBar = (props) => {
                     <span id="main-content-link-text">Hopp til hovedinnhold</span>
                 </a>
             )}
-            <div className={style.navigationBar} style={navigationBarThemeStyle}>
+            <div className={style.navigationBar}>
                 <div className={style.logoContainer}>{renderLogo(props.logoLink, props.logoLinkTitle)}</div>
                 {!!props.children && <div className={style.childElements}>{props.children}</div>}
                 {hasListItems && (
@@ -140,9 +114,9 @@ const NavigationBar = (props) => {
                     >
                         {!props.compact && "Meny"}
                         <span className={style.hamburgerIcon}>
-                            <span className={style.line} style={hamburgerIconLineStyle}></span>
-                            <span className={style.line} style={hamburgerIconLineStyle}></span>
-                            <span className={style.line} style={hamburgerIconLineStyle}></span>
+                            <span className={style.line}></span>
+                            <span className={style.line}></span>
+                            <span className={style.line}></span>
                         </span>
                     </button>
                 )}
@@ -150,7 +124,7 @@ const NavigationBar = (props) => {
             {hasListItems && (
                 <Fragment>
                     <div className={`${style.dropdownContainer} ${active ? style.active : ""}`}>
-                        <div id="main-menu-dropdown" className={style.dropdown} style={navigationBarThemeStyle}>
+                        <div id="main-menu-dropdown" className={style.dropdown}>
                             {renderPrimaryList()}
                             {renderSecondaryList()}
                         </div>

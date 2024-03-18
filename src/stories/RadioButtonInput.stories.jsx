@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import RadioButtonInput from "./RadioButtonInput";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +14,11 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <RadioButtonInput {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <RadioButtonInput {...args} />
+    </ThemeProvider>
+);
 
 export const Unchecked = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -101,14 +103,5 @@ Required.args = {
     id: "radioButtonInput-10",
     required: true,
     children: "Label for required radio button",
-    inputValue: "value"
-};
-
-export const CheckedCustomTheme = Template.bind({});
-CheckedCustomTheme.args = {
-    id: "radioButtonInput-11",
-    children: "Label for checked checkbox with custom theme",
-    checked: true,
-    theme: customTheme,
     inputValue: "value"
 };

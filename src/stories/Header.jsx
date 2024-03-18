@@ -10,14 +10,13 @@ import { classNameArrayToClassNameString } from "../functions/helpers";
 
 const Header = (props) => {
     const bigClass = props.big ? style.bigHeader : "";
-    const themeClass = props.theme ? style.hasTheme : "";
     const htmlTag = props.htmlTag?.length ? props.htmlTag : `h${props.size}`;
     const headerClass = style.header;
     const headerSizeClass = style[`size-${props.size}`];
     let headerElement = React.createElement(
         htmlTag,
         {
-            className: classNameArrayToClassNameString([headerClass, headerSizeClass, bigClass, themeClass]),
+            className: classNameArrayToClassNameString([headerClass, headerSizeClass, bigClass]),
             id: props.id || null,
             htmlFor: props.htmlFor || null
         },
@@ -33,7 +32,6 @@ Header.propTypes = {
     size: PropTypes.oneOf([1, 2, 3, 4, 5]),
     big: PropTypes.bool,
     htmlTag: PropTypes.string,
-    theme: PropTypes.object,
     htmlFor: PropTypes.string
 };
 

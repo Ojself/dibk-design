@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import PDF from "./PDF";
+import ThemeProvider from "./ThemeProvider";
 
 // Assets
 import { imageData } from "assets/svg/dibk-logo-base64";
@@ -30,13 +31,15 @@ const Template = (args) => {
               marginBottom: "60px"
           };
     return (
-        <PDF {...args}>
-            <div className={["page", args.signedDocument ? "signed-document" : ""].join(" ")}>
-                <div className="content-container" style={scalingStyles}>
-                    {args.children}
+        <ThemeProvider theme={args.theme}>
+            <PDF {...args}>
+                <div className={["page", args.signedDocument ? "signed-document" : ""].join(" ")}>
+                    <div className="content-container" style={scalingStyles}>
+                        {args.children}
+                    </div>
                 </div>
-            </div>
-        </PDF>
+            </PDF>
+        </ThemeProvider>
     );
 };
 

@@ -18,8 +18,7 @@ const RadioButtonListItem = (props) => {
         props.disabled ? style.disabled : null,
         props.compact ? style.compact : null,
         props.contentOnly ? style.contentOnly : null,
-        props.hasErrors ? style.hasErrors : null,
-        props.theme && style.hasTheme
+        props.hasErrors ? style.hasErrors : null
     ];
     const listItemClassNameString = classNameArrayToClassNameString(listItemClassNameArray);
     const inputProps = {
@@ -34,8 +33,7 @@ const RadioButtonListItem = (props) => {
         "aria-controls": props["aria-controls"],
         "aria-describedby": props["aria-describedby"],
         id: props.id,
-        name: props.name,
-        theme: props.theme
+        name: props.name
     };
     return (
         <div className={listItemClassNameString}>
@@ -55,7 +53,6 @@ RadioButtonListItem.propTypes = {
     onChange: PropTypes.func,
     contentOnly: PropTypes.bool,
     compact: PropTypes.bool,
-    theme: PropTypes.object,
     hasErrors: PropTypes.bool,
     "aria-controls": PropTypes.string,
     "aria-describedby": PropTypes.string

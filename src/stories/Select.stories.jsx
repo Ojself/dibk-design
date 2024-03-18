@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import Select from "./Select";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +14,11 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Select {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <Select {...args} />
+    </ThemeProvider>
+);
 
 const options = ["option 1", "option 2", { key: "option 3", value: "value 3" }];
 
@@ -26,8 +28,6 @@ Default.args = {
     id: "select1",
     options
 };
-
-
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
@@ -139,14 +139,6 @@ WithCustomWidth.args = {
     options
 };
 
-export const WithCustomTheme = Template.bind({});
-WithCustomTheme.args = {
-    id: "select14",
-    label: "Select with custom theme",
-    theme: customTheme,
-    options
-};
-
 export const Multiple = Template.bind({});
 Multiple.args = {
     id: "select15",
@@ -162,7 +154,9 @@ MultipleWithSelectedValue.args = {
     value: ["option 1", "value 3"],
     multiple: true,
     options,
-    onChange: (value) => {console.log(value);}
+    onChange: (value) => {
+        console.log(value);
+    }
 };
 
 export const MultipleWithDefaultValue = Template.bind({});

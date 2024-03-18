@@ -1,63 +1,29 @@
 // Dependencies
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 // Functions
-import {
-    getThemePaletteBackgroundColor,
-    getThemePaletteTextColor,
-    getThemeTextColor,
-    getThemeLinkColor,
-    getThemeLogo,
-    getThemeAppName
-} from "../functions/theme";
+import { getThemeLogo, getThemeAppName } from "../functions/theme";
 
 // Assets
 import logo from "../assets/svg/dibk-logo-mobile.svg?url";
 
 // Stylesheets
 import style from "./Theme.module.scss";
+import Button from "./Button";
+import Container from "./Container";
+import Header from "./Header";
+import Accordion from "./Accordion";
 
 const Theme = (props) => {
-    const getThemeColorPaletteStyle = (theme, color) => {
-        return {
-            backgroundColor: getThemePaletteBackgroundColor(theme, color),
-            color: getThemePaletteTextColor(theme, color)
-        };
-    };
-
-    const getThemeTextStyle = (theme) => {
-        return {
-            color: getThemeTextColor(theme)
-        };
-    };
-
-    const getThemeLinkStyle = (theme) => {
-        return {
-            color: getThemeLinkColor(theme)
-        };
-    };
-
     const renderColors = (theme) => {
-        const colors = [
-            "default",
-            "primary",
-            "success",
-            "warning",
-            "info",
-            "lightCyan",
-            "orange",
-            "lightOrange",
-            "lime",
-            "lightLime"
-        ];
-        return colors.map((color) => {
+        return Object.keys(theme.colors).map((color) => {
             const colorClassName = style[color];
-            const colorPaletteStyle = props.theme ? getThemeColorPaletteStyle(props.theme, color) : null;
             return (
-                <div key={color} className={`${style.color} ${colorClassName}`} style={colorPaletteStyle}>
-                    {color}
-                </div>
+                <Fragment key={color}>
+                    <div>{color}</div>
+                    <div className={`${style.color} ${colorClassName}`}></div>
+                </Fragment>
             );
         });
     };
@@ -75,24 +41,49 @@ const Theme = (props) => {
         return logoLink && logoLink.length ? <a href={logoLink}>{logoElement}</a> : logoElement;
     };
 
-    const themeTextStyle = props.theme ? getThemeTextStyle(props.theme) : null;
-    const themeLinkStyle = props.theme ? getThemeLinkStyle(props.theme) : null;
-    return (
+    return props.theme ? (
         <React.Fragment>
-            <div className={style.colorPalette}>{renderColors(props.theme)}</div>
-            <p style={themeTextStyle}>The is default text</p>
-            <p>
-                <a style={themeLinkStyle} href="#theme">
-                    This is a hyperlink
-                </a>
-            </p>
-            {renderLogo(props.theme)}
+            <Container maxWidth="100%">
+                <Header size={2}>Colors</Header>
+                <div className={style.colorPalette}> {renderColors(props.theme)}</div>
+                <Header size={2}>Typography</Header>
+                <Header size={1} htmlTag="p">
+                    Heading size 1
+                </Header>
+                <Header size={2} htmlTag="p">
+                    Heading size 2
+                </Header>
+                <Header size={3} htmlTag="p">
+                    Heading size 3
+                </Header>
+                <Header size={4} htmlTag="p">
+                    Heading size 4
+                </Header>
+                <Header size={5} htmlTag="p">
+                    Heading size 5
+                </Header>
+                <p>Paragraph</p>
+                <p>
+                    <a href="#theme">Hyperlink</a>
+                </p>
+                <Accordion title="Accordion with default color">
+                    <p>Accordion content</p>
+                </Accordion>
+                <Accordion title="Accordion with secondary color" color="secondary">
+                    <p>Accordion content</p>
+                </Accordion>
+                <Button color="primary" content="Primary button" arrow="left" />
+                <Button color="secondary" content="Secondary button" arrow="right" />
+                {renderLogo(props.theme)}
+            </Container>
         </React.Fragment>
+    ) : (
+        "Select a theme"
     );
 };
 
 Theme.propTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object.isRequired
 };
 
 Theme.defaultProps = {};

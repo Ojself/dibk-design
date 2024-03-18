@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import InputField from "./InputField";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -13,13 +11,16 @@ export default {
     component: InputField,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        "aria-autocomplete": { control: 'select', options: ['none', 'inline', 'list', 'both'] }
+        "aria-autocomplete": { control: "select", options: ["none", "inline", "list", "both"] }
     }
-    
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <InputField {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <InputField {...args} />
+    </ThemeProvider>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -186,11 +187,4 @@ InputWithCustomElementKey.args = {
     id: "inputField20",
     label: "Input with custom element key",
     elementKey: "inputKeyHere"
-};
-
-export const InputWithCustomTheme = Template.bind({});
-InputWithCustomTheme.args = {
-    id: "inputField21",
-    label: "Input with custom thene",
-    themne: customTheme
 };

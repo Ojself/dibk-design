@@ -23,7 +23,7 @@
     .labelText {
         font-size: 16px;
         line-height: 24px;
-        color: $color-primary;
+        color: var(--color-primary, $color-primary);
     }
 
     &.disabled {
@@ -34,13 +34,13 @@
 
     &.hasErrors {
         span {
-            color: $color-error;
+            color: var(--color-error, $color-error);
         }
     }
 
     &:focus-within {
         outline-width: 2px;
-        outline-color: $color-primary;
+        outline-color: var(--color-primary, $color-primary);
         outline-style: auto;
         outline-offset: 1px;
     }

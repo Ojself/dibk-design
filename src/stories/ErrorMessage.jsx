@@ -2,9 +2,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// Functions
-import { getThemePaletteBackgroundColor } from "../functions/theme";
-
 // Stylesheets
 import style from "./ErrorMessage.module.scss";
 
@@ -12,16 +9,10 @@ import style from "./ErrorMessage.module.scss";
 import errorSign from "../assets/svg/error-sign.svg?url";
 
 const ErrorMessage = (props) => {
-    const getThemeErrorMessageStyle = (theme) => {
-        return {
-            color: getThemePaletteBackgroundColor(theme, "warning")
-        };
-    };
     const getErrorElementProps = () => {
         return {
             id: !!props.id?.length ? props.id : null,
-            className: style.errorMessage,
-            style: getThemeErrorMessageStyle(props.theme)
+            className: style.errorMessage
         };
     };
     return props?.content?.length ? (
@@ -38,8 +29,7 @@ ErrorMessage.propTypes = {
     content: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
-    ]),
-    theme: PropTypes.object
+    ])
 };
 
 ErrorMessage.defaultProps = {

@@ -2,9 +2,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// Functions
-import { getThemePaletteBackgroundColor } from "../functions/theme";
-
 // Stylesheets
 import style from "./CheckBoxIcon.module.scss";
 
@@ -17,17 +14,6 @@ const CheckBoxIcon = (props) => {
         width: props.size,
         fontSize: props.size
     };
-
-    if (props.theme && props.checked) {
-        inlineStyle = {
-            ...inlineStyle,
-            [!props.hasErrors && "color"]: getThemePaletteBackgroundColor(props.theme, "primary"),
-            [!props.hasErrors && props.showBox && "boxShadow"]: `0 0 0 1px ${getThemePaletteBackgroundColor(
-                props.theme,
-                "primary"
-            )}`
-        };
-    }
 
     const checkBoxIconProps = {
         className: `${style.checkBoxIcon} ${props.checked ? style.checked : ""} ${
@@ -52,7 +38,6 @@ CheckBoxIcon.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     showBox: PropTypes.bool,
-    theme: PropTypes.object,
     hasErrors: PropTypes.bool,
     checkmarkCharacter: PropTypes.string
 };

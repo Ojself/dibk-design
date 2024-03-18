@@ -9,7 +9,6 @@ import CheckBoxList from "./CheckBoxList";
 import CheckBoxListItem from "./CheckBoxListItem";
 
 // Functions
-import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
 import { addFocusTrapInsideElement, classNameArrayToClassNameString } from "../functions/helpers";
 
@@ -53,17 +52,6 @@ const Select = (props) => {
         document.addEventListener("keydown", keyDownFunction, false);
     }, [props, wrapperRef]);
 
-    const getThemeErrorInputStyle = (theme) => {
-        return {
-            boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, "warning")}`,
-            borderColor: getThemePaletteBackgroundColor(theme, "warning")
-        };
-    };
-    const getThemeArrowStyle = (theme) => {
-        return {
-            borderTopColor: getThemePaletteBackgroundColor(theme, "primary")
-        };
-    };
     const getKeyByValue = (value, options) => {
         const selectedOption =
             options && options.length
@@ -102,11 +90,11 @@ const Select = (props) => {
         const selectedValues = selectElementProps.defaultValue || selectElementProps.value;
         return selectedValues?.length
             ? selectedValues
-                .map((value) => {
-                    const keyForValue = getKeyByValue(value, options);
-                    return keyForValue;
-                })
-                .join(", ")
+                  .map((value) => {
+                      const keyForValue = getKeyByValue(value, options);
+                      return keyForValue;
+                  })
+                  .join(", ")
             : null;
     };
 
@@ -122,7 +110,6 @@ const Select = (props) => {
                     value={optionObject.value}
                     checked={isSelected}
                     onChange={() => selectElementProps.onChange(optionObject.value)}
-                    theme={props.theme}
                 >
                     {optionObject.key}
                 </CheckBoxListItem>
@@ -168,7 +155,6 @@ const Select = (props) => {
     } else {
         const defaultValue = !props.value && props.defaultValue ? props.defaultValue : false;
         const styleRules = {
-            ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
             ...(props.width?.length && { maxWidth: props.width })
         };
         const className = classNameArrayToClassNameString([
@@ -206,7 +192,7 @@ const Select = (props) => {
                     className={style.selectContainer}
                     style={{ ...(props.width?.length && { maxWidth: props.width }) }}
                 >
-                    <span className={style.selectListArrow} style={getThemeArrowStyle(props.theme)}></span>
+                    <span className={style.selectListArrow}></span>
                     {props.multiple ? (
                         <div ref={dropdownRef}>
                             <div
@@ -233,7 +219,7 @@ const Select = (props) => {
                     )}
                 </div>
 
-                <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
+                <ErrorMessage id={getErrorElementId()} content={props.errorMessage} />
             </div>
         );
     }
@@ -272,8 +258,7 @@ Select.propTypes = {
     errorMessage: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
-    ]),
-    theme: PropTypes.object
+    ])
 };
 Select.defaultProps = {
     onChange: () => {

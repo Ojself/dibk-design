@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import RadioButtonIcon from "./RadioButtonIcon";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +14,11 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <RadioButtonIcon {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <RadioButtonIcon {...args} />
+    </ThemeProvider>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -60,11 +62,4 @@ hasErrorsCheckedDisabled.args = {
     hasErrors: true,
     checked: true,
     disabled: true
-};
-
-export const CheckedCustomThemeAndSize = Template.bind({});
-CheckedCustomThemeAndSize.args = {
-    checked: true,
-    size: "36px",
-    theme: customTheme
 };

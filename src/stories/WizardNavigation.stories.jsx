@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 // Components
 import WizardNavigation from "./WizardNavigation";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,11 +20,17 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const DefaultTemplate = (args) => <WizardNavigation {...args} />;
-const WithLinksTemplate = (args) => (
-    <BrowserRouter>
+const DefaultTemplate = (args) => (
+    <ThemeProvider theme={args.theme}>
         <WizardNavigation {...args} />
-    </BrowserRouter>
+    </ThemeProvider>
+);
+const WithLinksTemplate = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <BrowserRouter>
+            <WizardNavigation {...args} />
+        </BrowserRouter>
+    </ThemeProvider>
 );
 
 export const Default = DefaultTemplate.bind({});

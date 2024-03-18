@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import ErrorMessage from "./ErrorMessage";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,17 +14,14 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <ErrorMessage {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <ErrorMessage {...args} />
+    </ThemeProvider>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-    content: 'Wrong value'
-};
-
-export const WithCustomTheme = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-WithCustomTheme.args = {
-    content: 'Wrong value',
-    theme: customTheme
+    content: "Wrong value"
 };

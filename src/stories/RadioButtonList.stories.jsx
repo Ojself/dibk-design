@@ -4,9 +4,7 @@ import React from "react";
 // Components
 import RadioButtonList from "./RadioButtonList";
 import RadioButtonListItem from "./RadioButtonListItem";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,34 +17,32 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => {
     const radioButtonListArgs = { ...args };
-    delete radioButtonListArgs.theme;
-    const radioButtonListItemArgs = { theme: args.theme };
     return (
-        <RadioButtonList {...radioButtonListArgs}>
-            <RadioButtonListItem
-                onChange={() => {
-                    console.log("onchange");
-                }}
-                inputValue="value 1"
-                name="radio-button-list-list-item"
-                theme={radioButtonListItemArgs.theme}
-                id="radioButtonList-listItem-1"
-                checked={true}
-            >
-                Checked radio button
-            </RadioButtonListItem>
-            <RadioButtonListItem
-                onChange={() => {
-                    console.log("onchange");
-                }}
-                inputValue="value 2"
-                name="radio-button-list-list-item"
-                theme={radioButtonListItemArgs.theme}
-                id="radioButtonList-listItem-2"
-            >
-                Unchecked radio button
-            </RadioButtonListItem>
-        </RadioButtonList>
+        <ThemeProvider theme={args.theme}>
+            <RadioButtonList {...radioButtonListArgs}>
+                <RadioButtonListItem
+                    onChange={() => {
+                        console.log("onchange");
+                    }}
+                    inputValue="value 1"
+                    name="radio-button-list-list-item"
+                    id="radioButtonList-listItem-1"
+                    checked={true}
+                >
+                    Checked radio button
+                </RadioButtonListItem>
+                <RadioButtonListItem
+                    onChange={() => {
+                        console.log("onchange");
+                    }}
+                    inputValue="value 2"
+                    name="radio-button-list-list-item"
+                    id="radioButtonList-listItem-2"
+                >
+                    Unchecked radio button
+                </RadioButtonListItem>
+            </RadioButtonList>
+        </ThemeProvider>
     );
 };
 export const Default = Template.bind({});
@@ -65,10 +61,4 @@ export const Compact = Template.bind({});
 Compact.args = {
     legend: "Compact radio button list",
     compact: true
-};
-
-export const Themed = Template.bind({});
-Themed.args = {
-    legend: "Themed radio button list",
-    theme: customTheme
 };

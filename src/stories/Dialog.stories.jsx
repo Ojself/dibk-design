@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 // Components
 import Dialog from "./Dialog";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -17,10 +18,10 @@ const Template = (args) => {
     const [showDialog, setShowDialog] = useState();
 
     return (
-        <>
+        <ThemeProvider theme={args.theme}>
             <button onClick={() => setShowDialog(true)}>Show dialog</button>
             {showDialog && <Dialog {...args} onClickOutside={() => setShowDialog(false)}></Dialog>}
-        </>
+        </ThemeProvider>
     );
 };
 

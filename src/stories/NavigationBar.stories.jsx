@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import NavigationBar from "./NavigationBar";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -29,7 +30,11 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <NavigationBar {...args}></NavigationBar>;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <NavigationBar {...args}></NavigationBar>
+    </ThemeProvider>
+);
 
 const primaryListItems = [
     { name: "Primary item 1", listItems: ["Sub item 1", "Sub item 2"] },

@@ -7,7 +7,6 @@ import Label from "./Label";
 import ErrorMessage from "./ErrorMessage";
 
 // Functions
-import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
 
 // Assets
@@ -17,12 +16,6 @@ import asterisk from "../assets/svg/asterisk.svg?url";
 import style from "./Textarea.module.scss";
 
 const Textarea = (props) => {
-    const getThemeErrorInputStyle = (theme) => {
-        return {
-            boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, "warning")}`,
-            borderColor: getThemePaletteBackgroundColor(theme, "warning")
-        };
-    };
     const renderValueAsText = (value, defaultContent) => {
         return value ? value : defaultContent;
     };
@@ -35,7 +28,6 @@ const Textarea = (props) => {
         const defaultValue = !props.value?.length && props.defaultValue?.length ? props.defaultValue : false;
         const defaultKey = props.elementKey || null;
         const styleRules = {
-            ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
             ...(props.width?.length && { maxWidth: props.width }),
             ...(props.resize?.length && { resize: props.resize })
         };
@@ -76,7 +68,7 @@ const Textarea = (props) => {
             ) : (
                 <span>{renderValueAsText(props.value || props.defaultValue, props.defaultContent)}</span>
             )}
-            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
+            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} />
         </div>
     );
 };
@@ -107,8 +99,7 @@ Textarea.propTypes = {
     errorMessage: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
-    ]),
-    theme: PropTypes.object
+    ])
 };
 
 Textarea.defaultProps = {

@@ -324,8 +324,8 @@ body {
     }
 
     blockquote {
-        background: $color-secondary-x-light;
-        border-left: $border-left-width-blockquote solid $color-secondary;
+        background: var(--color-secondary-x-light, $color-secondary-x-light);
+        border-left: $border-left-width-blockquote solid var(--color-secondary-text, $color-secondary-text);
         margin: $margin-vertical-blockquote $margin-horizontal-blockquote;
         padding: 0.5em $padding-horizontal-blockquote;
         min-height: $min-height-blockquote;
@@ -510,8 +510,9 @@ body {
         }
 
         blockquote {
-            background: $color-secondary-x-light;
-            border-left: calc($border-left-width-blockquote * $scaling-for-signed-documents) solid $color-secondary;
+            background: var(--color-secondary-x-light, $color-secondary-x-light);
+            border-left: calc($border-left-width-blockquote * $scaling-for-signed-documents) solid
+                var(--color-secondary-text, $color-secondary-text);
             margin: calc($margin-vertical-blockquote * $scaling-for-signed-documents)
                 calc($margin-horizontal-blockquote * $scaling-for-signed-documents);
             padding: 0.5em calc($padding-horizontal-blockquote * $scaling-for-signed-documents);

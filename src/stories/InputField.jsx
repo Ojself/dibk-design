@@ -8,7 +8,6 @@ import Label from "./Label";
 import ErrorMessage from "./ErrorMessage";
 
 // Functions
-import { getThemePaletteBackgroundColor } from "../functions/theme";
 import { generateRandomString } from "../functions/generators";
 import { classNameArrayToClassNameString } from "../functions/helpers";
 
@@ -19,13 +18,6 @@ import asterisk from "../assets/svg/asterisk.svg?url";
 import style from "./InputField.module.scss";
 
 const InputField = (props) => {
-    const getThemeErrorInputStyle = (theme) => {
-        return {
-            boxShadow: `0 0 3px ${getThemePaletteBackgroundColor(theme, "warning")}`,
-            borderColor: getThemePaletteBackgroundColor(theme, "warning")
-        };
-    };
-
     const formatDate = (inputDate) => {
         if (!inputDate) {
             return null;
@@ -77,11 +69,16 @@ const InputField = (props) => {
     const defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
     const defaultKey = props.elementKey || null;
     const styleRules = {
-        ...(props.hasErrors ? getThemeErrorInputStyle(props.theme) : null),
         ...(props.width?.length && { maxWidth: props.width })
     };
     return (
-        <div className={classNameArrayToClassNameString([style.inputField, style[props.type], props.noMargin && style.noMargin])}>
+        <div
+            className={classNameArrayToClassNameString([
+                style.inputField,
+                style[props.type],
+                props.noMargin && style.noMargin
+            ])}
+        >
             <Label htmlFor={props.id}>
                 {props.label}
                 {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
@@ -96,7 +93,6 @@ const InputField = (props) => {
                                 }}
                                 content={props.buttonContent}
                                 type="button"
-                                theme={props.theme}
                             />
                         ) : null}
                     </div>
@@ -107,7 +103,7 @@ const InputField = (props) => {
             ) : (
                 <span>{renderValueAsText(props.value || props.defaultValue, props.defaultContent)}</span>
             )}
-            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} theme={props.theme} />
+            <ErrorMessage id={getErrorElementId()} content={props.errorMessage} />
         </div>
     );
 };
@@ -129,7 +125,7 @@ InputField.propTypes = {
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
     contentOnly: PropTypes.bool,
-    buttonColor: PropTypes.oneOf(["default", "primary"]),
+    buttonColor: PropTypes.oneOf(["primary", "secondary"]),
     buttonContent: PropTypes.string,
     selectedFileName: PropTypes.string,
     dateFormat: PropTypes.string,
@@ -142,7 +138,6 @@ InputField.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
     ]),
-    theme: PropTypes.object,
     noMargin: PropTypes.bool
 };
 

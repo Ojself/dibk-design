@@ -20,26 +20,26 @@
         margin-top: 2px;
         background: white;
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px $color-primary);
+            @include box-shadow(0 0 0 1px var(--color-primary, $color-primary));
         }
         &.hasErrors {
-            @include box-shadow(0 0 0 1px $color-error);
+            @include box-shadow(0 0 0 1px var(--color-error, $color-error));
         }
     }
 
     &.checked {
-        color: $color-primary;
+        color: var(--color-primary, $color-primary);
         &.hasErrors {
             span {
-                color: $color-error;
+                color: var(--color-error, $color-error);
             }
         }
         &.showBox {
             &:not(.hasErrors) {
-                @include box-shadow(0 0 0 1px $color-primary);
+                @include box-shadow(0 0 0 1px var(--color-primary, $color-primary));
             }
             &.hasErrors {
-                @include box-shadow(0 0 0 1px $color-error);
+                @include box-shadow(0 0 0 1px var(--color-error, $color-error));
             }
         }
     }

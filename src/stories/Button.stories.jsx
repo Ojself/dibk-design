@@ -1,9 +1,10 @@
 // Dependencies
 import React from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 
 // Components
 import Button from "./Button";
-import { BrowserRouter, Link } from "react-router-dom";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -11,13 +12,19 @@ export default {
     component: Button,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        color: { control: "radio", options: ["default", "primary"] },
+        color: { control: "radio", options: ["primary", "secondary"] },
         inputType: { control: "radio", options: ["button", "radio"] }
     }
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args}></Button>;
+const Template = (args) => {
+    return (
+        <ThemeProvider theme={args.theme}>
+            <Button {...args}></Button>
+        </ThemeProvider>
+    );
+};
 
 const RouterTemplate = (args) => (
     <BrowserRouter>

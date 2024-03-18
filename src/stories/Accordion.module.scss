@@ -75,18 +75,18 @@
     width: 100%;
     display: block;
     &.default {
-        background-color: $color-default-background;
+        background-color: var(--color-default-background, $color-default-background);
         .panel span,
         .content {
-            color: $color-default-text;
+            color: var(--color-default-text, $color-default-text);
         }
     }
     &.secondary {
-        background-color: $color-secondary-background;
-        color: $color-default-text;
+        background-color: var(--color-secondary-background, $color-secondary-background);
+        color: var(--color-default-text, $color-default-text);
         .panel span,
         .content {
-            color: $color-default-text;
+            color: var(--color-default-text, $color-default-text);
         }
     }
 
@@ -110,7 +110,7 @@
             padding: 15px 30px;
         }
         &:focus-visible {
-            outline-color: $color-primary;
+            outline-color: var(--color-primary, $color-primary);
             outline-style: auto;
             outline-width: 2px;
             outline-offset: 0px;

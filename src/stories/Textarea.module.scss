@@ -34,12 +34,12 @@
         }
 
         &:hover {
-            border-color: $color-primary;
+            border-color: var(--color-primary, $color-primary);
         }
 
         &:focus {
-            border-color: $color-primary;
-            outline-color: #54acb8;
+            border-color: var(--color-primary, $color-primary);
+            outline-color: var(--color-focus, $color-focus);
         }
 
         &[disabled],
@@ -49,9 +49,9 @@
         }
 
         &.hasErrors {
-            border-color: $color-error;
+            border-color: var(--color-error, $color-error);
             &:focus {
-                border-color: $color-error;
+                border-color: var(--color-error, $color-error);
                 outline-color: #b8565d;
             }
             &[disabled],

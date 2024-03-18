@@ -3,9 +3,7 @@ import React from "react";
 
 // Components
 import Textarea from "./Textarea";
-
-// Theme
-import customTheme from "data/customTheme";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +14,11 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Textarea {...args} />;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        <Textarea {...args} />
+    </ThemeProvider>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -125,18 +127,4 @@ WithCustomElementKey.args = {
     id: "textarea14",
     value: "Textarea with a not auto generated key",
     elementKey: "textareaKeyHere"
-};
-
-export const WithCustomTheme = Template.bind({});
-WithCustomTheme.args = {
-    id: "textarea15",
-    value: "Textarea with link in label",
-    label: [
-        "Textarea with ",
-        <a key="labelLink" href="#textarea15">
-            link
-        </a>,
-        " in label"
-    ],
-    theme: customTheme
 };

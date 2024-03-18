@@ -10,7 +10,7 @@
         font-style: italic;
         line-height: 1;
         font-size: 17px;
-        color: $color-primary;
+        color: var(--color-primary, $color-primary);
     }
     &.captionSide-top {
         caption {
@@ -41,8 +41,8 @@
     }
     thead {
         tr {
-            background-color: $color-default-background;
-            border: 1px solid $color-secondary;
+            background-color: var(--color-default-background, $color-default-background);
+            border: 1px solid var(--color-secondary-text, $color-secondary-text);
             th {
                 text-align: left;
                 font-size: 16px;
@@ -52,8 +52,8 @@
     }
     tbody {
         tr {
-            background-color: $color-default-background;
-            border: 1px solid $color-secondary;
+            background-color: var(--color-default-background, $color-default-background);
+            border: 1px solid var(--color-secondary-text, $color-secondary-text);
             td {
                 padding: 10px;
                 font-size: 16px;

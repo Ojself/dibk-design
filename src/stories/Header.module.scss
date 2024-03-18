@@ -6,9 +6,7 @@
 		font-weight: normal;
 		line-height: 1.4;
 		font-style: normal;
-		&:not(.hasTheme) {
-			color: $color-primary;
-		}
+		color: var(--color-heading-text, $color-heading-text);
 		&.size-1 {
 			font-family: $default-font;
 			font-style: normal;

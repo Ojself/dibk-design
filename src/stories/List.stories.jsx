@@ -4,6 +4,7 @@ import React from "react";
 // Components
 import List from "./List";
 import ListItem from "./ListItem";
+import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,7 +15,12 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <List {...args}></List>;
+const Template = (args) => (
+    <ThemeProvider theme={args.theme}>
+        {" "}
+        <List {...args}></List>
+    </ThemeProvider>
+);
 
 const listItems = (
     <>
