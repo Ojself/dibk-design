@@ -35,7 +35,7 @@ section:last-of-type {
       background-color: var(--color-primary-text, $color-primary-text);
     }
     &.secondaryText {
-      background-color: var(--color-secondary-text, $color-secondary-text);
+      background-color: var(--color-border, $color-border);
     }
     &.primary {
       background-color: var(--color-primary, $color-primary);

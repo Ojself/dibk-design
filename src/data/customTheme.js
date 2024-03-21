@@ -14,7 +14,6 @@ const customThemes = {
             defaultText: "#202020",
             headingText: "#003045",
             primaryText: "#005275",
-            secondaryText: "#89bad6",
             primary: "#003045",
             primaryLight: "#264f61",
             primaryXLight: "#406474",
@@ -23,6 +22,8 @@ const customThemes = {
             secondaryLight: "#c7e0f2",
             secondaryXLight: "#ebf4fa",
             secondaryContrast: "#005275",
+            formElement: "#003045",
+            border: "#0D7168",
             focus: "rgba(0, 92, 173, 0.4)",
             defaultBackground: "#f1fae3",
             secondaryBackground: "#f5f0f0",
@@ -45,31 +46,32 @@ const customThemes = {
             logoLargeWidth: "198px"
         },
         colors: {
-            bodyBackground: "#ffffff", //
-            defaultText: "#262626", //
-            headingText: "#323232", //
-            primaryText: "#D13C0A", //
-            secondaryText: "#89bad6",
-            primary: "#0D7168", //
-            primaryLight: "#13a094", //
-            primaryXLight: "#18cdbe", //
-            primaryContrast: "#ffffff", //
-            secondary: "#a0e6df", //
-            secondaryLight: "#effbfa", //
-            secondaryXLight: "#c7f0ec", //
-            secondaryContrast: "#38514e", //
-            focus: "#00C0B0", //
-            defaultBackground: "#EDEEF2", //
-            secondaryBackground: "#f6f7f9", //
-            success: "#177912",
-            successLight: "#cbebb0",
-            successXLight: "#f1fae3",
-            warning: "#ffbe00",
-            warningLight: "#fcefb6",
-            warningXLight: "#fff8db",
-            error: "#db0000",
-            errorLight: "#ffc5c2",
-            errorXLight: "#fceceb"
+            bodyBackground: "#e7f9f7",
+            defaultText: "#262626",
+            headingText: "#323232",
+            primaryText: "#D13C0A",
+            primary: "#0D7168",
+            primaryLight: "#4a958e",
+            primaryXLight: "#86b8b4",
+            primaryContrast: "#ffffff",
+            secondary: "#a0e6df",
+            secondaryLight: "#d0f3ef",
+            secondaryXLight: "#b8ece7",
+            secondaryContrast: "#38514e",
+            formElement: "#000",
+            border: "#89bad6",
+            focus: "#00C0B0",
+            defaultBackground: "#EDEEF2",
+            secondaryBackground: "#f6f7f9",
+            success: "#13D646",
+            successLight: "#c4f5d1",
+            successXLight: "#e2fae8",
+            warning: "#FFF116",
+            warningLight: "#fffcc5",
+            warningXLight: "#fffde2",
+            error: "#FF3116",
+            errorLight: "#ffccc5",
+            errorXLight: "#ffe5e2"
         }
     }
 };

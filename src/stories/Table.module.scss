@@ -42,7 +42,7 @@
     thead {
         tr {
             background-color: var(--color-default-background, $color-default-background);
-            border: 1px solid var(--color-secondary-text, $color-secondary-text);
+            border: 1px solid var(--color-border, $color-border);
             th {
                 text-align: left;
                 font-size: 16px;
@@ -53,7 +53,7 @@
     tbody {
         tr {
             background-color: var(--color-default-background, $color-default-background);
-            border: 1px solid var(--color-secondary-text, $color-secondary-text);
+            border: 1px solid var(--color-border, $color-border);
             td {
                 padding: 10px;
                 font-size: 16px;
