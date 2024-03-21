@@ -63,7 +63,7 @@ const Dialog = props => {
   }, props.closeButton ? _react.default.createElement("button", {
     "aria-label": "Lukk dialog",
     onClick: props.onClickOutside,
-    className: _DialogModule.default.closeButton
+    className: (0, _helpers.classNameArrayToClassNameString)([_DialogModule.default.closeButton, props.noPadding && _DialogModule.default.noPadding])
   }, _react.default.createElement("img", {
     src: _xSymbol.default,
     alt: ""
