@@ -46,7 +46,7 @@
     background-color: var(--color-secondary-light, $color-secondary-light);
   }
 
-  &:not(.checked):not(.contentOnly):not(.compact):not(.disabled):hover {
+  &:not(.checked):not(.contentOnly):not(.compact):not(.disabled) {
     &:hover {
       background-color: var(--color-secondary-x-light, $color-secondary-x-light);
     }
