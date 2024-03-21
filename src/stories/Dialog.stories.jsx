@@ -32,8 +32,6 @@ const Template = (args) => {
         hidden={!showDialog}
         onClickOutside={() => setShowDialog(false)}
       ></Dialog>
-      <p>content after dialog</p>
-      <button>test button</button>
     </ThemeProvider>
   );
 };
