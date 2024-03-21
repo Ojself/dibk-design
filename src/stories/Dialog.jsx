@@ -7,15 +7,18 @@ import xSymbol from "../assets/svg/x-symbol.svg?url";
 
 // Stylesheets
 import style from "./Dialog.module.scss";
-import { addFocusTrapInsideElement } from "../functions/helpers";
+import { addFocusTrapInsideElement, classNameArrayToClassNameString } from "../functions/helpers";
 
 const Dialog = (props) => {
+    //const dialogContentRef = useRef();
     const dialogRef = useRef();
+    const dialogContainerRef = useRef();
 
-    const wrapperRef = useCallback((element) => {
+    const dialogContentRef = useCallback((element) => {
         if (!!element) {
             addFocusTrapInsideElement(element);
         }
+        return element;
     }, []);
 
     useEffect(() => {
@@ -29,31 +32,48 @@ const Dialog = (props) => {
             }
         };
         const handleClickOutside = (event) => {
-            if (dialogRef?.current && !dialogRef.current.contains(event.target)) {
+            if (dialogContainerRef?.current && !dialogContainerRef.current.contains(event.target)) {
                 props.onClickOutside();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
         document.addEventListener("keydown", keyDownFunction, false);
-    }, [props, wrapperRef]);
+    }, [props, dialogContainerRef]);
+
+    useEffect(() => {
+        dialogRef.current.close();
+        if (!props.hidden) {
+            props.modal ? dialogRef.current.showModal() : dialogRef.current.show();
+        }
+    }, [dialogRef, props.hidden, props.modal]);
+
+    const sideBarClassNames =
+        props.attachTo?.length && classNameArrayToClassNameString([style.isSidebar, style[props.attachTo]]);
+    const dialogContentStyleProps = {
+        "--max-width": props?.maxWidth?.length && props.maxWidth
+    };
 
     return (
-        <div className={`${style.dialogOverlay} ${props.hidden && style.hidden}`} ref={wrapperRef}>
-            <div
-                ref={dialogRef}
-                className={`${style.dialogContent} ${props.noPadding ? style.noPadding : ""}`}
-                style={{ maxWidth: props.maxWidth }}
-            >
-                {props.closeButton ? (
-                    <button aria-label="Lukk dialog" onClick={props.onClickOutside} className={style.closeButton}>
-                        <img src={xSymbol} alt="" />
-                    </button>
-                ) : null}
-                <div aria-live="assertive" role="dialog">
-                    {props.children}
+        <dialog className={classNameArrayToClassNameString([style.dialog, sideBarClassNames])} ref={dialogRef}>
+            <div ref={dialogContainerRef} className={style.dialogContainer} style={dialogContentStyleProps}>
+                <div
+                    ref={dialogContentRef}
+                    className={classNameArrayToClassNameString([
+                        style.dialogContent,
+                        props.noPadding && style.noPadding
+                    ])}
+                >
+                    {props.closeButton ? (
+                        <button aria-label="Lukk dialog" onClick={props.onClickOutside} className={style.closeButton}>
+                            <img src={xSymbol} alt="" />
+                        </button>
+                    ) : null}
+                    <div aria-live="assertive" role="dialog">
+                        {props.children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </dialog>
     );
 };
 
@@ -65,11 +85,14 @@ Dialog.propTypes = {
     /** Displays close button in upper right corner */
     closeButton: PropTypes.bool,
     /** Function for click outside modal content element or click on close button element */
-    onClickOutside: PropTypes.func.isRequired
+    onClickOutside: PropTypes.func.isRequired,
+    modal: PropTypes.bool
 };
 
 Dialog.defaultProps = {
-    maxWidth: "none"
+    maxWidth: "none",
+    attachTo: "none",
+    modal: false
 };
 
 export default Dialog;
