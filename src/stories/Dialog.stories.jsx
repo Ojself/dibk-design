@@ -41,7 +41,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: (
     <>
-      <Header size={3}>Dialog title</Header>
+      <Header size={1}>Dialog title</Header>
       <p>dialog paragraph</p>
     </>
   ),

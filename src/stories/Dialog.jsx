@@ -64,7 +64,14 @@ const Dialog = (props) => {
                     ])}
                 >
                     {props.closeButton ? (
-                        <button aria-label="Lukk dialog" onClick={props.onClickOutside} className={style.closeButton}>
+                        <button
+                            aria-label="Lukk dialog"
+                            onClick={props.onClickOutside}
+                            className={classNameArrayToClassNameString([
+                                style.closeButton,
+                                props.noPadding && style.noPadding
+                            ])}
+                        >
                             <img src={xSymbol} alt="" />
                         </button>
                     ) : null}
