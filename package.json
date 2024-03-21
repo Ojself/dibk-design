@@ -29,7 +29,7 @@
     "build-assets": "NODE_ENV=production babel src/assets --out-dir dist/assets --copy-files --no-copy-ignored",
     "build": "rm -rf dist && yarn build-components && yarn build-functions && yarn build-index && yarn build-style && yarn build-assets && yarn build-pdf-style",
     "eject": "react-scripts eject",
-    "storybook": "storybook dev --docs",
+    "storybook": "storybook dev",
     "build-storybook": "storybook build -s public -o docs"
   },
   "eslintConfig": {
