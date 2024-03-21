@@ -30,7 +30,7 @@
     "build": "rm -rf dist && yarn build-components && yarn build-functions && yarn build-index && yarn build-style && yarn build-assets && yarn build-pdf-style",
     "eject": "react-scripts eject",
     "storybook": "storybook dev",
-    "build-storybook": "storybook build -s public -o docs"
+    "build-storybook": "storybook build -o docs"
   },
   "eslintConfig": {
     "extends": [
