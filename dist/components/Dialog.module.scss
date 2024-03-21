@@ -1,79 +1,151 @@
 @import "../style/global.scss";
 
-@keyframes modalIn {
+@keyframes modalInVertical {
     0% {
         opacity: 0;
         transform: translateY(2em);
     }
 }
 
+@keyframes modalInHorizontalRight {
+    0% {
+        opacity: 0;
+        transform: translateX(2em);
+    }
+}
+
+@keyframes modalInHorizontalLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-2em);
+    }
+}
+
+.dialog {
+    &::backdrop {
+        background: color-mix(in srgb, var(--color-primary, $color-primary), transparent 60%);
+    }
+    &[open] {
+        border: none;
+        background: none;
+        display: flex;
+        max-height: none;
+        max-width: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        .dialogContainer {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+            .dialogContent {
+                &:not(.noPadding) {
+                    padding: 30px 15px;
+                    @media only screen and (min-width: $screen-sm) {
+                        padding: 60px 40px;
+                    }
+                }
+            }
+            .dialogContent {
+                position: relative;
+            }
+            .closeButton {
+                background: none;
+                border: none;
+                color: var(--color-primary, $color-primary);
+                display: inline-block;
+                position: absolute;
+                right: 7px;
+                top: 4px;
+                text-decoration: underline;
+                font-size: 19px;
+                cursor: pointer;
+                @media only screen and (min-width: $screen-sm) {
+                    right: 15px;
+                    top: 10px;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+                img {
+                    width: 17px;
+                    height: 17px;
+                }
+            }
+        }
+        &:not(.isSidebar) {
+            align-items: center;
+            justify-content: center;
+            padding: 8px 28px;
+            @media (min-width: $screen-md) {
+                padding: 36px;
+            }
+            .dialogContainer {
+                animation: 1000ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal none running modalInVertical;
+            }
+        }
+        &.isSidebar {
+            padding: 0;
+            height: 100vh;
+            .dialogContainer {
+                height: 100%;
+                width: var(--max-width, auto);
+            }
+            &.left {
+                margin: 0 auto 0 0;
+                .dialogContainer {
+                    justify-content: left;
+                    animation: 1000ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal none running modalInHorizontalLeft;
+                }
+            }
+            &.right {
+                margin: 0 0 0 auto;
+                .dialogContainer {
+                    justify-content: right;
+                    animation: 1000ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal none running modalInHorizontalRight;
+                }
+            }
+        }
+    }
+}
+
 .dialogOverlay {
-    display: flex;
-    flex-wrap: wrap;
-    position: fixed;
-    width: 100%;
-    background: rgba(0, 48, 69, 0.4);
-    height: 100%;
-    top: 0;
-    left: 0;
-    align-content: center;
-    padding: 8px 28px;
-    z-index: 2;
-    justify-content: center;
-    @media (min-width: $screen-md) {
-        padding: 36px;
+    width: 0;
+    height: 0;
+    border: none;
+    position: absolute;
+    padding: 0;
+    overflow: hidden;
+
+    &[open] {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
     }
 
-    &.hidden,
-    .hidden {
-        width: 0;
-        height: 0;
-        border: none;
-        position: absolute;
-        padding: 0;
-        overflow: hidden;
+    &:not(.isSidebar) {
+        align-content: center;
+        justify-content: center;
+
+        .dialogContent {
+            @include calc("max-height", "100% - 128px");
+            width: 100%;
+            max-width: var(--max-width, 540px);
+        }
     }
 
     .dialogContent {
-        @include calc("max-height", "100% - 128px");
-        max-width: 540px;
-        width: 100%;
         background-color: #fff;
         overflow: auto;
         position: relative;
-        animation: 1000ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal none running modalIn;
-        &:not(.noPadding) {
-            padding: 30px 15px;
-            @media only screen and (min-width: $screen-sm) {
-                padding: 60px 40px;
-            }
-        }
+
         @media (min-width: $screen-md) {
             @include calc("width", "100% - 128px");
             max-height: 100%;
-        }
-        .closeButton {
-            background: none;
-            border: none;
-            color: var(--color-primary, $color-primary);
-            display: inline-block;
-            position: absolute;
-            right: 7px;
-            top: 4px;
-            text-decoration: underline;
-            font-size: 19px;
-            cursor: pointer;
-            @media only screen and (min-width: $screen-sm) {
-                right: 15px;
-                top: 10px;
-            }
-            &:hover {
-                text-decoration: none;
-            }
-            img {
-                width: 17px;
-                height: 17px;
-            }
         }
     }
 }

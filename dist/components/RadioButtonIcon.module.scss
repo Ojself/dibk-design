@@ -16,7 +16,7 @@
     cursor: pointer;
 
     &:not(.hasErrors) {
-        @include box-shadow(0 0 0 1px var(--color-primary, $color-primary));
+        @include box-shadow(0 0 0 1px var(--color-form-element, $color-form-element));
     }
     &.hasErrors {
         @include box-shadow(0 0 0 1px var(--color-error, $color-error));
@@ -28,7 +28,7 @@
             background: var(--color-error, $color-error);
         }
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px var(--color-primary, $color-primary));
+            @include box-shadow(0 0 0 1px var(--color-form-element, $color-form-element));
         }
         &.hasErrors {
             @include box-shadow(0 0 0 1px var(--color-error, $color-error));
