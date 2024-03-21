@@ -7,39 +7,39 @@ import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: "Example/NavigationBar",
-    component: NavigationBar,
-    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {
-        compact: {
-            name: "compact",
-            type: { name: "boolean", required: false },
-            defaultValue: false
-        },
-        primaryListItems: {
-            name: "primaryListItems",
-            type: { name: "array", required: false },
-            defaultValue: []
-        },
-        secondaryListItems: {
-            name: "secondaryListItems",
-            type: { name: "array", required: false },
-            defaultValue: []
-        }
-    }
+  title: "Example/NavigationBar",
+  component: NavigationBar,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    compact: {
+      name: "compact",
+      type: { name: "boolean", required: false },
+      defaultValue: false,
+    },
+    primaryListItems: {
+      name: "primaryListItems",
+      type: { name: "array", required: false },
+      defaultValue: [],
+    },
+    secondaryListItems: {
+      name: "secondaryListItems",
+      type: { name: "array", required: false },
+      defaultValue: [],
+    },
+  },
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => (
-    <ThemeProvider theme={args.theme}>
-        <NavigationBar {...args}></NavigationBar>
-    </ThemeProvider>
+  <ThemeProvider theme={args.theme}>
+    <NavigationBar {...args}></NavigationBar>
+  </ThemeProvider>
 );
 
 const primaryListItems = [
-    { name: "Primary item 1", listItems: ["Sub item 1", "Sub item 2"] },
-    "Primary item 2",
-    { name: "Primary item 3", href: "#" }
+  { name: "Primary item 1", listItems: ["Sub item 1", "Sub item 2"] },
+  "Primary item 2",
+  { name: "Primary item 3", href: "#" },
 ];
 const secondaryListItems = ["Secondary item 1", "Secondary item 2"];
 
@@ -49,21 +49,21 @@ Default.args = {};
 
 export const WithLogoLink = Template.bind({});
 WithLogoLink.args = {
-    logoLink: "https://dibk.no/",
-    logoLinkTitle: "Gå til forside",
-    openLogoLinkInNewTab: true,
-    mainContentId: "main-content"
+  logoLink: "https://dibk.no/",
+  logoLinkTitle: "Gå til forside",
+  openLogoLinkInNewTab: true,
+  mainContentId: "main-content",
 };
 
 export const WithListItems = Template.bind({});
 WithListItems.args = {
-    primaryListItems,
-    secondaryListItems,
-    mainContentId: "main-content"
+  primaryListItems,
+  secondaryListItems,
+  mainContentId: "main-content",
 };
 
 export const WithChildElements = Template.bind({});
 WithChildElements.args = {
-    children: <span>Content here</span>,
-    mainContentId: "main-content"
+  children: <span>Content here</span>,
+  mainContentId: "main-content",
 };

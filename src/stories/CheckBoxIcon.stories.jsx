@@ -7,19 +7,19 @@ import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: "Example/CheckBoxIcon",
-    component: CheckBoxIcon,
-    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {}
+  title: "Example/CheckBoxIcon",
+  component: CheckBoxIcon,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {},
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => {
-    return (
-        <ThemeProvider theme={args.theme}>
-            <CheckBoxIcon {...args} />
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={args.theme}>
+      <CheckBoxIcon {...args} />
+    </ThemeProvider>
+  );
 };
 
 export const Unchecked = Template.bind({});
@@ -28,53 +28,53 @@ Unchecked.args = {};
 
 export const Checked = Template.bind({});
 Checked.args = {
-    checked: true
+  checked: true,
 };
 
 export const CheckedCustomCheckmark = Template.bind({});
 CheckedCustomCheckmark.args = {
-    checked: true,
-    checkmarkCharacter: "✕"
+  checked: true,
+  checkmarkCharacter: "✕",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    disabled: true
+  disabled: true,
 };
 
 export const CheckedDisabled = Template.bind({});
 CheckedDisabled.args = {
-    checked: true,
-    disabled: true
+  checked: true,
+  disabled: true,
 };
 
 export const CheckedDisabledCustomCheckmark = Template.bind({});
 CheckedDisabledCustomCheckmark.args = {
-    checked: true,
-    disabled: true,
-    checkmarkCharacter: "✕"
+  checked: true,
+  disabled: true,
+  checkmarkCharacter: "✕",
 };
 
 export const hasErrors = Template.bind({});
 hasErrors.args = {
-    hasErrors: true
+  hasErrors: true,
 };
 
 export const hasErrorsDisabled = Template.bind({});
 hasErrorsDisabled.args = {
-    hasErrors: true,
-    disabled: true
+  hasErrors: true,
+  disabled: true,
 };
 
 export const hasErrorsChecked = Template.bind({});
 hasErrorsChecked.args = {
-    hasErrors: true,
-    checked: true
+  hasErrors: true,
+  checked: true,
 };
 
 export const hasErrorsCheckedDisabled = Template.bind({});
 hasErrorsCheckedDisabled.args = {
-    hasErrors: true,
-    checked: true,
-    disabled: true
+  hasErrors: true,
+  checked: true,
+  disabled: true,
 };

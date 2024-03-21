@@ -91,7 +91,6 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
     maxWidth: "none",
-    attachTo: "none",
     modal: false
 };
 

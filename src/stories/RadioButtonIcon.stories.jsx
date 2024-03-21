@@ -7,17 +7,17 @@ import ThemeProvider from "./ThemeProvider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: "Example/RadioButtonIcon",
-    component: RadioButtonIcon,
-    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {}
+  title: "Example/RadioButtonIcon",
+  component: RadioButtonIcon,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {},
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => (
-    <ThemeProvider theme={args.theme}>
-        <RadioButtonIcon {...args} />
-    </ThemeProvider>
+  <ThemeProvider theme={args.theme}>
+    <RadioButtonIcon {...args} />
+  </ThemeProvider>
 );
 
 export const Default = Template.bind({});
@@ -26,40 +26,40 @@ Default.args = {};
 
 export const Checked = Template.bind({});
 Checked.args = {
-    checked: true
+  checked: true,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    disabled: true
+  disabled: true,
 };
 
 export const CheckedDisabled = Template.bind({});
 CheckedDisabled.args = {
-    checked: true,
-    disabled: true
+  checked: true,
+  disabled: true,
 };
 
 export const hasErrors = Template.bind({});
 hasErrors.args = {
-    hasErrors: true
+  hasErrors: true,
 };
 
 export const hasErrorsDisabled = Template.bind({});
 hasErrorsDisabled.args = {
-    hasErrors: true,
-    disabled: true
+  hasErrors: true,
+  disabled: true,
 };
 
 export const hasErrorsChecked = Template.bind({});
 hasErrorsChecked.args = {
-    hasErrors: true,
-    checked: true
+  hasErrors: true,
+  checked: true,
 };
 
 export const hasErrorsCheckedDisabled = Template.bind({});
 hasErrorsCheckedDisabled.args = {
-    hasErrors: true,
-    checked: true,
-    disabled: true
+  hasErrors: true,
+  checked: true,
+  disabled: true,
 };
