@@ -10,16 +10,17 @@ import asterisk from "../assets/svg/asterisk.svg?url";
 
 // Stylesheets
 import style from "./RadioButtonList.module.scss";
+import Header from "./Header";
 
-const RadioButtonList = (props) => {
+const RadioButtonList = ({ required, compact, legend, legendSize, children }) => {
     const renderChildElements = (childElements) => {
         const childElementsthroughFragments = cloneThroughFragments(childElements);
         return childElementsthroughFragments.map((childElement, index) => {
             const isRadioButtonListItem = childElement?.props?.type === "RadioButtonListItem";
             if (isRadioButtonListItem) {
                 const childElementCopy = React.cloneElement(childElement, {
-                    requiredGroup: props.required,
-                    compact: props.compact,
+                    requiredGroup: required,
+                    compact: compact,
                     key: `radioButtonListItem-${index}`
                 });
                 return childElementCopy;
@@ -31,19 +32,20 @@ const RadioButtonList = (props) => {
 
     return (
         <fieldset className={style.radioButtonList}>
-            {!!props.legend?.length ? (
+            {!!legend?.length ? (
                 <legend>
-                    {props.legend}
-                    {props.required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
+                    {legendSize ? <Header size={legendSize}>{legend}</Header> : legend}
+                    {required && <img src={asterisk} alt="" className={style.requiredSymbol} />}
                 </legend>
             ) : null}
-            {renderChildElements(React.Children.toArray(props.children))}
+            {renderChildElements(React.Children.toArray(children))}
         </fieldset>
     );
 };
 
 RadioButtonList.propTypes = {
     legend: PropTypes.string,
+    legendSize: PropTypes.oneOf([1, 2, 3, 4, 5]),
     required: PropTypes.bool,
     compact: PropTypes.bool
 };
