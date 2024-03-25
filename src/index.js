@@ -15,6 +15,7 @@ import Header from "./components/Header";
 import InfoBox from "./components/InfoBox";
 import InputField from "./components/InputField";
 import Label from "./components/Label";
+import Lead from "./components/Lead";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
 import LoadingAnimation from "./components/LoadingAnimation";
@@ -51,6 +52,7 @@ export {
     InfoBox,
     InputField,
     Label,
+    Lead,
     List,
     ListItem,
     LoadingAnimation,
