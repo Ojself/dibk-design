@@ -37,7 +37,7 @@ const Button = (props) => {
     delete buttonProps.content;
     delete buttonProps.arrow;
     delete buttonProps.noMargin;
-    const buttonColor = props?.inputType === "radio" ? (props.defaultChecked ? "primary" : "default") : props.color;
+    const buttonColor = props?.inputType === "radio" ? (props.defaultChecked ? "primary" : "secondary") : props.color;
     const className = classNameArrayToClassNameString([
         style.button,
         style[buttonColor],
