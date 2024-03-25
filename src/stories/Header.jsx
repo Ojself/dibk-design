@@ -18,7 +18,8 @@ const Header = (props) => {
         {
             className: classNameArrayToClassNameString([headerClass, headerSizeClass, bigClass]),
             id: props.id || null,
-            htmlFor: props.htmlFor || null
+            htmlFor: props.htmlFor || null,
+            style: props?.label?.length ? {"--label": `"${props.label}"`} : null
         },
         !!props.content?.length ? props.content : props.children // props.content for backward compatibility
     );
@@ -31,6 +32,7 @@ Header.propTypes = {
     content: PropTypes.string,
     size: PropTypes.oneOf([1, 2, 3, 4, 5]),
     big: PropTypes.bool,
+    label: PropTypes.string,
     htmlTag: PropTypes.string,
     htmlFor: PropTypes.string
 };

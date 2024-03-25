@@ -26,7 +26,13 @@ const Template = (args) => (
 export const Header1 = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Header1.args = {
+  children: <>Title with size 1</>
+};
+
+export const Header1WithLabel = Template.bind({});
+Header1WithLabel.args = {
   children: <>Title with size 1</>,
+  label: "Veiviser"
 };
 
 export const Header2 = Template.bind({});
