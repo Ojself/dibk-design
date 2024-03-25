@@ -38,7 +38,7 @@ const Button = props => {
   delete buttonProps.content;
   delete buttonProps.arrow;
   delete buttonProps.noMargin;
-  const buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "default" : props.color;
+  const buttonColor = (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? props.defaultChecked ? "primary" : "secondary" : props.color;
   const className = (0, _helpers.classNameArrayToClassNameString)([_ButtonModule.default.button, _ButtonModule.default[buttonColor], _ButtonModule.default[props.size], getArrowClass(props.arrow), props.noHover || (props === null || props === void 0 ? void 0 : props.inputType) === "radio" ? _ButtonModule.default.noHover : null, props.rounded && _ButtonModule.default.rounded, props.hasErrors && _ButtonModule.default.hasErrors, props.disabled && _ButtonModule.default.disabled, props.noMargin && _ButtonModule.default.noMargin]);
   const renderReactLinkElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);

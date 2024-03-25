@@ -123,7 +123,7 @@ InputField.defaultProps = {
   required: false,
   label: "",
   contentOnly: false,
-  buttonColor: "default",
+  buttonColor: "primary",
   dateFormat: "d. MMMM, yyyy",
   placeholder: "",
   defaultContent: "",

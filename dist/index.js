@@ -105,6 +105,12 @@ Object.defineProperty(exports, "Label", {
     return _Label.default;
   }
 });
+Object.defineProperty(exports, "Lead", {
+  enumerable: true,
+  get: function () {
+    return _Lead.default;
+  }
+});
 Object.defineProperty(exports, "List", {
   enumerable: true,
   get: function () {
@@ -224,6 +230,7 @@ var _Header = _interopRequireDefault(require("./components/Header"));
 var _InfoBox = _interopRequireDefault(require("./components/InfoBox"));
 var _InputField = _interopRequireDefault(require("./components/InputField"));
 var _Label = _interopRequireDefault(require("./components/Label"));
+var _Lead = _interopRequireDefault(require("./components/Lead"));
 var _List = _interopRequireDefault(require("./components/List"));
 var _ListItem = _interopRequireDefault(require("./components/ListItem"));
 var _LoadingAnimation = _interopRequireDefault(require("./components/LoadingAnimation"));
