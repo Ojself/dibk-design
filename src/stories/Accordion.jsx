@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
+// Helpers
+import { classNameArrayToClassNameString } from "../functions/helpers";
+
 // Stylesheets
 import style from "./Accordion.module.scss";
-import { classNameArrayToClassNameString } from "functions/helpers";
 
 const Accordion = (props) => {
     const [expanded, setExpanded] = useState(props.expanded);
