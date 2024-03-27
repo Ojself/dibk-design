@@ -111,20 +111,20 @@
     border-color: var(--color-secondary-x-light, $color-secondary-x-light);
     &:hover:not(.noHover),
     &:focus-visible {
-      background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+      background-color: var(--color-secondary-light, $color-secondary-x-light);
       color: var(--color-secondary-contrast, $color-secondary-contrast);
       &:after,
       &:before {
-        border-color: var(--color-secondary-x-light, $color-secondary-x-light);
+        border-color: var(--color-secondary-light, $color-secondary-x-light);
       }
     }
     &:active:not(.noHover),
     &:active:hover:not(.noHover) {
-      background-color: var(--color-secondary-light, $color-secondary-light);
+      background-color: var(--color-secondary-x-light, $color-secondary-light);
       color: var(--color-secondary-contrast, $color-secondary-contrast);
       &:after,
       &:before {
-        border-color: var(--color-secondary-light, $color-secondary-light);
+        border-color: var(--color-secondary-x-light, $color-secondary-light);
       }
     }
   }
@@ -154,7 +154,7 @@
       }
       &:before,
       &:after {
-        border-color: var(--color-secondary-light, $color-secondary-light);
+        border-color: var(--color-primary-contrast, $color-primary-contrast);
       }
     }
   }
@@ -184,24 +184,8 @@
         left: 1em;
       }
     }
-    &.primary {
-      &:before {
-        border-color: var(--color-primary-contrast, $color-primary-contrast);
-      }
-    }
-    &.secondary {
-      &:before {
-        border-color: var(--color-secondary-contrast, $color-secondary-contrast);
-      }
-    }
-
-    &:hover:not(.noHover),
-    &:focus-visible,
-    &:active:not(.noHover),
-    &:active:hover:not(.noHover) {
-      &:before {
-        @include animation(pushprev 0.8s linear infinite);
-      }
+    &:not(:disabled),
+    &:not(.disabled) {
       &.primary {
         &:before {
           border-color: var(--color-primary-contrast, $color-primary-contrast);
@@ -210,6 +194,24 @@
       &.secondary {
         &:before {
           border-color: var(--color-secondary-contrast, $color-secondary-contrast);
+        }
+      }
+      &:hover:not(.noHover),
+      &:focus-visible,
+      &:active:not(.noHover),
+      &:active:hover:not(.noHover) {
+        &:before {
+          @include animation(pushprev 0.8s linear infinite);
+        }
+        &.primary {
+          &:before {
+            border-color: var(--color-primary-contrast, $color-primary-contrast);
+          }
+        }
+        &.secondary {
+          &:before {
+            border-color: var(--color-secondary-contrast, $color-secondary-contrast);
+          }
         }
       }
     }
@@ -232,24 +234,8 @@
       }
     }
 
-    &.primary {
-      &:after {
-        border-color: var(--color-primary-contrast, $color-primary-contrast);
-      }
-    }
-    &.secondary {
-      &:after {
-        border-color: var(--color-secondary-contrast, $color-secondary-contrast);
-      }
-    }
-
-    &:hover:not(.noHover),
-    &:focus-visible,
-    &:active:not(.noHover),
-    &:active:hover:not(.noHover) {
-      &:after {
-        @include animation(pushnext 0.8s linear infinite);
-      }
+    &:not(:disabled),
+    &:not(.disabled) {
       &.primary {
         &:after {
           border-color: var(--color-primary-contrast, $color-primary-contrast);
@@ -258,6 +244,25 @@
       &.secondary {
         &:after {
           border-color: var(--color-secondary-contrast, $color-secondary-contrast);
+        }
+      }
+
+      &:hover:not(.noHover),
+      &:focus-visible,
+      &:active:not(.noHover),
+      &:active:hover:not(.noHover) {
+        &:after {
+          @include animation(pushnext 0.8s linear infinite);
+        }
+        &.primary {
+          &:after {
+            border-color: var(--color-primary-contrast, $color-primary-contrast);
+          }
+        }
+        &.secondary {
+          &:after {
+            border-color: var(--color-secondary-contrast, $color-secondary-contrast);
+          }
         }
       }
     }
