@@ -27,6 +27,7 @@ export const Default = Template.bind({});
 Default.args = {
   color: "default",
   title: "Accordion title",
+  noMargin: false,
   children: <>Accordion with default color</>,
 };
 
@@ -34,5 +35,6 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   color: "secondary",
   title: "Accordion title",
+  noMargin: false,
   children: <>Accordion with secondary color</>,
 };
