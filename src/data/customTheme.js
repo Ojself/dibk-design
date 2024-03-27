@@ -51,12 +51,12 @@ const customThemes = {
             headingText: "#323232",
             primaryText: "#D13C0A",
             primary: "#0D7168",
-            primaryLight: "#4a958e",
-            primaryXLight: "#86b8b4",
+            primaryLight: "#4a958e", /*75%*/
+            primaryXLight: "#86b8b4", /*50%*/
             primaryContrast: "#ffffff",
             secondary: "#a0e6df",
-            secondaryLight: "#d0f3ef",
-            secondaryXLight: "#b8ece7",
+            secondaryLight: "#d0f3ef", /*50%*/
+            secondaryXLight: "#e7f9f7", /*25%*/
             secondaryContrast: "#38514e",
             formElement: "#000",
             border: "#0D7168",
