@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 // Stylesheets
 import style from "./Accordion.module.scss";
+import { classNameArrayToClassNameString } from "functions/helpers";
 
 const Accordion = (props) => {
     const [expanded, setExpanded] = useState(props.expanded);
@@ -35,7 +36,11 @@ const Accordion = (props) => {
         );
     };
 
-    const className = `${style.accordion} ${props.color ? style[props.color] : ""}`;
+    const className = classNameArrayToClassNameString([
+        style.accordion,
+        props.color && style[props.color],
+        !props.noMargin && style.margin
+    ]);
     return (
         <div className={className}>
             {renderPanel()}
@@ -66,7 +71,8 @@ Accordion.defaultProps = {
     href: null,
     content: "",
     color: "default",
-    expanded: false
+    expanded: false,
+    noMargin: false
 };
 
 export default Accordion;

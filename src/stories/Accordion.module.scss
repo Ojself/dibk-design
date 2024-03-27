@@ -89,6 +89,9 @@
             color: var(--color-default-text, $color-default-text);
         }
     }
+    &.margin {
+        margin-bottom: 8px;
+    }
 
     .panel {
         @include appearance(none);
