@@ -66,9 +66,9 @@ const customThemes = {
             success: "#13D646",
             successLight: "#c4f5d1",
             successXLight: "#e2fae8",
-            warning: "#FFF116",
-            warningLight: "#fffcc5",
-            warningXLight: "#fffde2",
+            warning: "#FFC414",
+            warningLight: "#fff0c2",
+            warningXLight: "#fff7e0",
             error: "#FF3116",
             errorLight: "#ffccc5",
             errorXLight: "#ffe5e2"
