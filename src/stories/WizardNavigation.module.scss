@@ -1,12 +1,24 @@
 @import "../style/global.scss";
 
-.wizardTopnav {
-    display: flex;
-    margin: 20px;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    @media only screen and (min-width: $screen-sm) {
-        flex-direction: row;
+.wizardTopnavContainer {
+    .wizardTopnav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    &.vertical {
+        background-color: #fff;
+        padding: 12px;
+        overflow: hidden;
+    }
+    &.horizontal {
+        .wizardTopnav {
+            display: flex;
+            margin: 20px;
+            flex-direction: column;
+            @media only screen and (min-width: $screen-sm) {
+                flex-direction: row;
+            }
+        }
     }
 }
