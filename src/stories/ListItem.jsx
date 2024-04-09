@@ -2,20 +2,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ListItem = (props) => {
-    const elementProps = {
-        key: props.elementKey || null
-    };
+// Helpers
+import { classNameArrayToClassNameString } from "functions/helpers";
+
+// Stylesheets
+import style from "./ListItem.module.scss";
+
+const ListItem = ({compact, children}) => {
     return (
-        <li {...elementProps}>
-            {props.children}
-            {props.elementKey}
+        <li className={classNameArrayToClassNameString([style.listItem, compact && style.compact])}>
+            {children}
         </li>
     );
 };
 
 ListItem.propTypes = {
-    elementKey: PropTypes.string
+    compact: PropTypes.bool
+};
+
+ListItem.defaultProps = {
+    compact: false
 };
 
 export default ListItem;

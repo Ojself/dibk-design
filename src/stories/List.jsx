@@ -2,11 +2,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// Helpers
+import { cloneThroughFragments } from "functions/helpers";
+
 // Stylesheets
 import style from "./List.module.scss";
 
 const List = (props) => {
-    const renderList = () => {
+    const renderChildElements = (childElements) => {
+        const childElementsthroughFragments = cloneThroughFragments(childElements);
+        return childElementsthroughFragments.map((childElement, index) => {
+            const childElementCopy = React.cloneElement(childElement, {
+                compact: props.compact,
+                key: `listItem-${index}`
+            });
+            return childElementCopy;
+        });
+    };
+    const renderList = (children) => {
         let listType = props.ordered ? "ol" : "ul";
         const defaultListStyle = props.ordered ? "decimal" : "disc";
         const scssValueProperty = "--listStyle";
@@ -16,11 +29,11 @@ const List = (props) => {
                 className: `${style.list} ${!!props.compact ? style.compact : ""}`,
                 style: { [scssValueProperty]: props.listStyle || defaultListStyle }
             },
-            props.children
+            renderChildElements(React.Children.toArray(children))
         );
         return listElement;
     };
-    return renderList();
+    return renderList(props.children);
 };
 
 List.propTypes = {
