@@ -1,0 +1,21 @@
+@import "../style/global.scss";
+
+.descriptionDetails {
+    font-size: 16px;
+    list-style: var(--listStyle);
+    color: var(--color-primary, $color-primary);
+    margin: 0;
+    &:not(.compact) {
+        line-height: 1.6;
+    }
+    &.compact {
+        line-height: 1.4;
+    }
+    &:not([style*="--title-width"]) {
+        display: inline;
+    }
+    &[style*="--title-width"] {
+        flex-basis: calc(100% - var(--title-width));
+        flex-grow: 1;
+    }
+}

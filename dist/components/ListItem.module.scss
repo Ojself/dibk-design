@@ -1,0 +1,9 @@
+@import "../style/global.scss";
+
+.listItem {
+    line-height: 1.6;
+    color: var(--color-primary, $color-primary);
+    &.compact {
+        line-height: 1.4;
+    }
+}

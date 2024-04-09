@@ -6,14 +6,22 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
+var _helpers = require("../functions/helpers");
+var _ListItemModule = _interopRequireDefault(require("./ListItem.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-const ListItem = props => {
-  const elementProps = {
-    key: props.elementKey || null
-  };
-  return _react.default.createElement("li", elementProps, props.children, props.elementKey);
+const ListItem = _ref => {
+  let {
+    compact,
+    children
+  } = _ref;
+  return _react.default.createElement("li", {
+    className: (0, _helpers.classNameArrayToClassNameString)([_ListItemModule.default.listItem, compact && _ListItemModule.default.compact])
+  }, children);
 };
 ListItem.propTypes = {
-  elementKey: _propTypes.default.string
+  compact: _propTypes.default.bool
+};
+ListItem.defaultProps = {
+  compact: false
 };
 var _default = exports.default = ListItem;

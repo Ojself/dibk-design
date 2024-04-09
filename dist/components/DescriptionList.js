@@ -6,41 +6,42 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
+var _DescriptionListModule = _interopRequireDefault(require("./DescriptionList.module.scss"));
 var _helpers = require("../functions/helpers");
-var _ListModule = _interopRequireDefault(require("./List.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-const List = props => {
+const DescriptionList = _ref => {
+  let {
+    compact,
+    titleWidth,
+    children
+  } = _ref;
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
       const childElementCopy = _react.default.cloneElement(childElement, {
-        compact: props.compact,
-        key: "listItem-".concat(index)
+        compact: compact,
+        titleWidth: titleWidth,
+        key: "descriptionListItem-".concat(index)
       });
       return childElementCopy;
     });
   };
   const renderList = children => {
-    let listType = props.ordered ? "ol" : "ul";
-    const defaultListStyle = props.ordered ? "decimal" : "disc";
-    const scssValueProperty = "--listStyle";
-    let listElement = _react.default.createElement(listType, {
-      className: "".concat(_ListModule.default.list, " ").concat(!!props.compact ? _ListModule.default.compact : ""),
+    let listElement = _react.default.createElement("dl", {
+      className: (0, _helpers.classNameArrayToClassNameString)([_DescriptionListModule.default.descriptionList, !!compact && _DescriptionListModule.default.compact]),
       style: {
-        [scssValueProperty]: props.listStyle || defaultListStyle
+        "--title-width": titleWidth || null
       }
     }, renderChildElements(_react.default.Children.toArray(children)));
     return listElement;
   };
-  return renderList(props.children);
+  return renderList(children);
 };
-List.propTypes = {
-  listStyle: _propTypes.default.string,
+DescriptionList.propTypes = {
   compact: _propTypes.default.bool,
-  ordered: _propTypes.default.bool
+  titleWidth: _propTypes.default.string
 };
-List.defaultProps = {
-  ordered: false,
+DescriptionList.defaultProps = {
   compact: false
 };
-var _default = exports.default = List;
+var _default = exports.default = DescriptionList;

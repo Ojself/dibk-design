@@ -1,0 +1,29 @@
+@import "../style/global.scss";
+
+.descriptionTerm {
+    font-size: 16px;
+    list-style: var(--listStyle);
+    color: var(--color-primary, $color-primary);
+    margin: 0;
+    font-weight: bold;
+    &:not(.compact) {
+        line-height: 1.6;
+    }
+    &.compact {
+        line-height: 1.4;
+    }
+    &:not([style*="--title-width"]) {
+        display: inline;
+        &::before {
+            display: block;
+            content: "";
+        }
+        &::after {
+            display: inline;
+            content: " ";
+        }
+    }
+    &[style*="--title-width"] {
+        width: var(--title-width);
+    }
+}
