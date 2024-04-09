@@ -51,10 +51,22 @@ Object.defineProperty(exports, "ContentBox", {
     return _ContentBox.default;
   }
 });
+Object.defineProperty(exports, "DescriptionDetails", {
+  enumerable: true,
+  get: function () {
+    return _DescriptionDetails.default;
+  }
+});
 Object.defineProperty(exports, "DescriptionList", {
   enumerable: true,
   get: function () {
     return _DescriptionList.default;
+  }
+});
+Object.defineProperty(exports, "DescriptionTerm", {
+  enumerable: true,
+  get: function () {
+    return _DescriptionTerm.default;
   }
 });
 Object.defineProperty(exports, "Dialog", {
@@ -233,7 +245,9 @@ var _CheckBoxList = _interopRequireDefault(require("./components/CheckBoxList"))
 var _CheckBoxListItem = _interopRequireDefault(require("./components/CheckBoxListItem"));
 var _Container = _interopRequireDefault(require("./components/Container"));
 var _ContentBox = _interopRequireDefault(require("./components/ContentBox"));
+var _DescriptionDetails = _interopRequireDefault(require("./components/DescriptionDetails"));
 var _DescriptionList = _interopRequireDefault(require("./components/DescriptionList"));
+var _DescriptionTerm = _interopRequireDefault(require("./components/DescriptionTerm"));
 var _Dialog = _interopRequireDefault(require("./components/Dialog"));
 var _DragAndDropFileInput = _interopRequireDefault(require("./components/DragAndDropFileInput"));
 var _ErrorBox = _interopRequireDefault(require("./components/ErrorBox"));
