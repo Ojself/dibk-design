@@ -6,6 +6,7 @@ import CheckBoxList from "./components/CheckBoxList";
 import CheckBoxListItem from "./components/CheckBoxListItem";
 import Container from "./components/Container";
 import ContentBox from "./components/ContentBox";
+import DescriptionList from "./components/DescriptionList";
 import Dialog from "./components/Dialog";
 import DragAndDropFileInput from "./components/DragAndDropFileInput";
 import ErrorBox from "./components/ErrorBox";
@@ -44,6 +45,7 @@ export {
     CheckBoxListItem,
     Container,
     ContentBox,
+    DescriptionList,
     Dialog,
     DragAndDropFileInput,
     ErrorBox,
