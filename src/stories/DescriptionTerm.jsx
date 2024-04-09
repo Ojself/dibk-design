@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Helpers
-import { classNameArrayToClassNameString } from "functions/helpers";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Stylesheets
 import style from "./DescriptionTerm.module.scss";

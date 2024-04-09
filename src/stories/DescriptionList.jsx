@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 // Stylesheets
 import style from "./DescriptionList.module.scss";
-import { classNameArrayToClassNameString, cloneThroughFragments } from "functions/helpers";
+import { classNameArrayToClassNameString, cloneThroughFragments } from "../functions/helpers";
 
 const DescriptionList = ({ compact, titleWidth, children }) => {
     const renderChildElements = (childElements) => {
