@@ -7,6 +7,7 @@ import NavigationBarListItem from "./NavigationBarListItem";
 
 // Functions
 import { getThemeAppName, getThemeLogo, getThemeLogoPadding } from "../functions/theme";
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Assets
 import compactLogo from "../assets/svg/dibk-logo-mobile.svg?url";
@@ -14,7 +15,6 @@ import logo from "../assets/svg/dibk-logo.svg?url";
 
 // Stylesheets
 import style from "./NavigationBar.module.scss";
-import { classNameArrayToClassNameString } from "../functions/helpers";
 
 const NavigationBar = (props) => {
     // State
@@ -101,7 +101,12 @@ const NavigationBar = (props) => {
                     <span id="main-content-link-text">Hopp til hovedinnhold</span>
                 </a>
             )}
-            <div className={style.navigationBar}>
+            <div
+                className={classNameArrayToClassNameString([
+                    style.navigationBar,
+                    props.preventChildElementStacking && style.preventStacking
+                ])}
+            >
                 <div className={style.logoContainer}>{renderLogo(props.logoLink, props.logoLinkTitle)}</div>
                 {!!props.children && <div className={style.childElements}>{props.children}</div>}
                 {hasListItems && (
@@ -123,7 +128,7 @@ const NavigationBar = (props) => {
             </div>
             {hasListItems && (
                 <Fragment>
-                    <div className={`${style.dropdownContainer} ${active ? style.active : ""}`}>
+                    <div className={classNameArrayToClassNameString([style.dropdownContainer, active && style.active])}>
                         <div id="main-menu-dropdown" className={style.dropdown}>
                             {renderPrimaryList()}
                             {renderSecondaryList()}
@@ -147,13 +152,16 @@ NavigationBar.propTypes = {
     /** Opens logo link in a new tab on click */
     openLogoLinkInNewTab: PropTypes.bool,
     /** Theme for navigation bar */
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    /** Prevent stacking of child elements on smaller screens */
+    preventChildElementStacking: PropTypes.bool
 };
 
 NavigationBar.defaultProps = {
     primaryListItems: [],
     secondaryListItems: [],
-    logoLink: null
+    logoLink: null,
+    preventChildElementStacking: false
 };
 
 export default NavigationBar;
