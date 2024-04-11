@@ -8,10 +8,10 @@ var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _NavigationBarListItem = _interopRequireDefault(require("./NavigationBarListItem"));
 var _theme = require("../functions/theme");
+var _helpers = require("../functions/helpers");
 var _dibkLogoMobile = _interopRequireDefault(require("../assets/svg/dibk-logo-mobile.svg?url"));
 var _dibkLogo = _interopRequireDefault(require("../assets/svg/dibk-logo.svg?url"));
 var _NavigationBarModule = _interopRequireDefault(require("./NavigationBar.module.scss"));
-var _helpers = require("../functions/helpers");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -102,7 +102,7 @@ const NavigationBar = props => {
   }, _react.default.createElement("span", {
     id: "main-content-link-text"
   }, "Hopp til hovedinnhold")), _react.default.createElement("div", {
-    className: _NavigationBarModule.default.navigationBar
+    className: (0, _helpers.classNameArrayToClassNameString)([_NavigationBarModule.default.navigationBar, props.preventChildElementStacking && _NavigationBarModule.default.preventStacking])
   }, _react.default.createElement("div", {
     className: _NavigationBarModule.default.logoContainer
   }, renderLogo(props.logoLink, props.logoLinkTitle)), !!props.children && _react.default.createElement("div", {
@@ -122,7 +122,7 @@ const NavigationBar = props => {
   }), _react.default.createElement("span", {
     className: _NavigationBarModule.default.line
   })))), hasListItems && _react.default.createElement(_react.Fragment, null, _react.default.createElement("div", {
-    className: "".concat(_NavigationBarModule.default.dropdownContainer, " ").concat(active ? _NavigationBarModule.default.active : "")
+    className: (0, _helpers.classNameArrayToClassNameString)([_NavigationBarModule.default.dropdownContainer, active && _NavigationBarModule.default.active])
   }, _react.default.createElement("div", {
     id: "main-menu-dropdown",
     className: _NavigationBarModule.default.dropdown
@@ -134,11 +134,13 @@ NavigationBar.propTypes = {
   logoLink: _propTypes.default.string,
   logoLinkTitle: _propTypes.default.string,
   openLogoLinkInNewTab: _propTypes.default.bool,
-  theme: _propTypes.default.object
+  theme: _propTypes.default.object,
+  preventChildElementStacking: _propTypes.default.bool
 };
 NavigationBar.defaultProps = {
   primaryListItems: [],
   secondaryListItems: [],
-  logoLink: null
+  logoLink: null,
+  preventChildElementStacking: false
 };
 var _default = exports.default = NavigationBar;
