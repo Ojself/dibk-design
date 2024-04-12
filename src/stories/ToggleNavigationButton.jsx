@@ -10,6 +10,7 @@ const ToggleNavigationButton = ({ id, htmlTag, showText, hideText, buttonProps, 
     let element = React.createElement(
         htmlTag,
         {
+            ...buttonProps,
             className: elementClass,
             id: id || null
         },

@@ -27,5 +27,8 @@ export const Default = Template.bind({});
 Default.args = {
     showText: "Show",
     hideText: "Hide",
-    isOpen: false
+    isOpen: false,
+    buttonProps: {
+        onClick: () => console.log("Button clicked")
+    }
 };
