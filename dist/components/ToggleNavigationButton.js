@@ -19,6 +19,7 @@ const ToggleNavigationButton = _ref => {
   } = _ref;
   const elementClass = _ToggleNavigationButtonModule.default.toggleNavigationButton;
   let element = _react.default.createElement(htmlTag, {
+    ...buttonProps,
     className: elementClass,
     id: id || null
   }, isOpen ? hideText : showText);
