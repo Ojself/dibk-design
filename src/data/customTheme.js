@@ -58,7 +58,7 @@ const customThemes = {
             secondaryLight: "#d0f3ef", /*50%*/
             secondaryXLight: "#e7f9f7", /*25%*/
             secondaryContrast: "#38514e",
-            formElement: "#000",
+            formElement: "#333",
             border: "#0D7168",
             focus: "#00C0B0",
             defaultBackground: "#EDEEF2",

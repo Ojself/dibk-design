@@ -2,7 +2,7 @@
 
 .listItem {
     line-height: 1.6;
-    color: var(--color-primary, $color-primary);
+    color: var(--color-form-element, $color-form-element);
     &.compact {
         line-height: 1.4;
     }
