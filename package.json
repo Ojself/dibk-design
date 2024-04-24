@@ -1,6 +1,6 @@
 {
   "name": "dibk-design",
-  "version": "6.5.2",
+  "version": "6.5.3",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
