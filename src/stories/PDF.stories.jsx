@@ -85,7 +85,8 @@ const textParagraphsExample = (
       <span>Text without class</span>{" "}
       <span className="text-bold">Text with class .text-bold</span>{" "}
       <span className="text-italic">Text with class .text-italic</span>{" "}
-      <span className="text-red">Text with class .text-red</span>
+      <span className="text-red">Text with class .text-red</span>{" "}
+      <span className="text-muted">Text with class .text-muted</span>{" "}
       <div>
         <span className="block text-left">
           Text with class .block and .text-left
