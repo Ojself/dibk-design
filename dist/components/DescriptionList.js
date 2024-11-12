@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _DescriptionListModule = _interopRequireDefault(require("./DescriptionList.module.scss"));
 var _helpers = require("../functions/helpers");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const DescriptionList = _ref => {
   let {
     compact,
@@ -21,7 +21,7 @@ const DescriptionList = _ref => {
       const childElementCopy = _react.default.cloneElement(childElement, {
         compact: compact,
         titleWidth: titleWidth,
-        key: "descriptionListItem-".concat(index)
+        key: `descriptionListItem-${index}`
       });
       return childElementCopy;
     });

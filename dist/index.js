@@ -276,4 +276,4 @@ var _ThemeProvider = _interopRequireDefault(require("./components/ThemeProvider"
 var _ToggleNavigationButton = _interopRequireDefault(require("./components/ToggleNavigationButton"));
 var _WizardNavigation = _interopRequireDefault(require("./components/WizardNavigation"));
 var _Step = _interopRequireDefault(require("./components/WizardNavigation/Step"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }

@@ -11,23 +11,22 @@ var _ErrorMessage = _interopRequireDefault(require("./ErrorMessage"));
 var _generators = require("../functions/generators");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const Textarea = props => {
   const renderValueAsText = (value, defaultContent) => {
     return value ? value : defaultContent;
   };
   const getErrorElementId = () => {
-    return "".concat(props.id, "-errorMessage");
+    return `${props.id}-errorMessage`;
   };
   const renderInputField = () => {
-    var _props$value, _props$defaultValue, _props$width, _props$resize, _props$errorMessage, _props$ariaDescribed;
-    const defaultValue = !((_props$value = props.value) !== null && _props$value !== void 0 && _props$value.length) && (_props$defaultValue = props.defaultValue) !== null && _props$defaultValue !== void 0 && _props$defaultValue.length ? props.defaultValue : false;
+    const defaultValue = !props.value?.length && props.defaultValue?.length ? props.defaultValue : false;
     const defaultKey = props.elementKey || null;
     const styleRules = {
-      ...(((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
+      ...(props.width?.length && {
         maxWidth: props.width
       }),
-      ...(((_props$resize = props.resize) === null || _props$resize === void 0 ? void 0 : _props$resize.length) && {
+      ...(props.resize?.length && {
         resize: props.resize
       })
     };
@@ -38,14 +37,14 @@ const Textarea = props => {
       required: props.required,
       type: props.type,
       id: props.id,
-      key: defaultKey || "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
+      key: defaultKey || `${props.id}-${(0, _generators.generateRandomString)(6)}`,
       onChange: props.onChange,
       onBlur: props.onBlur,
       [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
       placeholder: props.placeholder,
       rows: props.rows,
       className: props.hasErrors ? _TextareaModule.default.hasErrors : "",
-      "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
+      "aria-describedby": props.hasErrors && !!props.errorMessage?.length ? getErrorElementId() : !!props["aria-describedby"]?.length ? props["aria-describedby"] : null,
       "aria-invalid": props.hasErrors ? "true" : null,
       style: styleRules
     };

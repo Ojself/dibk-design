@@ -8,10 +8,10 @@ var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _helpers = require("../functions/helpers");
 var _AccordionModule = _interopRequireDefault(require("./Accordion.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 const Accordion = props => {
   const [expanded, setExpanded] = (0, _react.useState)(props.expanded);
   const [initialized, setInitialized] = (0, _react.useState)(props.initialized);
@@ -33,14 +33,14 @@ const Accordion = props => {
     }), _react.default.createElement("span", {
       className: _AccordionModule.default.panelText
     }, props.title), _react.default.createElement("span", {
-      className: "".concat(_AccordionModule.default.panelChevron, " ").concat(expanded ? _AccordionModule.default.expanded : "")
+      className: `${_AccordionModule.default.panelChevron} ${expanded ? _AccordionModule.default.expanded : ""}`
     }));
   };
   const className = (0, _helpers.classNameArrayToClassNameString)([_AccordionModule.default.accordion, props.color && _AccordionModule.default[props.color], !props.noMargin && _AccordionModule.default.margin]);
   return _react.default.createElement("div", {
     className: className
   }, renderPanel(), _react.default.createElement("div", {
-    className: "".concat(_AccordionModule.default.content, " ").concat(initialized ? _AccordionModule.default.initialized : "", " ").concat(expanded ? _AccordionModule.default.expanded : "")
+    className: `${_AccordionModule.default.content} ${initialized ? _AccordionModule.default.initialized : ""} ${expanded ? _AccordionModule.default.expanded : ""}`
   }, props.children));
 };
 Accordion.propTypes = {

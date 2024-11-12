@@ -8,14 +8,14 @@ var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _helpers = require("../functions/helpers");
 var _ListModule = _interopRequireDefault(require("./List.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const List = props => {
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
       const childElementCopy = _react.default.cloneElement(childElement, {
         compact: props.compact,
-        key: "listItem-".concat(index)
+        key: `listItem-${index}`
       });
       return childElementCopy;
     });
@@ -25,7 +25,7 @@ const List = props => {
     const defaultListStyle = props.ordered ? "decimal" : "disc";
     const scssValueProperty = "--listStyle";
     let listElement = _react.default.createElement(listType, {
-      className: "".concat(_ListModule.default.list, " ").concat(!!props.compact ? _ListModule.default.compact : ""),
+      className: `${_ListModule.default.list} ${!!props.compact ? _ListModule.default.compact : ""}`,
       style: {
         [scssValueProperty]: props.listStyle || defaultListStyle
       }

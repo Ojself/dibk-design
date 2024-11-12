@@ -13,27 +13,25 @@ var _generators = require("../functions/generators");
 var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const InputField = props => {
-  var _props$width;
   const formatDate = inputDate => {
     if (!inputDate) {
       return null;
     }
     const date = new Date(inputDate);
     const year = date.getFullYear();
-    const month = date.getMonth() + 1 < 10 ? "0".concat(date.getMonth() + 1) : date.getMonth() + 1;
-    const day = date.getDate() < 10 ? "0".concat(date.getDate()) : date.getDate();
-    return "".concat(day, ".").concat(month, ".").concat(year);
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    return `${day}.${month}.${year}`;
   };
   const renderValueAsText = (value, defaultContent) => {
     return props.type === "date" ? value ? formatDate(value) : defaultContent : value ? value : defaultContent;
   };
   const getErrorElementId = () => {
-    return "".concat(props.id, "-errorMessage");
+    return `${props.id}-errorMessage`;
   };
   const getInputElementProps = (defaultValue, defaultKey, styleRules) => {
-    var _props$errorMessage, _props$ariaDescribed;
     return {
       name: props.name,
       readOnly: props.readOnly,
@@ -42,7 +40,7 @@ const InputField = props => {
       type: props.type,
       role: props.role,
       id: props.id,
-      key: defaultKey || "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
+      key: defaultKey || `${props.id}-${(0, _generators.generateRandomString)(6)}`,
       min: props.min || null,
       max: props.max || null,
       onChange: props.onChange,
@@ -50,7 +48,7 @@ const InputField = props => {
       [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
       placeholder: props.placeholder || null,
       className: props.hasErrors ? _InputFieldModule.default.hasErrors : null,
-      "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
+      "aria-describedby": props.hasErrors && !!props.errorMessage?.length ? getErrorElementId() : !!props["aria-describedby"]?.length ? props["aria-describedby"] : null,
       "aria-invalid": props.hasErrors ? "true" : null,
       "aria-autocomplete": props["aria-autocomplete"] || null,
       style: styleRules
@@ -59,7 +57,7 @@ const InputField = props => {
   const defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
   const defaultKey = props.elementKey || null;
   const styleRules = {
-    ...(((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
+    ...(props.width?.length && {
       maxWidth: props.width
     })
   };

@@ -9,7 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _helpers = require("../functions/helpers");
 var _ErrorBoxModule = _interopRequireDefault(require("./ErrorBox.module.scss"));
 var _infoSign = _interopRequireDefault(require("../assets/svg/info-sign.svg?url"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const ErrorBox = props => {
   return _react.default.createElement("div", {
     className: (0, _helpers.classNameArrayToClassNameString)([_ErrorBoxModule.default.errorBoxContainer, _ErrorBoxModule.default[props.type], props.fullScreen && _ErrorBoxModule.default.fullScreen])

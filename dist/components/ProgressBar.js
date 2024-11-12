@@ -7,11 +7,11 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _ProgressBarModule = _interopRequireDefault(require("./ProgressBar.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const ProgressBar = props => {
   const scssValueProperty = "--value";
   return _react.default.createElement("div", {
-    className: "".concat(_ProgressBarModule.default.progressBar, " ").concat(props.hasErrors ? _ProgressBarModule.default.hasErrors : ""),
+    className: `${_ProgressBarModule.default.progressBar} ${props.hasErrors ? _ProgressBarModule.default.hasErrors : ""}`,
     role: "progressbar",
     "aria-valuenow": props.progress || 0,
     "aria-valuemin": "0",

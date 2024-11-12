@@ -12,12 +12,11 @@ var _helpers = require("../functions/helpers");
 var _dibkLogoMobile = _interopRequireDefault(require("../assets/svg/dibk-logo-mobile.svg?url"));
 var _dibkLogo = _interopRequireDefault(require("../assets/svg/dibk-logo.svg?url"));
 var _NavigationBarModule = _interopRequireDefault(require("./NavigationBar.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 const NavigationBar = props => {
-  var _props$primaryListIte, _props$secondaryListI, _props$mainContentId;
   const [active, setActive] = (0, _react.useState)(false);
   const toggleList = () => {
     setActive(!active);
@@ -44,7 +43,7 @@ const NavigationBar = props => {
         });
       }
     });
-    return !!(listItems !== null && listItems !== void 0 && listItems.length) && _react.default.createElement("ul", {
+    return !!listItems?.length && _react.default.createElement("ul", {
       className: _NavigationBarModule.default.primaryList
     }, listItems);
   };
@@ -56,7 +55,7 @@ const NavigationBar = props => {
         theme: props.theme
       });
     });
-    return !!(listItems !== null && listItems !== void 0 && listItems.length) && _react.default.createElement("ul", {
+    return !!listItems?.length && _react.default.createElement("ul", {
       className: _NavigationBarModule.default.secondaryList
     }, listItems);
   };
@@ -67,7 +66,7 @@ const NavigationBar = props => {
       if (logoLink && logoLinkTitle) {
         return "";
       } else if (themeLogo && themeAppName) {
-        return "".concat(themeAppName, " logo");
+        return `${themeAppName} logo`;
       } else {
         return "DIBK logo";
       }
@@ -92,12 +91,12 @@ const NavigationBar = props => {
       title: logoLinkTitle
     }), renderLogoElement()) : renderLogoElement();
   };
-  const hasListItems = !!((_props$primaryListIte = props.primaryListItems) !== null && _props$primaryListIte !== void 0 && _props$primaryListIte.length) || !!((_props$secondaryListI = props.secondaryListItems) !== null && _props$secondaryListI !== void 0 && _props$secondaryListI.length);
+  const hasListItems = !!props.primaryListItems?.length || !!props.secondaryListItems?.length;
   return _react.default.createElement("div", {
     className: (0, _helpers.classNameArrayToClassNameString)([props.compact && _NavigationBarModule.default.compact, _NavigationBarModule.default.navigationBarContainer])
-  }, ((_props$mainContentId = props.mainContentId) === null || _props$mainContentId === void 0 ? void 0 : _props$mainContentId.length) && _react.default.createElement("a", {
+  }, props.mainContentId?.length && _react.default.createElement("a", {
     id: "main-content-link",
-    href: "#".concat(props.mainContentId),
+    href: `#${props.mainContentId}`,
     className: _NavigationBarModule.default.mainContentLink
   }, _react.default.createElement("span", {
     id: "main-content-link-text"
@@ -109,7 +108,7 @@ const NavigationBar = props => {
     className: _NavigationBarModule.default.childElements
   }, props.children), hasListItems && _react.default.createElement("button", {
     type: "button",
-    className: "".concat(_NavigationBarModule.default.menuToggle, " ").concat(active ? _NavigationBarModule.default.active : ""),
+    className: `${_NavigationBarModule.default.menuToggle} ${active ? _NavigationBarModule.default.active : ""}`,
     onClick: () => toggleList(),
     "aria-expanded": active ? "true" : "false",
     "aria-controls": "main-menu-dropdown"

@@ -10,7 +10,7 @@ var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _CheckBoxListModule = _interopRequireDefault(require("./CheckBoxList.module.scss"));
 var _Header = _interopRequireDefault(require("./Header"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CheckBoxList = _ref => {
   let {
     required,
@@ -22,13 +22,12 @@ const CheckBoxList = _ref => {
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
-      var _childElement$props;
-      const isCheckBoxListItem = (childElement === null || childElement === void 0 || (_childElement$props = childElement.props) === null || _childElement$props === void 0 ? void 0 : _childElement$props.type) === "CheckBoxListItem";
+      const isCheckBoxListItem = childElement?.props?.type === "CheckBoxListItem";
       if (isCheckBoxListItem) {
         const childElementCopy = _react.default.cloneElement(childElement, {
           requiredGroup: required,
           compact: compact,
-          key: "checkboxListItem-".concat(index)
+          key: `checkboxListItem-${index}`
         });
         return childElementCopy;
       } else {
@@ -38,7 +37,7 @@ const CheckBoxList = _ref => {
   };
   return _react.default.createElement("fieldset", {
     className: _CheckBoxListModule.default.checkBoxList
-  }, !!(legend !== null && legend !== void 0 && legend.length) ? _react.default.createElement("legend", null, legendSize ? _react.default.createElement(_Header.default, {
+  }, !!legend?.length ? _react.default.createElement("legend", null, legendSize ? _react.default.createElement(_Header.default, {
     size: legendSize
   }, legend) : legend, required && _react.default.createElement("img", {
     src: _asterisk.default,

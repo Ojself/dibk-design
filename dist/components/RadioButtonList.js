@@ -10,7 +10,7 @@ var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _RadioButtonListModule = _interopRequireDefault(require("./RadioButtonList.module.scss"));
 var _Header = _interopRequireDefault(require("./Header"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const RadioButtonList = _ref => {
   let {
     required,
@@ -22,13 +22,12 @@ const RadioButtonList = _ref => {
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
-      var _childElement$props;
-      const isRadioButtonListItem = (childElement === null || childElement === void 0 || (_childElement$props = childElement.props) === null || _childElement$props === void 0 ? void 0 : _childElement$props.type) === "RadioButtonListItem";
+      const isRadioButtonListItem = childElement?.props?.type === "RadioButtonListItem";
       if (isRadioButtonListItem) {
         const childElementCopy = _react.default.cloneElement(childElement, {
           requiredGroup: required,
           compact: compact,
-          key: "radioButtonListItem-".concat(index)
+          key: `radioButtonListItem-${index}`
         });
         return childElementCopy;
       } else {
@@ -38,7 +37,7 @@ const RadioButtonList = _ref => {
   };
   return _react.default.createElement("fieldset", {
     className: _RadioButtonListModule.default.radioButtonList
-  }, !!(legend !== null && legend !== void 0 && legend.length) ? _react.default.createElement("legend", null, legendSize ? _react.default.createElement(_Header.default, {
+  }, !!legend?.length ? _react.default.createElement("legend", null, legendSize ? _react.default.createElement(_Header.default, {
     size: legendSize
   }, legend) : legend, required && _react.default.createElement("img", {
     src: _asterisk.default,

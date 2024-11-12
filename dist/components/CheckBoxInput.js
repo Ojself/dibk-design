@@ -9,10 +9,10 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _CheckBoxIcon = _interopRequireDefault(require("./CheckBoxIcon"));
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _CheckBoxInputModule = _interopRequireDefault(require("./CheckBoxInput.module.scss"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CheckBoxInput = props => {
   const labelProps = {
-    className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(props.contentOnly ? _CheckBoxInputModule.default.contentOnly : "", " ").concat(props.disabled ? _CheckBoxInputModule.default.disabled : "", " ").concat(props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ""),
+    className: `${_CheckBoxInputModule.default.checkBoxInput} ${props.contentOnly ? _CheckBoxInputModule.default.contentOnly : ""} ${props.disabled ? _CheckBoxInputModule.default.disabled : ""} ${props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ""}`,
     htmlFor: props.id
   };
   const iconProps = {
