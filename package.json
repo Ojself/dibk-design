@@ -8,7 +8,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@storybook/test": "^8.0.2",
+    "@storybook/test": "^8.4.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -62,24 +62,25 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
-    "@storybook/addon-a11y": "^8.0.2",
-    "@storybook/addon-actions": "^8.0.2",
-    "@storybook/addon-essentials": "^8.0.2",
-    "@storybook/addon-interactions": "^8.0.2",
-    "@storybook/addon-links": "^8.0.2",
-    "@storybook/addon-mdx-gfm": "^8.0.2",
+    "@storybook/addon-a11y": "^8.4.2",
+    "@storybook/addon-actions": "^8.4.2",
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/addon-interactions": "^8.4.2",
+    "@storybook/addon-links": "^8.4.2",
+    "@storybook/addon-mdx-gfm": "^8.4.2",
     "@storybook/addons": "^7.6.17",
-    "@storybook/node-logger": "^8.0.2",
-    "@storybook/preset-create-react-app": "^8.0.2",
-    "@storybook/react": "^8.0.2",
-    "@storybook/react-webpack5": "^8.0.2",
-    "@storybook/theming": "^8.0.2",
+    "@storybook/node-logger": "^8.4.2",
+    "@storybook/preset-create-react-app": "^8.4.2",
+    "@storybook/react": "^8.4.2",
+    "@storybook/react-webpack5": "^8.4.2",
+    "@storybook/theming": "^8.4.2",
     "babel-plugin-named-exports-order": "^0.0.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.4.2",
-    "storybook": "^8.0.2",
+    "storybook": "^8.4.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.74.0"
-  }
+  },
+  "packageManager": "yarn@4.5.1"
 }

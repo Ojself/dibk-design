@@ -50,7 +50,5 @@ module.exports = {
         // Return the altered config
         return config;
     },
-    docs: {
-        autodocs: true
-    }
+    docs: {}
 };
