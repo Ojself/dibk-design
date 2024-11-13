@@ -1,4 +1,7 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/typography";
+@use "../style/abstracts/variables/viewports";
 
 .headerContainer {
 	.header {
@@ -6,27 +9,27 @@
 		font-weight: normal;
 		line-height: 1.4;
 		font-style: normal;
-		color: var(--color-heading-text, $color-heading-text);
+		color: var(--color-heading-text, colors.$color-heading-text);
 		&.size-1 {
-			font-family: $default-font;
+			font-family: typography.$default-font;
 			font-style: normal;
 			font-size: 28px;
 			font-weight: 600;
 			line-height: 36px;
 			letter-spacing: 0px;
 			&.bigHeader {
-				font-family: $default-font;
+				font-family: typography.$default-font;
 				font-size: 40px;
 				line-height: 1.2;
 				overflow: hidden;
 				text-overflow: ellipsis;
-				@media only screen and (min-width: $screen-sm) {
+				@media only screen and (min-width: viewports.$screen-sm) {
 					font-size: 50px;
 				}
 			}
 		}
 		&.size-2 {
-			font-family: $default-font;
+			font-family: typography.$default-font;
 			font-style: normal;
 			font-size: 22px;
 			font-weight: 600;
@@ -34,7 +37,7 @@
 			letter-spacing: 0px;
 		}
 		&.size-3 {
-			font-family: $default-font;
+			font-family: typography.$default-font;
 			font-style: normal;
 			font-size: 18px;
 			font-weight: 600;
@@ -42,7 +45,7 @@
 			letter-spacing: 0px;
 		}
 		&.size-4 {
-			font-family: $default-font;
+			font-family: typography.$default-font;
 			font-style: italic;
 			font-size: 17px;
 			font-weight: normal;
@@ -50,7 +53,7 @@
 			letter-spacing: 0px;
 		}
 		&.size-5 {
-			font-family: $default-font;
+			font-family: typography.$default-font;
 			font-style: normal;
 			font-size: 15px;
 			font-weight: 600;
@@ -61,13 +64,13 @@
 			&::before {
 				content: var(--label);
 				display: block;
-				font-family: $default-font;
+				font-family: typography.$default-font;
 				font-size: 12px;
 				font-weight: 600;
 				line-height: 18px;
 				letter-spacing: 0px;
 				text-transform: uppercase;
-				color: var(--color-heading-text, $color-heading-text);
+				color: var(--color-heading-text, colors.$color-heading-text);
 				opacity: 0.75;
 				margin-bottom: 0.3em;
 			}

@@ -1,4 +1,8 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
 
 .dragAndDropFileInput {
     .requiredSymbol {
@@ -10,8 +14,8 @@
     }
 
     .dragAndDropContainer {
-        @include transition(all 0.1s ease-in-out);
-        border: 2px dashed var(--color-secondary-light, $color-secondary-light);
+        @include transition.transition(all 0.1s ease-in-out);
+        border: 2px dashed var(--color-secondary-light, colors.$color-secondary-light);
         border-radius: 20px;
         width: 100%;
         padding: 20px;
@@ -27,8 +31,8 @@
         }
 
         &.highlighted {
-            background: var(--color-secondary-x-light, $color-secondary-x-light);
-            border-color: var(--color-primary, $color-primary);
+            background: var(--color-secondary-x-light, colors.$color-secondary-x-light);
+            border-color: var(--color-primary, colors.$color-primary);
         }
     }
 }

@@ -1,11 +1,14 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/transitions";
+@use "../style/abstracts/variables/typography";
 
 .toggleNavigationButton {
-    background-color: var(--color-body-background, $color-body-background);
-    color: var(--color-primary, $color-primary);
-    border: 1px solid var(--color-primary, $color-primary);
-    font-family: $default-font;
-    transition: background-color $default-transition;
+    background-color: var(--color-body-background, colors.$color-body-background);
+    color: var(--color-primary, colors.$color-primary);
+    border: 1px solid var(--color-primary, colors.$color-primary);
+    font-family: typography.$default-font;
+    transition: background-color transitions.$default-transition;
     display: block;
     width: 100%;
     margin: 0 auto;
@@ -20,11 +23,11 @@
     position: relative;
     text-decoration: none;
     &:hover {
-        color: var(--color-primary-text, $color-primary-text);
+        color: var(--color-primary-text, colors.$color-primary-text);
     }
     &:focus {
         outline-width: 2px;
-        outline-color: var(--color-focus, $color-focus);
+        outline-color: var(--color-focus, colors.$color-focus);
         outline-style: auto;
         outline-offset: 1px;
     }

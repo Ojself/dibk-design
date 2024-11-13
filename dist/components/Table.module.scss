@@ -1,16 +1,18 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/typography";
 
 .table {
-    font-family: $default-font;
+    font-family: typography.$default-font;
     border-collapse: collapse;
     width: 100%;
     caption {
-        font-family: $default-font;
+        font-family: typography.$default-font;
         font-weight: normal;
         font-style: italic;
         line-height: 1;
         font-size: 17px;
-        color: var(--color-primary, $color-primary);
+        color: var(--color-primary, colors.$color-primary);
     }
     &.captionSide-top {
         caption {
@@ -41,8 +43,8 @@
     }
     thead {
         tr {
-            background-color: var(--color-default-background, $color-default-background);
-            border: 1px solid var(--color-border, $color-border);
+            background-color: var(--color-default-background, colors.$color-default-background);
+            border: 1px solid var(--color-border, colors.$color-border);
             th {
                 text-align: left;
                 font-size: 16px;
@@ -52,8 +54,8 @@
     }
     tbody {
         tr {
-            background-color: var(--color-default-background, $color-default-background);
-            border: 1px solid var(--color-border, $color-border);
+            background-color: var(--color-default-background, colors.$color-default-background);
+            border: 1px solid var(--color-border, colors.$color-border);
             td {
                 padding: 10px;
                 font-size: 16px;

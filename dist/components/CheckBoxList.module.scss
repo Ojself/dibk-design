@@ -1,4 +1,5 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/typography";
 
 fieldset.checkBoxList {
     margin: 0;
@@ -11,7 +12,7 @@ fieldset.checkBoxList {
         font-weight: bold;
         line-height: 1.2;
         margin-bottom: 2px;
-        font-family: $default-font;
+        font-family: typography.$default-font;
         overflow-wrap: break-word;
         .requiredSymbol {
             width: 1em;

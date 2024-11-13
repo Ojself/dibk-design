@@ -1,4 +1,6 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/viewports";
 
 section:not(:last-of-type) {
   margin: 24px 0;
@@ -16,86 +18,86 @@ section:last-of-type {
     padding: 8px;
     text-align: right;
     width: 50%;
-    @media screen and (min-width: $screen-sm) {
+    @media screen and (min-width: viewports.$screen-sm) {
       width: 25%;
     }
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: viewports.$screen-md) {
       width: 16.6%;
     }
   }
 
   .color {
     &.bodyBackground {
-      background-color: var(--color-body-background, $color-body-background);
+      background-color: var(--color-body-background, colors.$color-body-background);
     }
     &.defaultText {
-      background-color: var(--color-default-text, $color-default-text);
+      background-color: var(--color-default-text, colors.$color-default-text);
     }
     &.primaryText {
-      background-color: var(--color-primary-text, $color-primary-text);
+      background-color: var(--color-primary-text, colors.$color-primary-text);
     }
     &.secondaryText {
-      background-color: var(--color-border, $color-border);
+      background-color: var(--color-border, colors.$color-border);
     }
     &.primary {
-      background-color: var(--color-primary, $color-primary);
+      background-color: var(--color-primary, colors.$color-primary);
     }
     &.primaryLight {
-      background-color: var(--color-primary-light, $color-primary-light);
+      background-color: var(--color-primary-light, colors.$color-primary-light);
     }
     &.primaryXLight {
-      background-color: var(--color-primary-x-light, $color-primary-x-light);
+      background-color: var(--color-primary-x-light, colors.$color-primary-x-light);
     }
     &.primaryContrast {
-      background-color: var(--color-primary-contrast, $color-primary-contrast);
+      background-color: var(--color-primary-contrast, colors.$color-primary-contrast);
     }
     &.secondary {
-      background-color: var(--color-secondary, $color-secondary);
+      background-color: var(--color-secondary, colors.$color-secondary);
     }
     &.secondaryLight {
-      background-color: var(--color-secondary-light, $color-secondary-light);
+      background-color: var(--color-secondary-light, colors.$color-secondary-light);
     }
     &.secondaryXLight {
-      background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+      background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
     }
     &.secondaryContrast {
-      background-color: var(--color-secondary-contrast, $color-secondary-contrast);
+      background-color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
     }
     &.focus {
-      background-color: var(--color-focus, $color-focus);
+      background-color: var(--color-focus, colors.$color-focus);
     }
     &.defaultBackground {
-      background-color: var(--color-default-background, $color-default-background);
+      background-color: var(--color-default-background, colors.$color-default-background);
     }
     &.secondaryBackground {
-      background-color: var(--color-secondary-background, $color-secondary-background);
+      background-color: var(--color-secondary-background, colors.$color-secondary-background);
     }
     &.success {
-      background-color: var(--color-success, $color-success);
+      background-color: var(--color-success, colors.$color-success);
     }
     &.successLight {
-      background-color: var(--color-success-light, $color-success-light);
+      background-color: var(--color-success-light, colors.$color-success-light);
     }
     &.successXLight {
-      background-color: var(--color-success-x-light, $color-success-x-light);
+      background-color: var(--color-success-x-light, colors.$color-success-x-light);
     }
     &.warning {
-      background-color: var(--color-warning, $color-warning);
+      background-color: var(--color-warning, colors.$color-warning);
     }
     &.warningLight {
-      background-color: var(--color-warning-light, $color-warning-light);
+      background-color: var(--color-warning-light, colors.$color-warning-light);
     }
     &.warningXLight {
-      background-color: var(--color-warning-x-light, $color-warning-x-light);
+      background-color: var(--color-warning-x-light, colors.$color-warning-x-light);
     }
     &.error {
-      background-color: var(--color-error, $color-error);
+      background-color: var(--color-error, colors.$color-error);
     }
     &.errorLight {
-      background-color: var(--color-error-light, $color-error-light);
+      background-color: var(--color-error-light, colors.$color-error-light);
     }
     &.errorXLight {
-      background-color: var(--color-error-x-light, $color-error-x-light);
+      background-color: var(--color-error-x-light, colors.$color-error-x-light);
     }
   }
 }

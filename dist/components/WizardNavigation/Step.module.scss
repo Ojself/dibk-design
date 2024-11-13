@@ -1,4 +1,7 @@
-@import "../../style/global.scss";
+// Variables
+@use "../../style/abstracts/variables/colors";
+@use "../../style/abstracts/variables/transitions";
+@use "../../style/abstracts/variables/viewports";
 
 .wizardTopnavItem {
   a {
@@ -8,7 +11,7 @@
     display: flex;
   }
   &.vertical {
-    transition: background-color $long-transition;
+    transition: background-color transitions.$long-transition;
     .wizardTopnavItemContent {
       -webkit-box-align: center;
       align-items: center;
@@ -32,7 +35,7 @@
         overflow: hidden;
         min-width: 12px;
         max-width: 100%;
-        color: var(--color-secondary-contrast, $color-secondary-contrast);
+        color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
       }
       .stepName {
         -webkit-box-flex: 1;
@@ -42,25 +45,25 @@
         line-height: 24px;
         letter-spacing: 0.01em;
         margin: 0px 0px 0px 12px;
-        color: var(--color-default-text, $color-default-text);
+        color: var(--color-default-text, colors.$color-default-text);
       }
     }
     &:hover:not(.active):not(.finished):not(.hasErrors) {
-      background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+      background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
     }
     &.active {
-      background-color: var(--color-secondary-light, $color-secondary-light);
+      background-color: var(--color-secondary-light, colors.$color-secondary-light);
     }
     &.finished:not(.active) {
-      background-color: var(--color-success-x-light, $color-success-x-light);
+      background-color: var(--color-success-x-light, colors.$color-success-x-light);
       &:hover {
-        background-color: var(--color-success-light, $color-success-light);
+        background-color: var(--color-success-light, colors.$color-success-light);
       }
     }
     &.hasErrors:not(.active) {
-      background-color: var(--color-error-x-light, $color-error-x-light);
+      background-color: var(--color-error-x-light, colors.$color-error-x-light);
       &:hover {
-        background-color: var(--color-error-light, $color-error-light);
+        background-color: var(--color-error-light, colors.$color-error-light);
       }
     }
   }
@@ -69,12 +72,12 @@
     .wizardTopnavItemContent {
       height: 60px;
       align-items: center;
-      @media only screen and (min-width: $screen-sm) {
+      @media only screen and (min-width: viewports.$screen-sm) {
         display: block;
         height: auto;
       }
       &:before {
-        @media only screen and (max-width: $screen-xs-max) {
+        @media only screen and (max-width: viewports.$screen-xs-max) {
           display: block;
           content: " ";
           height: 36px;
@@ -87,7 +90,7 @@
           width: 15px;
           margin-right: -15px;
         }
-        @media only screen and (min-width: $screen-sm) {
+        @media only screen and (min-width: viewports.$screen-sm) {
           display: inline-block;
           content: " ";
           height: 15px;
@@ -105,23 +108,23 @@
         display: block;
         text-align: center;
         background-color: #e2e1e0;
-        color: var(--color-default-text, $color-default-text);
+        color: var(--color-default-text, colors.$color-default-text);
         position: relative;
         font-size: 20px;
         line-height: 1.75em;
         z-index: 1;
         margin-right: 8px;
-        @media only screen and (min-width: $screen-sm) {
+        @media only screen and (min-width: viewports.$screen-sm) {
           margin: auto;
         }
       }
       .stepName {
         display: block;
         text-align: left;
-        color: var(--color-default-text, $color-default-text);
+        color: var(--color-default-text, colors.$color-default-text);
         flex: 1;
         flex-basis: min-content;
-        @media only screen and (min-width: $screen-sm) {
+        @media only screen and (min-width: viewports.$screen-sm) {
           display: block;
           text-align: center;
         }
@@ -130,17 +133,17 @@
 
     &.active {
       :local(.stepNumber) {
-        background-color: var(--color-primary, $color-primary);
+        background-color: var(--color-primary, colors.$color-primary);
         color: #fff;
       }
     }
     &.finished {
       .wizardTopnavItemContent {
         &:before {
-          background-color: var(--color-primary, $color-primary);
+          background-color: var(--color-primary, colors.$color-primary);
         }
         .stepNumber {
-          background-color: var(--color-primary, $color-primary);
+          background-color: var(--color-primary, colors.$color-primary);
           color: #fff;
         }
       }
@@ -148,10 +151,10 @@
     &.hasErrors {
       .wizardTopnavItemContent {
         &:before {
-          background-color: var(--color-warning, $color-warning);
+          background-color: var(--color-warning, colors.$color-warning);
         }
         .stepNumber {
-          background-color: var(--color-warning, $color-warning);
+          background-color: var(--color-warning, colors.$color-warning);
           color: #fff;
         }
       }
@@ -159,10 +162,10 @@
     &:last-child {
       .wizardTopnavItemContent {
         &:before {
-          @media only screen and (max-width: $screen-xs-max) {
+          @media only screen and (max-width: viewports.$screen-xs-max) {
             height: 0;
           }
-          @media only screen and (min-width: $screen-sm) {
+          @media only screen and (min-width: viewports.$screen-sm) {
             width: 0;
           }
         }

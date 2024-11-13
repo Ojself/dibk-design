@@ -1,11 +1,13 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/sizes";
+@use "../style/abstracts/variables/viewports";
 
 .container {
     margin: auto;
     padding: 8px;
-    @media (min-width: $screen-sm) {
+    @media (min-width: viewports.$screen-sm) {
         padding: 20px;
-        max-width: $content-width;
+        max-width: sizes.$content-width;
         &[style*="--max-width"] {
             max-width: var(--max-width);
         }

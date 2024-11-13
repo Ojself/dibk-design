@@ -1,9 +1,10 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
 
 .descriptionDetails {
     font-size: 16px;
     list-style: var(--listStyle);
-    color: var(--color-primary, $color-primary);
+    color: var(--color-primary, colors.$color-primary);
     margin: 0;
     &:not(.compact) {
         line-height: 1.6;

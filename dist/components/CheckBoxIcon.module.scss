@@ -1,9 +1,16 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/border-radius";
+@use "../style/abstracts/mixins/box-shadow";
+@use "../style/abstracts/mixins/box-sizing";
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
 
 .checkBoxIcon {
-    @include border-radius(0);
-    @include transition(all 0.1s ease-in-out);
-    @include box-sizing(content-box);
+    @include border-radius.border-radius(0);
+    @include transition.transition(all 0.1s ease-in-out);
+    @include box-sizing.box-sizing(content-box);
     display: inline-block;
     vertical-align: middle;
     min-width: 10px;
@@ -20,26 +27,26 @@
         margin-top: 2px;
         background: white;
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px var(--color-form-element, $color-form-element));
+            @include box-shadow.box-shadow(0 0 0 1px var(--color-form-element, colors.$color-form-element));
         }
         &.hasErrors {
-            @include box-shadow(0 0 0 1px var(--color-error, $color-error));
+            @include box-shadow.box-shadow(0 0 0 1px var(--color-error, colors.$color-error));
         }
     }
 
     &.checked {
-        color: var(--color-primary, $color-primary);
+        color: var(--color-primary, colors.$color-primary);
         &.hasErrors {
             span {
-                color: var(--color-error, $color-error);
+                color: var(--color-error, colors.$color-error);
             }
         }
         &.showBox {
             &:not(.hasErrors) {
-                @include box-shadow(0 0 0 1px var(--color-form-element, $color-form-element));
+                @include box-shadow.box-shadow(0 0 0 1px var(--color-form-element, colors.$color-form-element));
             }
             &.hasErrors {
-                @include box-shadow(0 0 0 1px var(--color-error, $color-error));
+                @include box-shadow.box-shadow(0 0 0 1px var(--color-error, colors.$color-error));
             }
         }
     }
