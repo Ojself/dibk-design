@@ -1,4 +1,13 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/appearance";
+@use "../style/abstracts/mixins/border-radius";
+@use "../style/abstracts/mixins/box-shadow";
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/transitions";
+@use "../style/abstracts/variables/viewports";
 
 .select {
     .requiredSymbol {
@@ -12,6 +21,7 @@
         position: relative;
 
         .selectListArrow {
+            @include border-radius.border-radius(100px);
             box-sizing: border-box;
             position: absolute;
             top: 15px;
@@ -19,8 +29,7 @@
             display: block;
             width: 12px;
             height: calc(50% - 6px);
-            border-radius: 100px;
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 top: 20px;
                 right: 20px;
             }
@@ -40,8 +49,8 @@
         }
 
         .multipleSelectDropdown {
-            @include border-radius(4px);
-            @include box-shadow(
+            @include border-radius.border-radius(4px);
+            @include box-shadow.box-shadow(
                 rgba(0, 0, 0, 0.2) 0px 5px 5px -3px,
                 rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
                 rgba(0, 0, 0, 0.12) 0px 3px 14px 2px
@@ -54,28 +63,27 @@
 
         select,
         .multipleSelectElement {
-            @include border-radius(0);
-            @include transition(background $default-transition);
-            @include appearance(none);
-            @include box-shadow(none);
+            @include border-radius.border-radius(0);
+            @include transition.transition(background transitions.$default-transition);
+            @include appearance.appearance(none);
+            @include box-shadow.box-shadow(none);
             color: rgba(0, 0, 0, 0.75);
             width: 100%;
             font-family: inherit;
             font-size: 18px;
             padding: 10px 40px 10px 10px;
-            border: 1px solid var(--color-primary, $color-primary);
-            border-radius: 0;
+            border: 1px solid var(--color-primary, colors.$color-primary);
             line-height: 1.7;
             background: white;
             cursor: pointer;
 
             &:hover {
-                border-color: var(--color-primary, $color-primary);
-                background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+                border-color: var(--color-primary, colors.$color-primary);
+                background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
             }
 
             &:focus {
-                outline-color: var(--color-primary, $color-primary);
+                outline-color: var(--color-primary, colors.$color-primary);
             }
 
             &[disabled],
@@ -93,9 +101,9 @@
             }
 
             &.hasErrors {
-                border-color: var(--color-error, $color-error);
+                border-color: var(--color-error, colors.$color-error);
                 &:focus {
-                    border-color: var(--color-error, $color-error);
+                    border-color: var(--color-error, colors.$color-error);
                     outline-color: #b8565d;
                 }
                 &[disabled],

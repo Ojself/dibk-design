@@ -1,9 +1,17 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/border-radius";
+@use "../style/abstracts/mixins/box-sizing";
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/transitions";
+@use "../style/abstracts/variables/typography";
 
 .checkBoxListItem {
-    @include box-sizing(content-box);
-    @include border-radius(0);
-    @include transition(all $default-transition);
+    @include box-sizing.box-sizing(content-box);
+    @include border-radius.border-radius(0);
+    @include transition.transition(all transitions.$default-transition);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -13,14 +21,14 @@
     -ms-flex-align: flex-start;
     align-items: flex-start;
     cursor: pointer;
-    font-family: $default-font;
+    font-family: typography.$default-font;
     position: relative;
     font-size: 16px;
     line-height: 24px;
     color: #000;
 
     &:not(.contentOnly):not(.compact) {
-        border: 1px solid var(--color-secondary-light, $color-secondary-light);
+        border: 1px solid var(--color-secondary-light, colors.$color-secondary-light);
         background: white;
         margin-bottom: 8px;
         label {
@@ -43,15 +51,15 @@
     }
 
     &.checked:not(.contentOnly):not(.compact):not(.disabled) {
-        background-color: var(--color-secondary-light, $color-secondary-light);
+        background-color: var(--color-secondary-light, colors.$color-secondary-light);
     }
 
     &:not(.checked):not(.contentOnly):not(.compact):not(.disabled) {
         &:hover {
-            background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+            background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
         }
         &:focus-within {
-            background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+            background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
         }
     }
 

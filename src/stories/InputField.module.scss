@@ -1,4 +1,10 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/appearance";
+@use "../style/abstracts/mixins/border-radius";
+@use "../style/abstracts/mixins/box-shadow";
+
+// Variables
+@use "../style/abstracts/variables/colors";
 
 .inputField {
     font-size: 18px;
@@ -17,9 +23,9 @@
     }
     input,
     &.file span.input {
-        @include appearance(none);
-        @include border-radius(0);
-        @include box-shadow(none);
+        @include appearance.appearance(none);
+        @include border-radius.border-radius(0);
+        @include box-shadow.box-shadow(none);
         height: 54px;
         width: 100%;
         display: block;
@@ -27,36 +33,36 @@
         margin-bottom: 0;
         background-color: #fff;
         box-shadow: none;
-        color: $color-default-text;
+        color: colors.$color-default-text;
         font-family: inherit;
         font-size: 18px;
         box-sizing: border-box;
-        border: 1px solid var(--color-primary, $color-primary);
+        border: 1px solid var(--color-primary, colors.$color-primary);
 
         &:hover {
-            border-color: var(--color-primary, $color-primary);
+            border-color: var(--color-primary, colors.$color-primary);
         }
 
         &:focus {
-            border-color: var(--color-primary, $color-primary);
-            outline: $color-focus solid 3px;
+            border-color: var(--color-primary, colors.$color-primary);
+            outline: colors.$color-focus solid 3px;
         }
 
         &[disabled],
         &[readonly] {
-            background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+            background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
             cursor: default;
         }
 
         &.hasErrors {
-            border-color: var(--color-error, $color-error);
+            border-color: var(--color-error, colors.$color-error);
             &:focus {
-                border-color: var(--color-error, $color-error);
+                border-color: var(--color-error, colors.$color-error);
                 outline-color: #b8565d;
             }
             &[disabled],
             &[readonly] {
-                background-color: var(--color-secondary-x-light, $color-secondary-x-light);
+                background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
                 cursor: default;
                 border-color: #afaba8;
             }

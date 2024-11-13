@@ -1,4 +1,13 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/appearance";
+@use "../style/abstracts/mixins/box-shadow";
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/transitions";
+@use "../style/abstracts/variables/typography";
+@use "../style/abstracts/variables/viewports";
 
 .navigationBarContainer {
     .mainContentLink {
@@ -33,21 +42,21 @@
     }
     &:not(.compact) {
         position: relative;
-        background-color: var(--color-body-background, $color-body-background);
+        background-color: var(--color-body-background, colors.$color-body-background);
         padding: 5px;
-        @media only screen and (min-width: $screen-sm) {
+        @media only screen and (min-width: viewports.$screen-sm) {
             padding: 20px;
         }
-        @media only screen and (min-width: $screen-md) {
+        @media only screen and (min-width: viewports.$screen-md) {
             padding-bottom: 40px;
         }
         .mainContentLink {
-            background-color: var(--color-body-background, $color-body-background);
-            color: var(--color-primary, $color-primary);
+            background-color: var(--color-body-background, colors.$color-body-background);
+            color: var(--color-primary, colors.$color-primary);
             &:focus,
             &:active {
                 span {
-                    outline-color: var(--color-primary, $color-primary);
+                    outline-color: var(--color-primary, colors.$color-primary);
                 }
             }
         }
@@ -69,18 +78,18 @@
                 -ms-flex-direction: row;
                 flex-direction: row;
             }
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 -ms-flex-direction: row;
                 flex-direction: row;
             }
-            @media only screen and (min-width: $screen-md) {
+            @media only screen and (min-width: viewports.$screen-md) {
                 margin: 0;
             }
         }
         .logoContainer {
             width: var(--size-logo-small-width, 85px);
             margin-bottom: 0;
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 width: var(--size-logo-large-width, 100px);
             }
         }
@@ -91,8 +100,8 @@
             padding: 0 20px;
         }
         .menuToggle {
-            transition: background-color $default-transition;
-            font-family: $default-font;
+            transition: background-color transitions.$default-transition;
+            font-family: typography.$default-font;
             display: inline-block;
             line-height: 1.1;
             position: absolute;
@@ -100,15 +109,15 @@
             right: 10px;
             height: auto;
             margin: auto;
-            border: 1px solid var(--color-primary, $color-primary);
+            border: 1px solid var(--color-primary, colors.$color-primary);
             padding: 10px 20px;
             padding-right: 54px;
             background-color: transparent;
-            color: var(--color-primary, $color-primary);
+            color: var(--color-primary, colors.$color-primary);
             font-size: 20px;
             font-weight: 400;
             cursor: pointer;
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 position: relative;
                 top: 0;
                 right: 0;
@@ -124,7 +133,7 @@
                 height: 4px;
                 width: 24px;
                 border-radius: 3px;
-                background-color: var(--color-primary, $color-primary);
+                background-color: var(--color-primary, colors.$color-primary);
                 &::before,
                 &::after {
                     content: "";
@@ -133,7 +142,7 @@
                     left: 0;
                     right: 0;
                     border-radius: 3px;
-                    background-color: var(--color-primary, $color-primary);
+                    background-color: var(--color-primary, colors.$color-primary);
                     transition: transform 0.3s ease-out;
                 }
                 &::before {
@@ -147,12 +156,12 @@
             &:focus,
             &:active {
                 color: #fff;
-                background-color: var(--color-primary, $color-primary);
+                background-color: var(--color-primary, colors.$color-primary);
                 .hamburgerIcon {
-                    background-color: var(--color-primary-contrast, $color-primary-contrast);
+                    background-color: var(--color-primary-contrast, colors.$color-primary-contrast);
                     &::before,
                     &::after {
-                        background-color: var(--color-primary-contrast, $color-primary-contrast);
+                        background-color: var(--color-primary-contrast, colors.$color-primary-contrast);
                     }
                 }
             }
@@ -173,8 +182,8 @@
             display: none;
             width: 100%;
             overflow: hidden;
-            transition: all $default-transition;
-            background-color: var(--color-body-background, $color-body-background);
+            transition: all transitions.$default-transition;
+            background-color: var(--color-body-background, colors.$color-body-background);
             &.active {
                 display: block;
             }
@@ -187,7 +196,7 @@
             flex-wrap: wrap;
             padding: 0;
             padding: 20px;
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 padding: 40px 5%;
             }
             > ul.primaryList,
@@ -196,19 +205,19 @@
                 padding: 0;
                 list-style: none;
                 margin: 0;
-                @media only screen and (min-width: $screen-sm) {
+                @media only screen and (min-width: viewports.$screen-sm) {
                     padding: 20px 0;
                 }
             }
             > ul.primaryList {
                 float: left;
-                @media only screen and (min-width: $screen-sm) {
+                @media only screen and (min-width: viewports.$screen-sm) {
                     width: 60%;
                 }
                 > li {
                     line-height: 1.6;
                     padding: 15px 0;
-                    @media only screen and (min-width: $screen-sm) {
+                    @media only screen and (min-width: viewports.$screen-sm) {
                         margin-left: 100px;
                     }
                     > a,
@@ -217,12 +226,12 @@
                         line-height: 1.56;
                         font-weight: 600;
                         text-decoration: underline;
-                        color: var(--color-primary, $color-primary);
+                        color: var(--color-primary, colors.$color-primary);
                         cursor: pointer;
                         &:hover {
                             text-decoration: none;
                         }
-                        @media only screen and (min-width: $screen-sm) {
+                        @media only screen and (min-width: viewports.$screen-sm) {
                             font-size: 26px;
                             line-height: 1.58;
                         }
@@ -230,7 +239,7 @@
                     > ul.primaryList {
                         display: none;
                         list-style: none;
-                        @media only screen and (min-width: $screen-sm) {
+                        @media only screen and (min-width: viewports.$screen-sm) {
                             display: -ms-flexbox;
                             display: flex;
                             -ms-flex-direction: row;
@@ -243,11 +252,11 @@
                             padding: 5px;
                             line-height: 1.6;
                             font-size: 16px;
-                            @media only screen and (min-width: $screen-md) {
+                            @media only screen and (min-width: viewports.$screen-md) {
                                 font-size: 20px;
                             }
                             &:not(:last-of-type)::after {
-                                @media only screen and (min-width: $screen-sm) {
+                                @media only screen and (min-width: viewports.$screen-sm) {
                                     content: "-";
                                     padding-left: 10px;
                                 }
@@ -267,7 +276,7 @@
             > ul.secondaryList {
                 float: right;
                 margin: 20px 0;
-                @media only screen and (min-width: $screen-sm) {
+                @media only screen and (min-width: viewports.$screen-sm) {
                     margin: 0;
                     width: 40%;
                     padding-left: 20px;
@@ -275,7 +284,7 @@
                 li {
                     padding: 5px 0;
                     line-height: 1.6;
-                    @media only screen and (min-width: $screen-sm) {
+                    @media only screen and (min-width: viewports.$screen-sm) {
                         padding: 10px 0;
                         position: relative;
                     }
@@ -289,7 +298,7 @@
                         &:hover {
                             text-decoration: none;
                         }
-                        @media only screen and (min-width: $screen-sm) {
+                        @media only screen and (min-width: viewports.$screen-sm) {
                             font-size: 22px;
                         }
                     }
@@ -298,28 +307,28 @@
         }
     }
     &.compact {
-        @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
+        @include box-shadow.box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
         position: relative;
         z-index: 1;
 
         .mainContentLink {
-            background-color: var(--color-primary, $color-primary);
-            color: var(--color-primary-contrast, $color-primary-contrast);
+            background-color: var(--color-primary, colors.$color-primary);
+            color: var(--color-primary-contrast, colors.$color-primary-contrast);
             &:focus,
             &:active {
                 span {
-                    outline-color: var(--color-primary-contrast, $color-primary-contrast);
+                    outline-color: var(--color-primary-contrast, colors.$color-primary-contrast);
                 }
             }
         }
 
         .navigationBar {
-            background-color: var(--color-primary, $color-primary);
+            background-color: var(--color-primary, colors.$color-primary);
             height: 54px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 height: 73px;
             }
         }
@@ -332,7 +341,7 @@
                 height: 54px;
                 max-width: none;
             }
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 width: 270px;
                 height: 73px;
                 img {
@@ -343,13 +352,13 @@
 
         .childElements {
             display: block;
-            color: var(--color-primary-contrast, $color-primary-contrast);
+            color: var(--color-primary-contrast, colors.$color-primary-contrast);
             flex: 1;
         }
 
         .menuToggle {
-            @include appearance(none);
-            @include transition(background-color 300ms ease-out);
+            @include appearance.appearance(none);
+            @include transition.transition(background-color 300ms ease-out);
             border: none;
             cursor: pointer;
             position: relative;
@@ -360,30 +369,30 @@
                 width: 30px;
                 display: block;
                 .line {
-                    background-color: var(--color-primary-contrast, $color-primary-contrast);
+                    background-color: var(--color-primary-contrast, colors.$color-primary-contrast);
                     height: 2px;
                     margin: 6px 0;
                     display: block;
                 }
             }
-            @media only screen and (min-width: $screen-sm) {
+            @media only screen and (min-width: viewports.$screen-sm) {
                 margin: 0 21px;
             }
         }
 
         .dropdownContainer {
-            @include transition(max-height 0.15s ease-out);
+            @include transition.transition(max-height 0.15s ease-out);
             max-height: 0;
             overflow: hidden;
             &.active {
-                @include transition(max-height 0.15s ease-out);
+                @include transition.transition(max-height 0.15s ease-out);
                 max-height: 500px;
             }
         }
 
         .dropdown {
-            @include box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
-            background-color: var(--color-primary, $color-primary);
+            @include box-shadow.box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.2));
+            background-color: var(--color-primary, colors.$color-primary);
             z-index: 2;
             > ul.primaryList {
                 list-style: none;
@@ -392,13 +401,13 @@
                 li {
                     a,
                     span {
-                        color: var(--color-primary-contrast, $color-primary-contrast);
+                        color: var(--color-primary-contrast, colors.$color-primary-contrast);
                         text-transform: uppercase;
                         text-decoration: none;
-                        font-family: $default-font;
+                        font-family: typography.$default-font;
                         padding: 10px 0;
                         display: block;
-                        border-bottom: 1px solid var(--color-primary, $color-primary);
+                        border-bottom: 1px solid var(--color-primary, colors.$color-primary);
                         font-size: 14px;
                         line-height: 1.6;
                     }
@@ -408,10 +417,10 @@
                         li {
                             a,
                             span {
-                                color: var(--color-primary-contrast, $color-primary-contrast);
+                                color: var(--color-primary-contrast, colors.$color-primary-contrast);
                                 text-transform: none;
                                 text-decoration: none;
-                                font-family: $default-font;
+                                font-family: typography.$default-font;
                                 padding: 10px 0;
                                 margin-left: 20px;
                                 display: block;
@@ -442,12 +451,12 @@
             }
         }
 
-        @media only screen and (min-width: $screen-sm) {
+        @media only screen and (min-width: viewports.$screen-sm) {
             .dropdownContainer {
                 position: relative;
                 overflow: visible;
                 .dropdown {
-                    @include transition(max-height 0.15s ease-out);
+                    @include transition.transition(max-height 0.15s ease-out);
                     width: 300px;
                     position: absolute;
                     right: 0;

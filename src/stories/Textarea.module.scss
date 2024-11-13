@@ -1,4 +1,13 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/appearance";
+@use "../style/abstracts/mixins/border-radius";
+@use "../style/abstracts/mixins/box-shadow";
+@use "../style/abstracts/mixins/box-sizing";
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/viewports";
 
 .textarea {
     > div {
@@ -12,10 +21,11 @@
         margin-top: 2px;
     }
     textarea {
-        @include appearance(none);
-        @include transition(border-color 0.15s linear, background 0.15s linear);
-        @include border-radius(0);
-        @include box-shadow(none);
+        @include appearance.appearance(none);
+        @include transition.transition(border-color 0.15s linear, background 0.15s linear);
+        @include border-radius.border-radius(0);
+        @include box-shadow.box-shadow(none);
+        @include box-sizing.box-sizing(border-box);
         height: auto;
         width: 100%;
         display: block;
@@ -23,23 +33,21 @@
         margin-bottom: 0;
         font-weight: 300;
         background-color: #fff;
-        box-shadow: none;
         color: rgba(0, 0, 0, 0.75);
         font-family: inherit;
         font-size: 16px;
-        box-sizing: border-box;
         border: 1px solid #afaba8;
-        @media only screen and (min-width: $screen-sm) {
+        @media only screen and (min-width: viewports.$screen-sm) {
             font-size: 19px;
         }
 
         &:hover {
-            border-color: var(--color-primary, $color-primary);
+            border-color: var(--color-primary, colors.$color-primary);
         }
 
         &:focus {
-            border-color: var(--color-primary, $color-primary);
-            outline-color: var(--color-focus, $color-focus);
+            border-color: var(--color-primary, colors.$color-primary);
+            outline-color: var(--color-focus, colors.$color-focus);
         }
 
         &[disabled],
@@ -49,9 +57,9 @@
         }
 
         &.hasErrors {
-            border-color: var(--color-error, $color-error);
+            border-color: var(--color-error, colors.$color-error);
             &:focus {
-                border-color: var(--color-error, $color-error);
+                border-color: var(--color-error, colors.$color-error);
                 outline-color: #b8565d;
             }
             &[disabled],

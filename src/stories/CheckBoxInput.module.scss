@@ -1,4 +1,5 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
 
 .checkBoxInput {
     display: flex;
@@ -23,7 +24,7 @@
     .labelText {
         font-size: 16px;
         line-height: 24px;
-        color: var(--color-form-element, $color-form-element);
+        color: var(--color-form-element, colors.$color-form-element);
     }
 
     &.disabled {
@@ -34,13 +35,13 @@
 
     &.hasErrors {
         span {
-            color: var(--color-error, $color-error);
+            color: var(--color-error, colors.$color-error);
         }
     }
 
     &:focus-within {
         outline-width: 2px;
-        outline-color: var(--color-focus, $color-focus);
+        outline-color: var(--color-focus, colors.$color-focus);
         outline-style: auto;
         outline-offset: 1px;
     }

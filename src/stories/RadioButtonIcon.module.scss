@@ -1,9 +1,17 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/border-radius";
+@use "../style/abstracts/mixins/box-shadow";
+@use "../style/abstracts/mixins/box-sizing";
+@use "../style/abstracts/mixins/transition";
+
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/transitions";
 
 .radioButtonIcon {
-    @include border-radius(50%);
-    @include transition(all $default-transition);
-    @include box-sizing(content-box);
+    @include border-radius.border-radius(50%);
+    @include transition.transition(all transitions.$default-transition);
+    @include box-sizing.box-sizing(content-box);
     display: inline-block;
     vertical-align: middle;
     min-width: 10px;
@@ -16,22 +24,22 @@
     cursor: pointer;
 
     &:not(.hasErrors) {
-        @include box-shadow(0 0 0 1px var(--color-form-element, $color-form-element));
+        @include box-shadow.box-shadow(0 0 0 1px var(--color-form-element, colors.$color-form-element));
     }
     &.hasErrors {
-        @include box-shadow(0 0 0 1px var(--color-error, $color-error));
+        @include box-shadow.box-shadow(0 0 0 1px var(--color-error, colors.$color-error));
     }
 
     &.checked {
-        background: var(--color-primary, $color-primary);
+        background: var(--color-primary, colors.$color-primary);
         &.hasErrors {
-            background: var(--color-error, $color-error);
+            background: var(--color-error, colors.$color-error);
         }
         &:not(.hasErrors) {
-            @include box-shadow(0 0 0 1px var(--color-form-element, $color-form-element));
+            @include box-shadow.box-shadow(0 0 0 1px var(--color-form-element, colors.$color-form-element));
         }
         &.hasErrors {
-            @include box-shadow(0 0 0 1px var(--color-error, $color-error));
+            @include box-shadow.box-shadow(0 0 0 1px var(--color-error, colors.$color-error));
         }
     }
     &.disabled {

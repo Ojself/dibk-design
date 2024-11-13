@@ -1,4 +1,9 @@
-@import "../style/global.scss";
+// Mixins
+@use "../style/abstracts/mixins/calc";
+
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/viewports";
 
 @keyframes modalInVertical {
     0% {
@@ -23,7 +28,7 @@
 
 .dialog {
     &::backdrop {
-        background: color-mix(in srgb, var(--color-primary, $color-primary), transparent 60%);
+        background: color-mix(in srgb, var(--color-primary, colors.$color-primary), transparent 60%);
     }
     &[open] {
         border: none;
@@ -49,7 +54,7 @@
             .closeButton {
                 background: none;
                 border: none;
-                color: var(--color-primary, $color-primary);
+                color: var(--color-primary, colors.$color-primary);
                 display: inline-block;
                 position: absolute;
                 cursor: pointer;
@@ -66,7 +71,7 @@
             align-items: center;
             justify-content: center;
             padding: 8px 28px;
-            @media (min-width: $screen-md) {
+            @media (min-width: viewports.$screen-md) {
                 padding: 36px;
             }
             .dialogContainer {
@@ -75,7 +80,7 @@
                 .dialogContent {
                     &:not(.noPadding) {
                         padding: 30px 15px;
-                        @media only screen and (min-width: $screen-sm) {
+                        @media only screen and (min-width: viewports.$screen-sm) {
                             padding: 60px 40px;
                         }
                     }
@@ -85,7 +90,7 @@
                 &:not(.noPadding) {
                     right: 5px;
                     top: 8px;
-                    @media only screen and (min-width: $screen-sm) {
+                    @media only screen and (min-width: viewports.$screen-sm) {
                         right: 10px;
                         top: 13px;
                     }
@@ -154,7 +159,7 @@
         justify-content: center;
 
         .dialogContent {
-            @include calc("max-height", "100% - 128px");
+            @include calc.calc("max-height", "100% - 128px");
             width: 100%;
             max-width: var(--max-width, 540px);
         }
@@ -165,8 +170,8 @@
         overflow: auto;
         position: relative;
 
-        @media (min-width: $screen-md) {
-            @include calc("width", "100% - 128px");
+        @media (min-width: viewports.$screen-md) {
+            @include calc.calc("width", "100% - 128px");
             max-height: 100%;
         }
     }

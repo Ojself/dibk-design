@@ -1,6 +1,9 @@
+@use "../abstracts/variables/colors";
+@use "../abstracts/variables/typography";
+
 body {
-	font-family: $default-font;
-	color: $color-default-text;
+	font-family: typography.$default-font;
+	color: colors.$color-default-text;
 	font-weight: normal;
 	line-height: 1.4;
 	letter-spacing: 0.01em;

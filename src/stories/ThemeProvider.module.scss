@@ -1,4 +1,6 @@
-@import "../style/abstracts/all";
+// Variables
+@use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/typography";
 
 *,
 *::before,
@@ -7,9 +9,9 @@
 }
 body {
     margin: 0;
-    font-family: $default-font;
-    background-color: var(--color-body-background, $color-body-background);
-    color: var(--color-default-text, $color-default-text);
+    font-family: typography.$default-font;
+    background-color: var(--color-body-background, colors.$color-body-background);
+    color: var(--color-default-text, colors.$color-default-text);
     font-size: 16px;
     line-height: 24px;
     -webkit-font-smoothing: antialiased;
@@ -18,5 +20,5 @@ body {
     letter-spacing: 0.01em;
 }
 a {
-    color: var(--color-primary, $color-primary);
+    color: var(--color-primary, colors.$color-primary);
 }

@@ -1,8 +1,9 @@
-@import "../style/global.scss";
+// Variables
+@use "../style/abstracts/variables/colors";
 
 .listItem {
     line-height: 1.6;
-    color: var(--color-form-element, $color-form-element);
+    color: var(--color-form-element, colors.$color-form-element);
     &.compact {
         line-height: 1.4;
     }

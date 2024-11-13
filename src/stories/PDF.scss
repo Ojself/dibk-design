@@ -1,4 +1,8 @@
-@import "../style/abstracts/_all.scss";
+// Mixins
+@use "../style/abstracts/mixins/box-sizing";
+
+// Variables
+@use "../style/abstracts/variables/colors";
 
 $font-size-body: 16px;
 $font-size-h1: 34px;
@@ -108,7 +112,7 @@ body {
 }
 
 * {
-    @include box-sizing(border-box);
+    @include box-sizing.box-sizing(border-box);
 }
 
 .page {
@@ -326,8 +330,8 @@ body {
     }
 
     blockquote {
-        background: var(--color-secondary-x-light, $color-secondary-x-light);
-        border-left: $border-left-width-blockquote solid var(--color-border, $color-border);
+        background: var(--color-secondary-x-light, colors.$color-secondary-x-light);
+        border-left: $border-left-width-blockquote solid var(--color-border, colors.$color-border);
         margin: $margin-vertical-blockquote $margin-horizontal-blockquote;
         padding: 0.5em $padding-horizontal-blockquote;
         min-height: $min-height-blockquote;
@@ -517,9 +521,9 @@ body {
         }
 
         blockquote {
-            background: var(--color-secondary-x-light, $color-secondary-x-light);
+            background: var(--color-secondary-x-light, colors.$color-secondary-x-light);
             border-left: calc($border-left-width-blockquote * $scaling-for-signed-documents) solid
-                var(--color-border, $color-border);
+                var(--color-border, colors.$color-border);
             margin: calc($margin-vertical-blockquote * $scaling-for-signed-documents)
                 calc($margin-horizontal-blockquote * $scaling-for-signed-documents);
             padding: 0.5em calc($padding-horizontal-blockquote * $scaling-for-signed-documents);
