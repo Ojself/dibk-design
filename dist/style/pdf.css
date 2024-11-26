@@ -69,8 +69,12 @@ body {
   float: right;
   margin-left: 15px;
 }
+.page caption {
+  text-align: left;
+}
 .page h1,
-.page .h1 {
+.page .h1,
+.page caption[style*="--size: 1"] {
   page-break-after: avoid;
   font-size: 34px;
   font-weight: normal;
@@ -79,13 +83,15 @@ body {
   margin-bottom: 0.4em;
 }
 .page h1 small,
-.page .h1 small {
+.page .h1 small,
+.page caption[style*="--size: 1"] small {
   display: block;
   font-size: 18px;
   line-height: 1em;
 }
 .page h2,
-.page .h2 {
+.page .h2,
+.page caption[style*="--size: 2"] {
   page-break-after: avoid;
   font-size: 24px;
   font-weight: normal;
@@ -94,18 +100,21 @@ body {
   margin-bottom: 2px;
 }
 .page h2 small,
-.page .h2 small {
+.page .h2 small,
+.page caption[style*="--size: 2"] small {
   display: block;
   font-size: 16px;
   line-height: 1em;
   margin-bottom: 6px;
 }
 .page h2 + p,
-.page .h2 + p {
+.page .h2 + p,
+.page caption[style*="--size: 2"] + p {
   margin-top: 0;
 }
 .page h3,
-.page .h3 {
+.page .h3,
+.page caption[style*="--size: 3"] {
   page-break-after: avoid;
   font-size: 19px;
   font-weight: normal;
@@ -115,11 +124,14 @@ body {
   margin-bottom: 4px;
 }
 .page h3 + p,
-.page .h3 + p {
+.page .h3 + p,
+.page caption[style*="--size: 3"] + p {
   margin-top: 0;
 }
 .page h4,
-.page .h4 {
+.page .h4,
+.page caption[style*="--size: 4"],
+.page caption:not([style*="--size"]) {
   page-break-after: avoid;
   font-size: 17px;
   font-weight: bold;
@@ -128,11 +140,14 @@ body {
   margin-bottom: 6px;
 }
 .page h4 + p,
-.page .h4 + p {
+.page .h4 + p,
+.page caption[style*="--size: 4"] + p,
+.page caption:not([style*="--size"]) + p {
   margin-top: 0;
 }
 .page h5,
-.page .h5 {
+.page .h5,
+.page caption[style*="--size: 5"] {
   page-break-after: avoid;
   font-size: 16px;
   font-weight: bold;
@@ -230,7 +245,7 @@ body {
   padding-top: 2px;
   padding-bottom: 2px;
 }
-.page table + table thead tr {
+.page table + table > thead:first-child tr {
   border-top: none;
 }
 .page table tbody tr.no-border-top {
@@ -322,39 +337,47 @@ body {
   margin-left: 16.6203px;
 }
 .page.signed-document div.content-container h1,
-.page.signed-document div.content-container .h1 {
+.page.signed-document div.content-container .h1,
+.page.signed-document div.content-container caption[style*="--size: 1"] {
   font-size: 37.67268px;
   margin-top: 5.5401px;
 }
 .page.signed-document div.content-container h1 small,
-.page.signed-document div.content-container .h1 small {
+.page.signed-document div.content-container .h1 small,
+.page.signed-document div.content-container caption[style*="--size: 1"] small {
   font-size: 19.94436px;
 }
 .page.signed-document div.content-container h2,
-.page.signed-document div.content-container .h2 {
+.page.signed-document div.content-container .h2,
+.page.signed-document div.content-container caption[style*="--size: 2"] {
   font-size: 26.59248px;
   margin-top: 24.37644px;
   margin-bottom: 2.21604px;
 }
 .page.signed-document div.content-container h2 small,
-.page.signed-document div.content-container .h2 small {
+.page.signed-document div.content-container .h2 small,
+.page.signed-document div.content-container caption[style*="--size: 2"] small {
   font-size: 17.72832px;
   margin-bottom: 6.64812px;
 }
 .page.signed-document div.content-container h3,
-.page.signed-document div.content-container .h3 {
+.page.signed-document div.content-container .h3,
+.page.signed-document div.content-container caption[style*="--size: 3"] {
   font-size: 21.05238px;
   margin-top: 16.6203px;
   margin-bottom: 4.43208px;
 }
 .page.signed-document div.content-container h4,
-.page.signed-document div.content-container .h4 {
+.page.signed-document div.content-container .h4,
+.page.signed-document div.content-container caption[style*="--size: 4"],
+.page.signed-document div.content-container caption:not([style*="--size"]) {
   font-size: 18.83634px;
   margin-top: 16.6203px;
   margin-bottom: 6.64812px;
 }
 .page.signed-document div.content-container h5,
-.page.signed-document div.content-container .h5 {
+.page.signed-document div.content-container .h5,
+.page.signed-document div.content-container caption[style*="--size: 5"] {
   font-size: 17.72832px;
   margin-top: 13.29624px;
   margin-bottom: 2.21604px;
