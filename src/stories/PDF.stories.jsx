@@ -74,6 +74,41 @@ const h4Example = <h4>Heading level 4 example</h4>;
 
 const h5Example = <h5>Heading level 5 example</h5>;
 
+const captionExample = (
+  <caption>
+    Caption with default size example
+  </caption>
+);
+
+const captionH1Example = (
+  <caption style={{ "--size": 1 }}>
+    Caption with size 1 example
+  </caption>
+);
+
+const captionH2Example = (
+  <caption style={{ "--size": 2 }}>
+    Caption with size 2 example
+  </caption>
+)
+
+const captionH3Example = (
+  <caption style={{ "--size": 3 }}>
+    Caption with size 3 example
+  </caption>
+);
+const captionH4Example = (
+  <caption style={{ "--size": 4 }}>
+    Caption with size 4 example
+  </caption>
+);
+
+const captionH5Example = (
+  <caption style={{ "--size": 5 }}>
+    Caption with size 5 example
+  </caption>
+);
+
 const textParagraphsExample = (
   <>
     <p>
@@ -183,7 +218,7 @@ const tableExampleContent = (
   </>
 );
 
-const tableExample = <table>{tableExampleContent}</table>;
+const tableExample = <table>{captionExample}{tableExampleContent}</table>;
 
 const tableWithoutBordersExample = (
   <table className="no-border">{tableExampleContent}</table>
@@ -270,6 +305,39 @@ export const TableWithoutBorders = Template.bind({});
 TableWithoutBorders.args = {
   signedDocument: false,
   children: tableWithoutBordersExample,
+};
+
+export const Caption = Template.bind({});
+Caption.args = {
+  signedDocument: false,
+  children: (
+    <>
+    <table>
+      {captionExample}
+      {tableExampleContent}
+    </table>
+    <table>
+      {captionH1Example}
+      {tableExampleContent}
+    </table>
+    <table>
+      {captionH2Example}
+      {tableExampleContent}
+    </table>
+    <table>
+      {captionH3Example}
+      {tableExampleContent}
+    </table>
+    <table>
+      {captionH4Example}
+      {tableExampleContent}
+    </table>
+    <table>
+      {captionH5Example}
+      {tableExampleContent}
+    </table>
+    </>
+  ),
 };
 
 export const Blockquote = Template.bind({});
