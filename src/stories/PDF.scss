@@ -58,6 +58,8 @@ $padding-horizontal-table-data: 4px;
 $padding-vertical-no-border-table-header: 0px;
 $padding-vertical-no-border-table-data: 2px;
 
+$column-gap-grid: 20px;
+
 $scaling-for-signed-documents: 1.10802;
 
 html,
@@ -241,40 +243,40 @@ body {
         }
         &[style*="--display-type: inline"],
         &:not([style*="--display-type"]) {
-        &[style*="--title-width"] {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: end;
-            dt {
-                width: var(--title-width);
-            }
-            dd {
-                flex-basis: calc(100% - var(--title-width));
-                flex-grow: 1;
-            }
-        }
-        &:not([style*="--title-width"]) {
-            dt {
-                display: inline;
-                &::before {
-                    display: block;
-                    content: "";
+            &[style*="--title-width"] {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: end;
+                dt {
+                    width: var(--title-width);
                 }
-                &::after {
+                dd {
+                    flex-basis: calc(100% - var(--title-width));
+                    flex-grow: 1;
+                }
+            }
+            &:not([style*="--title-width"]) {
+                dt {
                     display: inline;
-                    content: " ";
+                    &::before {
+                        display: block;
+                        content: "";
+                    }
+                    &::after {
+                        display: inline;
+                        content: " ";
+                    }
                 }
-            }
-            dd {
-                display: inline;
-            }
+                dd {
+                    display: inline;
+                }
             }
         }
         &[style*="--display-type: stacked"] {
             dd {
                 margin-bottom: $margin-bottom-list;
             }
-            }
+        }
     }
     table {
         border-collapse: collapse;
@@ -350,6 +352,13 @@ body {
         &.indent {
             width: 18px;
         }
+    }
+
+    .grid {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        column-gap: $column-gap-grid;
     }
 
     blockquote {
@@ -505,12 +514,12 @@ body {
             }
             &[style*="--display-type: inline"],
             &:not([style*="--display-type"]) {
-            &[style*="--title-width"] {
-                dt {
-                    width: calc(var(--title-width) * $scaling-for-signed-documents);
-                }
-                dd {
-                    flex-basis: calc(100% - (var(--title-width) * $scaling-for-signed-documents));
+                &[style*="--title-width"] {
+                    dt {
+                        width: calc(var(--title-width) * $scaling-for-signed-documents);
+                    }
+                    dd {
+                        flex-basis: calc(100% - (var(--title-width) * $scaling-for-signed-documents));
                     }
                 }
             }
@@ -518,7 +527,7 @@ body {
                 dd {
                     margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
                 }
-                }
+            }
         }
         table {
             thead tr {
@@ -560,6 +569,10 @@ body {
             .indent {
                 width: calc(18px * $scaling-for-signed-documents);
             }
+        }
+
+        .grid {
+            column-gap: calc($column-gap-grid * $scaling-for-signed-documents);
         }
 
         blockquote {

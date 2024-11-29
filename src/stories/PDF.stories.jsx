@@ -232,6 +232,35 @@ const tableWithoutBordersExample = (
   <table className="no-border">{tableExampleContent}</table>
 );
 
+const gridExample = (
+  <div className="grid" style={{ "--columns": "2"}}>
+      <dl style={{ "--display-type": "stacked" }}>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+      </dl>
+      <dl style={{ "--display-type": "stacked" }}>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+      </dl>
+      <dl style={{ "--display-type": "stacked" }}>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+        <dt>List item title:</dt>
+        <dd>List item content</dd>
+      </dl>
+  </div>
+)
+
 const blockquoteExample = <blockquote>Blockquote text</blockquote>;
 
 const checkedCheckboxExample = (
@@ -263,7 +292,10 @@ Default.args = {
       </section>
       <section>
         {h2Example}
-        {textParagraphsExample}
+        {gridExample}
+      </section>
+      <section>
+        {h3Example}
         {uncheckedCheckboxExample}
         {checkedCheckboxExample}
       </section>
@@ -300,7 +332,13 @@ Text.args = {
 export const DescriptionList = Template.bind({});
 DescriptionList.args = {
   signedDocument: false,
-  children: descriptionListExample,
+  children: descriptionListExample
+};
+
+export const Grid = Template.bind({});
+Grid.args = {
+  signedDocument: false,
+  children: gridExample
 };
 
 export const Table = Template.bind({});
