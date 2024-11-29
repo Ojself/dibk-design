@@ -185,33 +185,33 @@ body {
   margin: 0;
   list-style: none;
 }
-.page dl[style*="--display-type: inline"][style*="--title-width"], .page dl:not([style*="--display-type"])[style*="--title-width"] {
+.page dl[style*="--display-type:inline"][style*="--title-width"], .page dl[style*="--display-type: inline"][style*="--title-width"], .page dl:not([style*="--display-type"])[style*="--title-width"] {
   display: flex;
   flex-flow: row wrap;
   align-items: end;
 }
-.page dl[style*="--display-type: inline"][style*="--title-width"] dt, .page dl:not([style*="--display-type"])[style*="--title-width"] dt {
+.page dl[style*="--display-type:inline"][style*="--title-width"] dt, .page dl[style*="--display-type: inline"][style*="--title-width"] dt, .page dl:not([style*="--display-type"])[style*="--title-width"] dt {
   width: var(--title-width);
 }
-.page dl[style*="--display-type: inline"][style*="--title-width"] dd, .page dl:not([style*="--display-type"])[style*="--title-width"] dd {
+.page dl[style*="--display-type:inline"][style*="--title-width"] dd, .page dl[style*="--display-type: inline"][style*="--title-width"] dd, .page dl:not([style*="--display-type"])[style*="--title-width"] dd {
   flex-basis: calc(100% - var(--title-width));
   flex-grow: 1;
 }
-.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt {
+.page dl[style*="--display-type:inline"]:not([style*="--title-width"]) dt, .page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt {
   display: inline;
 }
-.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt::before, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt::before {
+.page dl[style*="--display-type:inline"]:not([style*="--title-width"]) dt::before, .page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt::before, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt::before {
   display: block;
   content: "";
 }
-.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt::after, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt::after {
+.page dl[style*="--display-type:inline"]:not([style*="--title-width"]) dt::after, .page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt::after, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt::after {
   display: inline;
   content: " ";
 }
-.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dd, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dd {
+.page dl[style*="--display-type:inline"]:not([style*="--title-width"]) dd, .page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dd, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dd {
   display: inline;
 }
-.page dl[style*="--display-type: stacked"] dd {
+.page dl[style*="--display-type:stacked"] dd, .page dl[style*="--display-type: stacked"] dd {
   margin-bottom: 12px;
 }
 .page table {
@@ -420,13 +420,13 @@ body {
 .page.signed-document div.content-container dl dd {
   margin: 3.32406px 0;
 }
-.page.signed-document div.content-container dl[style*="--display-type: inline"][style*="--title-width"] dt, .page.signed-document div.content-container dl:not([style*="--display-type"])[style*="--title-width"] dt {
+.page.signed-document div.content-container dl[style*="--display-type:inline"][style*="--title-width"] dt, .page.signed-document div.content-container dl[style*="--display-type: inline"][style*="--title-width"] dt, .page.signed-document div.content-container dl:not([style*="--display-type"])[style*="--title-width"] dt {
   width: calc(var(--title-width) * 1.10802);
 }
-.page.signed-document div.content-container dl[style*="--display-type: inline"][style*="--title-width"] dd, .page.signed-document div.content-container dl:not([style*="--display-type"])[style*="--title-width"] dd {
+.page.signed-document div.content-container dl[style*="--display-type:inline"][style*="--title-width"] dd, .page.signed-document div.content-container dl[style*="--display-type: inline"][style*="--title-width"] dd, .page.signed-document div.content-container dl:not([style*="--display-type"])[style*="--title-width"] dd {
   flex-basis: calc(100% - var(--title-width) * 1.10802);
 }
-.page.signed-document div.content-container dl[style*="--display-type: stacked"] dd {
+.page.signed-document div.content-container dl[style*="--display-type:stacked"] dd, .page.signed-document div.content-container dl[style*="--display-type: stacked"] dd {
   margin-bottom: 13.29624px;
 }
 .page.signed-document div.content-container table thead tr {

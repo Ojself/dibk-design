@@ -241,6 +241,7 @@ body {
                 list-style: none;
             }
         }
+        &[style*="--display-type:inline"],
         &[style*="--display-type: inline"],
         &:not([style*="--display-type"]) {
             &[style*="--title-width"] {
@@ -272,6 +273,7 @@ body {
                 }
             }
         }
+        &[style*="--display-type:stacked"],
         &[style*="--display-type: stacked"] {
             dd {
                 margin-bottom: $margin-bottom-list;
@@ -512,6 +514,7 @@ body {
             dd {
                 margin: calc($margin-vertical-description-list * $scaling-for-signed-documents) 0;
             }
+            &[style*="--display-type:inline"],
             &[style*="--display-type: inline"],
             &:not([style*="--display-type"]) {
                 &[style*="--title-width"] {
@@ -523,6 +526,7 @@ body {
                     }
                 }
             }
+            &[style*="--display-type:stacked"],
             &[style*="--display-type: stacked"] {
                 dd {
                     margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
