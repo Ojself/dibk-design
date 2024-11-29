@@ -185,31 +185,34 @@ body {
   margin: 0;
   list-style: none;
 }
-.page dl[style*="--title-width"] {
+.page dl[style*="--display-type: inline"][style*="--title-width"], .page dl:not([style*="--display-type"])[style*="--title-width"] {
   display: flex;
   flex-flow: row wrap;
   align-items: end;
 }
-.page dl[style*="--title-width"] dt {
+.page dl[style*="--display-type: inline"][style*="--title-width"] dt, .page dl:not([style*="--display-type"])[style*="--title-width"] dt {
   width: var(--title-width);
 }
-.page dl[style*="--title-width"] dd {
+.page dl[style*="--display-type: inline"][style*="--title-width"] dd, .page dl:not([style*="--display-type"])[style*="--title-width"] dd {
   flex-basis: calc(100% - var(--title-width));
   flex-grow: 1;
 }
-.page dl:not([style*="--title-width"]) dt {
+.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt {
   display: inline;
 }
-.page dl:not([style*="--title-width"]) dt::before {
+.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt::before, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt::before {
   display: block;
   content: "";
 }
-.page dl:not([style*="--title-width"]) dt::after {
+.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dt::after, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dt::after {
   display: inline;
   content: " ";
 }
-.page dl:not([style*="--title-width"]) dd {
+.page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dd, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dd {
   display: inline;
+}
+.page dl[style*="--display-type: stacked"] dd {
+  margin-bottom: 12px;
 }
 .page table {
   border-collapse: collapse;
@@ -267,6 +270,12 @@ body {
 .page table thead tr th.indent,
 .page table tbody tr td.indent {
   width: 18px;
+}
+.page .grid {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
 }
 .page blockquote {
   background: var(--color-secondary-x-light, #ebf4fa);
@@ -411,11 +420,14 @@ body {
 .page.signed-document div.content-container dl dd {
   margin: 3.32406px 0;
 }
-.page.signed-document div.content-container dl[style*="--title-width"] dt {
+.page.signed-document div.content-container dl[style*="--display-type: inline"][style*="--title-width"] dt, .page.signed-document div.content-container dl:not([style*="--display-type"])[style*="--title-width"] dt {
   width: calc(var(--title-width) * 1.10802);
 }
-.page.signed-document div.content-container dl[style*="--title-width"] dd {
+.page.signed-document div.content-container dl[style*="--display-type: inline"][style*="--title-width"] dd, .page.signed-document div.content-container dl:not([style*="--display-type"])[style*="--title-width"] dd {
   flex-basis: calc(100% - var(--title-width) * 1.10802);
+}
+.page.signed-document div.content-container dl[style*="--display-type: stacked"] dd {
+  margin-bottom: 13.29624px;
 }
 .page.signed-document div.content-container table thead tr {
   border-width: 1.10802px;
@@ -448,6 +460,9 @@ body {
 .page.signed-document div.content-container table thead tr th .indent,
 .page.signed-document div.content-container table tbody tr td .indent {
   width: 19.94436px;
+}
+.page.signed-document div.content-container .grid {
+  column-gap: 22.1604px;
 }
 .page.signed-document div.content-container blockquote {
   background: var(--color-secondary-x-light, #ebf4fa);
