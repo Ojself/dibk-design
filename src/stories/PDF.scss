@@ -239,6 +239,8 @@ body {
                 list-style: none;
             }
         }
+        &[style*="--display-type: inline"],
+        &:not([style*="--display-type"]) {
         &[style*="--title-width"] {
             display: flex;
             flex-flow: row wrap;
@@ -266,7 +268,13 @@ body {
             dd {
                 display: inline;
             }
+            }
         }
+        &[style*="--display-type: stacked"] {
+            dd {
+                margin-bottom: $margin-bottom-list;
+            }
+            }
     }
     table {
         border-collapse: collapse;
@@ -495,14 +503,22 @@ body {
             dd {
                 margin: calc($margin-vertical-description-list * $scaling-for-signed-documents) 0;
             }
+            &[style*="--display-type: inline"],
+            &:not([style*="--display-type"]) {
             &[style*="--title-width"] {
                 dt {
                     width: calc(var(--title-width) * $scaling-for-signed-documents);
                 }
                 dd {
                     flex-basis: calc(100% - (var(--title-width) * $scaling-for-signed-documents));
+                    }
                 }
             }
+            &[style*="--display-type: stacked"] {
+                dd {
+                    margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
+                }
+                }
         }
         table {
             thead tr {

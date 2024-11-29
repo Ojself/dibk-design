@@ -169,6 +169,14 @@ const descriptionListExample = (
       <dt>List item title:</dt>
       <dd>List item content</dd>
     </dl>
+    <dl style={{ "--display-type": "stacked" }}>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+    </dl>
   </>
 );
 
