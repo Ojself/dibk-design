@@ -290,6 +290,7 @@ body {
                 th {
                     text-align: left;
                     font-size: $font-size-table-header;
+                    word-break: break-word;
                     padding: $padding-vertical-table-header $padding-horizontal-table-header;
                     &[style*="--width"] {
                         width: var(--width);
@@ -301,8 +302,9 @@ body {
             tr {
                 border: 1px solid #000;
                 td {
-                    padding: $padding-vertical-table-data $padding-horizontal-table-data;
                     font-size: $font-size-table-data;
+                    word-break: break-word;
+                    padding: $padding-vertical-table-data $padding-horizontal-table-data;
                     &[style*="--width"] {
                         width: var(--width);
                     }
