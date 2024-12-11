@@ -3968,11 +3968,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:^22.0.0":
-  version: 22.10.1
-  resolution: "@types/node@npm:22.10.1"
+  version: 22.10.2
+  resolution: "@types/node@npm:22.10.2"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/c802a526da2f3fa3ccefd00a71244e7cb825329951719e79e8fec62b1dbc2855388c830489770611584665ce10be23c05ed585982038b24924e1ba2c2cce03fd
+  checksum: 10/451adfefed4add58b069407173e616220fd4aaa3307cdde1bb701aa053b65b54ced8483db2f870dcedec7a58cb3b06101fbc19d85852716672ec1fd3660947fa
   languageName: node
   linkType: hard
 
@@ -12441,15 +12441,15 @@ __metadata:
   linkType: hard
 
 "postcss-modules-local-by-default@npm:^4.0.5":
-  version: 4.1.0
-  resolution: "postcss-modules-local-by-default@npm:4.1.0"
+  version: 4.2.0
+  resolution: "postcss-modules-local-by-default@npm:4.2.0"
   dependencies:
     icss-utils: "npm:^5.0.0"
     postcss-selector-parser: "npm:^7.0.0"
     postcss-value-parser: "npm:^4.1.0"
   peerDependencies:
     postcss: ^8.1.0
-  checksum: 10/1ea247c6dd3d36beb4c849bcf3bc7eab48ee06d91a0c4cc299b9e1c30c2aa384cfaef95019e475a2fb64693edf08fd3633db8f000dc4dbd1e4979c779bdc902c
+  checksum: 10/552329aa39fbf229b8ac5a04f8aed0b1553e7a3c10b165ee700d1deb020c071875b3df7ab5e3591f6af33d461df66d330ec9c1256229e45fc618a47c60f41536
   languageName: node
   linkType: hard
 
