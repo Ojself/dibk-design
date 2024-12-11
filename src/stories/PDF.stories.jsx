@@ -159,7 +159,12 @@ const descriptionListExample = (
       <dt>List item title:</dt>
       <dd>List item content</dd>
       <dt>List item title:</dt>
-      <dd>List item content</dd>
+      <dd>
+        <ul>
+          <li>Nested list item 1</li>
+          <li>Nested list item 2</li>
+        </ul>
+      </dd>
     </dl>
     <dl>
       <dt>List item title:</dt>
@@ -167,7 +172,12 @@ const descriptionListExample = (
       <dt>List item title:</dt>
       <dd>List item content</dd>
       <dt>List item title:</dt>
-      <dd>List item content</dd>
+      <dd>
+        <ul>
+          <li>Nested list item 1</li>
+          <li>Nested list item 2</li>
+        </ul>
+      </dd>
     </dl>
     <dl style={{ "--display-type": "stacked" }}>
       <dt>List item title:</dt>
@@ -175,7 +185,12 @@ const descriptionListExample = (
       <dt>List item title:</dt>
       <dd>List item content</dd>
       <dt>List item title:</dt>
-      <dd>List item content</dd>
+      <dd>
+        <ul>
+          <li>Nested list item 1</li>
+          <li>Nested list item 2</li>
+        </ul>
+      </dd>
     </dl>
   </>
 );
