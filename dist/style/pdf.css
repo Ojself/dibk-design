@@ -168,6 +168,11 @@ body {
   margin-top: 3px;
   margin-bottom: 12px;
 }
+.page ul {
+  margin-top: 3px;
+  margin-bottom: 12px;
+  padding-inline-start: 24px;
+}
 .page dl {
   margin-top: 3px;
   margin-bottom: 12px;
@@ -180,7 +185,7 @@ body {
 .page dl dt {
   font-weight: bold;
 }
-.page dl dd ul {
+.page dl[style*="--display-type:inline"] dd ul, .page dl[style*="--display-type: inline"] dd ul, .page dl:not([style*="--display-type"]) dd ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -188,7 +193,7 @@ body {
 .page dl[style*="--display-type:inline"][style*="--title-width"], .page dl[style*="--display-type: inline"][style*="--title-width"], .page dl:not([style*="--display-type"])[style*="--title-width"] {
   display: flex;
   flex-flow: row wrap;
-  align-items: end;
+  align-items: start;
 }
 .page dl[style*="--display-type:inline"][style*="--title-width"] dt, .page dl[style*="--display-type: inline"][style*="--title-width"] dt, .page dl:not([style*="--display-type"])[style*="--title-width"] dt {
   width: var(--title-width);
@@ -210,6 +215,10 @@ body {
 }
 .page dl[style*="--display-type:inline"]:not([style*="--title-width"]) dd, .page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dd, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dd {
   display: inline;
+}
+.page dl[style*="--display-type:inline"]:not([style*="--title-width"]) dd ul, .page dl[style*="--display-type: inline"]:not([style*="--title-width"]) dd ul, .page dl:not([style*="--display-type"]):not([style*="--title-width"]) dd ul {
+  display: inline-block;
+  vertical-align: text-top;
 }
 .page dl[style*="--display-type:stacked"] dd, .page dl[style*="--display-type: stacked"] dd {
   margin-bottom: 12px;
@@ -477,6 +486,11 @@ body {
 .page.signed-document div.content-container p {
   margin-top: 3.32406px;
   margin-bottom: 13.29624px;
+}
+.page.signed-document div.content-container ul {
+  margin-top: 3.32406px;
+  margin-bottom: 13.29624px;
+  padding-inline-start: 26.59248px;
 }
 .page.signed-document div.content-container dl {
   margin-top: 3.32406px;

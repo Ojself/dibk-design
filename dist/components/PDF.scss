@@ -51,6 +51,8 @@ $min-height-blockquote: 36px;
 
 $margin-vertical-description-list: 3px;
 
+$hierarchy-indent-list: 24px;
+
 $margin-top-checkbox-container: 10px;
 $margin-bottom-checkbox-container: 10px;
 
@@ -227,6 +229,12 @@ body {
         margin-bottom: $margin-bottom-paragraph;
     }
 
+    ul {
+        margin-top: $margin-top-list;
+        margin-bottom: $margin-bottom-list;
+        padding-inline-start: $hierarchy-indent-list;
+    }
+
     dl {
         margin-top: $margin-top-list;
         margin-bottom: $margin-bottom-list;
@@ -238,20 +246,20 @@ body {
         dt {
             font-weight: bold;
         }
-        dd {
-            ul {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-            }
-        }
         &[style*="--display-type:inline"],
         &[style*="--display-type: inline"],
         &:not([style*="--display-type"]) {
+            dd {
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                }
+            }
             &[style*="--title-width"] {
                 display: flex;
                 flex-flow: row wrap;
-                align-items: end;
+                align-items: start;
                 dt {
                     width: var(--title-width);
                 }
@@ -274,6 +282,10 @@ body {
                 }
                 dd {
                     display: inline;
+                    ul {
+                        display: inline-block;
+                        vertical-align: text-top;
+                    }
                 }
             }
         }
@@ -578,6 +590,11 @@ body {
         p {
             margin-top: calc($margin-top-paragraph * $scaling-for-signed-documents);
             margin-bottom: calc($margin-bottom-paragraph * $scaling-for-signed-documents);
+        }
+        ul {
+            margin-top: calc($margin-top-list * $scaling-for-signed-documents);
+            margin-bottom: calc($margin-bottom-list * $scaling-for-signed-documents);
+            padding-inline-start: calc($hierarchy-indent-list * $scaling-for-signed-documents);
         }
         dl {
             margin-top: calc($margin-top-list * $scaling-for-signed-documents);
