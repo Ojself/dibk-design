@@ -343,6 +343,70 @@ body {
   line-height: 1.2em;
   flex: none;
 }
+.page *[style*="--mt:none"],
+.page *[style*="--mt: none"] {
+  margin-top: 0;
+}
+.page *[style*="--mb:none"],
+.page *[style*="--mb: none"] {
+  margin-bottom: 0;
+}
+.page *[style*="--ml:none"],
+.page *[style*="--ml: none"] {
+  margin-left: 0;
+}
+.page *[style*="--mr:none"],
+.page *[style*="--mr: none"] {
+  margin-right: 0;
+}
+.page *[style*="--mt:sm"],
+.page *[style*="--mt: sm"] {
+  margin-top: 12px;
+}
+.page *[style*="--mb:sm"],
+.page *[style*="--mb: sm"] {
+  margin-bottom: 12px;
+}
+.page *[style*="--ml:sm"],
+.page *[style*="--ml: sm"] {
+  margin-left: 12px;
+}
+.page *[style*="--mr:sm"],
+.page *[style*="--mr: sm"] {
+  margin-right: 12px;
+}
+.page *[style*="--mt:md"],
+.page *[style*="--mt: md"] {
+  margin-top: 24px;
+}
+.page *[style*="--mb:md"],
+.page *[style*="--mb: md"] {
+  margin-bottom: 24px;
+}
+.page *[style*="--ml:md"],
+.page *[style*="--ml: md"] {
+  margin-left: 24px;
+}
+.page *[style*="--mr:md"],
+.page *[style*="--mr: md"] {
+  margin-right: 24px;
+}
+.page *[style*="--mt:lg"],
+.page *[style*="--mt: lg"] {
+  margin-top: 36px;
+}
+.page *[style*="--mb:lg"],
+.page *[style*="--mb: lg"] {
+  margin-bottom: 36px;
+}
+.page *[style*="--ml:lg"],
+.page *[style*="--ml: lg"] {
+  margin-left: 36px;
+}
+.page *[style*="--mr:lg"],
+.page *[style*="--mr: lg"] {
+  margin-right: 36px;
+}
 
 .page.signed-document {
   padding-top: 0.75cm;
@@ -485,6 +549,54 @@ body {
   font-size: 22.1604px;
   border-width: 1.10802px;
   margin-right: 8.86416px;
+}
+.page.signed-document *[style*="--mt:sm"],
+.page.signed-document *[style*="--mt: sm"] {
+  margin-top: 13.29624px;
+}
+.page.signed-document *[style*="--mb:sm"],
+.page.signed-document *[style*="--mb: sm"] {
+  margin-bottom: 13.29624px;
+}
+.page.signed-document *[style*="--ml:sm"],
+.page.signed-document *[style*="--ml: sm"] {
+  margin-left: 13.29624px;
+}
+.page.signed-document *[style*="--mr:sm"],
+.page.signed-document *[style*="--mr: sm"] {
+  margin-right: 13.29624px;
+}
+.page.signed-document *[style*="--mt:md"],
+.page.signed-document *[style*="--mt: md"] {
+  margin-top: 26.59248px;
+}
+.page.signed-document *[style*="--mb:md"],
+.page.signed-document *[style*="--mb: md"] {
+  margin-bottom: 26.59248px;
+}
+.page.signed-document *[style*="--ml:md"],
+.page.signed-document *[style*="--ml: md"] {
+  margin-left: 26.59248px;
+}
+.page.signed-document *[style*="--mr:md"],
+.page.signed-document *[style*="--mr: md"] {
+  margin-right: 26.59248px;
+}
+.page.signed-document *[style*="--mt:lg"],
+.page.signed-document *[style*="--mt: lg"] {
+  margin-top: 39.88872px;
+}
+.page.signed-document *[style*="--mb:lg"],
+.page.signed-document *[style*="--mb: lg"] {
+  margin-bottom: 39.88872px;
+}
+.page.signed-document *[style*="--ml:lg"],
+.page.signed-document *[style*="--ml: lg"] {
+  margin-left: 39.88872px;
+}
+.page.signed-document *[style*="--mr:lg"],
+.page.signed-document *[style*="--mr: lg"] {
+  margin-right: 39.88872px;
 }
 
 @media print {

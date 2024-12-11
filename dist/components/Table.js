@@ -12,12 +12,12 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 const getCaptionAlignClass = captionAlign => {
   const defaultValue = "left";
   const availableValues = ["left", "center", "right"];
-  return captionAlign?.length && availableValues.includes(captionAlign) ? _TableModule.default[`captionAlign-${captionAlign}`] : _TableModule.default[`captionAlign-${defaultValue}`];
+  return captionAlign !== null && captionAlign !== void 0 && captionAlign.length && availableValues.includes(captionAlign) ? _TableModule.default["captionAlign-".concat(captionAlign)] : _TableModule.default["captionAlign-".concat(defaultValue)];
 };
 const getCaptionSideClass = captionSide => {
   const defaultValue = "top";
   const availableValues = ["top", "bottom"];
-  return captionSide?.length && availableValues.includes(captionSide) ? _TableModule.default[`captionSide-${captionSide}`] : _TableModule.default[`captionSide-${defaultValue}`];
+  return captionSide !== null && captionSide !== void 0 && captionSide.length && availableValues.includes(captionSide) ? _TableModule.default["captionSide-".concat(captionSide)] : _TableModule.default["captionSide-".concat(defaultValue)];
 };
 const Table = props => {
   return _react.default.createElement("table", {

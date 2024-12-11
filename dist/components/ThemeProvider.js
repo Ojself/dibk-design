@@ -15,7 +15,7 @@ const ThemeProvider = _ref => {
   } = _ref;
   const cssVariablesFromTheme = (0, _helpers.getCssVariablesFromTheme)(theme);
   const cssColorVariablesString = (0, _helpers.stringifyCssColorVariables)(cssVariablesFromTheme);
-  (0, _helpers.addGlobalStylesheet)("theme-provider", `:root {${cssColorVariablesString}} ${_ThemeProviderModule.default}`);
+  (0, _helpers.addGlobalStylesheet)("theme-provider", ":root {".concat(cssColorVariablesString, "} ").concat(_ThemeProviderModule.default));
   return children;
 };
 ThemeProvider.propTypes = {

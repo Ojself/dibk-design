@@ -12,24 +12,27 @@ var _generators = require("../functions/generators");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _TextareaModule = _interopRequireDefault(require("./Textarea.module.scss"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const Textarea = props => {
   const renderValueAsText = (value, defaultContent) => {
     return value ? value : defaultContent;
   };
   const getErrorElementId = () => {
-    return `${props.id}-errorMessage`;
+    return "".concat(props.id, "-errorMessage");
   };
   const renderInputField = () => {
-    const defaultValue = !props.value?.length && props.defaultValue?.length ? props.defaultValue : false;
+    var _props$value, _props$defaultValue, _props$width, _props$resize, _props$errorMessage, _props$ariaDescribed;
+    const defaultValue = !((_props$value = props.value) !== null && _props$value !== void 0 && _props$value.length) && (_props$defaultValue = props.defaultValue) !== null && _props$defaultValue !== void 0 && _props$defaultValue.length ? props.defaultValue : false;
     const defaultKey = props.elementKey || null;
-    const styleRules = {
-      ...(props.width?.length && {
-        maxWidth: props.width
-      }),
-      ...(props.resize?.length && {
-        resize: props.resize
-      })
-    };
+    const styleRules = _objectSpread(_objectSpread({}, ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
+      maxWidth: props.width
+    }), ((_props$resize = props.resize) === null || _props$resize === void 0 ? void 0 : _props$resize.length) && {
+      resize: props.resize
+    });
     const textareaElementProps = {
       name: props.name,
       readOnly: props.readOnly,
@@ -37,14 +40,14 @@ const Textarea = props => {
       required: props.required,
       type: props.type,
       id: props.id,
-      key: defaultKey || `${props.id}-${(0, _generators.generateRandomString)(6)}`,
+      key: defaultKey || "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
       onChange: props.onChange,
       onBlur: props.onBlur,
       [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
       placeholder: props.placeholder,
       rows: props.rows,
       className: props.hasErrors ? _TextareaModule.default.hasErrors : "",
-      "aria-describedby": props.hasErrors && !!props.errorMessage?.length ? getErrorElementId() : !!props["aria-describedby"]?.length ? props["aria-describedby"] : null,
+      "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
       "aria-invalid": props.hasErrors ? "true" : null,
       style: styleRules
     };

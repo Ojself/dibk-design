@@ -10,7 +10,7 @@ var _PaperModule = _interopRequireDefault(require("./Paper.module.scss"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const Paper = props => {
   return _react.default.createElement("div", {
-    className: `${_PaperModule.default.paper} ${props.noMargin ? _PaperModule.default.noMargin : ""} ${props.noPadding ? _PaperModule.default.noPadding : ""}`
+    className: "".concat(_PaperModule.default.paper, " ").concat(props.noMargin ? _PaperModule.default.noMargin : "", " ").concat(props.noPadding ? _PaperModule.default.noPadding : "")
   }, props.children);
 };
 Paper.propTypes = {

@@ -11,13 +11,15 @@ var _errorSign = _interopRequireDefault(require("../assets/svg/error-sign.svg?ur
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 const ErrorMessage = props => {
+  var _props$content;
   const getErrorElementProps = () => {
+    var _props$id;
     return {
-      id: !!props.id?.length ? props.id : null,
+      id: !!((_props$id = props.id) !== null && _props$id !== void 0 && _props$id.length) ? props.id : null,
       className: _ErrorMessageModule.default.errorMessage
     };
   };
-  return props?.content?.length ? _react.default.createElement("span", _extends({
+  return props !== null && props !== void 0 && (_props$content = props.content) !== null && _props$content !== void 0 && _props$content.length ? _react.default.createElement("span", _extends({
     "aria-live": "polite"
   }, getErrorElementProps()), _react.default.createElement("img", {
     src: _errorSign.default,

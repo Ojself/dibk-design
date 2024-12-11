@@ -12,7 +12,7 @@ var _CheckBoxInputModule = _interopRequireDefault(require("./CheckBoxInput.modul
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CheckBoxInput = props => {
   const labelProps = {
-    className: `${_CheckBoxInputModule.default.checkBoxInput} ${props.contentOnly ? _CheckBoxInputModule.default.contentOnly : ""} ${props.disabled ? _CheckBoxInputModule.default.disabled : ""} ${props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ""}`,
+    className: "".concat(_CheckBoxInputModule.default.checkBoxInput, " ").concat(props.contentOnly ? _CheckBoxInputModule.default.contentOnly : "", " ").concat(props.disabled ? _CheckBoxInputModule.default.disabled : "", " ").concat(props.hasErrors ? _CheckBoxInputModule.default.hasErrors : ""),
     htmlFor: props.id
   };
   const iconProps = {

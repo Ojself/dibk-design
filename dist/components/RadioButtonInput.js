@@ -12,7 +12,7 @@ var _RadioButtonInputModule = _interopRequireDefault(require("./RadioButtonInput
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const RadioButtonInput = props => {
   const labelProps = {
-    className: `${_RadioButtonInputModule.default.radioButtonInput} ${props.checked ? _RadioButtonInputModule.default.checked : ""} ${props.disabled ? _RadioButtonInputModule.default.disabled : ""} ${props.hasErrors ? _RadioButtonInputModule.default.hasErrors : ""}`,
+    className: "".concat(_RadioButtonInputModule.default.radioButtonInput, " ").concat(props.checked ? _RadioButtonInputModule.default.checked : "", " ").concat(props.disabled ? _RadioButtonInputModule.default.disabled : "", " ").concat(props.hasErrors ? _RadioButtonInputModule.default.hasErrors : ""),
     htmlFor: props.id
   };
   const iconProps = {

@@ -15,7 +15,7 @@ const CheckBoxIcon = props => {
     fontSize: props.size
   };
   const checkBoxIconProps = {
-    className: `${_CheckBoxIconModule.default.checkBoxIcon} ${props.checked ? _CheckBoxIconModule.default.checked : ""} ${props.disabled ? _CheckBoxIconModule.default.disabled : ""} ${props.showBox ? _CheckBoxIconModule.default.showBox : ""} ${props.hasErrors ? _CheckBoxIconModule.default.hasErrors : ""}`,
+    className: "".concat(_CheckBoxIconModule.default.checkBoxIcon, " ").concat(props.checked ? _CheckBoxIconModule.default.checked : "", " ").concat(props.disabled ? _CheckBoxIconModule.default.disabled : "", " ").concat(props.showBox ? _CheckBoxIconModule.default.showBox : "", " ").concat(props.hasErrors ? _CheckBoxIconModule.default.hasErrors : ""),
     style: inlineStyle
   };
   return _react.default.createElement("span", checkBoxIconProps, _react.default.createElement("span", {

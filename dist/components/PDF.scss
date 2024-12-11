@@ -24,6 +24,10 @@ $width-checkbox: 22px;
 $heading-logo-width: 100px;
 $heading-logo-margin-left: 15px;
 
+$margin-sm: 12px;
+$margin-md: 24px;
+$margin-lg: 36px;
+
 $margin-top-h1: 5px;
 $margin-top-h2: 22px;
 $margin-bottom-h2: 2px;
@@ -442,6 +446,72 @@ body {
         line-height: 1.2em;
         flex: none;
     }
+
+    //Margins
+    *[style*="--mt:none"],
+    *[style*="--mt: none"] {
+        margin-top: 0;
+    }
+    *[style*="--mb:none"],
+    *[style*="--mb: none"] {
+        margin-bottom: 0;
+    }
+    *[style*="--ml:none"],
+    *[style*="--ml: none"] {
+        margin-left: 0;
+    }
+    *[style*="--mr:none"],
+    *[style*="--mr: none"] {
+        margin-right: 0;
+    }
+    *[style*="--mt:sm"],
+    *[style*="--mt: sm"] {
+        margin-top: $margin-sm;
+    }
+    *[style*="--mb:sm"],
+    *[style*="--mb: sm"] {
+        margin-bottom: $margin-sm;
+    }
+    *[style*="--ml:sm"],
+    *[style*="--ml: sm"] {
+        margin-left: $margin-sm;
+    }
+    *[style*="--mr:sm"],
+    *[style*="--mr: sm"] {
+        margin-right: $margin-sm;
+    }
+    *[style*="--mt:md"],
+    *[style*="--mt: md"] {
+        margin-top: $margin-md;
+    }
+    *[style*="--mb:md"],
+    *[style*="--mb: md"] {
+        margin-bottom: $margin-md;
+    }
+    *[style*="--ml:md"],
+    *[style*="--ml: md"] {
+        margin-left: $margin-md;
+    }
+    *[style*="--mr:md"],
+    *[style*="--mr: md"] {
+        margin-right: $margin-md;
+    }
+    *[style*="--mt:lg"],
+    *[style*="--mt: lg"] {
+        margin-top: $margin-lg;
+    }
+    *[style*="--mb:lg"],
+    *[style*="--mb: lg"] {
+        margin-bottom: $margin-lg;
+    }
+    *[style*="--ml:lg"],
+    *[style*="--ml: lg"] {
+        margin-left: $margin-lg;
+    }
+    *[style*="--mr:lg"],
+    *[style*="--mr: lg"] {
+        margin-right: $margin-lg;
+    }
 }
 
 // For signed documents
@@ -604,6 +674,55 @@ body {
                 margin-right: calc(8px * $scaling-for-signed-documents);
             }
         }
+    }
+    //Margins
+    *[style*="--mt:sm"],
+    *[style*="--mt: sm"] {
+        margin-top: calc($margin-sm * $scaling-for-signed-documents);
+    }
+    *[style*="--mb:sm"],
+    *[style*="--mb: sm"] {
+        margin-bottom: calc($margin-sm * $scaling-for-signed-documents);
+    }
+    *[style*="--ml:sm"],
+    *[style*="--ml: sm"] {
+        margin-left: calc($margin-sm * $scaling-for-signed-documents);
+    }
+    *[style*="--mr:sm"],
+    *[style*="--mr: sm"] {
+        margin-right: calc($margin-sm * $scaling-for-signed-documents);
+    }
+    *[style*="--mt:md"],
+    *[style*="--mt: md"] {
+        margin-top: calc($margin-md * $scaling-for-signed-documents);
+    }
+    *[style*="--mb:md"],
+    *[style*="--mb: md"] {
+        margin-bottom: calc($margin-md * $scaling-for-signed-documents);
+    }
+    *[style*="--ml:md"],
+    *[style*="--ml: md"] {
+        margin-left: calc($margin-md * $scaling-for-signed-documents);
+    }
+    *[style*="--mr:md"],
+    *[style*="--mr: md"] {
+        margin-right: calc($margin-md * $scaling-for-signed-documents);
+    }
+    *[style*="--mt:lg"],
+    *[style*="--mt: lg"] {
+        margin-top: calc($margin-lg * $scaling-for-signed-documents);
+    }
+    *[style*="--mb:lg"],
+    *[style*="--mb: lg"] {
+        margin-bottom: calc($margin-lg * $scaling-for-signed-documents);
+    }
+    *[style*="--ml:lg"],
+    *[style*="--ml: lg"] {
+        margin-left: calc($margin-lg * $scaling-for-signed-documents);
+    }
+    *[style*="--mr:lg"],
+    *[style*="--mr: lg"] {
+        margin-right: calc($margin-lg * $scaling-for-signed-documents);
     }
 }
 @media print {

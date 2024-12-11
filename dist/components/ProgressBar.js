@@ -11,7 +11,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 const ProgressBar = props => {
   const scssValueProperty = "--value";
   return _react.default.createElement("div", {
-    className: `${_ProgressBarModule.default.progressBar} ${props.hasErrors ? _ProgressBarModule.default.hasErrors : ""}`,
+    className: "".concat(_ProgressBarModule.default.progressBar, " ").concat(props.hasErrors ? _ProgressBarModule.default.hasErrors : ""),
     role: "progressbar",
     "aria-valuenow": props.progress || 0,
     "aria-valuemin": "0",

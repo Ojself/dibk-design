@@ -13,6 +13,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 const Dialog = props => {
+  var _props$attachTo, _props$maxWidth;
   const dialogRef = (0, _react.useRef)();
   const dialogContainerRef = (0, _react.useRef)();
   const dialogContentRef = (0, _react.useCallback)(element => {
@@ -32,7 +33,7 @@ const Dialog = props => {
       }
     };
     const handleClickOutside = event => {
-      if (dialogContainerRef?.current && !dialogContainerRef.current.contains(event.target)) {
+      if (dialogContainerRef !== null && dialogContainerRef !== void 0 && dialogContainerRef.current && !dialogContainerRef.current.contains(event.target)) {
         props.onClickOutside();
       }
     };
@@ -45,9 +46,9 @@ const Dialog = props => {
       props.modal ? dialogRef.current.showModal() : dialogRef.current.show();
     }
   }, [dialogRef, props.hidden, props.modal]);
-  const sideBarClassNames = props.attachTo?.length && (0, _helpers.classNameArrayToClassNameString)([_DialogModule.default.isSidebar, _DialogModule.default[props.attachTo]]);
+  const sideBarClassNames = ((_props$attachTo = props.attachTo) === null || _props$attachTo === void 0 ? void 0 : _props$attachTo.length) && (0, _helpers.classNameArrayToClassNameString)([_DialogModule.default.isSidebar, _DialogModule.default[props.attachTo]]);
   const dialogContentStyleProps = {
-    "--max-width": props?.maxWidth?.length && props.maxWidth
+    "--max-width": (props === null || props === void 0 || (_props$maxWidth = props.maxWidth) === null || _props$maxWidth === void 0 ? void 0 : _props$maxWidth.length) && props.maxWidth
   };
   return _react.default.createElement("dialog", {
     className: (0, _helpers.classNameArrayToClassNameString)([_DialogModule.default.dialog, sideBarClassNames]),

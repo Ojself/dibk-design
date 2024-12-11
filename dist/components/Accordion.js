@@ -33,14 +33,14 @@ const Accordion = props => {
     }), _react.default.createElement("span", {
       className: _AccordionModule.default.panelText
     }, props.title), _react.default.createElement("span", {
-      className: `${_AccordionModule.default.panelChevron} ${expanded ? _AccordionModule.default.expanded : ""}`
+      className: "".concat(_AccordionModule.default.panelChevron, " ").concat(expanded ? _AccordionModule.default.expanded : "")
     }));
   };
   const className = (0, _helpers.classNameArrayToClassNameString)([_AccordionModule.default.accordion, props.color && _AccordionModule.default[props.color], !props.noMargin && _AccordionModule.default.margin]);
   return _react.default.createElement("div", {
     className: className
   }, renderPanel(), _react.default.createElement("div", {
-    className: `${_AccordionModule.default.content} ${initialized ? _AccordionModule.default.initialized : ""} ${expanded ? _AccordionModule.default.expanded : ""}`
+    className: "".concat(_AccordionModule.default.content, " ").concat(initialized ? _AccordionModule.default.initialized : "", " ").concat(expanded ? _AccordionModule.default.expanded : "")
   }, props.children));
 };
 Accordion.propTypes = {

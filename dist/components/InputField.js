@@ -14,24 +14,31 @@ var _helpers = require("../functions/helpers");
 var _asterisk = _interopRequireDefault(require("../assets/svg/asterisk.svg?url"));
 var _InputFieldModule = _interopRequireDefault(require("./InputField.module.scss"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const InputField = props => {
+  var _props$width;
   const formatDate = inputDate => {
     if (!inputDate) {
       return null;
     }
     const date = new Date(inputDate);
     const year = date.getFullYear();
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    return `${day}.${month}.${year}`;
+    const month = date.getMonth() + 1 < 10 ? "0".concat(date.getMonth() + 1) : date.getMonth() + 1;
+    const day = date.getDate() < 10 ? "0".concat(date.getDate()) : date.getDate();
+    return "".concat(day, ".").concat(month, ".").concat(year);
   };
   const renderValueAsText = (value, defaultContent) => {
     return props.type === "date" ? value ? formatDate(value) : defaultContent : value ? value : defaultContent;
   };
   const getErrorElementId = () => {
-    return `${props.id}-errorMessage`;
+    return "".concat(props.id, "-errorMessage");
   };
   const getInputElementProps = (defaultValue, defaultKey, styleRules) => {
+    var _props$errorMessage, _props$ariaDescribed;
     return {
       name: props.name,
       readOnly: props.readOnly,
@@ -40,7 +47,7 @@ const InputField = props => {
       type: props.type,
       role: props.role,
       id: props.id,
-      key: defaultKey || `${props.id}-${(0, _generators.generateRandomString)(6)}`,
+      key: defaultKey || "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
       min: props.min || null,
       max: props.max || null,
       onChange: props.onChange,
@@ -48,7 +55,7 @@ const InputField = props => {
       [defaultValue ? "defaultValue" : "value"]: defaultValue || props.value,
       placeholder: props.placeholder || null,
       className: props.hasErrors ? _InputFieldModule.default.hasErrors : null,
-      "aria-describedby": props.hasErrors && !!props.errorMessage?.length ? getErrorElementId() : !!props["aria-describedby"]?.length ? props["aria-describedby"] : null,
+      "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
       "aria-invalid": props.hasErrors ? "true" : null,
       "aria-autocomplete": props["aria-autocomplete"] || null,
       style: styleRules
@@ -56,11 +63,9 @@ const InputField = props => {
   };
   const defaultValue = props.defaultValue ? props.defaultValue : props.value || null;
   const defaultKey = props.elementKey || null;
-  const styleRules = {
-    ...(props.width?.length && {
-      maxWidth: props.width
-    })
-  };
+  const styleRules = _objectSpread({}, ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
+    maxWidth: props.width
+  });
   return _react.default.createElement("div", {
     className: (0, _helpers.classNameArrayToClassNameString)([_InputFieldModule.default.inputField, _InputFieldModule.default[props.type], props.noMargin && _InputFieldModule.default.noMargin])
   }, _react.default.createElement(_Label.default, {

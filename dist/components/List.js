@@ -15,7 +15,7 @@ const List = props => {
     return childElementsthroughFragments.map((childElement, index) => {
       const childElementCopy = _react.default.cloneElement(childElement, {
         compact: props.compact,
-        key: `listItem-${index}`
+        key: "listItem-".concat(index)
       });
       return childElementCopy;
     });
@@ -25,7 +25,7 @@ const List = props => {
     const defaultListStyle = props.ordered ? "decimal" : "disc";
     const scssValueProperty = "--listStyle";
     let listElement = _react.default.createElement(listType, {
-      className: `${_ListModule.default.list} ${!!props.compact ? _ListModule.default.compact : ""}`,
+      className: "".concat(_ListModule.default.list, " ").concat(!!props.compact ? _ListModule.default.compact : ""),
       style: {
         [scssValueProperty]: props.listStyle || defaultListStyle
       }

@@ -22,12 +22,13 @@ const RadioButtonList = _ref => {
   const renderChildElements = childElements => {
     const childElementsthroughFragments = (0, _helpers.cloneThroughFragments)(childElements);
     return childElementsthroughFragments.map((childElement, index) => {
-      const isRadioButtonListItem = childElement?.props?.type === "RadioButtonListItem";
+      var _childElement$props;
+      const isRadioButtonListItem = (childElement === null || childElement === void 0 || (_childElement$props = childElement.props) === null || _childElement$props === void 0 ? void 0 : _childElement$props.type) === "RadioButtonListItem";
       if (isRadioButtonListItem) {
         const childElementCopy = _react.default.cloneElement(childElement, {
           requiredGroup: required,
           compact: compact,
-          key: `radioButtonListItem-${index}`
+          key: "radioButtonListItem-".concat(index)
         });
         return childElementCopy;
       } else {
@@ -37,7 +38,7 @@ const RadioButtonList = _ref => {
   };
   return _react.default.createElement("fieldset", {
     className: _RadioButtonListModule.default.radioButtonList
-  }, !!legend?.length ? _react.default.createElement("legend", null, legendSize ? _react.default.createElement(_Header.default, {
+  }, !!(legend !== null && legend !== void 0 && legend.length) ? _react.default.createElement("legend", null, legendSize ? _react.default.createElement(_Header.default, {
     size: legendSize
   }, legend) : legend, required && _react.default.createElement("img", {
     src: _asterisk.default,

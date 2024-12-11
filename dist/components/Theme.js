@@ -35,7 +35,7 @@ const Theme = _ref => {
       return _react.default.createElement(_react.Fragment, {
         key: color
       }, _react.default.createElement("div", null, color), _react.default.createElement("div", {
-        className: `${_ThemeModule.default.color} ${colorClassName}`
+        className: "".concat(_ThemeModule.default.color, " ").concat(colorClassName)
       }));
     });
   };

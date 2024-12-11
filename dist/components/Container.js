@@ -9,8 +9,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _ContainerModule = _interopRequireDefault(require("./Container.module.scss"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const Container = props => {
+  var _props$maxWidth;
   const styleProps = {
-    "--max-width": props?.maxWidth?.length && props.maxWidth
+    "--max-width": (props === null || props === void 0 || (_props$maxWidth = props.maxWidth) === null || _props$maxWidth === void 0 ? void 0 : _props$maxWidth.length) && props.maxWidth
   };
   return _react.default.createElement("div", {
     className: _ContainerModule.default.container,

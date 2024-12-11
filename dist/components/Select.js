@@ -17,6 +17,11 @@ var _SelectModule = _interopRequireDefault(require("./Select.module.scss"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const Select = props => {
   const [showDropdownList, setShowDropdownList] = (0, _react.useState)(false);
   const dropdownRef = (0, _react.useRef)();
@@ -39,7 +44,7 @@ const Select = props => {
       }
     };
     const handleClickOutside = event => {
-      if (dropdownRef?.current && !dropdownRef.current.contains(event.target)) {
+      if (dropdownRef !== null && dropdownRef !== void 0 && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         hideDropdownList();
       }
     };
@@ -77,7 +82,7 @@ const Select = props => {
   };
   const renderSelectedValues = (options, selectElementProps) => {
     const selectedValues = selectElementProps.defaultValue || selectElementProps.value;
-    return selectedValues?.length ? selectedValues.map(value => {
+    return selectedValues !== null && selectedValues !== void 0 && selectedValues.length ? selectedValues.map(value => {
       const keyForValue = getKeyByValue(value, options);
       return keyForValue;
     }).join(", ") : null;
@@ -89,7 +94,7 @@ const Select = props => {
       const isSelected = selectedValues && selectedValues.length && selectedValues.includes(optionObject.value);
       return _react.default.createElement(_CheckBoxListItem.default, {
         key: index,
-        id: `${props.id}-${index}`,
+        id: "".concat(props.id, "-").concat(index),
         value: optionObject.value,
         checked: isSelected,
         onChange: () => selectElementProps.onChange(optionObject.value)
@@ -112,7 +117,7 @@ const Select = props => {
     }, placeholder) : "";
   };
   const getErrorElementId = () => {
-    return `${props.id}-errorMessage`;
+    return "".concat(props.id, "-errorMessage");
   };
   if (props.contentOnly) {
     const value = props.defaultValue ? props.defaultValue : props.value || null;
@@ -122,12 +127,11 @@ const Select = props => {
       htmlFor: props.id
     }, props.label), _react.default.createElement("span", null, value ? props.keyAsContent ? getKeyByValue(value, props.options) : value : props.defaultContent));
   } else {
+    var _props$width, _props$errorMessage, _props$ariaDescribed, _props$width2;
     const defaultValue = !props.value && props.defaultValue ? props.defaultValue : false;
-    const styleRules = {
-      ...(props.width?.length && {
-        maxWidth: props.width
-      })
-    };
+    const styleRules = _objectSpread({}, ((_props$width = props.width) === null || _props$width === void 0 ? void 0 : _props$width.length) && {
+      maxWidth: props.width
+    });
     const className = (0, _helpers.classNameArrayToClassNameString)([props.hasErrors && _SelectModule.default.hasErrors, props.multiple && _SelectModule.default.multiple]);
     const selectElementProps = {
       name: props.name,
@@ -138,9 +142,9 @@ const Select = props => {
       onChange: props.onChange,
       id: props.id,
       role: props.role,
-      key: `${props.id}-${(0, _generators.generateRandomString)(6)}`,
+      key: "".concat(props.id, "-").concat((0, _generators.generateRandomString)(6)),
       className,
-      "aria-describedby": props.hasErrors && !!props.errorMessage?.length ? getErrorElementId() : !!props["aria-describedby"]?.length ? props["aria-describedby"] : null,
+      "aria-describedby": props.hasErrors && !!((_props$errorMessage = props.errorMessage) !== null && _props$errorMessage !== void 0 && _props$errorMessage.length) ? getErrorElementId() : !!((_props$ariaDescribed = props["aria-describedby"]) !== null && _props$ariaDescribed !== void 0 && _props$ariaDescribed.length) ? props["aria-describedby"] : null,
       "aria-invalid": props.hasErrors ? "true" : null,
       style: styleRules
     };
@@ -154,11 +158,9 @@ const Select = props => {
       className: _SelectModule.default.requiredSymbol
     })), _react.default.createElement("div", {
       className: _SelectModule.default.selectContainer,
-      style: {
-        ...(props.width?.length && {
-          maxWidth: props.width
-        })
-      }
+      style: _objectSpread({}, ((_props$width2 = props.width) === null || _props$width2 === void 0 ? void 0 : _props$width2.length) && {
+        maxWidth: props.width
+      })
     }, _react.default.createElement("span", {
       className: _SelectModule.default.selectListArrow
     }), props.multiple ? _react.default.createElement("div", {

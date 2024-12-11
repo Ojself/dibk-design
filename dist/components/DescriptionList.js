@@ -21,7 +21,7 @@ const DescriptionList = _ref => {
       const childElementCopy = _react.default.cloneElement(childElement, {
         compact: compact,
         titleWidth: titleWidth,
-        key: `descriptionListItem-${index}`
+        key: "descriptionListItem-".concat(index)
       });
       return childElementCopy;
     });

@@ -14,7 +14,7 @@ const RadioButtonIcon = props => {
     width: props.size
   };
   const radioButtonIconProps = {
-    className: `${_RadioButtonIconModule.default.radioButtonIcon} ${props.checked ? _RadioButtonIconModule.default.checked : ""} ${props.disabled ? _RadioButtonIconModule.default.disabled : ""} ${props.hasErrors ? _RadioButtonIconModule.default.hasErrors : ""}`,
+    className: "".concat(_RadioButtonIconModule.default.radioButtonIcon, " ").concat(props.checked ? _RadioButtonIconModule.default.checked : "", " ").concat(props.disabled ? _RadioButtonIconModule.default.disabled : "", " ").concat(props.hasErrors ? _RadioButtonIconModule.default.hasErrors : ""),
     style: inlineStyle
   };
   return _react.default.createElement("span", radioButtonIconProps);
