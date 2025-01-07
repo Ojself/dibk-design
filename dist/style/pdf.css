@@ -182,7 +182,7 @@ body {
   margin: 3px 0;
   line-height: 1em;
 }
-.page dl dt {
+.page dl dt:not(.text-normal) {
   font-weight: bold;
 }
 .page dl[style*="--display-type:inline"] dd ul, .page dl[style*="--display-type: inline"] dd ul, .page dl:not([style*="--display-type"]) dd ul {
@@ -321,6 +321,9 @@ body {
 }
 .page .text-bold {
   font-weight: bold;
+}
+.page .text-normal {
+  font-weight: normal;
 }
 .page .block {
   display: block;
