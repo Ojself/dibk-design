@@ -14,16 +14,26 @@ body {
   margin: 1cm auto;
   background: #fff;
   box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+  font-family: Carlito, sans-serif;
+  color: #000;
+  font-size: 16px;
+  line-height: 22.5px;
+}
+.page:not(.landscape) {
   width: 21cm;
   min-height: 29.7cm;
   padding-left: 1.2cm;
   padding-top: 0;
   padding-right: 1.2cm;
   padding-bottom: 0.75cm;
-  font-family: Carlito, sans-serif;
-  color: #000;
-  font-size: 16px;
-  line-height: 22.5px;
+}
+.page.landscape {
+  width: 29.7cm;
+  min-height: 21cm;
+  padding-left: 0.75cm;
+  padding-top: 1.2cm;
+  padding-right: 0.75cm;
+  padding-bottom: 1.2cm;
 }
 
 @page {
