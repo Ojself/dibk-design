@@ -13,7 +13,10 @@ export default {
   title: "Example/PDF",
   component: PDF,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {},
+  argTypes: {
+    signedDocument: { control: "boolean" },
+    orientation: { control: "radio", options: ["portrait", "landscape"] }
+  }
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -37,6 +40,7 @@ const Template = (args) => {
           className={[
             "page",
             args.signedDocument ? "signed-document" : "",
+            args.orientation === "landscape" ? "landscape" : "",
           ].join(" ")}
         >
           <div className="content-container" style={scalingStyles}>
@@ -295,6 +299,7 @@ const uncheckedCheckboxExample = (
 export const Default = Template.bind({});
 Default.args = {
   signedDocument: false,
+  orientation: "portrait",
   children: (
     <>
       {logoExample}
