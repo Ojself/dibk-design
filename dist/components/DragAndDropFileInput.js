@@ -72,6 +72,17 @@ const DragAndDropFileInput = props => {
         setHighlight(false);
       }, false);
       containerElementRef.current.addEventListener("drop", handleDrop, false);
+      return () => {
+        containerElementRef.current.removeEventListener("dragenter", preventDefaults, false);
+        containerElementRef.current.removeEventListener("dragover", preventDefaults, false);
+        containerElementRef.current.removeEventListener("dragleave", preventDefaults, false);
+        containerElementRef.current.removeEventListener("drop", preventDefaults, false);
+        containerElementRef.current.removeEventListener("dragenter", () => setHighlight(true), false);
+        containerElementRef.current.removeEventListener("dragover", () => setHighlight(true), false);
+        containerElementRef.current.removeEventListener("dragleave", () => setHighlight(false), false);
+        containerElementRef.current.removeEventListener("drop", () => setHighlight(false), false);
+        containerElementRef.current.removeEventListener("drop", handleDrop, false);
+      };
     }
   }, [props]);
   return _react.default.createElement("div", {
