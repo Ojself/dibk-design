@@ -12,6 +12,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
       name: 'DibkDesign',
+      formats: ['es', 'cjs'], // No UMD; ESM + CommonJS
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
@@ -24,6 +25,8 @@ export default defineConfig({
       },
     },
     outDir: 'dist',
+    sourcemap: true,
+    emptyOutDir: true,
   },
   plugins: [dts()],
 });
