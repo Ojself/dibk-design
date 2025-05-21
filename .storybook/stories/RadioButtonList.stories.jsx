@@ -1,14 +1,14 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import RadioButtonList from "./RadioButtonList";
-import RadioButtonListItem from "./RadioButtonListItem";
-import ThemeProvider from "./ThemeProvider";
+import RadioButtonList from '@/components/RadioButtonList';
+import RadioButtonListItem from '@/components/RadioButtonListItem';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/RadioButtonList",
+  title: 'Example/RadioButtonList',
   component: RadioButtonList,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -22,7 +22,7 @@ const Template = (args) => {
       <RadioButtonList {...radioButtonListArgs}>
         <RadioButtonListItem
           onChange={() => {
-            console.log("onchange");
+            console.log('onchange');
           }}
           inputValue="value 1"
           name="radio-button-list-list-item"
@@ -33,7 +33,7 @@ const Template = (args) => {
         </RadioButtonListItem>
         <RadioButtonListItem
           onChange={() => {
-            console.log("onchange");
+            console.log('onchange');
           }}
           inputValue="value 2"
           name="radio-button-list-list-item"
@@ -48,17 +48,17 @@ const Template = (args) => {
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  legend: "Default radio button list",
+  legend: 'Default radio button list',
 };
 
 export const Required = Template.bind({});
 Required.args = {
-  legend: "Required radio button list",
+  legend: 'Required radio button list',
   required: true,
 };
 
 export const Compact = Template.bind({});
 Compact.args = {
-  legend: "Compact radio button list",
+  legend: 'Compact radio button list',
   compact: true,
 };

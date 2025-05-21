@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import RadioButtonIcon from "./RadioButtonIcon";
-import ThemeProvider from "./ThemeProvider";
+import RadioButtonIcon from '@/components/RadioButtonIcon';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/RadioButtonIcon",
+  title: 'Example/RadioButtonIcon',
   component: RadioButtonIcon,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

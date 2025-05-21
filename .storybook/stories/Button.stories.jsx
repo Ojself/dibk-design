@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 // Components
-import Button from './Button';
-import ThemeProvider from './ThemeProvider';
+import Button from '@/components/Button';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

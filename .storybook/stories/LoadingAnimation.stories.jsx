@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import LoadingAnimation from "./LoadingAnimation";
-import ThemeProvider from "./ThemeProvider";
+import LoadingAnimation from '@/components/LoadingAnimation';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/LoadingAnimation",
+  title: 'Example/LoadingAnimation',
   component: LoadingAnimation,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -23,5 +23,5 @@ const Template = (args) => (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  message: "Loading...",
+  message: 'Loading...',
 };

@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Container from "./Container";
-import ThemeProvider from "./ThemeProvider";
+import Container from '@/components/Container';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Container",
+  title: 'Example/Container',
   component: Container,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -30,5 +30,5 @@ export const WithMaxWidth = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 WithMaxWidth.args = {
   children: <>Container with max width</>,
-  maxWidth: "230px",
+  maxWidth: '230px',
 };

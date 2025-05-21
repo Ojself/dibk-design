@@ -2,8 +2,8 @@
 import React from 'react';
 
 // Components
-import Accordion from './Accordion';
-import ThemeProvider from './ThemeProvider';
+import Accordion from '@/components/Accordion';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

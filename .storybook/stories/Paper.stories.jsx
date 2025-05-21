@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Paper from "./Paper";
-import ThemeProvider from "./ThemeProvider";
+import Paper from '@/components/Paper';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Paper",
+  title: 'Example/Paper',
   component: Paper,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

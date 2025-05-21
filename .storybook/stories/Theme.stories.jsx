@@ -1,16 +1,16 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Theme from "./Theme";
+import Theme from '@/components/Theme';
 
 // Theme
-import customThemes from "data/customTheme";
-import ThemeProvider from "./ThemeProvider";
+import customThemes from '@/data/customTheme';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Theme",
+  title: 'Example/Theme',
   component: Theme,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import ProgressBar from "./ProgressBar";
-import ThemeProvider from "./ThemeProvider";
+import ProgressBar from '@/components/ProgressBar';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/ProgressBar",
+  title: 'Example/ProgressBar',
   component: ProgressBar,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

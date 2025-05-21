@@ -1,21 +1,21 @@
 // Dependencies
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 // Components
-import Dialog from "./Dialog";
-import ThemeProvider from "./ThemeProvider";
-import Header from "./Header";
+import Dialog from '@/components/Dialog';
+import ThemeProvider from '@/components/ThemeProvider';
+import Header from '@/components/Header';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Dialog",
+  title: 'Example/Dialog',
   component: Dialog,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     attachTo: {
-      control: "select",
-      options: ["None", "Left", "Right"],
-      mapping: { None: null, Left: "left", Right: "right" },
+      control: 'select',
+      options: ['None', 'Left', 'Right'],
+      mapping: { None: null, Left: 'left', Right: 'right' },
     },
   },
 };
@@ -48,6 +48,6 @@ Default.args = {
   closeButton: true,
   modal: true,
   onClickOutside: () => {
-    console.log("clicked outside");
+    console.log('clicked outside');
   },
 };

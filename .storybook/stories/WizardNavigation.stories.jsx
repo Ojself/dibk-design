@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 // Components
-import WizardNavigation from './WizardNavigation';
-import ThemeProvider from './ThemeProvider';
+import WizardNavigation from '@/components/WizardNavigation';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

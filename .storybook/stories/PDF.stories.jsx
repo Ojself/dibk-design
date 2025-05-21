@@ -1,47 +1,47 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import PDF from "./PDF";
-import ThemeProvider from "./ThemeProvider";
+import PDF from '@/components/PDF';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // Assets
-import { imageData } from "assets/svg/dibk-logo-base64";
+import { imageData } from '@/assets/svg/dibk-logo-base64';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/PDF",
+  title: 'Example/PDF',
   component: PDF,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    signedDocument: { control: "boolean" },
-    orientation: { control: "radio", options: ["portrait", "landscape"] }
-  }
+    signedDocument: { control: 'boolean' },
+    orientation: { control: 'radio', options: ['portrait', 'landscape'] },
+  },
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => {
   const scalingStyles = args.signedDocument
     ? {
-        scale: "0.90251",
-        position: "relative",
-        top: "-17px",
-        marginBottom: "-147px",
+        scale: '0.90251',
+        position: 'relative',
+        top: '-17px',
+        marginBottom: '-147px',
       }
     : {
-        position: "relative",
-        top: "43px",
-        marginBottom: "60px",
+        position: 'relative',
+        top: '43px',
+        marginBottom: '60px',
       };
   return (
     <ThemeProvider theme={args.theme}>
       <PDF {...args}>
         <div
           className={[
-            "page",
-            args.signedDocument ? "signed-document" : "",
-            args.orientation === "landscape" ? "landscape" : "",
-          ].join(" ")}
+            'page',
+            args.signedDocument ? 'signed-document' : '',
+            args.orientation === 'landscape' ? 'landscape' : '',
+          ].join(' ')}
         >
           <div className="content-container" style={scalingStyles}>
             {args.children}
@@ -78,39 +78,25 @@ const h4Example = <h4>Heading level 4 example</h4>;
 
 const h5Example = <h5>Heading level 5 example</h5>;
 
-const captionExample = (
-  <caption>
-    Caption with default size example
-  </caption>
-);
+const captionExample = <caption>Caption with default size example</caption>;
 
 const captionH1Example = (
-  <caption style={{ "--size": 1 }}>
-    Caption with size 1 example
-  </caption>
+  <caption style={{ '--size': 1 }}>Caption with size 1 example</caption>
 );
 
 const captionH2Example = (
-  <caption style={{ "--size": 2 }}>
-    Caption with size 2 example
-  </caption>
-)
+  <caption style={{ '--size': 2 }}>Caption with size 2 example</caption>
+);
 
 const captionH3Example = (
-  <caption style={{ "--size": 3 }}>
-    Caption with size 3 example
-  </caption>
+  <caption style={{ '--size': 3 }}>Caption with size 3 example</caption>
 );
 const captionH4Example = (
-  <caption style={{ "--size": 4 }}>
-    Caption with size 4 example
-  </caption>
+  <caption style={{ '--size': 4 }}>Caption with size 4 example</caption>
 );
 
 const captionH5Example = (
-  <caption style={{ "--size": 5 }}>
-    Caption with size 5 example
-  </caption>
+  <caption style={{ '--size': 5 }}>Caption with size 5 example</caption>
 );
 
 const textParagraphsExample = (
@@ -121,11 +107,11 @@ const textParagraphsExample = (
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.
       <br />
-      <span>Text without class</span>{" "}
-      <span className="text-bold">Text with class .text-bold</span>{" "}
-      <span className="text-italic">Text with class .text-italic</span>{" "}
-      <span className="text-red">Text with class .text-red</span>{" "}
-      <span className="text-muted">Text with class .text-muted</span>{" "}
+      <span>Text without class</span>{' '}
+      <span className="text-bold">Text with class .text-bold</span>{' '}
+      <span className="text-italic">Text with class .text-italic</span>{' '}
+      <span className="text-red">Text with class .text-red</span>{' '}
+      <span className="text-muted">Text with class .text-muted</span>{' '}
       <div>
         <span className="block text-left">
           Text with class .block and .text-left
@@ -157,7 +143,7 @@ const textListExample = (
 
 const descriptionListExample = (
   <>
-    <dl style={{ "--title-width": "120px" }}>
+    <dl style={{ '--title-width': '120px' }}>
       <dt>List item title:</dt>
       <dd>List item content</dd>
       <dt>List item title:</dt>
@@ -183,7 +169,7 @@ const descriptionListExample = (
         </ul>
       </dd>
     </dl>
-    <dl style={{ "--display-type": "stacked" }}>
+    <dl style={{ '--display-type': 'stacked' }}>
       <dt>List item title:</dt>
       <dd>List item content</dd>
       <dt>List item title:</dt>
@@ -203,7 +189,7 @@ const tableExampleContent = (
   <>
     <thead>
       <tr>
-        <th style={{ "--width": "200px" }}>Funksjon</th>
+        <th style={{ '--width': '200px' }}>Funksjon</th>
         <th>Table header</th>
         <th>
           Table-
@@ -245,40 +231,45 @@ const tableExampleContent = (
   </>
 );
 
-const tableExample = <table>{captionExample}{tableExampleContent}</table>;
+const tableExample = (
+  <table>
+    {captionExample}
+    {tableExampleContent}
+  </table>
+);
 
 const tableWithoutBordersExample = (
   <table className="no-border">{tableExampleContent}</table>
 );
 
 const gridExample = (
-  <div className="grid" style={{ "--columns": "2"}}>
-      <dl style={{ "--display-type": "stacked" }}>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-      </dl>
-      <dl style={{ "--display-type": "stacked" }}>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-      </dl>
-      <dl style={{ "--display-type": "stacked" }}>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-        <dt>List item title:</dt>
-        <dd>List item content</dd>
-      </dl>
+  <div className="grid" style={{ '--columns': '2' }}>
+    <dl style={{ '--display-type': 'stacked' }}>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+    </dl>
+    <dl style={{ '--display-type': 'stacked' }}>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+    </dl>
+    <dl style={{ '--display-type': 'stacked' }}>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+      <dt>List item title:</dt>
+      <dd>List item content</dd>
+    </dl>
   </div>
-)
+);
 
 const blockquoteExample = <blockquote>Blockquote text</blockquote>;
 
@@ -299,7 +290,7 @@ const uncheckedCheckboxExample = (
 export const Default = Template.bind({});
 Default.args = {
   signedDocument: false,
-  orientation: "portrait",
+  orientation: 'portrait',
   children: (
     <>
       {logoExample}
@@ -352,13 +343,13 @@ Text.args = {
 export const DescriptionList = Template.bind({});
 DescriptionList.args = {
   signedDocument: false,
-  children: descriptionListExample
+  children: descriptionListExample,
 };
 
 export const Grid = Template.bind({});
 Grid.args = {
   signedDocument: false,
-  children: gridExample
+  children: gridExample,
 };
 
 export const Table = Template.bind({});
@@ -378,30 +369,30 @@ Caption.args = {
   signedDocument: false,
   children: (
     <>
-    <table>
-      {captionExample}
-      {tableExampleContent}
-    </table>
-    <table>
-      {captionH1Example}
-      {tableExampleContent}
-    </table>
-    <table>
-      {captionH2Example}
-      {tableExampleContent}
-    </table>
-    <table>
-      {captionH3Example}
-      {tableExampleContent}
-    </table>
-    <table>
-      {captionH4Example}
-      {tableExampleContent}
-    </table>
-    <table>
-      {captionH5Example}
-      {tableExampleContent}
-    </table>
+      <table>
+        {captionExample}
+        {tableExampleContent}
+      </table>
+      <table>
+        {captionH1Example}
+        {tableExampleContent}
+      </table>
+      <table>
+        {captionH2Example}
+        {tableExampleContent}
+      </table>
+      <table>
+        {captionH3Example}
+        {tableExampleContent}
+      </table>
+      <table>
+        {captionH4Example}
+        {tableExampleContent}
+      </table>
+      <table>
+        {captionH5Example}
+        {tableExampleContent}
+      </table>
     </>
   ),
 };

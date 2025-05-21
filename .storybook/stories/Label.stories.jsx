@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Label from "./Label";
-import ThemeProvider from "./ThemeProvider";
+import Label from '@/components/Label';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Label",
+  title: 'Example/Label',
   component: Label,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -23,17 +23,17 @@ const Template = (args) => (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  children: "Label",
+  children: 'Label',
 };
 
 export const Inline = Template.bind({});
 Inline.args = {
-  children: "Inline label",
+  children: 'Inline label',
   inline: true,
 };
 
 export const LabelStyledSpan = Template.bind({});
 LabelStyledSpan.args = {
-  children: "Label styled span",
-  htmlTag: "span",
+  children: 'Label styled span',
+  htmlTag: 'span',
 };

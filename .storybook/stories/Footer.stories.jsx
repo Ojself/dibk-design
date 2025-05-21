@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Footer from "./Footer";
-import ThemeProvider from "./ThemeProvider";
+import Footer from '@/components/Footer';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Footer",
+  title: 'Example/Footer',
   component: Footer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

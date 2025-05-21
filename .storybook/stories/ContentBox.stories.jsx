@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import ContentBox from "./ContentBox";
-import ThemeProvider from "./ThemeProvider";
+import ContentBox from '@/components/ContentBox';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/ContentBox",
+  title: 'Example/ContentBox',
   component: ContentBox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -24,20 +24,20 @@ export const DefaultWithoutTitle = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 DefaultWithoutTitle.args = {
-  color: "default",
+  color: 'default',
   children: <>Box with default color</>,
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  color: "default",
-  title: "Box title",
+  color: 'default',
+  title: 'Box title',
   children: <>Box with default color</>,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  color: "secondary",
-  title: "Box title",
+  color: 'secondary',
+  title: 'Box title',
   children: <>Box with secondary color</>,
 };

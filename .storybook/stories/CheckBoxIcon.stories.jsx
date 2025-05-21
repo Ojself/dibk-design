@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import CheckBoxIcon from "./CheckBoxIcon";
-import ThemeProvider from "./ThemeProvider";
+import CheckBoxIcon from '@/components/CheckBoxIcon';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/CheckBoxIcon",
+  title: 'Example/CheckBoxIcon',
   component: CheckBoxIcon,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -34,7 +34,7 @@ Checked.args = {
 export const CheckedCustomCheckmark = Template.bind({});
 CheckedCustomCheckmark.args = {
   checked: true,
-  checkmarkCharacter: "✕",
+  checkmarkCharacter: '✕',
 };
 
 export const Disabled = Template.bind({});
@@ -52,7 +52,7 @@ export const CheckedDisabledCustomCheckmark = Template.bind({});
 CheckedDisabledCustomCheckmark.args = {
   checked: true,
   disabled: true,
-  checkmarkCharacter: "✕",
+  checkmarkCharacter: '✕',
 };
 
 export const hasErrors = Template.bind({});

@@ -1,18 +1,18 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Header from "./Header";
-import ThemeProvider from "./ThemeProvider";
+import Header from '@/components/Header';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Header",
+  title: 'Example/Header',
   component: Header,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    size: { control: "select", options: [1, 2, 3, 4, 5] },
-    htmlTag: { control: "select", options: ["h1", "h2", "h3", "h4", "h5"] },
+    size: { control: 'select', options: [1, 2, 3, 4, 5] },
+    htmlTag: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5'] },
   },
 };
 
@@ -26,13 +26,13 @@ const Template = (args) => (
 export const Header1 = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Header1.args = {
-  children: <>Title with size 1</>
+  children: <>Title with size 1</>,
 };
 
 export const Header1WithLabel = Template.bind({});
 Header1WithLabel.args = {
   children: <>Title with size 1</>,
-  label: "Veiviser"
+  label: 'Veiviser',
 };
 
 export const Header2 = Template.bind({});
@@ -69,5 +69,5 @@ export const Header2WithH1Tag = Template.bind({});
 Header2WithH1Tag.args = {
   children: <>Title with size 2 and htmlTag h1</>,
   size: 2,
-  htmlTag: "h1",
+  htmlTag: 'h1',
 };

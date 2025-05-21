@@ -1,14 +1,14 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import InfoBox from "./InfoBox";
-import Header from "./Header";
-import ThemeProvider from "./ThemeProvider";
+import InfoBox from '@/components/InfoBox';
+import Header from '@/components/Header';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/InfoBox",
+  title: 'Example/InfoBox',
   component: InfoBox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -1,9 +1,13 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import path from 'node:path';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),

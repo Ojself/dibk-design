@@ -1,18 +1,18 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import Table from "./Table";
-import ThemeProvider from "./ThemeProvider";
+import Table from '@/components/Table';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/Table",
+  title: 'Example/Table',
   component: Table,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    captionSide: { control: "radio", options: ["top", "bottom"] },
-    captionAlign: { control: "radio", options: ["left", "center", "right"] },
+    captionSide: { control: 'radio', options: ['top', 'bottom'] },
+    captionAlign: { control: 'radio', options: ['left', 'center', 'right'] },
   },
 };
 

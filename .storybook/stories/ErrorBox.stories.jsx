@@ -1,19 +1,19 @@
 // Dependencies
-import React from "react";
+import React from 'react';
 
 // Components
-import ErrorBox from "./ErrorBox";
-import Header from "./Header";
-import ThemeProvider from "./ThemeProvider";
+import ErrorBox from '@/components/ErrorBox';
+import Header from '@/components/Header';
+import ThemeProvider from '@/components/ThemeProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/ErrorBox",
+  title: 'Example/ErrorBox',
   component: ErrorBox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    type: { control: "radio", options: ["warning", "error"] },
-    fullScreen: { control: "boolean" },
+    type: { control: 'radio', options: ['warning', 'error'] },
+    fullScreen: { control: 'boolean' },
   },
 };
 
