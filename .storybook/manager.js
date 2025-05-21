@@ -1,6 +1,6 @@
-import { addons } from "@storybook/addons";
+import { addons } from '@storybook/manager-api';
 import dibkTheme from './dibkTheme';
 
 addons.setConfig({
-    theme: dibkTheme
+  theme: dibkTheme,
 });
