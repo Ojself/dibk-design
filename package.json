@@ -1,6 +1,6 @@
 {
   "name": "dibk-design",
-  "version": "7.7.1",
+  "version": "8.0.0",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "type": "module",
