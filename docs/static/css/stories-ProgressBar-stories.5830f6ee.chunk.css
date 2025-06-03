@@ -1,3 +1,0 @@
-.ProgressBar_progressBar__Wepso{--size: 4rem;--fg: var(--color-primary, #003045);--bg: #e2e1e0;--pgPercentage: var(--value);width:var(--size);height:var(--size);border-radius:50%;display:grid;place-items:center;background:radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);font-family:Helvetica,Arial,sans-serif;font-size:calc(var(--size)/4);color:var(--fg);flex-shrink:0}.ProgressBar_progressBar__Wepso::before{counter-reset:percentage var(--value);content:counter(percentage) "%"}.ProgressBar_progressBar__Wepso.ProgressBar_hasErrors__ruqZX{--fg: var(--color-error, #db0000)}
-
-/*# sourceMappingURL=stories-ProgressBar-stories.5830f6ee.chunk.css.map*/

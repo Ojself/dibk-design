@@ -10,45 +10,16 @@ $ pnpm run build
 $ pnpm run storybook
 ```
 
-## Use with Next.js
+## Use with Next.js and Tailwind
 
-1. Create a client-based Provider for the ThemeProvider:
+1. Import `dibk-design.css` file in your `globals.css`
 
-```jsx
-'use client';
-import React from 'react';
-import { ThemeProvider } from 'dibk-design';
-
-const Providers = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode,
-}>) => {
-  return <ThemeProvider injectToBody>{children}</ThemeProvider>;
-};
-
-export default Providers;
+```css
+@import 'tailwindcss';
+@import './node_modules/dibk-design/dist/dibk-design.css';
 ```
 
-2. Import the Provider to your RootLayout
-
-```jsx
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode,
-}>) {
-  return (
-    <html lang="en">
-      <body>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
-  );
-}
-```
-
-3. Import component from the library into your client pages
+2. Import component from the library
 
 ```jsx
 "use client"
