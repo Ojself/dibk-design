@@ -1,17 +1,17 @@
 // Mixins
-@use "../style/abstracts/mixins/animation";
-@use "../style/abstracts/mixins/appearance";
-@use "../style/abstracts/mixins/border-radius";
-@use "../style/abstracts/mixins/box-shadow";
-@use "../style/abstracts/mixins/keyframes";
-@use "../style/abstracts/mixins/transform";
-@use "../style/abstracts/mixins/transition";
+@use '../style/abstracts/mixins/animation';
+@use '../style/abstracts/mixins/appearance';
+@use '../style/abstracts/mixins/border-radius';
+@use '../style/abstracts/mixins/box-shadow';
+@use '../style/abstracts/mixins/keyframes';
+@use '../style/abstracts/mixins/transform';
+@use '../style/abstracts/mixins/transition';
 
 // Variables
-@use "../style/abstracts/variables/colors";
-@use "../style/abstracts/variables/transitions";
-@use "../style/abstracts/variables/typography";
-@use "../style/abstracts/variables/viewports";
+@use '../style/abstracts/variables/colors';
+@use '../style/abstracts/variables/transitions';
+@use '../style/abstracts/variables/typography';
+@use '../style/abstracts/variables/viewports';
 
 @include keyframes.keyframes(pushnext) {
   0% {
@@ -108,12 +108,18 @@
     }
     &:active:not(.noHover),
     &:active:hover:not(.noHover) {
-      background-color: var(--color-primary-x-light, colors.$color-primary-x-light);
+      background-color: var(
+        --color-primary-x-light,
+        colors.$color-primary-x-light
+      );
       border-color: var(--color-primary-x-light, colors.$color-primary-x-light);
       color: var(--color-primary-contrast, colors.$color-primary-contrast);
       &:after,
       &:before {
-        border-color: var(--color-primary-x-light, colors.$color-primary-x-light);
+        border-color: var(
+          --color-primary-x-light,
+          colors.$color-primary-x-light
+        );
       }
     }
   }
@@ -121,23 +127,38 @@
   &.secondary {
     background-color: var(--color-secondary, colors.$color-secondary);
     color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
-    border-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
+    border-color: var(
+      --color-secondary-x-light,
+      colors.$color-secondary-x-light
+    );
     &:hover:not(.noHover),
     &:focus-visible {
-      background-color: var(--color-secondary-light, colors.$color-secondary-x-light);
+      background-color: var(
+        --color-secondary-light,
+        colors.$color-secondary-x-light
+      );
       color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
       &:after,
       &:before {
-        border-color: var(--color-secondary-light, colors.$color-secondary-x-light);
+        border-color: var(
+          --color-secondary-light,
+          colors.$color-secondary-x-light
+        );
       }
     }
     &:active:not(.noHover),
     &:active:hover:not(.noHover) {
-      background-color: var(--color-secondary-x-light, colors.$color-secondary-light);
+      background-color: var(
+        --color-secondary-x-light,
+        colors.$color-secondary-light
+      );
       color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
       &:after,
       &:before {
-        border-color: var(--color-secondary-x-light, colors.$color-secondary-light);
+        border-color: var(
+          --color-secondary-x-light,
+          colors.$color-secondary-light
+        );
       }
     }
   }
@@ -162,18 +183,26 @@
         border: 1px solid var(--color-primary, colors.$color-primary);
         &:before,
         &:after {
-          border-color: var(--color-primary-contrast, colors.$color-primary-contrast);
+          border-color: var(
+            --color-primary-contrast,
+            colors.$color-primary-contrast
+          );
         }
       }
       &:before,
       &:after {
-        border-color: var(--color-primary-contrast, colors.$color-primary-contrast);
+        border-color: var(
+          --color-primary-contrast,
+          colors.$color-primary-contrast
+        );
       }
     }
   }
 
   &.hasErrors {
-    @include box-shadow.box-shadow(0 0 2px 1px var(--color-error, colors.$color-error));
+    @include box-shadow.box-shadow(
+      0 0 2px 1px var(--color-error, colors.$color-error)
+    );
     border-color: var(--color-error, colors.$color-error);
   }
 
@@ -184,7 +213,7 @@
   &.hasArrowLeft {
     &:before {
       @include transform.transform(rotate(-135deg));
-      content: " ";
+      content: ' ';
       display: inline-block;
       margin-right: 1em;
       width: 0.5rem;
@@ -201,12 +230,18 @@
     &:not(.disabled) {
       &.primary {
         &:before {
-          border-color: var(--color-primary-contrast, colors.$color-primary-contrast);
+          border-color: var(
+            --color-primary-contrast,
+            colors.$color-primary-contrast
+          );
         }
       }
       &.secondary {
         &:before {
-          border-color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
+          border-color: var(
+            --color-secondary-contrast,
+            colors.$color-secondary-contrast
+          );
         }
       }
       &:hover:not(.noHover),
@@ -218,12 +253,18 @@
         }
         &.primary {
           &:before {
-            border-color: var(--color-primary-contrast, colors.$color-primary-contrast);
+            border-color: var(
+              --color-primary-contrast,
+              colors.$color-primary-contrast
+            );
           }
         }
         &.secondary {
           &:before {
-            border-color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
+            border-color: var(
+              --color-secondary-contrast,
+              colors.$color-secondary-contrast
+            );
           }
         }
       }
@@ -233,7 +274,7 @@
   &.hasArrowRight {
     &:after {
       @include transform.transform(rotate(45deg));
-      content: " ";
+      content: ' ';
       display: inline-block;
       margin-left: 1em;
       width: 0.5rem;
@@ -251,12 +292,18 @@
     &:not(.disabled) {
       &.primary {
         &:after {
-          border-color: var(--color-primary-contrast, colors.$color-primary-contrast);
+          border-color: var(
+            --color-primary-contrast,
+            colors.$color-primary-contrast
+          );
         }
       }
       &.secondary {
         &:after {
-          border-color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
+          border-color: var(
+            --color-secondary-contrast,
+            colors.$color-secondary-contrast
+          );
         }
       }
 
@@ -269,12 +316,18 @@
         }
         &.primary {
           &:after {
-            border-color: var(--color-primary-contrast, colors.$color-primary-contrast);
+            border-color: var(
+              --color-primary-contrast,
+              colors.$color-primary-contrast
+            );
           }
         }
         &.secondary {
           &:after {
-            border-color: var(--color-secondary-contrast, colors.$color-secondary-contrast);
+            border-color: var(
+              --color-secondary-contrast,
+              colors.$color-secondary-contrast
+            );
           }
         }
       }
@@ -283,7 +336,7 @@
 }
 
 label.button {
-  input[type="radio"] {
+  input[type='radio'] {
     @include appearance.appearance(none);
     margin: 0;
   }
