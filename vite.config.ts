@@ -14,8 +14,8 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'DibkDesign',
-      formats: ['es'],
-      fileName: 'dibk-design',
+      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {},
     outDir: 'dist',
