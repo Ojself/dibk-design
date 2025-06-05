@@ -27,7 +27,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs",
-    "build:types": "tsc --project tsconfig.json"
+    "build:types": "tsc --project tsconfig.json",
+    "chromatic": "npx chromatic --project-token=chpt_c6ca5161b988965"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.0",
