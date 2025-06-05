@@ -26,4 +26,5 @@ export default defineConfig({
     react(),
     dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
   ],
+  base: '/dibk-design/',
 });
