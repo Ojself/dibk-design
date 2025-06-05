@@ -18,7 +18,7 @@ const meta: Meta<typeof PDF> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const render: Story['render'] = (args) => {
+const render = (args: any) => {
   const scalingStyles: CSSProperties = args.signedDocument
     ? {
         scale: '0.90251',

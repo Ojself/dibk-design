@@ -14,7 +14,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'DibkDesign',
-      formats: ['es', 'cjs'],
+      formats: ['es', 'cjs', 'umd'],
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {},
@@ -26,5 +26,4 @@ export default defineConfig({
     react(),
     dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
   ],
-  base: '/dibk-design/',
 });
