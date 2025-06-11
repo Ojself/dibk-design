@@ -73,3 +73,7 @@ typings/
 
 dist
 dist-ssr
+
+storybook-static
+
+docs
