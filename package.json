@@ -23,9 +23,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "storybook": "STORYBOOK=true storybook dev -p 6006",
-    "build-storybook": "STORYBOOK=true storybook build -o docs",
-    "chromatic": "STORYBOOK=true chromatic --project-token=chpt_c6ca5161b988965",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o docs",
     "build:types": "tsc --project tsconfig.json"
   },
   "devDependencies": {
