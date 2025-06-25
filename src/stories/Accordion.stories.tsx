@@ -43,3 +43,19 @@ export const Secondary: Story = {
     children: <>Accordion with secondary color</>,
   },
 };
+export const Info: Story = {
+  args: {
+    color: 'info',
+    title: 'Accordion title',
+    noMargin: false,
+    children: <>Accordion with info color</>,
+  },
+};
+export const Contrast: Story = {
+  args: {
+    color: 'contrast',
+    title: 'Accordion title',
+    noMargin: false,
+    children: <>Accordion with contrast color</>,
+  },
+};

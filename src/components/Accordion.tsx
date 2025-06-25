@@ -7,7 +7,7 @@ import { classNameArrayToClassNameString } from '../functions/helpers';
 // Stylesheets
 import style from './Accordion.module.scss';
 
-type AccordionColor = 'default' | 'secondary';
+type AccordionColor = 'default' | 'secondary' | 'info' | 'contrast';
 
 export interface AccordionProps {
   title?: string;
@@ -67,6 +67,7 @@ const Accordion = ({
     style.accordion,
     color && style[color],
     !noMargin && style.margin,
+    rest.className,
   ]);
   return (
     <div className={className} {...rest}>
