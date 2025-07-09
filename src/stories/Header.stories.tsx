@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Header, { type HeaderProps } from '../components/Header';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = HeaderProps & { theme?: ThemeProps };
+import Header from '../components/Header';
 
 const meta: Meta<typeof Header> = {
   title: 'Example/Header',
@@ -13,16 +9,6 @@ const meta: Meta<typeof Header> = {
     htmlTag: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5'] },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

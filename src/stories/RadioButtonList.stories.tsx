@@ -1,29 +1,13 @@
 // stories/RadioButtonList.stories.tsx
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-import RadioButtonList, {
-  type RadioButtonListProps,
-} from '../components/RadioButtonList';
+import RadioButtonList from '../components/RadioButtonList';
 import RadioButtonListItem from '../components/RadioButtonListItem';
-
-type ExtendedArgs = RadioButtonListProps & { theme?: ThemeProps };
 
 const meta: Meta<typeof RadioButtonList> = {
   title: 'Example/RadioButtonList',
   component: RadioButtonList,
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest}>{sharedChildren}</Story>
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;
@@ -54,12 +38,15 @@ const sharedChildren = (
 
 export const Default: Story = {
   args: { legend: 'Default radio button list' },
+  render: (args) => <RadioButtonList {...args}>{sharedChildren}</RadioButtonList>,
 };
 
 export const Required: Story = {
   args: { legend: 'Required radio button list', required: true },
+  render: (args) => <RadioButtonList {...args}>{sharedChildren}</RadioButtonList>,
 };
 
 export const Compact: Story = {
   args: { legend: 'Compact radio button list', compact: true },
+  render: (args) => <RadioButtonList {...args}>{sharedChildren}</RadioButtonList>,
 };

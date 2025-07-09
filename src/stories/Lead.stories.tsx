@@ -1,10 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import Lead, { type LeadProps } from '../components/Lead';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = LeadProps & { theme?: ThemeProps };
+import Lead from '../components/Lead';
 
 const meta: Meta<typeof Lead> = {
   title: 'Example/Lead',
@@ -13,16 +9,6 @@ const meta: Meta<typeof Lead> = {
     htmlTag: { control: 'select', options: ['p', 'span', 'div'] },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { CSSProperties } from 'react';
 
 import PDF from '../components/PDF';
-import ThemeProvider from '../components/ThemeProvider';
 
 import { imageData } from '../assets/svg/dibk-logo-base64';
 
@@ -16,6 +15,7 @@ const meta: Meta<typeof PDF> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 const render = (args: any) => {
@@ -33,21 +33,19 @@ const render = (args: any) => {
       };
 
   return (
-    <ThemeProvider theme={args.theme}>
-      <PDF {...args}>
-        <div
-          className={[
-            'page',
-            args.signedDocument ? 'signed-document' : '',
-            args.orientation === 'landscape' ? 'landscape' : '',
-          ].join(' ')}
-        >
-          <div className="content-container" style={scalingStyles}>
-            {args.children}
-          </div>
+    <PDF {...args}>
+      <div
+        className={[
+          'page',
+          args.signedDocument ? 'signed-document' : '',
+          args.orientation === 'landscape' ? 'landscape' : '',
+        ].join(' ')}
+      >
+        <div className="content-container" style={scalingStyles}>
+          {args.children}
         </div>
-      </PDF>
-    </ThemeProvider>
+      </div>
+    </PDF>
   );
 };
 

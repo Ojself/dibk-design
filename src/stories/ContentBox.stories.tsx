@@ -1,25 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ContentBox, { type ContentBoxProps } from '../components/ContentBox';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = ContentBoxProps & { theme?: ThemeProps };
+import ContentBox from '../components/ContentBox';
 
 const meta: Meta<typeof ContentBox> = {
   title: 'Example/ContentBox',
   component: ContentBox,
   argTypes: {},
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

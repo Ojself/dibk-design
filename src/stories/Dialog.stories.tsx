@@ -1,12 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import Dialog, { type DialogProps } from '../components/Dialog';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
 import Header from '../components/Header';
-
-type ExtendedArgs = DialogProps & { theme?: ThemeProps };
+import Dialog from '@/components/Dialog';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Example/Dialog',
@@ -22,7 +18,7 @@ const meta: Meta<typeof Dialog> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Dialog>;
 
 export const Default: Story = {
   args: {
@@ -38,21 +34,21 @@ export const Default: Story = {
       console.log('clicked outside');
     },
   },
-  render: (args: ExtendedArgs) => {
+  render: (args) => {
     const [showDialog, setShowDialog] = useState<boolean>(false);
 
     return (
-      <ThemeProvider theme={args.theme}>
+      <>
         <button onClick={() => setShowDialog(true)}>Show dialog</button>
         <Dialog
           {...args}
           hidden={!showDialog}
           onClickOutside={() => {
             setShowDialog(false);
-            args.onClickOutside?.();
+            (args.onClickOutside as () => void)();
           }}
         />
-      </ThemeProvider>
+      </>
     );
   },
 };

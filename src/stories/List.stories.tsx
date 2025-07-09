@@ -1,27 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import List, { type ListProps } from '../components/List';
+import List from '../components/List';
 import ListItem from '../components/ListItem';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = ListProps & { theme?: ThemeProps };
 
 const meta: Meta<typeof List> = {
   title: 'Example/List',
   component: List,
   argTypes: {},
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

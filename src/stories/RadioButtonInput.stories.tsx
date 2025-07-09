@@ -1,28 +1,12 @@
 // stories/RadioButtonInput.stories.tsx
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-import RadioButtonInput, {
-  type RadioButtonInputProps,
-} from '../components/RadioButtonInput';
-
-type ExtendedArgs = RadioButtonInputProps & { theme?: ThemeProps };
+import RadioButtonInput from '../components/RadioButtonInput';
 
 const meta: Meta<typeof RadioButtonInput> = {
   title: 'Example/RadioButtonInput',
   component: RadioButtonInput,
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

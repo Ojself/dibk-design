@@ -1,5 +1,18 @@
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import ThemeProvider from '../src/components/ThemeProvider';
 import customThemes from '../src/data/customTheme';
-import type { Preview } from '@storybook/react-vite';
+import type { Preview, Decorator } from '@storybook/react-vite';
+
+const withThemeProvider: Decorator = (Story, { parameters }) => {
+  return (
+    <MemoryRouter>
+      <ThemeProvider theme={parameters.theme}>
+        <Story />
+      </ThemeProvider>
+    </MemoryRouter>
+  );
+};
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +23,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [withThemeProvider],
 };
 
 export default preview;
@@ -20,7 +34,7 @@ export const argTypes = {
     control: 'select',
     options: ['Default', 'DiBK', 'Arbeidstilsynet'],
     mapping: {
-      Default: null,
+      Default: undefined,
       DiBK: customThemes.dibk,
       Arbeidstilsynet: customThemes.arbeidstilsynet,
     },

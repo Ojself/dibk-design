@@ -1,9 +1,6 @@
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Select, { type SelectProps } from '../components/Select';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = SelectProps & { theme?: ThemeProps };
+import Select from '../components/Select';
 
 const meta: Meta<typeof Select> = {
   title: 'Example/Select',
@@ -11,11 +8,18 @@ const meta: Meta<typeof Select> = {
   tags: ['autodocs'],
   decorators: [
     (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
+      const [value, setValue] = useState(
+        context.args.value || context.args.defaultValue
+      );
       return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
+        <Story
+          {...context}
+          args={{
+            ...context.args,
+            value,
+            onChange: (val: string) => setValue(val),
+          }}
+        />
       );
     },
   ],

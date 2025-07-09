@@ -1,30 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
 
-import DescriptionList, {
-  type DescriptionListProps,
-} from '../components/DescriptionList';
+import DescriptionList from '../components/DescriptionList';
 import DescriptionTerm from '../components/DescriptionTerm';
 import DescriptionDetails from '../components/DescriptionDetails';
-
-type ExtendedArgs = DescriptionListProps & { theme?: ThemeProps };
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Example/DescriptionList',
   component: DescriptionList,
   argTypes: {},
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

@@ -1,12 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-import DragAndDropFileInput, {
-  type DragAndDropFileInputProps,
-} from '../components/DragAndDropFileInput';
-
-type ExtendedArgs = DragAndDropFileInputProps & { theme?: ThemeProps };
+import DragAndDropFileInput from '../components/DragAndDropFileInput';
 
 const meta: Meta<typeof DragAndDropFileInput> = {
   title: 'Example/DragAndDropFileInput',
@@ -15,16 +9,6 @@ const meta: Meta<typeof DragAndDropFileInput> = {
     buttonColor: { control: 'radio', options: ['primary', 'secondary'] },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
   render: (args) => (
     <DragAndDropFileInput {...args}>{args.children}</DragAndDropFileInput>
   ),
