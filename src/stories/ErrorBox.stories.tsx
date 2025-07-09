@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import ErrorBox, { type ErrorBoxProps } from '../components/ErrorBox';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
+import ErrorBox from '../components/ErrorBox';
 import Header from '../components/Header';
-
-type ExtendedArgs = ErrorBoxProps & { theme?: ThemeProps };
 
 const meta: Meta<typeof ErrorBox> = {
   title: 'Example/ErrorBox',
@@ -15,16 +11,6 @@ const meta: Meta<typeof ErrorBox> = {
     fullScreen: { control: 'boolean' },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;
@@ -49,8 +35,7 @@ export const Default: Story = {
             Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen.
           </li>
         </ul>
-      </>
-    ),
+      </>    ),
   },
   render,
 };

@@ -1,26 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import CheckBoxIcon, {
-  type CheckBoxIconProps,
-} from '../components/CheckBoxIcon';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = CheckBoxIconProps & { theme?: ThemeProps };
+import CheckBoxIcon from '../components/CheckBoxIcon';
 
 const meta: Meta<typeof CheckBoxIcon> = {
   title: 'Example/CheckBoxIcon',
   component: CheckBoxIcon,
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

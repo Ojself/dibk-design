@@ -1,24 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Textarea, { type TextareaProps } from '../components/Textarea';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = TextareaProps & { theme?: ThemeProps };
+import Textarea from '../components/Textarea';
 
 const meta: Meta<typeof Textarea> = {
   title: 'Example/Textarea',
   component: Textarea,
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

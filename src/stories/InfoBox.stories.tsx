@@ -1,26 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import InfoBox, { type InfoBoxProps } from '../components/InfoBox';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
+import InfoBox from '../components/InfoBox';
 import Header from '../components/Header';
-
-type ExtendedArgs = InfoBoxProps & { theme?: ThemeProps };
 
 const meta: Meta<typeof InfoBox> = {
   title: 'Example/InfoBox',
   component: InfoBox,
   argTypes: {},
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

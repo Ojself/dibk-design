@@ -1,28 +1,12 @@
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import Button, { type ButtonProps } from '../components/Button';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = ButtonProps & { theme?: ThemeProps };
+import Button from '../components/Button';
 
 const meta: Meta<typeof Button> = {
   title: 'Example/Button',
   component: Button,
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <BrowserRouter>
-          <ThemeProvider theme={theme}>
-            <Story args={rest} />
-          </ThemeProvider>
-        </BrowserRouter>
-      );
-    },
-  ],
 };
 
 export default meta;
@@ -44,16 +28,6 @@ export const Secondary: Story = {
     content: 'Button',
   },
 };
-
-/* 
-No support for large buttons in current version
-export const Large: Story = {
-  args: {
-    content: 'Button',
-    size: 'large',
-  },
-};
-*/
 
 export const Small: Story = {
   args: {

@@ -1,10 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import InputField, { type InputFieldProps } from '../components/InputField';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = InputFieldProps & { theme?: ThemeProps };
+import InputField from '../components/InputField';
 
 const meta: Meta<typeof InputField> = {
   title: 'Example/InputField',
@@ -16,19 +12,10 @@ const meta: Meta<typeof InputField> = {
     },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 const render: Story['render'] = (args) => <InputField {...args} />;
 
@@ -227,22 +214,6 @@ export const DateInputWithValueAndError: Story = {
   },
   render,
 };
-
-/* 
-No support for min and max date in DateInput as of now.
-export const DateInputWithMinAndMaxDate: Story = {
-  args: {
-    onChange: (e) => console.log(e.target.value),
-    id: 'inputField18',
-    label: 'Date input with min and max date',
-    value: '2020-05-10',
-    type: 'date',
-    selectsStart: true,
-    min: '2020-05-04',
-    max: '2020-05-19',
-  },
-  render,
-}; */
 
 export const InputWithCustomWidth: Story = {
   args: {

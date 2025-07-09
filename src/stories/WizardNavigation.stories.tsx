@@ -1,13 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { MemoryRouter } from 'react-router-dom';
 
 import WizardNavigation from '../components/WizardNavigation';
 
-import type { ThemeProps } from '../components/Theme';
 import type { WizardNavigationProps } from '../components/WizardNavigation';
-import ThemeProvider from '../components/ThemeProvider';
-
-type ExtendedArgs = WizardNavigationProps & { theme?: ThemeProps };
 
 const meta: Meta<typeof WizardNavigation> = {
   title: 'Example/WizardNavigation',
@@ -26,21 +21,10 @@ const meta: Meta<typeof WizardNavigation> = {
     direction: { control: 'radio', options: ['vertical', 'horizontal'] },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <MemoryRouter initialEntries={['/']}>
-          <ThemeProvider theme={theme}>
-            <Story args={rest} />
-          </ThemeProvider>
-        </MemoryRouter>
-      );
-    },
-  ],
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {

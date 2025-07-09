@@ -1,28 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import RadioButtonIcon, {
-  type RadioButtonIconProps,
-} from '../components/RadioButtonIcon';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-
-type ExtendedArgs = RadioButtonIconProps & { theme?: ThemeProps };
+import RadioButtonIcon from '../components/RadioButtonIcon';
 
 const meta: Meta<typeof RadioButtonIcon> = {
   title: 'Example/RadioButtonIcon',
   component: RadioButtonIcon,
   argTypes: {},
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

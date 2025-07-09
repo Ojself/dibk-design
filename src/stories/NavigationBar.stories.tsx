@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import NavigationBar, {
   type ListItemObject,
 } from '../components/NavigationBar';
-import ThemeProvider from '../components/ThemeProvider';
 
 const meta: Meta<typeof NavigationBar> = {
   title: 'Example/NavigationBar',
@@ -23,15 +22,6 @@ const meta: Meta<typeof NavigationBar> = {
     },
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story, { args }) => {
-      return (
-        <ThemeProvider theme={args.theme}>
-          <Story args={args} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;

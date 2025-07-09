@@ -1,26 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ThemeProvider from '../components/ThemeProvider';
-import type { ThemeProps } from '../components/Theme';
-import RadioButtonListItem, {
-  type RadioButtonListItemProps,
-} from '../components/RadioButtonListItem';
-
-type ExtendedArgs = RadioButtonListItemProps & { theme?: ThemeProps };
+import RadioButtonListItem from '../components/RadioButtonListItem';
 
 const meta: Meta<typeof RadioButtonListItem> = {
   title: 'Example/RadioButtonListItem',
   component: RadioButtonListItem,
   tags: ['autodocs'],
-  decorators: [
-    (Story, context) => {
-      const { theme, ...rest } = context.args as ExtendedArgs;
-      return (
-        <ThemeProvider theme={theme}>
-          <Story args={rest} />
-        </ThemeProvider>
-      );
-    },
-  ],
 };
 
 export default meta;
@@ -77,20 +61,6 @@ export const CheckedContentOnly: Story = {
     inputValue: 'value',
   },
 };
-
-/*
-No support for custom checkmarks in RadioButtonListItem as of now.
-export const CheckedCustomCheckmark: Story = {
-  args: {
-    id: 'radioButtonListItem-6',
-    checked: true,
-    disabled: true,
-    name: 'radioButtonListItem',
-    checkmarkCharacter: '✕',
-    children: 'Label for checked radio button with custom checkmark',
-    inputValue: 'value',
-  },
-}; */
 
 export const HasErrors: Story = {
   args: {
