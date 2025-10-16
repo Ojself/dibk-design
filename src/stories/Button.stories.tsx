@@ -1,17 +1,17 @@
-import { Link as RouterLink } from 'react-router-dom';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Link as RouterLink } from 'react-router-dom'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import Button from '../components/Button';
+import Button from '../components/Button'
 
 const meta: Meta<typeof Button> = {
   title: 'Example/Button',
   component: Button,
   tags: ['autodocs'],
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
@@ -20,28 +20,28 @@ export const Primary: Story = {
     size: 'regular',
     arrow: 'none',
   },
-};
+}
 
 export const Secondary: Story = {
   args: {
     color: 'secondary',
     content: 'Button',
   },
-};
+}
 
 export const Small: Story = {
   args: {
     size: 'small',
     content: 'Button',
   },
-};
+}
 
 export const Rounded: Story = {
   args: {
     rounded: true,
     content: 'Button',
   },
-};
+}
 
 export const ButtonWithHTMLContent: Story = {
   args: {
@@ -51,36 +51,40 @@ export const ButtonWithHTMLContent: Story = {
       </span>
     ),
   },
-};
+}
 
 export const ButtonWithLink: Story = {
   args: {
     content: 'Button with link',
     href: 'test',
   },
-};
+}
 
 export const ButtonWithReactLink: Story = {
   args: {
-    children: <RouterLink to="/test">Button with React Link</RouterLink>,
+    children: (
+      <RouterLink to="/test">Button with React Link</RouterLink>
+    ),
   },
-};
+}
 
 export const DisabledButtonWithReactLink: Story = {
   args: {
     disabled: true,
     children: (
-      <RouterLink to="/test">Disabled button with React Link</RouterLink>
+      <RouterLink to="/test">
+        Disabled button with React Link
+      </RouterLink>
     ),
   },
-};
+}
 
 export const InputButton: Story = {
   args: {
     content: 'InputButton',
     inputType: 'button',
   },
-};
+}
 
 export const RadioButton: Story = {
   args: {
@@ -89,4 +93,4 @@ export const RadioButton: Story = {
     name: 'radio-button',
     defaultChecked: false,
   },
-};
+}

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import Select from '../components/Select';
+import { useState } from 'react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import Select from '../components/Select'
 
 const meta: Meta<typeof Select> = {
   title: 'Example/Select',
@@ -9,8 +9,8 @@ const meta: Meta<typeof Select> = {
   decorators: [
     (Story, context) => {
       const [value, setValue] = useState(
-        context.args.value || context.args.defaultValue
-      );
+        context.args.value || context.args.defaultValue,
+      )
       return (
         <Story
           {...context}
@@ -20,16 +20,20 @@ const meta: Meta<typeof Select> = {
             onChange: (val: string) => setValue(val),
           }}
         />
-      );
+      )
     },
   ],
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-const options = ['option 1', 'option 2', { key: 'option 3', value: 'value 3' }];
+const options = [
+  'Option 1',
+  'Option 2',
+  { key: 'Option 3', value: 'value 3' },
+]
 
 export const Default: Story = {
   args: {
@@ -37,7 +41,7 @@ export const Default: Story = {
     id: 'select1',
     options,
   },
-};
+}
 export const WithLabel: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -45,7 +49,7 @@ export const WithLabel: Story = {
     label: 'Select with label',
     options,
   },
-};
+}
 export const WithSelectedValue: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -55,7 +59,7 @@ export const WithSelectedValue: Story = {
     value: 'value 3',
     options,
   },
-};
+}
 export const WithDefaultValue: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -65,7 +69,7 @@ export const WithDefaultValue: Story = {
     defaultValue: 'value 3',
     options,
   },
-};
+}
 export const WithError: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -77,7 +81,7 @@ export const WithError: Story = {
     errorMessage: 'Wrong value selected',
     options,
   },
-};
+}
 export const WithLinkInLabel: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -93,7 +97,7 @@ export const WithLinkInLabel: Story = {
     value: 'value 3',
     options,
   },
-};
+}
 export const Disabled: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -104,7 +108,7 @@ export const Disabled: Story = {
     value: 'value 3',
     options,
   },
-};
+}
 export const Required: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -113,7 +117,7 @@ export const Required: Story = {
     label: 'Required select',
     options,
   },
-};
+}
 export const WithPlaceholder: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -125,7 +129,7 @@ export const WithPlaceholder: Story = {
     value: 'notSelected',
     options,
   },
-};
+}
 export const WithContentOnly: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -135,7 +139,7 @@ export const WithContentOnly: Story = {
     contentOnly: true,
     options,
   },
-};
+}
 export const WithContentOnlyAndKeyAsContent: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -146,7 +150,7 @@ export const WithContentOnlyAndKeyAsContent: Story = {
     keyAsContent: true,
     options,
   },
-};
+}
 export const WithContentOnlyAndDefaultContent: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -156,7 +160,7 @@ export const WithContentOnlyAndDefaultContent: Story = {
     defaultContent: 'No value selected',
     options,
   },
-};
+}
 export const WithCustomWidth: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -165,7 +169,7 @@ export const WithCustomWidth: Story = {
     width: '250px',
     options,
   },
-};
+}
 export const Multiple: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -174,7 +178,7 @@ export const Multiple: Story = {
     multiple: true,
     options,
   },
-};
+}
 export const MultipleWithSelectedValue: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -184,7 +188,7 @@ export const MultipleWithSelectedValue: Story = {
     value: ['option 1', 'value 3'],
     options,
   },
-};
+}
 export const MultipleWithDefaultValue: Story = {
   args: {
     onChange: (e) => console.log(e.target.value),
@@ -194,4 +198,4 @@ export const MultipleWithDefaultValue: Story = {
     defaultValue: ['option 1', 'value 3'],
     options,
   },
-};
+}

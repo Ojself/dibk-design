@@ -76,3 +76,5 @@ dist-ssr
 storybook-static
 
 docs
+.vercel
+.env*.local

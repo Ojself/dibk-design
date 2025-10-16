@@ -1,8 +1,8 @@
-import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import ThemeProvider from '../src/components/ThemeProvider';
-import customThemes from '../src/data/customTheme';
-import type { Preview, Decorator } from '@storybook/react-vite';
+import React from "react";
+import { MemoryRouter } from "react-router-dom";
+import ThemeProvider from "../src/components/ThemeProvider";
+import customThemes from "../src/data/customTheme";
+import type { Preview, Decorator } from "@storybook/react-vite";
 
 const withThemeProvider: Decorator = (Story, { parameters }) => {
   return (
@@ -31,8 +31,9 @@ export default preview;
 // All stories expect a theme arg
 export const argTypes = {
   theme: {
-    control: 'select',
-    options: ['Default', 'DiBK', 'Arbeidstilsynet'],
+    control: "select",
+    options: ["Default", "DiBK", "Arbeidstilsynet"],
+
     mapping: {
       Default: undefined,
       DiBK: customThemes.dibk,

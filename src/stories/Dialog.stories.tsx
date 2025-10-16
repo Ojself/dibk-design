@@ -1,17 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
 
-import Header from '../components/Header';
-import Dialog from '@/components/Dialog';
+import Header from "../components/Header";
+import Dialog from "@/components/Dialog";
+import Button from "@/components/Button";
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Example/Dialog',
+  title: "Example/Dialog",
   component: Dialog,
+  tags: ["autodocs"], // <- add this
   argTypes: {
     attachTo: {
-      control: 'select',
-      options: ['None', 'Left', 'Right'],
-      mapping: { None: null, Left: 'left', Right: 'right' },
+      control: "select",
+      options: ["None", "Left", "Right"],
+      mapping: { None: null, Left: "left", Right: "right" },
     },
   },
 };
@@ -25,21 +27,21 @@ export const Default: Story = {
     children: (
       <>
         <Header size={1}>Dialog title</Header>
-        <p>dialog paragraph</p>
+        <p>Dialog paragraph</p>
       </>
     ),
     closeButton: true,
     modal: true,
     onClickOutside: () => {
-      console.log('clicked outside');
+      console.log("clicked outside");
     },
   },
-  render: (args) => {
+  render: function Render(args) {
     const [showDialog, setShowDialog] = useState<boolean>(false);
 
     return (
       <>
-        <button onClick={() => setShowDialog(true)}>Show dialog</button>
+        <Button onClick={() => setShowDialog(true)}>Show dialog</Button>
         <Dialog
           {...args}
           hidden={!showDialog}

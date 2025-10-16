@@ -3,41 +3,44 @@ import React, {
   Children,
   cloneElement,
   type ReactElement,
-} from 'react';
+} from 'react'
 import {
   classNameArrayToClassNameString,
   cloneThroughFragments,
-} from '../functions/helpers';
+} from '../functions/helpers'
 
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom'
 
-import style from './Button.module.scss';
+import style from './Button.module.scss'
 
-type ArrowDirection = 'none' | 'left' | 'right';
-type ButtonSize = 'small' | 'regular';
-export type ButtonColor = 'primary' | 'secondary';
-export type InputType = 'button' | 'radio';
+type ArrowDirection = 'none' | 'left' | 'right'
+type ButtonSize = 'small' | 'regular'
+export type ButtonColor = 'primary' | 'secondary'
+export type InputType = 'button' | 'radio'
 
 export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-  content?: string;
-  color?: ButtonColor;
-  size?: ButtonSize;
-  arrow?: ArrowDirection;
-  inputType?: InputType;
-  name?: string;
-  defaultChecked?: boolean;
-  required?: boolean;
-  hasErrors?: boolean;
-  'aria-describedby'?: string;
-  noHover?: boolean;
-  rounded?: boolean;
-  href?: string;
-  noMargin?: boolean;
-  children?: React.ReactNode;
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
-  [key: string]: any; // Allow additional props
+  extends Omit<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    'type'
+  > {
+  content?: string
+  color?: ButtonColor
+  size?: ButtonSize
+  arrow?: ArrowDirection
+  inputType?: InputType
+  name?: string
+  defaultChecked?: boolean
+  required?: boolean
+  hasErrors?: boolean
+  'aria-describedby'?: string
+  noHover?: boolean
+  rounded?: boolean
+  href?: string
+  noMargin?: boolean
+  children?: React.ReactNode
+  iconLeft?: React.ReactNode
+  iconRight?: React.ReactNode
+  [key: string]: any // Allow additional props
 }
 
 const Button = ({
@@ -61,16 +64,20 @@ const Button = ({
   const getArrowClass = (arrow: ArrowDirection): string => {
     switch (arrow) {
       case 'left':
-        return style.hasArrowLeft;
+        return style.hasArrowLeft
       case 'right':
-        return style.hasArrowRight;
+        return style.hasArrowRight
       default:
-        return '';
+        return ''
     }
-  };
+  }
 
   const buttonColor =
-    inputType === 'radio' ? (defaultChecked ? 'primary' : 'secondary') : color;
+    inputType === 'radio'
+      ? defaultChecked
+        ? 'primary'
+        : 'secondary'
+      : color
 
   const className = classNameArrayToClassNameString([
     style.button,
@@ -83,31 +90,31 @@ const Button = ({
     disabled ? style.disabled : null,
     noMargin ? style.noMargin : null,
     iconLeft || iconRight ? style.hasIcon : null,
-  ]);
+  ])
 
   const buttonProps = {
     'aria-invalid': hasErrors || undefined,
     href: !disabled && href?.length ? href : undefined,
     className, // Always include className in buttonProps for all elements
     ...rest,
-  };
+  }
 
   const renderLinkWrappedChildren = (
-    childElements: React.ReactNode[]
+    childElements: React.ReactNode[],
   ): React.ReactNode => {
     // Ensure flattened is always an array
     const flattened = React.Children.toArray(
-      cloneThroughFragments(childElements)
-    );
+      cloneThroughFragments(childElements),
+    )
     return flattened.map((childElement, index) => {
-      if (!React.isValidElement(childElement)) return null;
+      if (!React.isValidElement(childElement)) return null
       // Use type assertion to ReactElement<any, any> for safe props access
-      const element = childElement as ReactElement<any, any>;
+      const element = childElement as ReactElement<any, any>
       const isLink =
         element.type === RouterLink &&
         typeof element.props === 'object' &&
         element.props !== null &&
-        'to' in element.props;
+        'to' in element.props
 
       if (!disabled && isLink) {
         return cloneElement(
@@ -118,9 +125,11 @@ const Button = ({
             to: element.props.to,
           },
           iconLeft,
-          <span className={style.buttonContent}>{element.props.children}</span>,
-          iconRight
-        );
+          <span className={style.buttonContent}>
+            {element.props.children}
+          </span>,
+          iconRight,
+        )
       }
 
       return (
@@ -131,26 +140,28 @@ const Button = ({
           </span>
           {iconRight}
         </button>
-      );
-    });
-  };
+      )
+    })
+  }
 
   if (inputType === 'button') {
     // Only pass input-allowed props
-    const inputProps = { ...buttonProps };
-    delete inputProps.href;
+    const inputProps = { ...buttonProps }
+    delete inputProps.href
     return (
       <button type="button" {...buttonProps}>
         {iconLeft}
-        <span className={style.buttonContent}>{content || children}</span>
+        <span className={style.buttonContent}>
+          {content || children}
+        </span>
         {iconRight}
       </button>
-    );
+    )
   }
 
   if (inputType === 'radio') {
-    const inputProps = { ...buttonProps };
-    delete inputProps.href;
+    const inputProps = { ...buttonProps }
+    delete inputProps.href
     return (
       <label className={className}>
         <input
@@ -161,41 +172,47 @@ const Button = ({
         <span className={style.buttonContent}>{content}</span>
         {iconRight}
       </label>
-    );
+    )
   }
 
   if (href?.length && !disabled) {
     // Only pass anchor-allowed props
-    const anchorProps = { ...buttonProps };
+    const anchorProps = { ...buttonProps }
     // Remove 'type' if present
-    if ('type' in anchorProps) delete (anchorProps as any).type;
+    if ('type' in anchorProps) delete (anchorProps as any).type
     return (
-      <a {...(anchorProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
+      <a
+        {...(anchorProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
         {iconLeft}
-        <span className={style.buttonContent}>{content || children}</span>
+        <span className={style.buttonContent}>
+          {content || children}
+        </span>
         {iconRight}
       </a>
-    );
+    )
   }
 
   const isLinkWrapped =
-    React.isValidElement(children) && children.type === RouterLink;
+    React.isValidElement(children) && children.type === RouterLink
 
   if (isLinkWrapped) {
     return (
       <Fragment>
         {renderLinkWrappedChildren(Children.toArray(children))}
       </Fragment>
-    );
+    )
   }
 
   return (
     <button {...buttonProps}>
       {iconLeft}
-      <span className={style.buttonContent}>{content || children}</span>
+      <span className={style.buttonContent}>
+        {content || children}
+      </span>
       {iconRight}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
