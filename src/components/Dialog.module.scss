@@ -27,9 +27,11 @@
 }
 
 .dialog {
+    margin: auto;
     &::backdrop {
         background: color-mix(in srgb, var(--color-primary, colors.$color-primary), transparent 60%);
     }
+    
     &[open] {
         border: none;
         background: none;
