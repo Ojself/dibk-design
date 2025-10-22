@@ -1,8 +1,8 @@
-import { Children, cloneElement, isValidElement, type ReactNode } from 'react';
-import { cloneThroughFragments } from '../functions/helpers';
-import asterisk from '../assets/svg/asterisk.svg?url';
-import style from './CheckBoxList.module.scss';
-import Header from './Header';
+import { Children, cloneElement, isValidElement, type ReactNode } from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
+import { cloneThroughFragments } from "../functions/helpers";
+import style from "./CheckBoxList.module.scss";
+import Header from "./Header";
 
 export interface CheckBoxListProps {
   legend?: string;
@@ -22,17 +22,18 @@ const CheckBoxList = ({
   const renderChildElements = (childElements: ReactNode[]) => {
     const flattenedChildren = cloneThroughFragments(childElements);
 
-    return flattenedChildren.map((childElement, index) => {
+    return flattenedChildren.map((childElement) => {
       if (
         isValidElement<{ requiredGroup: boolean; compact: boolean }>(
-          childElement
+          childElement,
         ) &&
-        (childElement.type as any)?.displayName === 'RadioButtonListItem'
+        (childElement.type as { displayName?: string | undefined })
+          ?.displayName === "RadioButtonListItem"
       ) {
         return cloneElement(childElement, {
           requiredGroup: required,
           compact,
-          key: `checkboxListItem-${index}`,
+          key: `checkboxListItem-${childElement.key}`,
         });
       }
       return childElement;

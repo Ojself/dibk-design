@@ -1,9 +1,9 @@
 // RadioButtonInput.tsx
 
-import React from 'react';
-import RadioButtonIcon from './RadioButtonIcon';
-import asterisk from '../assets/svg/asterisk.svg?url';
-import style from './RadioButtonInput.module.scss';
+import type React from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
+import RadioButtonIcon from "./RadioButtonIcon";
+import style from "./RadioButtonInput.module.scss";
 
 export interface RadioButtonInputProps {
   checked?: boolean;
@@ -18,8 +18,8 @@ export interface RadioButtonInputProps {
   inputValue: string;
   tabIndex?: number;
   children?: React.ReactNode;
-  'aria-controls'?: string;
-  'aria-describedby'?: string;
+  "aria-controls"?: string;
+  "aria-describedby"?: string;
 }
 
 const RadioButtonInput = ({
@@ -28,15 +28,15 @@ const RadioButtonInput = ({
   required = false,
   requiredGroup = false,
   id,
-  name = '',
+  name = "",
   onChange,
   contentOnly = false,
   hasErrors = false,
   inputValue,
   tabIndex,
   children,
-  'aria-controls': ariaControls,
-  'aria-describedby': ariaDescribedBy,
+  "aria-controls": ariaControls,
+  "aria-describedby": ariaDescribedBy,
 }: RadioButtonInputProps) => {
   const labelClassName = [
     style.radioButtonInput,
@@ -45,7 +45,7 @@ const RadioButtonInput = ({
     hasErrors && style.hasErrors,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   const iconProps = {
     checked,
@@ -56,16 +56,16 @@ const RadioButtonInput = ({
   const inputProps: React.InputHTMLAttributes<HTMLInputElement> = {
     id,
     name,
-    type: 'radio',
+    type: "radio",
     value: inputValue,
     checked,
     disabled,
     required: required || requiredGroup,
     onChange,
     tabIndex: tabIndex ?? undefined,
-    'aria-controls': ariaControls,
-    'aria-invalid': hasErrors ? 'true' : undefined,
-    'aria-describedby': ariaDescribedBy,
+    "aria-controls": ariaControls,
+    "aria-invalid": hasErrors ? "true" : undefined,
+    "aria-describedby": ariaDescribedBy,
   };
 
   return (

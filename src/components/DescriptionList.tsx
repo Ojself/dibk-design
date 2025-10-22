@@ -1,9 +1,14 @@
-import React, { Children, cloneElement, isValidElement, type ReactNode } from 'react';
-import style from './DescriptionList.module.scss';
+import React, {
+  Children,
+  cloneElement,
+  isValidElement,
+  type ReactNode,
+} from "react";
+import style from "./DescriptionList.module.scss";
 import {
   classNameArrayToClassNameString,
   cloneThroughFragments,
-} from '../functions/helpers';
+} from "../functions/helpers";
 
 export interface DescriptionListProps {
   compact?: boolean;
@@ -19,29 +24,29 @@ const DescriptionList = ({
   const renderChildElements = (childElements: ReactNode[]) => {
     const flattened = cloneThroughFragments(childElements);
 
-    return flattened.map((child, index) => {
+    return flattened.map((child) => {
       if (isValidElement<{ compact?: boolean; titleWidth?: string }>(child)) {
         return cloneElement(child, {
           compact,
           titleWidth,
-          key: `descriptionListItem-${index}`,
+          key: `descriptionListItem-${child.key}`,
         });
       }
       return child;
     });
   };
   return React.createElement(
-    'dl',
+    "dl",
     {
       className: classNameArrayToClassNameString([
         style.descriptionList,
         compact && style.compact,
       ]),
       style: {
-        '--title-width': titleWidth || undefined,
+        "--title-width": titleWidth || undefined,
       } as React.CSSProperties,
     },
-    renderChildElements(Children.toArray(children))
+    renderChildElements(Children.toArray(children)),
   );
 };
 

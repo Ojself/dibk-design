@@ -1,9 +1,9 @@
 // CheckBoxListItem.tsx
 
-import React from 'react';
-import CheckBoxInput from './CheckBoxInput';
-import { classNameArrayToClassNameString } from '../functions/helpers';
-import style from './CheckBoxListItem.module.scss';
+import type React from "react";
+import { classNameArrayToClassNameString } from "../functions/helpers";
+import CheckBoxInput from "./CheckBoxInput";
+import style from "./CheckBoxListItem.module.scss";
 
 export interface CheckBoxListItemProps {
   value?: string | number;
@@ -18,8 +18,8 @@ export interface CheckBoxListItemProps {
   compact?: boolean;
   checkmarkCharacter?: string;
   hasErrors?: boolean;
-  'aria-controls'?: string;
-  'aria-describedby'?: string;
+  "aria-controls"?: string;
+  "aria-describedby"?: string;
   children?: React.ReactNode;
 }
 
@@ -29,14 +29,14 @@ const CheckBoxListItem = ({
   required = false,
   requiredGroup = false,
   id,
-  name = '',
+  name = "",
   onChange,
   contentOnly = false,
   compact = false,
   hasErrors = false,
-  checkmarkCharacter = '✔',
-  'aria-controls': ariaControls,
-  'aria-describedby': ariaDescribedBy,
+  checkmarkCharacter = "✔",
+  "aria-controls": ariaControls,
+  "aria-describedby": ariaDescribedBy,
   children,
   value,
 }: CheckBoxListItemProps) => {
@@ -57,8 +57,8 @@ const CheckBoxListItem = ({
     requiredGroup,
     contentOnly,
     hasErrors,
-    'aria-controls': ariaControls,
-    'aria-describedby': ariaDescribedBy,
+    "aria-controls": ariaControls,
+    "aria-describedby": ariaDescribedBy,
     id,
     name,
     checkmarkCharacter,

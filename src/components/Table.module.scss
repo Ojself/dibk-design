@@ -3,63 +3,116 @@
 @use "../style/abstracts/variables/typography";
 
 .table {
+  font-family: typography.$default-font;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  caption {
     font-family: typography.$default-font;
-    border-collapse: collapse;
-    width: 100%;
-    caption {
-        font-family: typography.$default-font;
-        font-weight: normal;
-        font-style: italic;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.2;
+    font-size: 17px;
+    color: var(--color-primary, colors.$color-primary);
+    caption-side: top;
+    text-align: left;
+    margin: 0 0 6px 0;
+  }
+
+  thead {
+    tr {
+      background-color: #ffffff;
+    }
+
+    th {
+      
+      text-align: left;
+      overflow: hidden; 
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: bottom;
+      padding: 0; 
+      border-bottom: 2px solid var(--color-border, colors.$color-border);
+      
+
+      
+      .thButton {
+        all: unset; 
+        display: flex;
+        box-sizing: border-box;    
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+        padding: 10px 12px;
+        cursor: default; 
+        border-radius: 6px; 
+      }
+
+      .sortable {
+        cursor: pointer;
+        &:hover {
+          background-color: var(
+            --color-secondary-x-light,
+            colors.$color-secondary-x-light
+          );
+        }
+      }
+
+      .thButton:focus-visible {
+        outline: 2px solid var(--color-primary, colors.$color-primary);
+        outline-offset: 2px;
+      }
+
+      .label {
+        flex: 0 1 auto;
+        min-width: 0;
+      }
+
+      .sortIndicators {
+        display: inline-flex;
+        flex-direction: column;
         line-height: 1;
-        font-size: 17px;
-        color: var(--color-primary, colors.$color-primary);
-    }
-    &.captionSide-top {
-        caption {
-            caption-side: top;
-            margin: 0 0 6px 0;
+        font-size: 10px;
+        gap: 2px;
+        
+      }
+
+      .sortArrow {
+        opacity: 0.35;
+
+        &.activeArrow {
+          color: var(--color-primary, colors.$color-primary);
+          opacity: 1;
         }
+      }
     }
-    &.captionSide-bottom {
-        caption {
-            caption-side: bottom;
-            margin: 6px 0 0 0;
-        }
+  }
+
+  tbody {
+    tr {
+      
+
+      &.evenRow {
+        background-color: #ffffff;
+      }
+
+      &.oddRow {
+        background-color: var(
+          --color-secondary-x-light,
+          colors.$color-secondary-x-light
+        );
+      }
+
+      &:hover {
+        filter: brightness(0.99);
+      }
     }
-    &.captionAlign-left {
-        caption {
-            text-align: left;
-        }
+
+    td {
+      padding: 10px 12px;
+      font-size: 16px;
+      
     }
-    &.captionAlign-center {
-        caption {
-            text-align: center;
-        }
-    }
-    &.captionAlign-right {
-        caption {
-            text-align: right;
-        }
-    }
-    thead {
-        tr {
-            background-color: var(--color-default-background, colors.$color-default-background);
-            border: 1px solid var(--color-border, colors.$color-border);
-            th {
-                text-align: left;
-                font-size: 16px;
-                padding: 10px;
-            }
-        }
-    }
-    tbody {
-        tr {
-            background-color: var(--color-default-background, colors.$color-default-background);
-            border: 1px solid var(--color-border, colors.$color-border);
-            td {
-                padding: 10px;
-                font-size: 16px;
-            }
-        }
-    }
+  }
 }

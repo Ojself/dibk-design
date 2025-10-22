@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './CheckBoxIcon.module.scss';
+import type React from "react";
+import style from "./CheckBoxIcon.module.scss";
 
 export interface CheckBoxIconProps {
   size?: string;
@@ -11,13 +11,13 @@ export interface CheckBoxIconProps {
 }
 
 const CheckBoxIcon = ({
-  size = '20px',
+  size = "20px",
   checked = false,
   disabled = false,
   showBox = true,
   hasErrors = false,
-  checkmarkCharacter = '✔',
-}) => {
+  checkmarkCharacter = "✔",
+}: CheckBoxIconProps) => {
   const inlineStyle: React.CSSProperties = {
     height: size,
     width: size,
@@ -32,12 +32,12 @@ const CheckBoxIcon = ({
     hasErrors && style.hasErrors,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   return (
     <span className={className} style={inlineStyle}>
       <span aria-hidden className={style.checkmark}>
-        {checked ? checkmarkCharacter : ''}
+        {checked ? checkmarkCharacter : ""}
       </span>
     </span>
   );

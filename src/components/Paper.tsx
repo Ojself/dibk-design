@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './Paper.module.scss';
+import type React from "react";
+import style from "./Paper.module.scss";
 
 export interface PaperProps {
   noMargin?: boolean;
@@ -18,7 +18,7 @@ const Paper = ({
     noPadding && style.noPadding,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   return <div className={className}>{children}</div>;
 };

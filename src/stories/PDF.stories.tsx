@@ -1,16 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { CSSProperties } from 'react';
-
-import PDF from '../components/PDF';
-
-import { imageData } from '../assets/svg/dibk-logo-base64';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { CSSProperties } from "react";
+import { imageData } from "../assets/svg/dibk-logo-base64";
+import PDF, { type PDFProps } from "../components/PDF";
 
 const meta: Meta<typeof PDF> = {
-  title: 'Example/PDF',
+  title: "Example/PDF",
   component: PDF,
   argTypes: {
-    signedDocument: { control: 'boolean' },
-    orientation: { control: 'radio', options: ['portrait', 'landscape'] },
+    signedDocument: { control: "boolean" },
+    orientation: { control: "radio", options: ["portrait", "landscape"] },
   },
 };
 
@@ -18,28 +16,28 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const render = (args: any) => {
+const render = (args: PDFProps) => {
   const scalingStyles: CSSProperties = args.signedDocument
     ? {
-        scale: '0.90251',
-        position: 'relative',
-        top: '-17px',
-        marginBottom: '-147px',
+        scale: "0.90251",
+        position: "relative",
+        top: "-17px",
+        marginBottom: "-147px",
       }
     : {
-        position: 'relative',
-        top: '43px',
-        marginBottom: '60px',
+        position: "relative",
+        top: "43px",
+        marginBottom: "60px",
       };
 
   return (
     <PDF {...args}>
       <div
         className={[
-          'page',
-          args.signedDocument ? 'signed-document' : '',
-          args.orientation === 'landscape' ? 'landscape' : '',
-        ].join(' ')}
+          "page",
+          args.signedDocument ? "signed-document" : "",
+          args.orientation === "landscape" ? "landscape" : "",
+        ].join(" ")}
       >
         <div className="content-container" style={scalingStyles}>
           {args.children}
@@ -77,27 +75,27 @@ const h5Example = <h5>Heading level 5 example</h5>;
 
 const captionExample = <caption>Caption with default size example</caption>;
 const captionH1Example = (
-  <caption style={{ '--size': 1 } as CSSProperties}>
+  <caption style={{ "--size": 1 } as CSSProperties}>
     Caption with size 1 example
   </caption>
 );
 const captionH2Example = (
-  <caption style={{ '--size': 2 } as CSSProperties}>
+  <caption style={{ "--size": 2 } as CSSProperties}>
     Caption with size 2 example
   </caption>
 );
 const captionH3Example = (
-  <caption style={{ '--size': 3 } as CSSProperties}>
+  <caption style={{ "--size": 3 } as CSSProperties}>
     Caption with size 3 example
   </caption>
 );
 const captionH4Example = (
-  <caption style={{ '--size': 4 } as CSSProperties}>
+  <caption style={{ "--size": 4 } as CSSProperties}>
     Caption with size 4 example
   </caption>
 );
 const captionH5Example = (
-  <caption style={{ '--size': 5 } as CSSProperties}>
+  <caption style={{ "--size": 5 } as CSSProperties}>
     Caption with size 5 example
   </caption>
 );
@@ -106,11 +104,11 @@ const textParagraphsExample = (
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit...
     <br />
-    <span>Text without class</span>{' '}
-    <span className="text-bold">Text with class .text-bold</span>{' '}
-    <span className="text-italic">Text with class .text-italic</span>{' '}
-    <span className="text-red">Text with class .text-red</span>{' '}
-    <span className="text-muted">Text with class .text-muted</span>{' '}
+    <span>Text without class</span>{" "}
+    <span className="text-bold">Text with class .text-bold</span>{" "}
+    <span className="text-italic">Text with class .text-italic</span>{" "}
+    <span className="text-red">Text with class .text-red</span>{" "}
+    <span className="text-muted">Text with class .text-muted</span>{" "}
     <div>
       <span className="block text-left">.block .text-left</span>
       <span className="block text-center">.block .text-center</span>
@@ -135,7 +133,7 @@ const textListExample = (
 
 const descriptionListExample = (
   <>
-    <dl style={{ '--title-width': '120px' } as CSSProperties}>
+    <dl style={{ "--title-width": "120px" } as CSSProperties}>
       <dt>List item title:</dt>
       <dd>List item content</dd>
       <dt>List item title:</dt>
@@ -155,7 +153,7 @@ const tableExampleContent = (
   <>
     <thead>
       <tr>
-        <th style={{ '--width': '200px' } as CSSProperties}>Funksjon</th>
+        <th style={{ "--width": "200px" } as CSSProperties}>Funksjon</th>
         <th>Table header</th>
         <th>
           Table-
@@ -192,8 +190,8 @@ const tableWithoutBordersExample = (
 );
 
 const gridExample = (
-  <div className="grid" style={{ '--columns': '2' } as CSSProperties}>
-    <dl style={{ '--display-type': 'stacked' } as CSSProperties}>
+  <div className="grid" style={{ "--columns": "2" } as CSSProperties}>
+    <dl style={{ "--display-type": "stacked" } as CSSProperties}>
       <dt>List item title:</dt>
       <dd>List item content</dd>
     </dl>
@@ -219,7 +217,7 @@ const uncheckedCheckboxExample = (
 export const Default: Story = {
   args: {
     signedDocument: false,
-    orientation: 'portrait',
+    orientation: "portrait",
     children: (
       <>
         {logoExample}

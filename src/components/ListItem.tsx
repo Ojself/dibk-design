@@ -1,8 +1,8 @@
 // ListItem.tsx
 
-import React from 'react';
-import { classNameArrayToClassNameString } from '../functions/helpers';
-import style from './ListItem.module.scss';
+import type React from "react";
+import { classNameArrayToClassNameString } from "../functions/helpers";
+import style from "./ListItem.module.scss";
 
 export interface ListItemProps {
   compact?: boolean;

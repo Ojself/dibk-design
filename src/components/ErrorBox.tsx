@@ -1,17 +1,17 @@
-import { classNameArrayToClassNameString } from '../functions/helpers';
-import style from './ErrorBox.module.scss';
-import infoSign from '../assets/svg/info-sign.svg?url';
+import infoSign from "../assets/svg/info-sign.svg?url";
+import { classNameArrayToClassNameString } from "../functions/helpers";
+import style from "./ErrorBox.module.scss";
 
 export interface ErrorBoxProps {
-  type?: 'warning' | 'error';
+  type?: "warning" | "error";
   fullScreen?: boolean;
   children?: React.ReactNode;
 }
 
 const ErrorBox: React.FC<ErrorBoxProps> = ({
-  type = 'warning',
+  type = "warning",
   fullScreen = false,
-  children = '',
+  children = "",
 }) => {
   return (
     <div

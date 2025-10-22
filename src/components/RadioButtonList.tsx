@@ -1,8 +1,8 @@
-import { Children, cloneElement, isValidElement, type ReactNode } from 'react';
-import { cloneThroughFragments } from '../functions/helpers';
-import asterisk from '../assets/svg/asterisk.svg?url';
-import style from './RadioButtonList.module.scss';
-import Header from './Header';
+import { Children, cloneElement, isValidElement, type ReactNode } from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
+import { cloneThroughFragments } from "../functions/helpers";
+import Header from "./Header";
+import style from "./RadioButtonList.module.scss";
 
 export interface RadioButtonListProps {
   legend?: string;
@@ -21,15 +21,16 @@ const RadioButtonList = ({
 }: RadioButtonListProps) => {
   const renderChildElements = (childElements: ReactNode[]) => {
     const flattened = cloneThroughFragments(childElements);
-    return flattened.map((child, index) => {
+    return flattened.map((child) => {
       if (
         isValidElement<{ requiredGroup: boolean; compact?: boolean }>(child) &&
-        (child.type as any)?.displayName === 'RadioButtonListItem'
+        (child.type as { displayName?: string | undefined })?.displayName ===
+          "RadioButtonListItem"
       ) {
         return cloneElement(child, {
           requiredGroup: required,
           compact,
-          key: `radioButtonListItem-${index}`,
+          key: `radioButtonListItem-${child.key}`,
         });
       }
       return child;

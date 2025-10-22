@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import type { JSX } from 'react';
-
-import Label from './Label';
-import asterisk from '../assets/svg/asterisk.svg?url';
-import style from './DragAndDropFileInput.module.scss';
-import ErrorMessage from './ErrorMessage';
-
-import Button, { type ButtonColor } from './Button';
+import type React from "react";
+import type { JSX } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
+import Button, { type ButtonColor } from "./Button";
+import style from "./DragAndDropFileInput.module.scss";
+import ErrorMessage from "./ErrorMessage";
+import Label from "./Label";
 
 export interface DragAndDropFileInputProps {
   id: string;
@@ -24,7 +23,7 @@ export interface DragAndDropFileInputProps {
   errorMessage?: string | (string | JSX.Element)[];
   required?: boolean;
   children?: React.ReactNode;
-  'data-transaction-name'?: string;
+  "data-transaction-name"?: string;
 }
 
 const DragAndDropFileInput = ({
@@ -32,18 +31,18 @@ const DragAndDropFileInput = ({
   name,
   onSelectChange,
   onDragAndDropChange,
-  label = '',
+  label = "",
   contentOnly = false,
-  buttonColor = 'primary',
+  buttonColor = "primary",
   buttonContent,
   buttonContentWhenSelectedFile,
   selectedFileName,
-  defaultContent = '',
+  defaultContent = "",
   hasErrors = false,
-  errorMessage = '',
+  errorMessage = "",
   required = false,
   children,
-  'data-transaction-name': transactionName,
+  "data-transaction-name": transactionName,
 }: DragAndDropFileInputProps) => {
   const [highlight, setHighlight] = useState(false);
   const containerElementRef = useRef<HTMLDivElement>(null);
@@ -56,7 +55,7 @@ const DragAndDropFileInput = ({
 
   const renderValueAsText = (
     value?: string,
-    fallback?: string
+    fallback?: string,
   ): string | undefined => {
     return value ? value : fallback;
   };
@@ -69,11 +68,11 @@ const DragAndDropFileInput = ({
 
   const inputElementProps: React.InputHTMLAttributes<HTMLInputElement> = {
     id,
-    'aria-describedby':
+    "aria-describedby":
       hasErrors && errorMessage?.toString().length
         ? getErrorElementId()
         : undefined,
-    'aria-invalid': hasErrors ? 'true' : undefined,
+    "aria-invalid": hasErrors ? "true" : undefined,
     name,
     required,
   };
@@ -92,33 +91,36 @@ const DragAndDropFileInput = ({
       }
       setHighlight(false);
     },
-    [onDragAndDropChange]
+    [onDragAndDropChange],
   );
 
   useEffect(() => {
     const node = containerElementRef.current;
     if (!node) return;
 
-    ['dragenter', 'dragover'].forEach((eventName) =>
+    ["dragenter", "dragover"].forEach((eventName) =>{
+
       node.addEventListener(eventName, highlightOn)
-    );
-    ['dragleave', 'drop'].forEach((eventName) =>
+    });
+    ["dragleave", "drop"].forEach((eventName) =>{
+
       node.addEventListener(eventName, highlightOff)
-    );
+    });
 
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) =>
+    ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) =>{
+
       node.addEventListener(eventName, preventDefaults)
-    );
+    });
 
-    node.addEventListener('drop', handleDrop);
+    node.addEventListener("drop", handleDrop);
 
     return () => {
-      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+      ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
         node.removeEventListener(eventName, preventDefaults);
         node.removeEventListener(eventName, highlightOn);
         node.removeEventListener(eventName, highlightOff);
       });
-      node.removeEventListener('drop', handleDrop);
+      node.removeEventListener("drop", handleDrop);
     };
   }, [onDragAndDropChange]);
 
@@ -137,7 +139,7 @@ const DragAndDropFileInput = ({
         <div
           ref={containerElementRef}
           className={`${style.dragAndDropContainer} ${
-            highlight ? style.highlighted : ''
+            highlight ? style.highlighted : ""
           }`}
         >
           {selectedFileName ? (
@@ -159,8 +161,8 @@ const DragAndDropFileInput = ({
             <>
               <div>
                 {selectedFileName
-                  ? ''
-                  : 'eller klikk på knappen for å velge fil'}
+                  ? ""
+                  : "eller klikk på knappen for å velge fil"}
               </div>
 
               <Button
