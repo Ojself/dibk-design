@@ -16,17 +16,13 @@ export type Option =
   | number
   | { key: string | number; value: string | number };
 
-export interface SelectProps {
+interface SelectPropsBase {
   id: string;
-  onChange: (value: string | number | (string | number)[]) => void;
   name?: string;
   required?: boolean;
   disabled?: boolean;
-  multiple?: boolean;
   options?: Option[];
   width?: string;
-  value?: string | number | (string | number)[];
-  defaultValue?: string | number | (string | number)[];
   label?: React.ReactNode;
   contentOnly?: boolean;
   keyAsContent?: boolean;
@@ -39,28 +35,42 @@ export interface SelectProps {
   errorMessage?: React.ReactNode;
 }
 
-const Select = ({
-  id,
-  onChange,
-  name = "",
-  required = false,
-  disabled = false,
-  multiple = false,
-  options = [],
-  width,
-  value,
-  defaultValue,
-  label = "",
-  contentOnly = false,
-  keyAsContent = false,
-  placeholder = "",
-  placeholderValue = "",
-  defaultContent = "",
-  role,
-  "aria-describedby": ariaDescribedBy,
-  hasErrors = false,
-  errorMessage = "",
-}: SelectProps) => {
+export interface SingleSelectProps extends SelectPropsBase {
+  multiple?: false;
+  onChange: (value: string | number) => void;
+  value?: string | number;
+  defaultValue?: string | number;
+}
+
+export interface MultipleSelectProps extends SelectPropsBase {
+  multiple: true;
+  onChange: (value: (string | number)[]) => void;
+  value?: (string | number)[];
+  defaultValue?: (string | number)[];
+}
+
+export type SelectProps = SingleSelectProps | MultipleSelectProps;
+
+const Select = (props: SelectProps) => {
+  const {
+    id,
+    name = "",
+    required = false,
+    disabled = false,
+    options = [],
+    width,
+    label = "",
+    contentOnly = false,
+    keyAsContent = false,
+    placeholder = "",
+    placeholderValue = "",
+    defaultContent = "",
+    role,
+    "aria-describedby": ariaDescribedBy,
+    hasErrors = false,
+    errorMessage = "",
+  } = props;
+
   const [showDropdownList, setShowDropdownList] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -112,8 +122,8 @@ const Select = ({
         : [v as string | number];
 
   const selectedArray = (): (string | number)[] => {
-    if (value !== undefined) return ensureArray(value);
-    if (defaultValue !== undefined) return ensureArray(defaultValue);
+    if (props.value !== undefined) return ensureArray(props.value);
+    if (props.defaultValue !== undefined) return ensureArray(props.defaultValue);
     return [];
   };
 
@@ -129,7 +139,9 @@ const Select = ({
     const next = exists
       ? current.filter((v) => v !== changedValue)
       : [...current, changedValue];
-    onChange(next);
+    if (props.multiple) {
+      props.onChange(next);
+    }
   };
 
   const renderCheckBoxElements = () => {
@@ -194,7 +206,7 @@ const Select = ({
       >
         <span className={style.selectListArrow} />
 
-        {multiple ? (
+        {props.multiple ? (
           // ---- MULTI (custom checkbox dropdown) ----
           <div ref={dropdownRef}>
             <button
@@ -227,7 +239,7 @@ const Select = ({
             name={name}
             required={required}
             disabled={disabled}
-            onChange={(e) => onChange(coerceFromSelect(e.target.value))}
+            onChange={(e) => props.onChange(coerceFromSelect(e.target.value))}
             id={id}
             role={role}
             className={classNameArrayToClassNameString([
@@ -239,10 +251,10 @@ const Select = ({
             aria-invalid={hasErrors || undefined}
             style={width ? { maxWidth: width } : undefined}
             // NOTE: only pass scalar value/defaultValue here — never arrays
-            {...(value !== undefined
-              ? { value: value as string | number }
-              : defaultValue !== undefined
-                ? { defaultValue: defaultValue as string | number }
+            {...(props.value !== undefined
+              ? { value: props.value }
+              : props.defaultValue !== undefined
+                ? { defaultValue: props.defaultValue }
                 : {})}
           >
             {placeholder && (

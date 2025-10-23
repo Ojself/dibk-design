@@ -1,6 +1,7 @@
 // InputField.tsx
 
 import type React from "react";
+import { useRef } from "react";
 import asterisk from "../assets/svg/asterisk.svg?url";
 import { classNameArrayToClassNameString } from "../functions/helpers";
 import Button from "./Button";
@@ -96,6 +97,7 @@ const InputField = ({
   errorMessage = "",
   noMargin = false,
 }: InputFieldProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const getErrorElementId = () => `${id}-errorMessage`;
   const styleRules: React.CSSProperties = width ? { maxWidth: width } : {};
 
@@ -196,12 +198,7 @@ const InputField = ({
               <Button
                 color={buttonColor}
                 inputType="button"
-                onClick={() => {
-                  const el = document?.getElementById(
-                    id,
-                  ) as HTMLInputElement | null;
-                  el?.click();
-                }}
+                onClick={() => inputRef.current?.click()}
                 content={buttonContent}
               />
             )}
@@ -210,7 +207,7 @@ const InputField = ({
       </Label>
 
       {/* note: for type="file", we don’t pass value/defaultValue */}
-      <input key={elementKey || id} {...inputProps} />
+      <input key={elementKey || id} {...inputProps} ref={inputRef} />
 
       {hasErrors && errorMessage ? (
         <ErrorMessage id={getErrorElementId()} content={errorMessage} />
