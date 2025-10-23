@@ -1,6 +1,6 @@
 {
 "name": "dibk-design",
-	"version": "9.3.2",
+	"version": "9.3.3",
 	"homepage": "https://Ojself.github.io/dibk-design",
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.es.js",

@@ -45,7 +45,7 @@
 
         &:focus {
             border-color: var(--color-primary, colors.$color-primary);
-            outline: colors.$color-focus solid 3px;
+            outline: colors.$color-focus solid 0px;
         }
 
         &[disabled],

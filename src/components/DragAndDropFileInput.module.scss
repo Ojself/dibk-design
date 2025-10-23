@@ -16,7 +16,6 @@
     .dragAndDropContainer {
         @include transition.transition(all 0.1s ease-in-out);
         border: 2px dashed var(--color-secondary-light, colors.$color-secondary-light);
-        border-radius: 20px;
         width: 100%;
         padding: 20px;
         text-align: center;
