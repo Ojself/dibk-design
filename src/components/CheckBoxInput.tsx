@@ -1,9 +1,9 @@
 // CheckBoxInput.tsx
 
-import React from 'react';
-import CheckBoxIcon from './CheckBoxIcon';
-import asterisk from '../assets/svg/asterisk.svg?url';
-import style from './CheckBoxInput.module.scss';
+import type React from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
+import CheckBoxIcon from "./CheckBoxIcon";
+import style from "./CheckBoxInput.module.scss";
 
 export interface CheckBoxInputProps {
   checked?: boolean;
@@ -16,8 +16,8 @@ export interface CheckBoxInputProps {
   contentOnly?: boolean;
   hasErrors?: boolean;
   checkmarkCharacter?: string;
-  'aria-controls'?: string;
-  'aria-describedby'?: string;
+  "aria-controls"?: string;
+  "aria-describedby"?: string;
   tabIndex?: number;
   children?: React.ReactNode;
   value?: string | number;
@@ -29,15 +29,15 @@ const CheckBoxInput = ({
   required = false,
   requiredGroup = false,
   id,
-  name = '',
+  name = "",
   onChange,
   contentOnly = false,
   hasErrors = false,
-  checkmarkCharacter = '✔',
+  checkmarkCharacter = "✔",
   tabIndex = 0,
   children,
-  'aria-controls': ariaControls,
-  'aria-describedby': ariaDescribedBy,
+  "aria-controls": ariaControls,
+  "aria-describedby": ariaDescribedBy,
   value,
 }: CheckBoxInputProps) => {
   const labelClassName = [
@@ -47,7 +47,7 @@ const CheckBoxInput = ({
     hasErrors && style.hasErrors,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   const iconProps = {
     checked,
@@ -60,15 +60,15 @@ const CheckBoxInput = ({
   const inputProps: React.InputHTMLAttributes<HTMLInputElement> = {
     id,
     name,
-    type: 'checkbox',
+    type: "checkbox",
     checked,
     disabled,
     required: required || requiredGroup,
     onChange,
     tabIndex,
-    'aria-controls': ariaControls,
-    'aria-invalid': hasErrors ? 'true' : undefined,
-    'aria-describedby': ariaDescribedBy,
+    "aria-controls": ariaControls,
+    "aria-invalid": hasErrors ? "true" : undefined,
+    "aria-describedby": ariaDescribedBy,
     value,
   };
 

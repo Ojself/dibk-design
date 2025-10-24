@@ -1,7 +1,7 @@
 // Container.tsx
 
-import React from 'react';
-import style from './Container.module.scss';
+import type React from "react";
+import style from "./Container.module.scss";
 
 export interface ContainerProps {
   maxWidth?: string;
@@ -10,7 +10,7 @@ export interface ContainerProps {
 
 const Container = ({ maxWidth, children }: ContainerProps) => {
   const styleProps: React.CSSProperties = {
-    '--max-width': maxWidth?.length ? maxWidth : undefined,
+    "--max-width": maxWidth?.length ? maxWidth : undefined,
   } as React.CSSProperties;
 
   return (

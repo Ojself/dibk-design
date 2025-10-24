@@ -1,6 +1,6 @@
-import type { JSX } from 'react';
-import React from 'react';
-import style from './Lead.module.scss';
+import type { JSX } from "react";
+import React from "react";
+import style from "./Lead.module.scss";
 
 export interface LeadProps {
   id?: string;
@@ -8,14 +8,14 @@ export interface LeadProps {
   children?: React.ReactNode;
 }
 
-const Lead = ({ id, htmlTag = 'p', children }: LeadProps) => {
+const Lead = ({ id, htmlTag = "p", children }: LeadProps) => {
   return React.createElement(
     htmlTag,
     {
       className: style.lead,
       id: id || undefined,
     },
-    children
+    children,
   );
 };
 

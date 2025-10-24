@@ -1,8 +1,8 @@
 // ToggleNavigationButton.tsx
 
-import React from 'react';
-import type { JSX } from 'react';
-import style from './ToggleNavigationButton.module.scss';
+import type { JSX } from "react";
+import React from "react";
+import style from "./ToggleNavigationButton.module.scss";
 
 export interface ToggleNavigationButtonProps {
   id?: string;
@@ -15,7 +15,7 @@ export interface ToggleNavigationButtonProps {
 
 const ToggleNavigationButton = ({
   id,
-  htmlTag = 'button',
+  htmlTag = "button",
   showText,
   hideText,
   buttonProps = {},
@@ -28,7 +28,7 @@ const ToggleNavigationButton = ({
       className: style.toggleNavigationButton,
       id: id || undefined,
     },
-    isOpen ? hideText : showText
+    isOpen ? hideText : showText,
   );
 };
 

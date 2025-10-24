@@ -1,7 +1,7 @@
 // RadioButtonIcon.tsx
 
-import React from 'react';
-import style from './RadioButtonIcon.module.scss';
+import type React from "react";
+import style from "./RadioButtonIcon.module.scss";
 
 export interface RadioButtonIconProps {
   size?: string;
@@ -11,7 +11,7 @@ export interface RadioButtonIconProps {
 }
 
 const RadioButtonIcon = ({
-  size = '10px',
+  size = "10px",
   checked = false,
   disabled = false,
   hasErrors = false,
@@ -28,7 +28,7 @@ const RadioButtonIcon = ({
     hasErrors && style.hasErrors,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   return <span className={className} style={inlineStyle}></span>;
 };

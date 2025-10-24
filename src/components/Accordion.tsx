@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import type { ReactNode, ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 // Helpers
-import { classNameArrayToClassNameString } from '../functions/helpers';
+import { classNameArrayToClassNameString } from "../functions/helpers";
 
 // Stylesheets
-import style from './Accordion.module.scss';
+import style from "./Accordion.module.scss";
 
-type AccordionColor = 'default' | 'secondary' | 'info' | 'contrast';
+type AccordionColor = "default" | "secondary" | "info" | "contrast";
 
 export interface AccordionProps {
   title?: string;
@@ -18,12 +18,39 @@ export interface AccordionProps {
   noMargin?: boolean;
   initialized?: boolean;
   children?: ReactNode;
+  // biome-ignore lint/suspicious/noExplicitAny: <any allowed>
   [key: string]: any;
 }
 
+const RenderPanel = ({
+  title,
+  buttonProps,
+  expanded,
+  handleToggleExpand,
+}: {
+  title: string;
+  buttonProps: ButtonHTMLAttributes<HTMLButtonElement>;
+  expanded: boolean;
+  handleToggleExpand: () => void;
+}) => {
+  return (
+    <button
+      {...buttonProps}
+      className={style.panel}
+      onClick={handleToggleExpand}
+      aria-expanded={expanded ? "true" : "false"}
+    >
+      <span className={style.panelText}>{title}</span>
+      <span
+        className={`${style.panelChevron} ${expanded ? style.expanded : ""}`}
+      ></span>
+    </button>
+  );
+};
+
 const Accordion = ({
   title,
-  color = 'default',
+  color = "default",
   expanded: expandedProp = false,
   onToggleExpand,
   buttonProps,
@@ -47,22 +74,6 @@ const Accordion = ({
     setExpanded(expandedProp);
   }, [expandedProp]);
 
-  const RenderPanel = () => {
-    return (
-      <button
-        {...buttonProps}
-        className={style.panel}
-        onClick={handleToggleExpand}
-        aria-expanded={expanded ? 'true' : 'false'}
-      >
-        <span className={style.panelText}>{title}</span>
-        <span
-          className={`${style.panelChevron} ${expanded ? style.expanded : ''}`}
-        ></span>
-      </button>
-    );
-  };
-
   const className = classNameArrayToClassNameString([
     style.accordion,
     color && style[color],
@@ -71,10 +82,15 @@ const Accordion = ({
   ]);
   return (
     <div className={className} {...rest}>
-      <RenderPanel />
+      <RenderPanel
+        title={title ?? ""}
+        buttonProps={buttonProps ?? {}}
+        expanded={expanded ?? false}
+        handleToggleExpand={handleToggleExpand}
+      />
       <div
-        className={`${style.content} ${initialized ? style.initialized : ''} ${
-          expanded ? style.expanded : ''
+        className={`${style.content} ${initialized ? style.initialized : ""} ${
+          expanded ? style.expanded : ""
         }`}
       >
         {children}

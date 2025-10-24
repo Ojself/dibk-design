@@ -1,8 +1,8 @@
 // Label.tsx
 
-import React from 'react';
-import type { JSX } from 'react';
-import style from './Label.module.scss';
+import type { JSX } from "react";
+import React from "react";
+import style from "./Label.module.scss";
 
 export interface LabelProps
   extends React.LabelHTMLAttributes<HTMLLabelElement> {
@@ -15,7 +15,7 @@ export interface LabelProps
 const Label = ({
   inline = false,
   normalCursor = false,
-  htmlTag = 'label',
+  htmlTag = "label",
   children,
   id,
   ...rest
@@ -26,7 +26,7 @@ const Label = ({
     normalCursor && style.normalCursor,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   const tagProps = {
     ...rest,

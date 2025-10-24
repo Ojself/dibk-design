@@ -1,7 +1,7 @@
-import type { JSX } from 'react';
-import React from 'react';
-import style from './Header.module.scss';
-import { classNameArrayToClassNameString } from '../functions/helpers';
+import type { JSX } from "react";
+import React from "react";
+import { classNameArrayToClassNameString } from "../functions/helpers";
+import style from "./Header.module.scss";
 
 export interface HeaderProps {
   id?: string;
@@ -33,8 +33,8 @@ const Header = ({
   ]);
 
   const labelStyle =
-    label?.length && typeof label === 'string'
-      ? ({ '--label': `"${label}"` } as React.CSSProperties)
+    label?.length && typeof label === "string"
+      ? ({ "--label": `"${label}"` } as React.CSSProperties)
       : undefined;
 
   const headerElement = React.createElement(
@@ -45,7 +45,7 @@ const Header = ({
       htmlFor: htmlFor || undefined,
       style: labelStyle,
     },
-    content?.length ? content : children
+    content?.length ? content : children,
   );
 
   return <div className={style.headerContainer}>{headerElement}</div>;

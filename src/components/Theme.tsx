@@ -1,24 +1,24 @@
-import { Fragment } from 'react';
+import { Fragment, useId } from "react";
 
 // Components
-import Accordion from './Accordion';
-import Button from './Button';
-import CheckBoxList from './CheckBoxList';
-import CheckBoxListItem from './CheckBoxListItem';
-import Container from './Container';
-import DescriptionDetails from './DescriptionDetails';
-import DescriptionList from './DescriptionList';
-import DescriptionTerm from './DescriptionTerm';
-import Header from './Header';
-import List from './List';
-import ListItem from './ListItem';
-import NavigationBar from './NavigationBar';
-import Paper from './Paper';
-import RadioButtonList from './RadioButtonList';
-import RadioButtonListItem from './RadioButtonListItem';
+import Accordion from "./Accordion";
+import Button from "./Button";
+import CheckBoxList from "./CheckBoxList";
+import CheckBoxListItem from "./CheckBoxListItem";
+import Container from "./Container";
+import DescriptionDetails from "./DescriptionDetails";
+import DescriptionList from "./DescriptionList";
+import DescriptionTerm from "./DescriptionTerm";
+import Header from "./Header";
+import List from "./List";
+import ListItem from "./ListItem";
+import NavigationBar from "./NavigationBar";
+import Paper from "./Paper";
+import RadioButtonList from "./RadioButtonList";
+import RadioButtonListItem from "./RadioButtonListItem";
 
 // Stylesheets
-import style from './Theme.module.scss';
+import style from "./Theme.module.scss";
 
 export interface ThemeProps {
   appName: string;
@@ -38,7 +38,7 @@ const Theme = (theme: ThemeProps) => {
     if (!theme?.colors) return null;
 
     return Object.keys(theme.colors).map((color) => {
-      const colorClassName = style[color] || '';
+      const colorClassName = style[color] || "";
       return (
         <Fragment key={color}>
           <div>{color}</div>
@@ -47,8 +47,10 @@ const Theme = (theme: ThemeProps) => {
       );
     });
   };
+  const checkboxListId = useId();
+  const radioButtonListId = useId();
 
-  if (!theme) return 'Select a theme';
+  if (!theme) return "Select a theme";
 
   return (
     <Fragment>
@@ -107,17 +109,17 @@ const Theme = (theme: ThemeProps) => {
             <Header size={2}>Checkboxes</Header>
             <CheckBoxList legend="Default checkbox list">
               <CheckBoxListItem
-                onChange={() => console.log('onchange')}
+                onChange={() => console.log("onchange")}
                 checked={true}
                 name="checkboxlist"
-                id="checkboxList-listItem-1"
+                id={checkboxListId}
               >
                 Label for checked checkbox
               </CheckBoxListItem>
               <CheckBoxListItem
-                onChange={() => console.log('onchange')}
+                onChange={() => console.log("onchange")}
                 name="checkboxlist"
-                id="checkboxList-listItem-2"
+                id={checkboxListId}
               >
                 Label for unchecked checkbox
               </CheckBoxListItem>
@@ -128,19 +130,19 @@ const Theme = (theme: ThemeProps) => {
             <Header size={2}>Radio buttons</Header>
             <RadioButtonList legend="Default radio button list">
               <RadioButtonListItem
-                onChange={() => console.log('onchange')}
+                onChange={() => console.log("onchange")}
                 inputValue="value 1"
                 name="radio-button-list-list-item"
-                id="radioButtonList-listItem-1"
+                id={radioButtonListId}
                 checked
               >
                 Checked radio button
               </RadioButtonListItem>
               <RadioButtonListItem
-                onChange={() => console.log('onchange')}
+                onChange={() => console.log("onchange")}
                 inputValue="value 2"
                 name="radio-button-list-list-item"
-                id="radioButtonList-listItem-2"
+                id={radioButtonListId}
               >
                 Unchecked radio button
               </RadioButtonListItem>

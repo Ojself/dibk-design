@@ -45,12 +45,12 @@
 
         &:focus {
             border-color: var(--color-primary, colors.$color-primary);
-            outline: colors.$color-focus solid 3px;
+            outline: colors.$color-focus solid 0px;
         }
 
         &[disabled],
         &[readonly] {
-            background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
+            background-color: var(--color-secondary-background, colors.$color-secondary-background);
             cursor: default;
         }
 
@@ -62,7 +62,7 @@
             }
             &[disabled],
             &[readonly] {
-                background-color: var(--color-secondary-x-light, colors.$color-secondary-x-light);
+                background-color: var(--color-secondary-background, colors.$color-secondary-background);
                 cursor: default;
                 border-color: #afaba8;
             }

@@ -6,23 +6,23 @@ import {
   isValidElement,
   type ReactElement,
   type ReactNode,
-} from 'react';
-import type { ThemeProps } from '../components/Theme';
+} from "react";
+import type { ThemeProps } from "../components/Theme";
 
 type CSSVariables = Record<string, string>;
 
 export const classNameArrayToClassNameString = (
-  classNameArray: (string | undefined | null | false)[]
+  classNameArray: (string | undefined | null | false)[],
 ): string => {
-  return classNameArray?.filter(Boolean).join(' ') || '';
+  return classNameArray?.filter(Boolean).join(" ") || "";
 };
 
 export const camelCaseToKebabCase = (input: string): string => {
-  return input.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+  return input.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
 };
 
 export const getCssColorVariablesFromTheme = (
-  theme?: ThemeProps
+  theme?: ThemeProps,
 ): CSSVariables => {
   if (!theme?.colors || !Object.entries(theme.colors).length) return {};
 
@@ -33,12 +33,12 @@ export const getCssColorVariablesFromTheme = (
       }
       return acc;
     },
-    {}
+    {},
   );
 };
 
 export const getCssSizeVariablesFromTheme = (
-  theme?: ThemeProps
+  theme?: ThemeProps,
 ): CSSVariables => {
   if (!theme?.sizes || !Object.entries(theme.sizes).length) return {};
 
@@ -49,7 +49,7 @@ export const getCssSizeVariablesFromTheme = (
       }
       return acc;
     },
-    {}
+    {},
   );
 };
 
@@ -62,12 +62,12 @@ export const getCssVariablesFromTheme = (theme?: ThemeProps): CSSVariables => {
 
 export const addGlobalStylesheet = (
   styleElementId: string,
-  styles: string
+  styles: string,
 ): void => {
-  if (typeof document === 'undefined') return;
+  if (typeof document === "undefined") return;
 
-  const style = document.createElement('style');
-  style.setAttribute('id', styleElementId);
+  const style = document.createElement("style");
+  style.setAttribute("id", styleElementId);
   style.textContent = styles;
 
   const existing = document.getElementById(styleElementId);
@@ -77,11 +77,11 @@ export const addGlobalStylesheet = (
 };
 
 export const stringifyCssColorVariables = (
-  colorVariables: CSSVariables
+  colorVariables: CSSVariables,
 ): string => {
   return Object.entries(colorVariables)
     .map(([key, value]) => `${key}: ${value};`)
-    .join('');
+    .join("");
 };
 
 export const cloneThroughFragments = (children: ReactNode): ReactNode[] => {
@@ -89,6 +89,7 @@ export const cloneThroughFragments = (children: ReactNode): ReactNode[] => {
 
   Children.forEach(children, (child) => {
     if (isValidElement(child)) {
+      // biome-ignore lint/suspicious/noExplicitAny: <any allowed>
       const element = child as ReactElement<any>;
 
       if (element.type === Fragment) {
@@ -106,21 +107,21 @@ export const cloneThroughFragments = (children: ReactNode): ReactNode[] => {
 };
 
 export const setFocusToElement = (element: HTMLElement): void => {
-  if (typeof document === 'undefined') return;
-  const autoFocusElement = document.createElement('button');
-  autoFocusElement.style.position = 'absolute';
-  autoFocusElement.style.opacity = '0';
+  if (typeof document === "undefined") return;
+  const autoFocusElement = document.createElement("button");
+  autoFocusElement.style.position = "absolute";
+  autoFocusElement.style.opacity = "0";
   element.prepend(autoFocusElement);
   autoFocusElement.focus();
   autoFocusElement.remove();
 };
 
 export const getFocusableElementsInsideElement = (
-  element: HTMLElement
+  element: HTMLElement,
 ): HTMLElement[] => {
   const focusableSelectors = 'button, [href], input, [tabindex="0"]';
   return Array.from(
-    element.querySelectorAll<HTMLElement>(focusableSelectors)
+    element.querySelectorAll<HTMLElement>(focusableSelectors),
   ).filter((el) => !!el);
 };
 
@@ -133,7 +134,7 @@ export const addFocusTrapInsideElement = (element: HTMLElement): void => {
 
   if (first) {
     first.onkeydown = (event: KeyboardEvent) => {
-      if (event.key === 'Tab' && event.shiftKey) {
+      if (event.key === "Tab" && event.shiftKey) {
         event.preventDefault();
         last.focus();
       }
@@ -145,7 +146,7 @@ export const addFocusTrapInsideElement = (element: HTMLElement): void => {
       first?.focus();
     };
     last.onkeydown = (event: KeyboardEvent) => {
-      if (event.key === 'Tab' && !event.shiftKey) {
+      if (event.key === "Tab" && !event.shiftKey) {
         event.preventDefault();
         first?.focus();
       }

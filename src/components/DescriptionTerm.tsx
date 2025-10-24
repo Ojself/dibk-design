@@ -1,8 +1,8 @@
 // DescriptionTerm.tsx
 
-import React from 'react';
-import style from './DescriptionTerm.module.scss';
-import { classNameArrayToClassNameString } from '../functions/helpers';
+import type React from "react";
+import { classNameArrayToClassNameString } from "../functions/helpers";
+import style from "./DescriptionTerm.module.scss";
 
 export interface DescriptionTermProps {
   compact?: boolean;
@@ -22,7 +22,7 @@ const DescriptionTerm = ({
         compact && style.compact,
       ])}
       style={
-        { '--title-width': titleWidth || undefined } as React.CSSProperties
+        { "--title-width": titleWidth || undefined } as React.CSSProperties
       }
     >
       {children}

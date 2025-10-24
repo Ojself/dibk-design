@@ -1,24 +1,24 @@
-import { useCallback, useEffect, useRef } from 'react'
-import xSymbol from '../assets/svg/x-symbol.svg?url'
-import style from './Dialog.module.scss'
+import { useCallback, useEffect, useRef } from "react";
+import xSymbol from "../assets/svg/x-symbol.svg?url";
 import {
   addFocusTrapInsideElement,
   classNameArrayToClassNameString,
-} from '../functions/helpers'
+} from "../functions/helpers";
+import style from "./Dialog.module.scss";
 
 export interface DialogProps {
-  maxWidth?: string
-  noPadding?: boolean
-  closeButton?: boolean
-  onClickOutside: () => void
-  modal?: boolean
-  attachTo?: 'left' | 'right' | 'top' | 'bottom' | string
-  hidden?: boolean
-  children?: React.ReactNode
+  maxWidth?: string;
+  noPadding?: boolean;
+  closeButton?: boolean;
+  onClickOutside: () => void;
+  modal?: boolean;
+  attachTo?: "left" | "right" | "top" | "bottom" | string;
+  hidden?: boolean;
+  children?: React.ReactNode;
 }
 
 const Dialog = ({
-  maxWidth = 'none',
+  maxWidth = "none",
   noPadding,
   closeButton,
   onClickOutside,
@@ -27,61 +27,58 @@ const Dialog = ({
   hidden = false,
   children,
 }: DialogProps) => {
-  const dialogRef = useRef<HTMLDialogElement>(null)
-  const dialogContainerRef = useRef<HTMLDivElement>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogContainerRef = useRef<HTMLDivElement>(null);
 
   const dialogContentRef = useCallback(
     (element: HTMLDivElement | null): void => {
       if (element) {
-        addFocusTrapInsideElement(element)
+        addFocusTrapInsideElement(element);
       }
     },
     [],
-  )
+  );
 
   useEffect(() => {
     const keyDownFunction = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && onClickOutside) {
-        onClickOutside()
+      if (event.key === "Escape" && onClickOutside) {
+        onClickOutside();
       }
-    }
+    };
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dialogContainerRef.current &&
         !dialogContainerRef.current.contains(event.target as Node)
       ) {
-        onClickOutside()
+        onClickOutside();
       }
-    }
+    };
 
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('keydown', keyDownFunction, false)
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", keyDownFunction, false);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('keydown', keyDownFunction, false)
-    }
-  }, [onClickOutside])
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", keyDownFunction, false);
+    };
+  }, [onClickOutside]);
 
   useEffect(() => {
-    if (!dialogRef.current) return
+    if (!dialogRef.current) return;
 
-    dialogRef.current.close()
+    dialogRef.current.close();
     if (!hidden) {
-      modal ? dialogRef.current.showModal() : dialogRef.current.show()
+      modal ? dialogRef.current.showModal() : dialogRef.current.show();
     }
-  }, [hidden, modal])
+  }, [hidden, modal]);
 
   const sideBarClassNames =
     attachTo &&
-    classNameArrayToClassNameString([
-      style.isSidebar,
-      style[attachTo],
-    ])
+    classNameArrayToClassNameString([style.isSidebar, style[attachTo]]);
   const dialogContentStyleProps = {
-    '--max-width': maxWidth,
-  } as React.CSSProperties
+    "--max-width": maxWidth,
+  } as React.CSSProperties;
 
   return (
     <dialog
@@ -105,6 +102,7 @@ const Dialog = ({
         >
           {closeButton && (
             <button
+              type="button"
               aria-label="Lukk dialog"
               onClick={onClickOutside}
               className={classNameArrayToClassNameString([
@@ -121,7 +119,7 @@ const Dialog = ({
         </div>
       </div>
     </dialog>
-  )
-}
+  );
+};
 
-export default Dialog
+export default Dialog;

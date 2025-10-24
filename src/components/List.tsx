@@ -1,8 +1,8 @@
 // List.tsx
 
-import React, { Children, cloneElement, isValidElement } from 'react';
-import style from './List.module.scss';
-import { cloneThroughFragments } from '../functions/helpers';
+import React, { Children, cloneElement, isValidElement } from "react";
+import style from "./List.module.scss";
+import { cloneThroughFragments } from "../functions/helpers";
 
 export interface ListProps {
   listStyle?: string;
@@ -20,28 +20,28 @@ const List = ({
   const renderChildElements = (childElements: React.ReactNode[]) => {
     const flattened = cloneThroughFragments(childElements);
 
-    return flattened.map((child, index) => {
+    return flattened.map((child) => {
       if (isValidElement<{ compact?: boolean }>(child)) {
         return cloneElement(child, {
           compact,
-          key: `listItem-${index}`,
+          key: `listItem-${child.key}`,
         });
       }
       return child;
     });
   };
 
-  const listType = ordered ? 'ol' : 'ul';
-  const defaultStyle = ordered ? 'decimal' : 'disc';
-  const styleVar = '--listStyle';
+  const listType = ordered ? "ol" : "ul";
+  const defaultStyle = ordered ? "decimal" : "disc";
+  const styleVar = "--listStyle";
 
   return React.createElement(
     listType,
     {
-      className: `${style.list} ${compact ? style.compact : ''}`,
+      className: `${style.list} ${compact ? style.compact : ""}`,
       style: { [styleVar]: listStyle || defaultStyle } as React.CSSProperties,
     },
-    renderChildElements(Children.toArray(children))
+    renderChildElements(Children.toArray(children)),
   );
 };
 

@@ -1,10 +1,9 @@
-import React from 'react';
-
-import ErrorMessage from './ErrorMessage';
-import asterisk from '../assets/svg/asterisk.svg?url';
-import style from './Textarea.module.scss';
-import { generateRandomString } from '../functions/generators';
-import Label from './Label';
+import type React from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
+import { generateRandomString } from "../functions/generators";
+import ErrorMessage from "./ErrorMessage";
+import Label from "./Label";
+import style from "./Textarea.module.scss";
 
 export interface TextareaProps {
   id: string;
@@ -15,7 +14,7 @@ export interface TextareaProps {
   readOnly?: boolean;
   disabled?: boolean;
   width?: string;
-  resize?: 'both' | 'horizontal' | 'vertical' | 'none';
+  resize?: "both" | "horizontal" | "vertical" | "none";
   value?: string;
   defaultValue?: string;
   elementKey?: string;
@@ -24,7 +23,7 @@ export interface TextareaProps {
   contentOnly?: boolean;
   placeholder?: string;
   defaultContent?: string;
-  'aria-describedby'?: string;
+  "aria-describedby"?: string;
   hasErrors?: boolean;
   errorMessage?: React.ReactNode;
 }
@@ -33,23 +32,23 @@ const Textarea = ({
   id,
   onChange,
   onBlur,
-  name = '',
+  name = "",
   required = false,
   readOnly,
   disabled,
   width,
-  resize = 'both',
+  resize = "both",
   value,
   defaultValue,
   elementKey,
   rows,
-  label = '',
+  label = "",
   contentOnly = false,
-  placeholder = '',
-  defaultContent = '',
-  'aria-describedby': ariaDescribedBy,
+  placeholder = "",
+  defaultContent = "",
+  "aria-describedby": ariaDescribedBy,
   hasErrors = false,
-  errorMessage = '',
+  errorMessage = "",
 }: TextareaProps) => {
   const getErrorElementId = () => `${id}-errorMessage`;
 
@@ -74,10 +73,10 @@ const Textarea = ({
     defaultValue: finalValue || undefined,
     placeholder,
     rows: rows ? parseInt(rows, 10) : undefined,
-    className: hasErrors ? style.hasErrors : '',
-    'aria-describedby':
+    className: hasErrors ? style.hasErrors : "",
+    "aria-describedby":
       hasErrors && errorMessage ? getErrorElementId() : ariaDescribedBy,
-    'aria-invalid': hasErrors ? 'true' : undefined,
+    "aria-invalid": hasErrors ? "true" : undefined,
     style: styleRules,
   };
 

@@ -1,32 +1,28 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-
-import ErrorMessage from './ErrorMessage';
-import CheckBoxList from './CheckBoxList';
-import CheckBoxListItem from './CheckBoxListItem';
-import asterisk from '../assets/svg/asterisk.svg?url';
+import type React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import asterisk from "../assets/svg/asterisk.svg?url";
 import {
   addFocusTrapInsideElement,
   classNameArrayToClassNameString,
-} from '../functions/helpers';
-import style from './Select.module.scss';
-import Label from './Label';
+} from "../functions/helpers";
+import CheckBoxList from "./CheckBoxList";
+import CheckBoxListItem from "./CheckBoxListItem";
+import ErrorMessage from "./ErrorMessage";
+import Label from "./Label";
+import style from "./Select.module.scss";
 
 export type Option =
   | string
   | number
   | { key: string | number; value: string | number };
 
-export interface SelectProps {
+interface SelectPropsBase {
   id: string;
-  onChange: (value: any) => void;
   name?: string;
   required?: boolean;
   disabled?: boolean;
-  multiple?: boolean;
   options?: Option[];
   width?: string;
-  value?: any;
-  defaultValue?: any;
   label?: React.ReactNode;
   contentOnly?: boolean;
   keyAsContent?: boolean;
@@ -34,33 +30,47 @@ export interface SelectProps {
   placeholderValue?: string;
   defaultContent?: string;
   role?: string;
-  'aria-describedby'?: string;
+  "aria-describedby"?: string;
   hasErrors?: boolean;
   errorMessage?: React.ReactNode;
 }
 
-const Select = ({
-  id,
-  onChange,
-  name = '',
-  required = false,
-  disabled = false,
-  multiple = false,
-  options = [],
-  width,
-  value,
-  defaultValue,
-  label = '',
-  contentOnly = false,
-  keyAsContent = false,
-  placeholder = '',
-  placeholderValue = '',
-  defaultContent = '',
-  role,
-  'aria-describedby': ariaDescribedBy,
-  hasErrors = false,
-  errorMessage = '',
-}: SelectProps) => {
+export interface SingleSelectProps extends SelectPropsBase {
+  multiple?: false;
+  onChange: (value: string | number) => void;
+  value?: string | number;
+  defaultValue?: string | number;
+}
+
+export interface MultipleSelectProps extends SelectPropsBase {
+  multiple: true;
+  onChange: (value: (string | number)[]) => void;
+  value?: (string | number)[];
+  defaultValue?: (string | number)[];
+}
+
+export type SelectProps = SingleSelectProps | MultipleSelectProps;
+
+const Select = (props: SelectProps) => {
+  const {
+    id,
+    name = "",
+    required = false,
+    disabled = false,
+    options = [],
+    width,
+    label = "",
+    contentOnly = false,
+    keyAsContent = false,
+    placeholder = "",
+    placeholderValue = "",
+    defaultContent = "",
+    role,
+    "aria-describedby": ariaDescribedBy,
+    hasErrors = false,
+    errorMessage = "",
+  } = props;
+
   const [showDropdownList, setShowDropdownList] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -72,7 +82,7 @@ const Select = ({
 
   useEffect(() => {
     const keyDownFunction = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') hideDropdownList();
+      if (event.key === "Escape") hideDropdownList();
     };
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -83,51 +93,67 @@ const Select = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', keyDownFunction);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", keyDownFunction);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', keyDownFunction);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", keyDownFunction);
     };
   }, []);
 
-  const getKeyByValue = (value: any, options: Option[]) => {
-    const selected = options.find((opt) =>
-      typeof opt === 'object' ? opt.value === value : opt === value
-    );
-    return typeof selected === 'object'
-      ? selected.key ?? selected.value
-      : selected;
-  };
-
-  const createOptionObject = (option: Option) =>
-    typeof option === 'object'
+  const toOptionObject = (option: Option) =>
+    typeof option === "object"
       ? { key: option.key, value: option.value }
       : { key: option, value: option };
 
-  const renderSelectedValues = () =>
-    (defaultValue || value)
-      ?.map((v: any) => getKeyByValue(v, options))
-      .join(', ') || null;
-
-  const handleMultipleChange = (changedValue: string | number) => {
-    const currentValues: (string | number)[] =
-      (value as any) ?? (defaultValue as any) ?? [];
-    const newValues = currentValues.includes(changedValue)
-      ? currentValues.filter((v) => v !== changedValue)
-      : [...currentValues, changedValue];
-    onChange(newValues);
+  const getLabelForValue = (val: string | number) => {
+    const found = options
+      .map(toOptionObject)
+      .find((o) => o.value === val || o.key === val);
+    return found ? (found.key ?? found.value) : val;
   };
 
-  const renderCheckBoxElements = () =>
-    options.map((option, index) => {
-      const { key, value: val } = createOptionObject(option);
-      const selected = (defaultValue || value || []).includes(val);
+  const ensureArray = (v: unknown): (string | number)[] =>
+    Array.isArray(v)
+      ? (v as (string | number)[])
+      : v == null
+        ? []
+        : [v as string | number];
+
+  const selectedArray = (): (string | number)[] => {
+    if (props.value !== undefined) return ensureArray(props.value);
+    if (props.defaultValue !== undefined) return ensureArray(props.defaultValue);
+    return [];
+  };
+
+  const renderSelectedValues = () => {
+    const arr = selectedArray();
+    if (arr.length === 0) return placeholder || defaultContent || "";
+    return arr.map(getLabelForValue).join(", ");
+  };
+
+  const handleMultipleChange = (changedValue: string | number) => {
+    const current = selectedArray();
+    const exists = current.includes(changedValue);
+    const next = exists
+      ? current.filter((v) => v !== changedValue)
+      : [...current, changedValue];
+    if (props.multiple) {
+      props.onChange(next);
+    }
+  };
+
+  const renderCheckBoxElements = () => {
+    const current = selectedArray();
+    return options.map((opt) => {
+      const { key, value: val } = toOptionObject(opt);
+      const selected = current.includes(val as string | number);
+      const itemId = `${id}-${String(val)}`;
       return (
         <CheckBoxListItem
-          key={index}
-          id={`${id}-${index}`}
+          key={String(val)}
+          id={itemId}
           value={val}
           checked={selected}
           onChange={() => handleMultipleChange(val)}
@@ -136,45 +162,33 @@ const Select = ({
         </CheckBoxListItem>
       );
     });
+  };
 
   const getErrorElementId = () => `${id}-errorMessage`;
 
+  // content-only rendering (supports both single and multi)
   if (contentOnly) {
-    const current = defaultValue || value || null;
+    const current = selectedArray();
+    const content =
+      current.length === 0
+        ? defaultContent
+        : keyAsContent
+          ? current.map(getLabelForValue).join(", ")
+          : current.join(", ");
     return (
       <div className={style.select}>
         <Label htmlFor={id}>{label}</Label>
-        <span>
-          {current
-            ? keyAsContent
-              ? getKeyByValue(current, options)
-              : current
-            : defaultContent}
-        </span>
+        <span>{content}</span>
       </div>
     );
   }
 
-  const selectProps: React.SelectHTMLAttributes<HTMLSelectElement> = {
-    name,
-    multiple,
-    required,
-    disabled,
-    onChange: (e) => onChange(e.target.value),
-    id,
-    role,
-
-    className: classNameArrayToClassNameString([
-      hasErrors && style.hasErrors,
-      multiple && style.multiple,
-    ]),
-    'aria-describedby':
-      hasErrors && errorMessage ? getErrorElementId() : ariaDescribedBy,
-    'aria-invalid': hasErrors || undefined,
-    style: width ? { maxWidth: width } : undefined,
-    ...(defaultValue !== undefined && value === undefined
-      ? { defaultValue }
-      : { value: value || '' }),
+  // Helper: for single-select, coerce raw string back to original option value type
+  const coerceFromSelect = (raw: string): string | number => {
+    const match = options
+      .map(toOptionObject)
+      .find((o) => String(o.value) === raw);
+    return match ? match.value : raw;
   };
 
   return (
@@ -190,32 +204,68 @@ const Select = ({
         className={style.selectContainer}
         style={width ? { maxWidth: width } : undefined}
       >
-        <span className={style.selectListArrow}></span>
-        {multiple ? (
+        <span className={style.selectListArrow} />
+
+        {props.multiple ? (
+          // ---- MULTI (custom checkbox dropdown) ----
           <div ref={dropdownRef}>
-            <div
-              onClick={() => setShowDropdownList(!showDropdownList)}
+            <button
+              type="button"
+              id={id}
+              aria-haspopup="listbox"
+              aria-expanded={showDropdownList}
+              onClick={() => setShowDropdownList((s) => !s)}
               className={style.multipleSelectElement}
+              disabled={disabled}
             >
               {renderSelectedValues()}
-            </div>
+            </button>
+
             {showDropdownList && (
-              <div ref={focusTrapRef} className={style.multipleSelectDropdown}>
+              <div
+                ref={focusTrapRef}
+                className={style.multipleSelectDropdown}
+                role="listbox"
+                aria-multiselectable="true"
+                aria-labelledby={id}
+              >
                 <CheckBoxList compact>{renderCheckBoxElements()}</CheckBoxList>
               </div>
             )}
           </div>
         ) : (
-          <select {...selectProps}>
+          // ---- SINGLE (native select) ----
+          <select
+            name={name}
+            required={required}
+            disabled={disabled}
+            onChange={(e) => props.onChange(coerceFromSelect(e.target.value))}
+            id={id}
+            role={role}
+            className={classNameArrayToClassNameString([
+              hasErrors && style.hasErrors,
+            ])}
+            aria-describedby={
+              hasErrors && errorMessage ? getErrorElementId() : ariaDescribedBy
+            }
+            aria-invalid={hasErrors || undefined}
+            style={width ? { maxWidth: width } : undefined}
+            // NOTE: only pass scalar value/defaultValue here — never arrays
+            {...(props.value !== undefined
+              ? { value: props.value }
+              : props.defaultValue !== undefined
+                ? { defaultValue: props.defaultValue }
+                : {})}
+          >
             {placeholder && (
               <option value={placeholderValue} disabled>
                 {placeholder}
               </option>
             )}
             {options.map((opt) => {
-              const { key, value } = createOptionObject(opt);
+              const { key, value: optValue } = toOptionObject(opt);
               return (
-                <option key={key} value={value}>
+                <option key={String(optValue)} value={String(optValue)}>
                   {key}
                 </option>
               );

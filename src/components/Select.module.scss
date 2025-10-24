@@ -10,6 +10,7 @@
 @use "../style/abstracts/variables/viewports";
 
 .select {
+    
     .requiredSymbol {
         width: 1em;
         height: 1em;
@@ -49,7 +50,7 @@
         }
 
         .multipleSelectDropdown {
-            @include border-radius.border-radius(4px);
+            //@include border-radius.border-radius(4px);
             @include box-shadow.box-shadow(
                 rgba(0, 0, 0, 0.2) 0px 5px 5px -3px,
                 rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
