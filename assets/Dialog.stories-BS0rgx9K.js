@@ -1,0 +1,23 @@
+import{r as a,e as E,f as u,j as e}from"./iframe-BWm-Rgin.js";import{H as S}from"./Header-Bll3-g5Y.js";import{r as j}from"./index-7hBsMJxy.js";import{B}from"./Button-D8gJCdNO.js";import"./preload-helper-PPVm8Dsz.js";import"./index-J3MR7KoW.js";const R="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='25'%20height='25'%3e%3cpath%20fill='%23072938'%20stroke='%23072938'%20stroke-linecap='round'%20stroke-width='3.23'%20d='m3.97%203.57%2017.44%2018.2m-17.44.01L21.41%203.57'/%3e%3c/svg%3e",I="_dialog_pl6ui_19",P="_backdrop_pl6ui_34",N="_dialogContainer_pl6ui_42",H="_modalInVertical_pl6ui_1",V="_dialogContent_pl6ui_52",L="_noPadding_pl6ui_57",z="_closeButton_pl6ui_65",q="_isSidebar_pl6ui_94",O="_left_pl6ui_117",T="_modalInHorizontalLeft_pl6ui_1",F="_right_pl6ui_123",A="_modalInHorizontalRight_pl6ui_1",t={dialog:I,backdrop:P,dialogContainer:N,modalInVertical:H,dialogContent:V,noPadding:L,closeButton:z,isSidebar:q,left:O,modalInHorizontalLeft:T,right:F,modalInHorizontalRight:A},g=({maxWidth:p="none",noPadding:l,closeButton:f,onClickOutside:n,modal:d=!0,attachTo:h,hidden:i=!1,children:k})=>{const[_,y]=a.useState(null),x=a.useRef(null),C=a.useCallback(o=>{o&&E(o)},[]);a.useEffect(()=>{if(i)return;const o=r=>{r.key==="Escape"&&n&&n()};return document.addEventListener("keydown",o,!1),()=>{document.removeEventListener("keydown",o,!1)}},[i,n]),a.useEffect(()=>{if(typeof window>"u")return;const r=(()=>{const v="dibk-design-dialog-root";let s=document.getElementById(v);return s||(s=document.createElement("div"),s.setAttribute("id",v),document.body.appendChild(s)),s})(),c=document.createElement("div");return r.appendChild(c),y(c),()=>{y(null),r.contains(c)&&r.removeChild(c)}},[]),a.useEffect(()=>{if(i||!d)return;const o=document.body.style.overflow;return document.body.style.overflow="hidden",()=>{document.body.style.overflow=o}},[i,d]);const w=h&&u([t.isSidebar,t[h]]),b={"--max-width":p};if(i||!_)return null;const D=d?{role:"dialog","aria-modal":"true"}:{role:"dialog"};return j.createPortal(e.jsxs("div",{className:u([t.dialog,w]),onClick:n,...D,children:[d&&e.jsx("div",{className:t.backdrop,"aria-hidden":"true"}),e.jsx("div",{ref:x,className:t.dialogContainer,style:b,onClick:o=>o.stopPropagation(),children:e.jsxs("div",{ref:C,className:u([t.dialogContent,l&&t.noPadding]),children:[f&&e.jsx("button",{type:"button","aria-label":"Lukk dialog",onClick:n,className:u([t.closeButton,l&&t.noPadding]),children:e.jsx("img",{src:R,alt:""})}),e.jsx("div",{"aria-live":"assertive",children:k})]})})]}),_)};try{g.displayName="Dialog",g.__docgenInfo={description:"",displayName:"Dialog",props:{maxWidth:{defaultValue:{value:"none"},description:"",name:"maxWidth",required:!1,type:{name:"string"}},noPadding:{defaultValue:null,description:"",name:"noPadding",required:!1,type:{name:"boolean"}},closeButton:{defaultValue:null,description:"",name:"closeButton",required:!1,type:{name:"boolean"}},onClickOutside:{defaultValue:null,description:"",name:"onClickOutside",required:!0,type:{name:"() => void"}},modal:{defaultValue:{value:"true"},description:"",name:"modal",required:!1,type:{name:"boolean"}},attachTo:{defaultValue:null,description:"",name:"attachTo",required:!1,type:{name:"string"}},hidden:{defaultValue:{value:"false"},description:"",name:"hidden",required:!1,type:{name:"boolean"}}}}}catch{}const U={title:"Example/Dialog",component:g,tags:["autodocs"],argTypes:{attachTo:{control:"select",options:["None","Left","Right"],mapping:{None:null,Left:"left",Right:"right"}}}},m={args:{children:e.jsxs(e.Fragment,{children:[e.jsx(S,{size:1,children:"Dialog title"}),e.jsx("p",{children:"Dialog paragraph"})]}),closeButton:!0,modal:!0,onClickOutside:()=>{console.log("clicked outside")}},render:function(l){const[f,n]=a.useState(!1);return e.jsxs(e.Fragment,{children:[e.jsx(B,{onClick:()=>n(!0),children:"Show dialog"}),e.jsx(g,{...l,hidden:!f,onClickOutside:()=>{n(!1),l.onClickOutside()}})]})}};m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: <>
+        <Header size={1}>Dialog title</Header>
+        <p>Dialog paragraph</p>
+      </>,
+    closeButton: true,
+    modal: true,
+    onClickOutside: () => {
+      console.log("clicked outside");
+    }
+  },
+  render: function Render(args) {
+    const [showDialog, setShowDialog] = useState<boolean>(false);
+    return <>
+        <Button onClick={() => setShowDialog(true)}>Show dialog</Button>
+        <Dialog {...args} hidden={!showDialog} onClickOutside={() => {
+        setShowDialog(false);
+        (args.onClickOutside as () => void)();
+      }} />
+      </>;
+  }
+}`,...m.parameters?.docs?.source}}};const X=["Default"];export{m as Default,X as __namedExportsOrder,U as default};
