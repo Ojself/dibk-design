@@ -1,7 +1,6 @@
 import type React from "react";
 import { useId, useState } from "react";
-import logo from "../assets/svg/dibk-logo.svg?url";
-import compactLogo from "../assets/svg/dibk-logo-mobile.svg?url";
+
 import { classNameArrayToClassNameString } from "../functions/helpers";
 import {
   getThemeAppName,
@@ -85,7 +84,7 @@ const NavigationBar = ({
   };
 
   const renderLogo = (link?: string, title?: string) => {
-    const themeLogo = getThemeLogo(theme);
+    const themeLogo = getThemeLogo(theme, compact);
     const themeAppName = getThemeAppName(theme);
 
     const alt =
@@ -97,9 +96,7 @@ const NavigationBar = ({
 
     const logoElement = themeLogo ? (
       <img alt={alt} src={themeLogo} style={getLogoThemeStyle(theme)} />
-    ) : (
-      <img alt={alt} src={compact ? compactLogo : logo} />
-    );
+    ) : null;
 
     if (link?.length) {
       return (
@@ -141,11 +138,7 @@ const NavigationBar = ({
         </a>
       )}
 
-      <div
-        className={classNameArrayToClassNameString([
-          style.navigationBar,
-        ])}
-      >
+      <div className={classNameArrayToClassNameString([style.navigationBar])}>
         <div className={style.logoContainer}>
           {renderLogo(logoLink, logoLinkTitle)}
         </div>

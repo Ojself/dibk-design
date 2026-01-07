@@ -33,5 +33,14 @@
             background: var(--color-secondary-x-light, colors.$color-secondary-x-light);
             border-color: var(--color-primary, colors.$color-primary);
         }
+
+        &.hasErrors {
+            margin-bottom: 6px;
+            border-color: var(--color-error, colors.$color-error);
+        }
+
+        &.hasErrors.highlighted {
+            border-color: var(--color-error, colors.$color-error);
+        }
     }
 }

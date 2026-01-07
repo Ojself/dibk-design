@@ -13,7 +13,6 @@ export interface CheckBoxInputProps {
   id: string;
   name?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  contentOnly?: boolean;
   hasErrors?: boolean;
   checkmarkCharacter?: string;
   "aria-controls"?: string;
@@ -31,7 +30,6 @@ const CheckBoxInput = ({
   id,
   name = "",
   onChange,
-  contentOnly = false,
   hasErrors = false,
   checkmarkCharacter = "✔",
   tabIndex = 0,
@@ -42,7 +40,6 @@ const CheckBoxInput = ({
 }: CheckBoxInputProps) => {
   const labelClassName = [
     style.checkBoxInput,
-    contentOnly && style.contentOnly,
     disabled && style.disabled,
     hasErrors && style.hasErrors,
   ]
@@ -52,8 +49,8 @@ const CheckBoxInput = ({
   const iconProps = {
     checked,
     disabled,
-    showBox: !contentOnly,
-    hasErrors: contentOnly && hasErrors,
+    showBox: true,
+    hasErrors,
     checkmarkCharacter,
   };
 
@@ -74,14 +71,8 @@ const CheckBoxInput = ({
 
   return (
     <label htmlFor={id} className={labelClassName}>
-      {!contentOnly ? (
-        <>
-          <CheckBoxIcon {...iconProps} />
-          <input {...inputProps} />
-        </>
-      ) : (
-        <CheckBoxIcon {...iconProps} />
-      )}
+      <CheckBoxIcon {...iconProps} />
+      <input {...inputProps} />
       <span className={style.labelText}>
         {children}
         {required && (
