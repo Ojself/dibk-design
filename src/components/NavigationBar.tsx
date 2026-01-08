@@ -1,5 +1,4 @@
 import type React from "react";
-import { useId, useState } from "react";
 
 import { classNameArrayToClassNameString } from "../functions/helpers";
 import {
@@ -8,7 +7,7 @@ import {
   getThemeLogoPadding,
 } from "../functions/theme";
 import style from "./NavigationBar.module.scss";
-import NavigationBarListItem from "./NavigationBarListItem";
+
 import type { ThemeProps } from "./Theme";
 
 export interface ListItemObject {
@@ -18,70 +17,28 @@ export interface ListItemObject {
 }
 
 export interface NavigationBarProps {
-  primaryListItems?: ListItemObject[];
-  secondaryListItems?: ListItemObject[];
-  menuContent?: React.ReactNode;
   logoLink?: string;
   logoLinkTitle?: string;
   openLogoLinkInNewTab?: boolean;
   theme?: ThemeProps;
   compact?: boolean;
-  mainContentId?: string;
+
   color?: "primary" | "secondary" | "neutral";
   children?: React.ReactNode;
 }
 
 const NavigationBar = ({
-  primaryListItems = [],
-  secondaryListItems = [],
-  menuContent,
   logoLink = "",
   logoLinkTitle,
   openLogoLinkInNewTab,
   theme,
   compact,
-  mainContentId,
-  color = "neutral",
-  children,
-}: NavigationBarProps) => {
-  const [active, setActive] = useState(false);
-  const toggleList = () => setActive(!active);
-  const closeList = () => setActive(false);
 
+  color = "neutral",
+}: NavigationBarProps) => {
   const getLogoThemeStyle = (theme?: ThemeProps) => ({
     padding: getThemeLogoPadding(theme),
   });
-
-  const renderPrimaryList = (
-    items: ListItemObject[] = primaryListItems,
-    iteration = 0,
-  ): React.ReactNode => {
-    return items.length ? (
-      <ul className={style.primaryList}>
-        {items.map((item, i) => {
-          const key = `${iteration}-${i}`;
-          return item.listItems ? (
-            <li key={key}>
-              <span>{item.name}</span>
-              {renderPrimaryList(item.listItems, iteration + 1)}
-            </li>
-          ) : (
-            <NavigationBarListItem listItem={item} key={key} />
-          );
-        })}
-      </ul>
-    ) : null;
-  };
-
-  const renderSecondaryList = () => {
-    return secondaryListItems.length ? (
-      <ul className={style.secondaryList}>
-        {secondaryListItems.map((item) => (
-          <NavigationBarListItem listItem={item} key={item.name} />
-        ))}
-      </ul>
-    ) : null;
-  };
 
   const renderLogo = (link?: string, title?: string) => {
     const themeLogo = getThemeLogo(theme, compact);
@@ -114,12 +71,6 @@ const NavigationBar = ({
     return logoElement;
   };
 
-  const hasListItems =
-    primaryListItems.length > 0 || secondaryListItems.length > 0;
-  const hasMenu = hasListItems || Boolean(menuContent);
-  const mainContentLinkId = useId();
-  const mainContentLinkSpanId = useId();
-  const dropdownId = useId();
   return (
     <div
       className={classNameArrayToClassNameString([
@@ -128,75 +79,11 @@ const NavigationBar = ({
         style.navigationBarContainer,
       ])}
     >
-      {mainContentId && (
-        <a
-          id={mainContentLinkId}
-          href={`#${mainContentId}`}
-          className={style.mainContentLink}
-        >
-          <span id={mainContentLinkSpanId}>Hopp til hovedinnhold</span>
-        </a>
-      )}
-
       <div className={classNameArrayToClassNameString([style.navigationBar])}>
         <div className={style.logoContainer}>
           {renderLogo(logoLink, logoLinkTitle)}
         </div>
-
-        {children && <div className={style.childElements}>{children}</div>}
-
-        {hasMenu && (
-          <button
-            type="button"
-            className={`${style.menuToggle} ${active ? style.active : ""}`}
-            onClick={toggleList}
-            aria-expanded={active ? "true" : "false"}
-            aria-controls={dropdownId}
-          >
-            {!compact && "Meny"}
-            <span className={style.hamburgerIcon}>
-              <span className={style.line}></span>
-              <span className={style.line}></span>
-              <span className={style.line}></span>
-            </span>
-          </button>
-        )}
       </div>
-
-      {hasMenu && (
-        <div
-          className={classNameArrayToClassNameString([
-            style.dropdownContainer,
-            active && style.active,
-          ])}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Hovedmeny"
-        >
-          <div id={dropdownId} className={style.dropdown}>
-            {menuContent ?? (
-              <>
-                {renderPrimaryList()}
-                {renderSecondaryList()}
-              </>
-            )}
-            {!compact && (
-              <button
-                type="button"
-                className={style.closeOverlay}
-                onClick={closeList}
-                aria-label="Lukk meny"
-              >
-                <span className={style.closeText}>Lukk</span>
-                <span aria-hidden="true" className={style.closeIcon}>
-                  <span className={style.closeLine}></span>
-                  <span className={style.closeLine}></span>
-                </span>
-              </button>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

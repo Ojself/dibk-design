@@ -3,6 +3,7 @@
 
 // Variables
 @use "../style/abstracts/variables/colors";
+@use "../style/abstracts/variables/typography";
 
 .dragAndDropFileInput {
     .requiredSymbol {
@@ -17,6 +18,7 @@
         @include transition.transition(all 0.1s ease-in-out);
         border: 2px dashed var(--color-secondary-light, colors.$color-secondary-light);
         width: 100%;
+        font-family: typography.$default-font;
         padding: 20px;
         text-align: center;
         background-color: #fff;

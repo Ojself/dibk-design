@@ -2,6 +2,7 @@
 
 import type React from "react";
 import asterisk from "../assets/svg/asterisk.svg?url";
+import checkmarkSymbol from "../assets/svg/checkmark-symbol.svg?url";
 import CheckBoxIcon from "./CheckBoxIcon";
 import style from "./CheckBoxInput.module.scss";
 
@@ -52,6 +53,7 @@ const CheckBoxInput = ({
     showBox: true,
     hasErrors,
     checkmarkCharacter,
+    checkmarkIconSrc: checkmarkSymbol,
   };
 
   const inputProps: React.InputHTMLAttributes<HTMLInputElement> = {

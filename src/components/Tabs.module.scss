@@ -21,16 +21,18 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  line-height: 30px;
   gap: 8px;
-  padding: 10px 16px;
+  padding: 20px 30px 20px 30px;
   margin: 0;
   background-color: transparent;
   border: none;
   border-bottom: 3px solid transparent;
   cursor: pointer;
   font-family: typography.$default-font;
-  font-size: 16px;
-  color: var(--color-primary-text, colors.$color-primary-text);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-default-text, colors.$color-default-text);
   @include transition.transition(
     color 0.2s,
     border-color 0.2s,
@@ -58,7 +60,7 @@
       colors.$color-secondary-light
     );
     color: var(--color-heading-text, colors.$color-heading-text);
-    font-weight: 600;
+    
   }
 
   &.disabled {
@@ -75,10 +77,10 @@
 }
 
 .tabAmount {
-  font-size: 14px;
+  font-size: 20px;
   color: var(--color-primary-light, colors.$color-primary-light);
   font-weight: 600;
-  line-height: 1;
+  line-height: 30px;
 }
 
 .tabPanels {
