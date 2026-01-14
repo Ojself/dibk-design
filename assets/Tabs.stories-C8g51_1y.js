@@ -1,0 +1,33 @@
+import{r,j as a,c as y}from"./iframe-DUqbcw3k.js";import"./preload-helper-PPVm8Dsz.js";const v="_tabs_x3s88_1",I="_tabList_x3s88_5",j="_tab_x3s88_1",A="_active_x3s88_42",L="_disabled_x3s88_47",N="_tabLabel_x3s88_55",V="_tabAmount_x3s88_59",q="_tabPanels_x3s88_66",C="_tabPanel_x3s88_66",w="_hidden_x3s88_74",u={tabs:v,tabList:I,tab:j,active:A,disabled:L,tabLabel:N,tabAmount:V,tabPanels:q,tabPanel:C,hidden:w},e=({children:s,defaultIndex:d=0,onChange:l,className:o})=>{const[c,b]=r.useState(d),p=r.useId(),t=r.useMemo(()=>p.replace(/:/g,""),[p]),i=n=>{b(n),l?.(n)};return a.jsx("div",{className:y([u.tabs,o]),children:r.Children.map(s,n=>r.isValidElement(n)?n.type===x?r.cloneElement(n,{activeIndex:c,setActiveIndex:i,baseId:t}):n.type===P?r.cloneElement(n,{activeIndex:c,baseId:t}):n:null)})},x=({children:s,activeIndex:d=0,setActiveIndex:l,baseId:o})=>{const c=r.useMemo(()=>r.Children.toArray(s).filter(t=>r.isValidElement(t)),[s]),b=c.length,p=(t,i)=>{if(!l||b===0)return;let n=i;switch(t.key){case"ArrowRight":t.preventDefault(),n=(i+1)%b;break;case"ArrowLeft":t.preventDefault(),n=(i-1+b)%b;break;case"Home":t.preventDefault(),n=0;break;case"End":t.preventDefault(),n=b-1;break;default:return}l(n)};return a.jsx("div",{className:u.tabList,role:"tablist",children:c.map((t,i)=>{if(!r.isValidElement(t))return null;const n=`${o}-tab-${i}`,f=`${o}-panel-${i}`,h=i===d;return r.cloneElement(t,{tabId:n,panelId:f,isActive:h,onSelect:()=>l?.(i),onKeyDown:g=>p(g,i)})})})},E=({children:s,amount:d,isActive:l,onSelect:o,onClick:c,onKeyDown:b,tabId:p,panelId:t,className:i,...n})=>{const f=y([u.tab,l&&u.active,n.disabled&&u.disabled,i]),h=m=>{c?.(m),!m.defaultPrevented&&o?.()},g=m=>{b?.(m)};return a.jsxs("button",{...n,id:p,role:"tab",type:"button","aria-selected":l,"aria-controls":t,className:f,onClick:h,onKeyDown:g,children:[a.jsx("span",{className:u.tabLabel,children:s}),d&&a.jsx("span",{className:u.tabAmount,children:d})]})},P=({children:s,activeIndex:d=0,baseId:l})=>a.jsx("div",{className:u.tabPanels,children:r.Children.map(s,(o,c)=>{if(!r.isValidElement(o))return null;const b=`${l}-tab-${c}`,p=`${l}-panel-${c}`;return r.cloneElement(o,{isActive:c===d,tabId:b,panelId:p})})}),D=({children:s,isActive:d,tabId:l,panelId:o})=>a.jsx("div",{role:"tabpanel",id:o,"aria-labelledby":l,className:y([u.tabPanel,!d&&u.hidden]),hidden:!d,children:s});e.List=x;e.Tab=E;e.Panels=P;e.Panel=D;try{e.displayName="Tabs",e.__docgenInfo={description:"",displayName:"Tabs",props:{defaultIndex:{defaultValue:{value:"0"},description:"",name:"defaultIndex",required:!1,type:{name:"number"}},onChange:{defaultValue:null,description:"",name:"onChange",required:!1,type:{name:"(nextIndex: number) => void"}},className:{defaultValue:null,description:"",name:"className",required:!1,type:{name:"string"}}}}}catch{}try{e.List.displayName="Tabs.List",e.List.__docgenInfo={description:"",displayName:"Tabs.List",props:{activeIndex:{defaultValue:{value:"0"},description:"",name:"activeIndex",required:!1,type:{name:"number"}},setActiveIndex:{defaultValue:null,description:"",name:"setActiveIndex",required:!1,type:{name:"(index: number) => void"}},baseId:{defaultValue:null,description:"",name:"baseId",required:!1,type:{name:"string"}}}}}catch{}try{e.Tab.displayName="Tabs.Tab",e.Tab.__docgenInfo={description:"",displayName:"Tabs.Tab",props:{amount:{defaultValue:null,description:"",name:"amount",required:!1,type:{name:"number"}},isActive:{defaultValue:null,description:"",name:"isActive",required:!1,type:{name:"boolean"}},tabId:{defaultValue:null,description:"",name:"tabId",required:!1,type:{name:"string"}},panelId:{defaultValue:null,description:"",name:"panelId",required:!1,type:{name:"string"}},onSelect:{defaultValue:null,description:"",name:"onSelect",required:!1,type:{name:"() => void"}}}}}catch{}try{e.Panels.displayName="Tabs.Panels",e.Panels.__docgenInfo={description:"",displayName:"Tabs.Panels",props:{activeIndex:{defaultValue:{value:"0"},description:"",name:"activeIndex",required:!1,type:{name:"number"}},baseId:{defaultValue:null,description:"",name:"baseId",required:!1,type:{name:"string"}}}}}catch{}try{e.Panel.displayName="Tabs.Panel",e.Panel.__docgenInfo={description:"",displayName:"Tabs.Panel",props:{isActive:{defaultValue:null,description:"",name:"isActive",required:!1,type:{name:"boolean"}},tabId:{defaultValue:null,description:"",name:"tabId",required:!1,type:{name:"string"}},panelId:{defaultValue:null,description:"",name:"panelId",required:!1,type:{name:"string"}}}}}catch{}const k={title:"Example/Tabs",component:e,tags:["autodocs"],argTypes:{}},T={args:{defaultIndex:0},render:s=>a.jsxs(e,{...s,children:[a.jsxs(e.List,{children:[a.jsx(e.Tab,{children:"Overview"}),a.jsx(e.Tab,{children:"Details"}),a.jsx(e.Tab,{children:"Settings"})]}),a.jsxs(e.Panels,{children:[a.jsx(e.Panel,{children:"Content for the overview tab."}),a.jsx(e.Panel,{children:"Additional details live in this tab."}),a.jsx(e.Panel,{children:"Configuration related content goes here."})]})]})},_={args:{defaultIndex:1},render:s=>a.jsxs(e,{...s,children:[a.jsxs(e.List,{children:[a.jsx(e.Tab,{amount:4,children:"Pending"}),a.jsx(e.Tab,{amount:12,children:"Active"}),a.jsx(e.Tab,{children:"Archived"})]}),a.jsxs(e.Panels,{children:[a.jsx(e.Panel,{children:"Pending items are listed here."}),a.jsx(e.Panel,{children:"Active content for the selected category."}),a.jsx(e.Panel,{children:"Archived records live in this view."})]})]})};T.parameters={...T.parameters,docs:{...T.parameters?.docs,source:{originalSource:`{
+  args: {
+    defaultIndex: 0
+  },
+  render: args => <Tabs {...args}>
+      <Tabs.List>
+        <Tabs.Tab>Overview</Tabs.Tab>
+        <Tabs.Tab>Details</Tabs.Tab>
+        <Tabs.Tab>Settings</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panels>
+        <Tabs.Panel>Content for the overview tab.</Tabs.Panel>
+        <Tabs.Panel>Additional details live in this tab.</Tabs.Panel>
+        <Tabs.Panel>Configuration related content goes here.</Tabs.Panel>
+      </Tabs.Panels>
+    </Tabs>
+}`,...T.parameters?.docs?.source}}};_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  args: {
+    defaultIndex: 1
+  },
+  render: args => <Tabs {...args}>
+      <Tabs.List>
+        <Tabs.Tab amount={4}>Pending</Tabs.Tab>
+        <Tabs.Tab amount={12}>Active</Tabs.Tab>
+        <Tabs.Tab>Archived</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panels>
+        <Tabs.Panel>Pending items are listed here.</Tabs.Panel>
+        <Tabs.Panel>Active content for the selected category.</Tabs.Panel>
+        <Tabs.Panel>Archived records live in this view.</Tabs.Panel>
+      </Tabs.Panels>
+    </Tabs>
+}`,..._.parameters?.docs?.source}}};const K=["Default","WithBadges"];export{T as Default,_ as WithBadges,K as __namedExportsOrder,k as default};
