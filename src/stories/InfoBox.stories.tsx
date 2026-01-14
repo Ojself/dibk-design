@@ -10,6 +10,7 @@ const meta: Meta<typeof InfoBox> = {
       options: ["info", "warning", "error", "tip", "success"],
     },
     fullScreen: { control: "boolean" },
+    isAlert: { control: "boolean" },
     hideIcon: { control: "boolean" },
     noBorder: { control: "boolean" },
   },
@@ -83,6 +84,16 @@ export const NoBorder: Story = {
     noBorder: true,
     title: "Ingen kantlinje",
     children: "Denne info-boksen vises uten kantlinje.",
+  },
+  render,
+};
+
+export const Alert: Story = {
+  args: {
+    variant: "success",
+    isAlert: true,
+    title: "Bruker opprettet",
+    children: "Denne info-boksen vises i full bredde.",
   },
   render,
 };
