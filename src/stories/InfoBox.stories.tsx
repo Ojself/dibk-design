@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import InfoBox from "../components/InfoBox";
 
 const meta: Meta<typeof InfoBox> = {
-  title: "Example/InfoBox",
+  title: "Primitives/InfoBox",
   component: InfoBox,
   argTypes: {
     variant: {

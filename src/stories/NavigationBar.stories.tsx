@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import NavigationBar from "../components/NavigationBar";
 
 const meta: Meta<typeof NavigationBar> = {
-  title: "Example/NavigationBar",
+  title: "Primitives/NavigationBar",
   component: NavigationBar,
   argTypes: {
     theme: {
