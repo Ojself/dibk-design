@@ -1,0 +1,43 @@
+import{j as e,b as C}from"./iframe-DlHmRUDc.js";import{e as x}from"./error-icon-q7FAEQyj.js";import{H as b}from"./Header-DoYGFtx-.js";import"./preload-helper-PPVm8Dsz.js";const f="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M11.9984%202.39844C17.3004%202.39844%2021.5984%206.6965%2021.5984%2011.9984C21.5984%2017.3004%2017.3004%2021.5984%2011.9984%2021.5984C6.6965%2021.5984%202.39844%2017.3004%202.39844%2011.9984C2.39844%206.6965%206.6965%202.39844%2011.9984%202.39844ZM11.9984%203.59844C7.35925%203.59844%203.59844%207.35925%203.59844%2011.9984C3.59844%2016.6376%207.35925%2020.3984%2011.9984%2020.3984C16.6376%2020.3984%2020.3984%2016.6376%2020.3984%2011.9984C20.3984%207.35925%2016.6376%203.59844%2011.9984%203.59844Z'%20fill='black'/%3e%3cellipse%20cx='12.0203'%20cy='8.37578'%20rx='1.2'%20ry='1.2'%20fill='black'/%3e%3cpath%20d='M13.1563%2011.1562V17.5934H13.1586C13.3618%2017.5934%2013.5266%2017.7583%2013.5266%2017.9613C13.5264%2018.1642%2013.3617%2018.3281%2013.1586%2018.3281L13.1563%2018.327L11.0984%2018.3281V18.3258H10.7551C10.7469%2018.3263%2010.7388%2018.3281%2010.7305%2018.3281C10.5274%2018.3281%2010.3627%2018.1642%2010.3625%2017.9613C10.3625%2017.7591%2010.526%2017.5946%2010.7281%2017.5934H10.9133C10.9133%2017.5934%2010.9906%2017.5875%2011.0609%2017.4938C11.1313%2017.4%2011.0984%2017.2172%2011.0984%2017.2172V12.9C11.0984%2012.9%2011.1266%2012.6293%2011.0047%2012.4781C10.8828%2012.327%2010.7094%2012.327%2010.7094%2012.327H10.3203C9.9969%2012.327%209.73469%2012.0652%209.73438%2011.7422C9.73438%2011.4189%209.99671%2011.1562%2010.3203%2011.1562H13.1563Z'%20fill='black'/%3e%3c/svg%3e",y="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M6.37223%2011.899L7.78938%2010.4086L11.0086%2014.0181L16.9006%207.59082L18.5625%209.10819L11.0086%2017.0301L6.37223%2011.899Z'%20fill='%23202020'/%3e%3cpath%20d='M11.9984%202.40039C17.3004%202.40039%2021.5984%206.69846%2021.5984%2012.0004C21.5984%2017.3023%2017.3004%2021.6004%2011.9984%2021.6004C6.6965%2021.6004%202.39844%2017.3023%202.39844%2012.0004C2.39844%206.69846%206.6965%202.40039%2011.9984%202.40039ZM11.9984%203.60039C7.35925%203.60039%203.59844%207.3612%203.59844%2012.0004C3.59844%2016.6396%207.35925%2020.4004%2011.9984%2020.4004C16.6376%2020.4004%2020.3984%2016.6396%2020.3984%2012.0004C20.3984%207.3612%2016.6376%203.60039%2011.9984%203.60039Z'%20fill='black'/%3e%3c/svg%3e",I="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M11.9984%202.39844C17.3004%202.39844%2021.5984%206.6965%2021.5984%2011.9984C21.5984%2017.3004%2017.3004%2021.5984%2011.9984%2021.5984C6.6965%2021.5984%202.39844%2017.3004%202.39844%2011.9984C2.39844%206.6965%206.6965%202.39844%2011.9984%202.39844ZM11.9984%203.59844C7.35925%203.59844%203.59844%207.35925%203.59844%2011.9984C3.59844%2016.6376%207.35925%2020.3984%2011.9984%2020.3984C16.6376%2020.3984%2020.3984%2016.6376%2020.3984%2011.9984C20.3984%207.35925%2016.6376%203.59844%2011.9984%203.59844Z'%20fill='black'/%3e%3ccircle%20cx='12.0008'%20cy='17.45'%20r='1.2'%20fill='black'/%3e%3cpath%20d='M12.0008%205.07422C12.9741%205.07422%2013.7631%206.05478%2013.7633%207.26445C13.7633%207.50925%2013.728%207.74425%2013.6684%207.96406L12.882%2013.8363C12.882%2014.4413%2012.4875%2014.932%2012.0008%2014.932C11.5141%2014.932%2011.1195%2014.4413%2011.1195%2013.8363L10.332%207.96406C10.2725%207.74433%2010.2383%207.50914%2010.2383%207.26445C10.2385%206.05478%2011.0275%205.07422%2012.0008%205.07422Z'%20fill='black'/%3e%3c/svg%3e",j="_box_wg1u7_7",B="_messageIn_wg1u7_1",S="_fullScreen_wg1u7_15",N="_noBorder_wg1u7_18",V="_info_wg1u7_21",D="_warning_wg1u7_25",L="_error_wg1u7_29",M="_tip_wg1u7_33",Z="_success_wg1u7_37",H="_inner_wg1u7_42",q="_hasIcon_wg1u7_58",T="_icon_wg1u7_67",P="_iconImage_wg1u7_76",E="_content_wg1u7_82",R="_title_wg1u7_87",A="_body_wg1u7_94",n={box:j,messageIn:B,fullScreen:S,noBorder:N,info:V,warning:D,error:L,tip:M,success:Z,inner:H,hasIcon:q,icon:T,iconImage:P,content:E,title:R,body:A},d=({title:s,children:u="",variant:g="info",fullScreen:_=!1,noBorder:v=!1,hideIcon:k=!1,icon:h})=>{const w={info:f,warning:I,error:x,tip:f,success:y},m=h??e.jsx("img",{src:w[g],alt:"",className:n.iconImage}),p=!k&&m;return e.jsx("div",{className:C([n.box,n[g],_&&n.fullScreen,v&&n.noBorder,p?n.hasIcon:null]),children:e.jsxs("div",{className:n.inner,children:[p?e.jsx("div",{className:n.icon,children:m}):null,e.jsxs("div",{className:n.content,children:[e.jsx(b,{size:3,children:s}),u?e.jsx("div",{className:n.body,children:u}):null]})]})})};try{d.displayName="InfoBox",d.__docgenInfo={description:"",displayName:"InfoBox",props:{title:{defaultValue:null,description:"",name:"title",required:!0,type:{name:"string"}},variant:{defaultValue:{value:"info"},description:"",name:"variant",required:!1,type:{name:"enum",value:[{value:'"info"'},{value:'"warning"'},{value:'"error"'},{value:'"tip"'},{value:'"success"'}]}},fullScreen:{defaultValue:{value:"false"},description:"",name:"fullScreen",required:!1,type:{name:"boolean"}},noBorder:{defaultValue:{value:"false"},description:"",name:"noBorder",required:!1,type:{name:"boolean"}},hideIcon:{defaultValue:{value:"false"},description:"",name:"hideIcon",required:!1,type:{name:"boolean"}},icon:{defaultValue:null,description:"",name:"icon",required:!1,type:{name:"React.ReactNode"}}}}}catch{}const G={title:"Primitives/InfoBox",component:d,argTypes:{variant:{control:"select",options:["info","warning","error","tip","success"]},fullScreen:{control:"boolean"},hideIcon:{control:"boolean"},noBorder:{control:"boolean"}},tags:["autodocs"]},r=s=>e.jsx(d,{...s,children:e.jsxs("ul",{children:[e.jsx("li",{children:"Du må krysse av for at foretaket erklærer ansvar i henhold til plan- og bygningsloven."}),e.jsx("li",{children:"Du må fylle ut mobil- eller telefonnummeret til kontaktpersonen."})]})}),a={args:{variant:"info",title:"Du kan ikke signere erklæringen før alle opplysningene er fylt ut:"},render:r},t={args:{variant:"warning",title:"Vennligst kontroller skjemaet",children:"Prøv en annen adresse, undersøk om det er skrivefeil eller søk på noe annet."},render:r},o={args:{variant:"error",title:"Det oppstod en feil",children:"Vi klarte ikke å sende inn skjemaet. Prøv igjen om litt."},render:r},i={args:{variant:"tip",title:"Tips",children:"Du kan lagre utkastet og fortsette senere."},render:r},l={args:{variant:"success",title:"Alt er klart",children:"Søknaden ble sendt inn uten feil."},render:r},c={args:{variant:"info",noBorder:!0,title:"Ingen kantlinje",children:"Denne info-boksen vises uten kantlinje."},render:r};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  args: {
+    variant: "info",
+    title: "Du kan ikke signere erklæringen før alle opplysningene er fylt ut:"
+  },
+  render
+}`,...a.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  args: {
+    variant: "warning",
+    title: "Vennligst kontroller skjemaet",
+    children: "Prøv en annen adresse, undersøk om det er skrivefeil eller søk på noe annet."
+  },
+  render
+}`,...t.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    variant: "error",
+    title: "Det oppstod en feil",
+    children: "Vi klarte ikke å sende inn skjemaet. Prøv igjen om litt."
+  },
+  render
+}`,...o.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  args: {
+    variant: "tip",
+    title: "Tips",
+    children: "Du kan lagre utkastet og fortsette senere."
+  },
+  render
+}`,...i.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  args: {
+    variant: "success",
+    title: "Alt er klart",
+    children: "Søknaden ble sendt inn uten feil."
+  },
+  render
+}`,...l.parameters?.docs?.source}}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  args: {
+    variant: "info",
+    noBorder: true,
+    title: "Ingen kantlinje",
+    children: "Denne info-boksen vises uten kantlinje."
+  },
+  render
+}`,...c.parameters?.docs?.source}}};const J=["Default","Warning","ErrorBox","Tip","Success","NoBorder"];export{a as Default,o as ErrorBox,c as NoBorder,l as Success,i as Tip,t as Warning,J as __namedExportsOrder,G as default};
