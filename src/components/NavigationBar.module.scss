@@ -47,7 +47,7 @@
             height: fit-content;
             img {
                 display: block;
-                background-color: var(--navigation-surface, colors.$color-background-default);
+                background-color: var(--navigation-surface, colors.$color-background-default); /* should this be transp? */
             }
         }
         background-color: var(--navigation-overlay, colors.$color-background-secondary);
