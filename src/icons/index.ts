@@ -1,29 +1,31 @@
-export { default as arbeidstilsynetLogo } from "../assets/svg/arbeidstilsynet-logo.svg?url";
-export { default as arrowLeftIcon } from "../assets/svg/arrow-left-icon.svg?url";
-export { default as arrowRightIcon } from "../assets/svg/arrow-right-icon.svg?url";
-export { default as asteriskIcon } from "../assets/svg/asterisk-icon.svg?url";
-export { default as calendarIcon } from "../assets/svg/calendar-icon.svg?url";
-export { default as checkmarkSymbolIcon } from "../assets/svg/checkmark-symbol-icon.svg?url";
-export { default as dibkLogoWithTitle } from "../assets/svg/dibk-logo-with-title.svg?url";
-export { default as dibkLogo } from "../assets/svg/dibk-logo.svg?url";
-export { default as errorIcon } from "../assets/svg/error-icon.svg?url";
-export { default as infoIcon } from "../assets/svg/info-icon.svg?url";
-// Icons available in assets/svg are exported here as URLs for <img src=...> usage.
-export { default as successIcon } from "../assets/svg/success-icon.svg?url";
-export { default as warningIcon } from "../assets/svg/warning-icon.svg?url";
-export { default as xSymbolIcon } from "../assets/svg/x-symbol-icon.svg?url";
-
 // React components (SVGR) for inline SVG usage.
+export { default as AddIcon } from "../assets/svg/add-icon.svg?react";
 export { default as ArbeidstilsynetLogo } from "../assets/svg/arbeidstilsynet-logo.svg?react";
 export { default as ArrowLeftIcon } from "../assets/svg/arrow-left-icon.svg?react";
 export { default as ArrowRightIcon } from "../assets/svg/arrow-right-icon.svg?react";
 export { default as AsteriskIcon } from "../assets/svg/asterisk-icon.svg?react";
 export { default as CalendarIcon } from "../assets/svg/calendar-icon.svg?react";
 export { default as CheckmarkSymbolIcon } from "../assets/svg/checkmark-symbol-icon.svg?react";
-export { default as DibkLogoWithTitle } from "../assets/svg/dibk-logo-with-title.svg?react";
 export { default as DibkLogo } from "../assets/svg/dibk-logo.svg?react";
+export { default as DibkLogoWithTitle } from "../assets/svg/dibk-logo-with-title.svg?react";
 export { default as ErrorIcon } from "../assets/svg/error-icon.svg?react";
 export { default as InfoIcon } from "../assets/svg/info-icon.svg?react";
 export { default as SuccessIcon } from "../assets/svg/success-icon.svg?react";
 export { default as WarningIcon } from "../assets/svg/warning-icon.svg?react";
 export { default as XSymbolIcon } from "../assets/svg/x-symbol-icon.svg?react";
+
+// URL exports for <img src=...> usage.
+export { default as addIcon } from "../assets/svg/add-icon.svg?url";
+export { default as arbeidstilsynetLogo } from "../assets/svg/arbeidstilsynet-logo.svg?url";
+export { default as arrowLeftIcon } from "../assets/svg/arrow-left-icon.svg?url";
+export { default as arrowRightIcon } from "../assets/svg/arrow-right-icon.svg?url";
+export { default as asteriskIcon } from "../assets/svg/asterisk-icon.svg?url";
+export { default as calendarIcon } from "../assets/svg/calendar-icon.svg?url";
+export { default as checkmarkSymbolIcon } from "../assets/svg/checkmark-symbol-icon.svg?url";
+export { default as dibkLogo } from "../assets/svg/dibk-logo.svg?url";
+export { default as dibkLogoWithTitle } from "../assets/svg/dibk-logo-with-title.svg?url";
+export { default as errorIcon } from "../assets/svg/error-icon.svg?url";
+export { default as infoIcon } from "../assets/svg/info-icon.svg?url";
+export { default as successIcon } from "../assets/svg/success-icon.svg?url";
+export { default as warningIcon } from "../assets/svg/warning-icon.svg?url";
+export { default as xSymbolIcon } from "../assets/svg/x-symbol-icon.svg?url";

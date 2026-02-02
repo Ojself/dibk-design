@@ -16,7 +16,10 @@ const config: StorybookConfig = {
 	},
 
 	viteFinal: async (config) => {
-		config.plugins = [...(config.plugins ?? []), svgr()];
+		config.plugins = [
+			...(config.plugins ?? []),
+			svgr({ svgrOptions: { exportType: "default" } }),
+		];
 		return config;
 	},
 

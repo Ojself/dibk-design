@@ -34,7 +34,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    svgr(),
+    svgr({ svgrOptions: { exportType: "default" } }),
     dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
   ],
 });
