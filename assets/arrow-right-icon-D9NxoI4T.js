@@ -1,1 +1,0 @@
-import{r as t}from"./iframe-BC02K8Tv.js";const o=e=>t.createElement("svg",{width:20,height:20,viewBox:"0 0 20 20",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},t.createElement("path",{d:"M7.08724 16.25L5.62891 14.6528L10.6984 10L5.62891 5.34722L7.08724 3.75L13.9622 10L7.08724 16.25Z",fill:"currentColor"}));export{o as S};
