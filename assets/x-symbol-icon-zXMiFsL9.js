@@ -1,1 +1,0 @@
-import{r as t}from"./iframe-raGOKlPa.js";const o=r=>t.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:25,height:25,viewBox:"0 0 25 25",...r},t.createElement("path",{fill:"currentColor",stroke:"currentColor",strokeLinecap:"round",strokeWidth:3.23,d:"m3.97 3.57 17.44 18.2m-17.44.01L21.41 3.57"}));export{o as S};
